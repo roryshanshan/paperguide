@@ -8,6 +8,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
+import { getSiteLocale } from '@/utilities/siteLocale'
 
 export const revalidate = 600
 
@@ -18,6 +19,7 @@ type Args = {
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
+  const locale = await getSiteLocale()
   const { pageNumber } = await paramsPromise
   const payload = await getPayload({ config: configPromise })
 
@@ -25,21 +27,32 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   if (!Number.isInteger(sanitizedPageNumber)) notFound()
 
-  const posts = await payload.find({
-    collection: 'posts',
-    depth: 1,
-    limit: 12,
-    page: sanitizedPageNumber,
-    overrideAccess: false,
-  })
+  const posts = await payload
+    .find({
+      collection: 'posts',
+      depth: 1,
+      limit: 12,
+      locale,
+      page: sanitizedPageNumber,
+      overrideAccess: false,
+    })
+    .catch(() => ({
+      docs: [],
+      page: sanitizedPageNumber,
+      totalDocs: 0,
+      totalPages: 1,
+    }))
 
   return (
     <div className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
+        <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
+          {locale === 'en' ? 'Knowledge Base' : '学术内容'}
+        </p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
+          {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
+        </h1>
       </div>
 
       <div className="container mb-8">
@@ -63,18 +76,24 @@ export default async function Page({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+  const locale = await getSiteLocale()
   const { pageNumber } = await paramsPromise
   return {
-    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
+    title:
+      locale === 'en'
+        ? `Articles Page ${pageNumber || ''} | PaperBridge`
+        : `文章列表第 ${pageNumber || ''} 页 | PaperBridge`,
   }
 }
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
-  const { totalDocs } = await payload.count({
-    collection: 'posts',
-    overrideAccess: false,
-  })
+  const { totalDocs } = await payload
+    .count({
+      collection: 'posts',
+      overrideAccess: false,
+    })
+    .catch(() => ({ totalDocs: 0 }))
 
   const totalPages = Math.ceil(totalDocs / 10)
 

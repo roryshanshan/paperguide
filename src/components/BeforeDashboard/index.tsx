@@ -10,20 +10,23 @@ const BeforeDashboard: React.FC = () => {
   return (
     <div className={baseClass}>
       <Banner className={`${baseClass}__banner`} type="success">
-        <h4>Welcome to your dashboard!</h4>
+        <h4>论文辅导网站后台已准备好</h4>
       </Banner>
-      Here&apos;s what to do next:
+      建议按这个顺序开始：
       <ul className={`${baseClass}__instructions`}>
         <li>
           <SeedButton />
-          {' with a few pages, posts, and projects to jump-start your new site, then '}
+          {' 导入示例内容，或者直接进入首页全局配置、文章和页面集合开始编辑。然后 '}
           <a href="/" target="_blank">
-            visit your website
+            打开前台网站
           </a>
-          {' to see the results.'}
+          {' 查看效果。'}
         </li>
         <li>
-          {'Modify your '}
+          {'优先编辑首页全局配置、Header、Footer、文章和页面内容。你已经有了一个可运营的中英文 CMS 站点骨架。'}
+        </li>
+        <li>
+          {'如果你想继续扩展字段，可以参考 Payload 的 '}
           <a
             href="https://payloadcms.com/docs/configuration/collections"
             rel="noopener noreferrer"
@@ -31,7 +34,7 @@ const BeforeDashboard: React.FC = () => {
           >
             collections
           </a>
-          {' and add more '}
+          {' 与 '}
           <a
             href="https://payloadcms.com/docs/fields/overview"
             rel="noopener noreferrer"
@@ -39,7 +42,10 @@ const BeforeDashboard: React.FC = () => {
           >
             fields
           </a>
-          {' as needed. If you are new to Payload, we also recommend you check out the '}
+          {' 文档。'}
+        </li>
+        <li>
+          {'如果你是第一次使用 Payload，也可以阅读 '}
           <a
             href="https://payloadcms.com/docs/getting-started/what-is-payload"
             rel="noopener noreferrer"
@@ -47,13 +53,10 @@ const BeforeDashboard: React.FC = () => {
           >
             Getting Started
           </a>
-          {' docs.'}
-        </li>
-        <li>
-          Commit and push your changes to the repository to trigger a redeployment of your project.
+          {'。'}
         </li>
       </ul>
-      {'Pro Tip: This block is a '}
+      {'这个提示块本身也是一个 '}
       <a
         href="https://payloadcms.com/docs/custom-components/overview"
         rel="noopener noreferrer"
@@ -61,7 +64,7 @@ const BeforeDashboard: React.FC = () => {
       >
         custom component
       </a>
-      , you can remove it at any time by updating your <strong>payload.config</strong>.
+      ，后续你也可以随时在 <strong>payload.config</strong> 中移除它。
     </div>
   )
 }

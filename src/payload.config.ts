@@ -5,12 +5,14 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
+import { ConsultationRequests } from './collections/ConsultationRequests'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
+import { HomePage } from './globals/HomePage/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -62,9 +64,23 @@ export default buildConfig({
       url: process.env.DATABASE_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, ConsultationRequests],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, HomePage],
+  localization: {
+    defaultLocale: 'zh',
+    fallback: true,
+    locales: [
+      {
+        code: 'zh',
+        label: '中文',
+      },
+      {
+        code: 'en',
+        label: 'English',
+      },
+    ],
+  },
   plugins,
   secret: process.env.PAYLOAD_SECRET,
   sharp,

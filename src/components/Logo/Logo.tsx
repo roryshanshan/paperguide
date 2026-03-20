@@ -8,22 +8,20 @@ interface Props {
 }
 
 export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
-
-  const loading = loadingFromProps || 'lazy'
-  const priority = priorityFromProps || 'low'
+  const { className } = props
 
   return (
-    /* eslint-disable @next/next/no-img-element */
-    <img
-      alt="Payload Logo"
-      width={193}
-      height={34}
-      loading={loading}
-      fetchPriority={priority}
-      decoding="async"
-      className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
-      src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-logo-light.svg"
-    />
+    <div className={clsx('flex items-center gap-3 text-slate-950', className)}>
+      <div className="relative flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#f97316_0%,#ea580c_100%)] shadow-[0_12px_30px_rgba(249,115,22,0.35)]">
+        <div className="absolute inset-1 rounded-[0.95rem] border border-white/20" />
+        <span className="relative text-lg font-semibold tracking-[-0.06em]">文</span>
+      </div>
+      <div className="leading-none">
+        <div className="text-base font-semibold tracking-[-0.04em] text-current">PaperBridge</div>
+        <div className="mt-1 text-xs uppercase tracking-[0.32em] text-current opacity-60">
+          Thesis Coaching
+        </div>
+      </div>
+    </div>
   )
 }
