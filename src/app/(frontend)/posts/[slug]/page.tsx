@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
-import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
@@ -53,7 +54,10 @@ export default async function Post({ params: paramsPromise }: Args) {
   const url = '/posts/' + decodedSlug
   const post = await queryPostBySlug({ locale, slug: decodedSlug })
 
-  if (!post) return <PayloadRedirects url={url} />
+  if (!post) {
+    await handleRedirects({ url })
+    notFound()
+  }
 
   return (
     <article className="pt-16 pb-16">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
-import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 import { draftMode } from 'next/headers'
@@ -66,7 +67,8 @@ export default async function Page({ params: paramsPromise }: Args) {
   }
 
   if (!page) {
-    return <PayloadRedirects url={url} />
+    await handleRedirects({ url })
+    notFound()
   }
 
   const { hero, layout } = page

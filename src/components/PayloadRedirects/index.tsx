@@ -10,8 +10,7 @@ interface Props {
   url: string
 }
 
-/* This component helps us with SSR based dynamic redirects */
-export const PayloadRedirects: React.FC<Props> = async ({ disableNotFound, url }) => {
+export const handleRedirects = async ({ disableNotFound, url }: Props) => {
   let redirects: Awaited<ReturnType<ReturnType<typeof getCachedRedirects>>>
 
   try {
@@ -66,4 +65,9 @@ export const PayloadRedirects: React.FC<Props> = async ({ disableNotFound, url }
   if (disableNotFound) return null
 
   notFound()
+}
+
+/* This component helps us with SSR based dynamic redirects */
+export const PayloadRedirects: React.FC<Props> = async (props) => {
+  return handleRedirects(props)
 }
