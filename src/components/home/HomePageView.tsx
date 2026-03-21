@@ -18,14 +18,34 @@ export const HomePageView: React.FC<{
   const articleCopy =
     locale === 'en'
       ? {
-          empty: 'Create your first article in the Payload admin panel to populate this section.',
-          title: 'Latest articles',
+          empty: 'Publish your first guide and it will appear here automatically.',
+          title: 'Latest guides',
           viewAll: 'View all articles',
         }
       : {
-          empty: '你可以在 Payload 后台发布文章，这里会自动展示最新内容。',
-          title: '最新文章',
+          empty: '发布第一篇文章后，这里会自动展示最新内容。',
+          title: '最新指南',
           viewAll: '查看全部文章',
+        }
+  const sectionCopy =
+    locale === 'en'
+      ? {
+          articles: 'Insight Library',
+          cta: 'Start Here',
+          faq: 'FAQ',
+          mentors: 'Mentor Profiles',
+          process: 'Work Process',
+          services: 'Academic Support',
+          stories: 'Student Outcomes',
+        }
+      : {
+          articles: '内容中心',
+          cta: '开始咨询',
+          faq: '常见问题',
+          mentors: '导师阵容',
+          process: '服务流程',
+          services: '论文辅导',
+          stories: '学员结果',
         }
 
   return (
@@ -113,9 +133,7 @@ export const HomePageView: React.FC<{
       <section className="container mt-24" id="services">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
-              Thesis Coaching
-            </p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">{sectionCopy.services}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.services.title}
             </h2>
@@ -155,7 +173,7 @@ export const HomePageView: React.FC<{
       <section className="container mt-24" id="mentors">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">Mentor Match</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">{sectionCopy.mentors}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.mentors.title}
             </h2>
@@ -200,7 +218,7 @@ export const HomePageView: React.FC<{
       <section className="mt-24 bg-[linear-gradient(180deg,#fffaf5_0%,#ffffff_100%)] py-20">
         <div className="container">
           <div className="mb-10">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#be123c]">Case Snapshot</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#be123c]">{sectionCopy.stories}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.stories.title}
             </h2>
@@ -230,7 +248,7 @@ export const HomePageView: React.FC<{
 
       <section className="container mt-24">
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">Roadmap</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">{sectionCopy.process}</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
             {content.process.title}
           </h2>
@@ -250,7 +268,7 @@ export const HomePageView: React.FC<{
       <section className="container mt-24">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#7c3aed]">Content Engine</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#7c3aed]">{sectionCopy.articles}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {articleCopy.title}
             </h2>
@@ -279,7 +297,7 @@ export const HomePageView: React.FC<{
 
       <section className="container mt-24" id="faq">
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#475569]">FAQ</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-[#475569]">{sectionCopy.faq}</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
             {content.faqs.title}
           </h2>
@@ -308,7 +326,7 @@ export const HomePageView: React.FC<{
         <div className="rounded-[2.25rem] bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_45%,#9a3412_100%)] px-8 py-10 text-white lg:px-12 lg:py-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/55">Ready to launch</p>
+              <p className="text-xs uppercase tracking-[0.32em] text-white/55">{sectionCopy.cta}</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
                 {content.cta.title}
               </h2>

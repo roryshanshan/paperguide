@@ -12,7 +12,17 @@ interface Props {
 
 /* This component helps us with SSR based dynamic redirects */
 export const PayloadRedirects: React.FC<Props> = async ({ disableNotFound, url }) => {
-  const redirects = await getCachedRedirects()()
+  let redirects: Awaited<ReturnType<ReturnType<typeof getCachedRedirects>>>
+
+  try {
+    redirects = await getCachedRedirects()()
+  } catch (error) {
+    console.error('Failed to load redirects', error)
+
+    if (disableNotFound) return null
+
+    notFound()
+  }
 
   const redirectItem = redirects.find((redirect) => redirect.from === url)
 
@@ -27,7 +37,18 @@ export const PayloadRedirects: React.FC<Props> = async ({ disableNotFound, url }
       const collection = redirectItem.to?.reference?.relationTo
       const id = redirectItem.to?.reference?.value
 
-      const document = (await getCachedDocument(collection, id)()) as Page | Post
+      let document: Page | Post | undefined
+
+      try {
+        document = (await getCachedDocument(collection, id)()) as Page | Post | undefined
+      } catch (error) {
+        console.error('Failed to resolve redirect target', error)
+
+        if (disableNotFound) return null
+
+        notFound()
+      }
+
       redirectUrl = `${redirectItem.to?.reference?.relationTo !== 'pages' ? `/${redirectItem.to?.reference?.relationTo}` : ''}/${
         document?.slug
       }`

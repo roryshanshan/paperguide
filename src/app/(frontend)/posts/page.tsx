@@ -10,6 +10,7 @@ import PageClient from './page.client'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 export const revalidate = 600
+const POSTS_PER_PAGE = 12
 
 export default async function Page() {
   const locale = await getSiteLocale()
@@ -19,10 +20,11 @@ export default async function Page() {
     .find({
       collection: 'posts',
       depth: 1,
-      limit: 12,
+      limit: POSTS_PER_PAGE,
       locale,
       overrideAccess: false,
       select: {
+        heroImage: true,
         title: true,
         slug: true,
         categories: true,
@@ -41,15 +43,15 @@ export default async function Page() {
       <PageClient />
       <div className="container mb-16">
         <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
-          {locale === 'en' ? 'Knowledge Base' : '学术内容'}
+          {locale === 'en' ? 'Article Library' : '文章中心'}
         </p>
         <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
           {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
           {locale === 'en'
-            ? 'Use the Payload admin panel to publish bilingual articles, thesis guides, and service pages.'
-            : '你可以在 Payload 后台持续发布论文指南、案例拆解和服务页面内容。'}
+            ? 'Browse thesis guides, writing strategies, revision notes, and case-based academic support articles.'
+            : '浏览论文方法、写作策略、返修建议与案例拆解等学术辅导内容。'}
         </p>
       </div>
 
@@ -57,7 +59,7 @@ export default async function Page() {
         <PageRange
           collection="posts"
           currentPage={posts.page}
-          limit={12}
+          limit={POSTS_PER_PAGE}
           totalDocs={posts.totalDocs}
         />
       </div>

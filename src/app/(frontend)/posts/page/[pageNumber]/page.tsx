@@ -11,6 +11,7 @@ import { notFound } from 'next/navigation'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 export const revalidate = 600
+const POSTS_PER_PAGE = 12
 
 type Args = {
   params: Promise<{
@@ -31,10 +32,17 @@ export default async function Page({ params: paramsPromise }: Args) {
     .find({
       collection: 'posts',
       depth: 1,
-      limit: 12,
+      limit: POSTS_PER_PAGE,
       locale,
       page: sanitizedPageNumber,
       overrideAccess: false,
+      select: {
+        heroImage: true,
+        title: true,
+        slug: true,
+        categories: true,
+        meta: true,
+      },
     })
     .catch(() => ({
       docs: [],
@@ -48,7 +56,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       <PageClient />
       <div className="container mb-16">
         <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
-          {locale === 'en' ? 'Knowledge Base' : '学术内容'}
+          {locale === 'en' ? 'Article Library' : '文章中心'}
         </p>
         <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
           {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
@@ -59,7 +67,7 @@ export default async function Page({ params: paramsPromise }: Args) {
         <PageRange
           collection="posts"
           currentPage={posts.page}
-          limit={12}
+          limit={POSTS_PER_PAGE}
           totalDocs={posts.totalDocs}
         />
       </div>
@@ -95,7 +103,7 @@ export async function generateStaticParams() {
     })
     .catch(() => ({ totalDocs: 0 }))
 
-  const totalPages = Math.ceil(totalDocs / 10)
+  const totalPages = Math.ceil(totalDocs / POSTS_PER_PAGE)
 
   const pages: { pageNumber: string }[] = []
 

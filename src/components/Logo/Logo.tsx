@@ -19,7 +19,7 @@ export const Logo = (props: Props) => {
       <div className="leading-none">
         <div className="text-base font-semibold tracking-[-0.04em] text-current">PaperBridge</div>
         <div className="mt-1 text-xs uppercase tracking-[0.32em] text-current opacity-60">
-          Thesis Coaching
+          Academic Support
         </div>
       </div>
     </div>

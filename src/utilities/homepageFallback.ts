@@ -92,12 +92,12 @@ const zhHomepage: HomepageFallback = {
     title: '免费获取一对一论文辅导方案',
   },
   cta: {
-    description: '从选题、研究设计到答辩准备，我们把复杂流程拆成你能执行的每一步。',
+    description: '告诉我们专业、截止时间和当前难点，我们会先帮你判断最值得优先处理的下一步。',
     primary: {
       label: '查看文章与指南',
       url: '/posts',
     },
-    title: '想先系统了解论文辅导怎么进行？',
+    title: '想先判断自己卡在哪一步？',
   },
   faqs: {
     items: [
@@ -126,7 +126,7 @@ const zhHomepage: HomepageFallback = {
   },
   hero: {
     description:
-      '面向本科、硕士、博士阶段的论文辅导站点模板，适合做服务展示、导师介绍、案例沉淀与学术文章运营。',
+      '面向本科、硕士、博士阶段的论文辅导服务，覆盖选题、结构、方法、返修与答辩准备。',
     links: [
       {
         label: '立即咨询',
@@ -259,12 +259,12 @@ const enHomepage: HomepageFallback = {
   },
   cta: {
     description:
-      'From proposal framing to revision and defense prep, the site can also grow into your content hub for articles, guides, and service pages.',
+      'Tell us your discipline, deadline, and current bottleneck. We will suggest the next step and a more suitable mentoring path.',
     primary: {
       label: 'Read our guides',
       url: '/posts',
     },
-    title: 'Need a bilingual thesis coaching website that you can operate yourself?',
+    title: 'Want a clearer plan before you push the thesis forward?',
   },
   faqs: {
     items: [
@@ -285,7 +285,7 @@ const enHomepage: HomepageFallback = {
       },
       {
         answer:
-          'Yes. The site structure and content model are designed for both Chinese and English pages and article content.',
+          'Yes. We support both Chinese and English thesis work, including proposals, revisions, and defense preparation materials.',
         question: 'Does the site support bilingual content?',
       },
     ],
@@ -293,7 +293,7 @@ const enHomepage: HomepageFallback = {
   },
   hero: {
     description:
-      'A bilingual thesis coaching website with a real CMS backend, article publishing, service pages, mentor profiles, and lead collection.',
+      'One-to-one thesis coaching for bachelor, master, and PhD students, covering proposal, structure, methods, revision, and defense prep.',
     links: [
       {
         label: 'Free consultation',

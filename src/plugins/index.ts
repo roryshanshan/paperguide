@@ -14,7 +14,7 @@ import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | PaperBridge` : 'PaperBridge Thesis Coaching'
+  return doc?.title ? `${doc.title} | PaperBridge` : 'PaperBridge | Thesis Coaching & Academic Support'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {

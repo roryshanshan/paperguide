@@ -26,8 +26,8 @@ export async function Footer() {
 
   const description =
     locale === 'en'
-      ? 'A bilingual thesis coaching website with article publishing, editable pages, and a real admin backend.'
-      : '一个可发布文章、可编辑页面、带真实后台的中英文论文辅导网站。'
+      ? 'One-to-one thesis coaching for proposal, writing, revision, and defense preparation.'
+      : '面向本科、硕士、博士阶段的一对一论文辅导与学术支持服务。'
 
   return (
     <footer className="mt-auto border-t border-slate-200 bg-[#fffaf5]">

@@ -32,6 +32,7 @@ export default async function HomePage() {
         overrideAccess: draft,
         select: {
           categories: true,
+          heroImage: true,
           meta: true,
           slug: true,
           title: true,
@@ -53,8 +54,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description:
       locale === 'en'
-        ? 'A bilingual thesis coaching website with a real CMS backend for articles, pages, and consultation leads.'
-        : '一个带真实 CMS 后台的中英文论文辅导网站，支持文章、页面和咨询线索管理。',
-    title: locale === 'en' ? 'PaperBridge Thesis Coaching' : 'PaperBridge 论文辅导',
+        ? 'One-to-one thesis coaching and academic support for proposal, writing, revision, and defense preparation.'
+        : '提供开题、写作、返修与答辩准备的一对一论文辅导与学术支持服务。',
+    title: locale === 'en' ? 'PaperBridge | Thesis Coaching & Academic Support' : 'PaperBridge | 论文辅导与学术支持',
   }
 }

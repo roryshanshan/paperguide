@@ -28,7 +28,7 @@ export const generateMeta = async (args: {
 
   const title = doc?.meta?.title
     ? doc?.meta?.title + ' | PaperBridge'
-    : 'PaperBridge Thesis Coaching'
+    : 'PaperBridge | Thesis Coaching & Academic Support'
 
   return {
     description: doc?.meta?.description,
