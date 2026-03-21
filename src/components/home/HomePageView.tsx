@@ -1,4 +1,5 @@
 import { ArrowRight, BadgeCheck, BookOpenText, GraduationCap, Handshake, ShieldCheck, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -46,6 +47,18 @@ export const HomePageView: React.FC<{
           process: '服务流程',
           services: '论文辅导',
           stories: '学员结果',
+        }
+  const consultationCopy =
+    locale === 'en'
+      ? {
+          caption: 'WeChat Contact',
+          hint: 'Scan the QR code to add WeChat directly and start the consultation faster.',
+          title: 'Add WeChat by QR code',
+        }
+      : {
+          caption: '微信咨询',
+          hint: '扫码添加微信，直接沟通选题、修改和答辩安排会更快。',
+          title: '扫码添加微信',
         }
 
   return (
@@ -319,7 +332,30 @@ export const HomePageView: React.FC<{
       </section>
 
       <section className="container mt-24" id="consultation">
-        <ConsultationForm copy={content.consultation} locale={locale} />
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
+          <ConsultationForm copy={content.consultation} locale={locale} />
+
+          <aside className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] lg:sticky lg:top-28">
+            <p className="text-xs uppercase tracking-[0.32em] text-[#16a34a]">{consultationCopy.caption}</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+              {consultationCopy.title}
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{consultationCopy.hint}</p>
+
+            <div className="mt-6 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-[#f6fffb] p-4">
+              <div className="overflow-hidden rounded-[1.25rem] bg-white shadow-sm">
+                <Image
+                  alt={locale === 'en' ? 'WeChat QR code for consultation' : '微信咨询二维码'}
+                  className="h-auto w-full"
+                  height={1455}
+                  priority={false}
+                  src="/wechat-qr.jpg"
+                  width={1074}
+                />
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
 
       <section className="container mt-24">
