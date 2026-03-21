@@ -149,8 +149,8 @@ const zhHomepage: HomepageFallback = {
         value: '本/硕/博',
       },
       {
-        label: '可持续内容运营',
-        value: '中英双语',
+        label: '语言支持',
+        value: '中英辅导',
       },
     ],
     pills: ['论文开题', '框架搭建', '研究方法', '返修打磨', '模拟答辩'],
@@ -316,7 +316,7 @@ const enHomepage: HomepageFallback = {
         value: 'BA / MA / PhD',
       },
       {
-        label: 'content operation mode',
+        label: 'language support',
         value: 'Chinese + English',
       },
     ],
