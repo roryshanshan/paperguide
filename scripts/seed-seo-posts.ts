@@ -1420,6 +1420,296 @@ const stageThemes: Record<StageConfig['slug'], ContentTheme[]> = {
   'revision-defense': revisionThemes,
 }
 
+type PostBuildArgs = ThemeArgs & {
+  stage: StageConfig
+}
+
+type StageNarrative = {
+  checklistEn: (args: PostBuildArgs) => [string, string, string]
+  checklistZh: (args: PostBuildArgs) => [string, string, string]
+  deliverableEn: (args: PostBuildArgs) => string
+  deliverableZh: (args: PostBuildArgs) => string
+  diagnosisEn: (args: PostBuildArgs) => string
+  diagnosisZh: (args: PostBuildArgs) => string
+  materialsEn: (args: PostBuildArgs) => string
+  materialsZh: (args: PostBuildArgs) => string
+  qualityEn: (args: PostBuildArgs) => string
+  qualityZh: (args: PostBuildArgs) => string
+  reviewerEn: (args: PostBuildArgs) => string
+  reviewerZh: (args: PostBuildArgs) => string
+  workflowEn: (args: PostBuildArgs) => string
+  workflowZh: (args: PostBuildArgs) => string
+}
+
+const stageNarratives: Record<StageConfig['slug'], StageNarrative> = {
+  proposal: {
+    diagnosisZh: ({ degree, discipline }) =>
+      `在开题阶段，真正拖慢进度的通常不是不会写，而是题目边界、研究对象和可取得的${discipline.evidenceZh}没有同时站稳。对${degree.readerZh}来说，先删掉模糊概念，往往比再补两页背景更有价值。`,
+    diagnosisEn: ({ degree, discipline }) =>
+      `At the proposal stage, the real delay usually comes from an unstable combination of topic boundary, research object, and access to ${discipline.evidenceEn}. For ${degree.readerEn}, cutting vague concepts early is often more useful than adding more background pages.`,
+    reviewerZh: ({ degree, discipline }) =>
+      `导师看开题时，通常先问三件事：问题是否够具体，范围是否与${degree.labelZh}训练强度匹配，获取${discipline.evidenceZh}的路径是否现实。如果这三点答不清，格式再完整也很容易被打回重做。`,
+    reviewerEn: ({ degree, discipline }) =>
+      `When advisors read a proposal, they usually ask three things first: is the question specific enough, is the scope realistic for ${degree.labelEn} training, and is the route to ${discipline.evidenceEn} genuinely feasible? If those three points are unclear, a polished format will not rescue the draft.`,
+    workflowZh: ({ discipline }) =>
+      `建议把开题拆成“问题句、关键词、文献入口、资料来源、目录草案、时间表”六个动作逐一推进。每完成一步，就回头检查它有没有让${discipline.titleZh}项目的问题更清楚，而不是只让文档更长。`,
+    workflowEn: ({ discipline }) =>
+      `A stronger workflow is to move through six linked actions: the question sentence, keyword plan, literature entry points, source map, draft outline, and timeline. After each move, check whether the ${discipline.titleEn} project has become clearer rather than merely longer.`,
+    materialsZh: ({ discipline }) =>
+      `开题阶段最有价值的，不是把所有材料都找齐，而是确认哪些${discipline.evidenceZh}是必需材料、哪些只是补充说明。只要核心证据链可获得，题目就具备往下做的条件。`,
+    materialsEn: ({ discipline }) =>
+      `The key at proposal stage is not collecting every possible source but distinguishing which ${discipline.evidenceEn} are essential and which are only supplementary. Once the core evidence chain is feasible, the project becomes workable.`,
+    qualityZh: ({ degree }) =>
+      `一份合格的开题初稿，应该让导师一眼看到题目边界、研究问题、关键文献入口和执行节奏。对${degree.readerZh}来说，稳比大更重要，能做完比看起来宏大更重要。`,
+    qualityEn: ({ degree }) =>
+      `A solid proposal draft should let the advisor see the boundary, the question, the literature entry points, and the execution rhythm immediately. For ${degree.readerEn}, control matters more than scale and finishability matters more than ambition.`,
+    deliverableZh: ({ degree }) =>
+      `这一轮完成后，你最好能拿出一个可以直接汇报的开题包：清楚的题目、可回答的问题、初步目录、关键文献清单和可执行时间表。对${degree.readerZh}来说，这比空泛的研究愿景更有说服力。`,
+    deliverableEn: ({ degree }) =>
+      `By the end of this round, you should have a proposal package that can be shown immediately: a clear title, an answerable question, a working outline, a short list of key sources, and an executable timeline. For ${degree.readerEn}, this is more persuasive than a grand but vague vision.`,
+    checklistZh: ({ discipline }) => [
+      `1. 题目里是否已经写出对象、范围和研究场景，而不是只有大而空的${discipline.titleZh}概念。`,
+      `2. 核心问题后面是否能直接接上${discipline.evidenceZh}与预期分析动作，而不是停留在口号层面。`,
+      '3. 时间安排是否对应到了具体任务，而不是只写“查文献、写论文、准备答辩”这种空泛流程。',
+    ],
+    checklistEn: ({ discipline }) => [
+      `1. Does the title already name the object, scope, and research scene instead of only broad ${discipline.titleEn} language?`,
+      `2. Can the main question connect directly to ${discipline.evidenceEn} and actual analysis moves instead of staying at the slogan level?`,
+      '3. Does the timeline map onto concrete tasks rather than generic lines like read, write, and defend?',
+    ],
+  },
+  'literature-review': {
+    diagnosisZh: ({ degree, discipline }) =>
+      `文献综述写不深，往往不是因为读得太少，而是没有把“研究争议、解释路径、方法取向”分开整理。尤其在${discipline.titleZh}写作里，如果你只是按作者名单往下排，${degree.readerZh}读再多也很难形成自己的判断。`,
+    diagnosisEn: ({ degree, discipline }) =>
+      `Weak literature reviews are usually not caused by reading too little but by failing to separate debates, explanatory paths, and methodological choices. In ${discipline.titleEn}, a list of authors rarely helps ${degree.readerEn} build a position.`,
+    reviewerZh: ({ degree, discipline }) =>
+      `导师在这一阶段最关心的，不是你看了多少篇，而是你能不能说清楚：现有研究主要分成哪几路，它们各自解决了什么，没有解决什么，以及你的${discipline.focusZh}研究将从哪里接进去。`,
+    reviewerEn: ({ degree, discipline }) =>
+      `At this stage, advisors care less about the number of sources and more about whether you can explain the main strands of research, what each strand solves, what it leaves unresolved, and where your own ${discipline.focusEn} project enters the discussion.`,
+    workflowZh: ({ discipline }) =>
+      `更稳的综述流程通常是“搭主题簇、找分歧点、补理论工具、回到自身问题”。只要你每读一批${discipline.titleZh}文献都记录它服务哪个论点，综述就不会沦为资料堆。`,
+    workflowEn: ({ discipline }) =>
+      `A steadier review workflow is to build thematic clusters, identify disputes, add the right theoretical tools, and return to your own question. If each batch of ${discipline.titleEn} reading is tied to a specific argument, the review stops being a pile of sources.`,
+    materialsZh: ({ discipline }) =>
+      `文献综述阶段最需要管理的是“核心文献、方法参考、背景资料”三层来源。尤其是${discipline.evidenceZh}相关研究，要把高频引用与真正能支撑你章节分析的材料区分开。`,
+    materialsEn: ({ discipline }) =>
+      `At review stage, the most useful source management separates core scholarship, method references, and contextual material. In work involving ${discipline.evidenceEn}, highly cited items still need to be distinguished from sources that genuinely support your chapter analysis.`,
+    qualityZh: ({ degree }) =>
+      `一份成熟的文献综述，不是把前人观点复述完整，而是要让读者看出研究脉络、关键争议和你准备采用的解释位置。对${degree.readerZh}来说，综述写得越有框架感，后面的章节越不会散。`,
+    qualityEn: ({ degree }) =>
+      `A mature literature review does not merely restate earlier work. It shows the research trajectory, the central disputes, and the interpretive position you are taking. For ${degree.readerEn}, the stronger the frame here, the less fragmented the later chapters become.`,
+    deliverableZh: ({ discipline }) =>
+      `这一轮结束后，你应该至少拿到一张可以继续扩写的综述骨架：主题分组、代表性研究、核心争议、理论抓手，以及这些内容如何回到你的${discipline.titleZh}研究问题。`,
+    deliverableEn: ({ discipline }) =>
+      `By the end of this round, you should have a literature-review skeleton that can keep growing: thematic groups, representative studies, core disputes, theoretical handles, and a clear bridge back to the ${discipline.titleEn} question.`,
+    checklistZh: ({ discipline }) => [
+      `1. 综述是否按问题和争议分类，而不是只按年份或作者顺序堆叠${discipline.titleZh}文献。`,
+      '2. 每一类文献后面是否都写出了“它帮助我解决什么”与“它留下了什么空位”。',
+      '3. 理论框架是否已经成为分析工具，而不是只停留在概念定义和名词解释。',
+    ],
+    checklistEn: ({ discipline }) => [
+      `1. Is the review organized by questions and debates rather than only by year or author order in ${discipline.titleEn}?`,
+      '2. Does each cluster state what it helps you solve and what gap still remains?',
+      '3. Has the theoretical frame become an analytic tool instead of staying as a set of definitions?',
+    ],
+  },
+  'methods-analysis': {
+    diagnosisZh: ({ degree, discipline }) =>
+      `方法和分析部分最容易失守的地方，是研究问题、分析单位和数据处理方式没有真正对齐。特别是${discipline.titleZh}项目，一旦问题问的是机制，方法却只能给出描述性结果，${degree.readerZh}后面就会越写越虚。`,
+    diagnosisEn: ({ degree, discipline }) =>
+      `Methodology sections usually break down when the research question, the unit of analysis, and the data treatment are not truly aligned. In ${discipline.titleEn}, if the question asks about mechanism but the method only yields description, ${degree.readerEn} quickly lose argumentative depth.`,
+    reviewerZh: ({ degree, discipline }) =>
+      `导师会重点看三件事：为什么选这个方法，它如何处理${discipline.evidenceZh}，以及结果能否支撑你前面提出的判断。如果方法只是“看起来专业”，却不能回答问题，评审会非常敏感。`,
+    reviewerEn: ({ degree, discipline }) =>
+      `Advisors usually test three things here: why this method was chosen, how it works with ${discipline.evidenceEn}, and whether the results can actually support the earlier claim. Reviewers notice quickly when a method looks technical but does not answer the question.`,
+    workflowZh: ({ discipline }) =>
+      `比较稳的推进顺序通常是“明确问题、确定分析单位、整理数据或材料、定义指标或编码规则、执行分析、解释局限”。把这条链条在${discipline.titleZh}项目里写顺，方法章节才会有可信度。`,
+    workflowEn: ({ discipline }) =>
+      `A reliable sequence is to clarify the question, set the unit of analysis, organize the data or materials, define indicators or coding rules, run the analysis, and explain the limits. Once this chain is visible in a ${discipline.titleEn} project, the methodology gains credibility.`,
+    materialsZh: ({ discipline }) =>
+      `这一阶段最需要保存的不是漂亮结论，而是原始记录和处理痕迹：样本筛选依据、变量定义、编码规则、图表来源、异常值处理说明。尤其面对${discipline.evidenceZh}，这些痕迹会决定别人是否相信你的结果。`,
+    materialsEn: ({ discipline }) =>
+      `At this stage, the most important assets are not polished conclusions but the raw traces of work: sample filters, variable definitions, coding rules, figure sources, and explanations of how outliers were handled. With ${discipline.evidenceEn}, those traces often determine whether readers trust the result.`,
+    qualityZh: ({ degree }) =>
+      `一份成熟的方法与分析稿，应该让读者明白你为什么这样做、具体怎么做、这样做能得到什么、又有哪些边界条件。对${degree.readerZh}而言，方法部分的透明度常常比复杂度更重要。`,
+    qualityEn: ({ degree }) =>
+      `A mature methods-and-analysis draft should make clear why this approach was chosen, how it was executed, what it can reveal, and where its boundary conditions sit. For ${degree.readerEn}, transparency is often more valuable than sheer complexity.`,
+    deliverableZh: ({ discipline }) =>
+      `这一轮结束后，你最好形成一套可重复说明的方法包：问题与假设、数据或文本来源、处理流程、关键图表、初步结果，以及这些结果如何回应${discipline.titleZh}核心命题。`,
+    deliverableEn: ({ discipline }) =>
+      `By the end of this round, you should have a method pack that can be explained repeatedly: the question and assumptions, the data or text source, the processing workflow, the key figures, the initial findings, and how those findings answer the central ${discipline.titleEn} claim.`,
+    checklistZh: ({ discipline }) => [
+      `1. 研究问题、分析单位和${discipline.evidenceZh}之间是否已经形成一一对应，而不是各写各的。`,
+      '2. 数据清洗、编码或实验步骤是否记录到了别人能够复核的程度。',
+      '3. 结果部分是否已经区分“观察到什么”“这意味着什么”“还有哪些不能过度解释”的边界。',
+    ],
+    checklistEn: ({ discipline }) => [
+      `1. Do the research question, the unit of analysis, and ${discipline.evidenceEn} now match one another directly?`,
+      '2. Are the cleaning, coding, or experimental steps documented clearly enough for someone else to review?',
+      '3. Does the results section separate what was observed, what it means, and what should not be overclaimed?',
+    ],
+  },
+  'revision-defense': {
+    diagnosisZh: ({ degree, discipline }) =>
+      `修改定稿阶段最容易卡住的，不是工作量大，而是反馈优先级没有排出来。很多${degree.readerZh}会同时改格式、补文献、调图表、改表述，结果忙了很久，却没有真正解决${discipline.titleZh}论文最核心的质疑。`,
+    diagnosisEn: ({ degree, discipline }) =>
+      `The final revision stage usually stalls not because the workload is large but because feedback has not been prioritized. Many ${degree.readerEn} revise formatting, references, tables, and wording all at once, yet still fail to answer the central challenge in the ${discipline.titleEn} thesis.`,
+    reviewerZh: ({ degree, discipline }) =>
+      `导师和答辩老师在定稿前最关注的是：你的修改是否回应了核心问题，摘要与结论是否同步更新，关键图表和${discipline.evidenceZh}能否支撑口头答辩中的追问。形式整洁当然重要，但逻辑修复优先级更高。`,
+    reviewerEn: ({ degree, discipline }) =>
+      `Before submission or defense, advisors and examiners mainly care about whether the revision answers the main criticism, whether the abstract and conclusion were updated consistently, and whether the key figures plus ${discipline.evidenceEn} can support oral defense questions. Clean formatting matters, but logical repair matters more.`,
+    workflowZh: ({ discipline }) =>
+      `更稳的定稿流程通常是“列反馈清单、分主次修改、检查章节联动、同步摘要结论、模拟答辩提问”。只要你每次修改都回到${discipline.titleZh}论文的核心主张，定稿就不会越改越散。`,
+    workflowEn: ({ discipline }) =>
+      `A steadier final-draft workflow is to list feedback, revise by priority, check chapter linkage, sync the abstract and conclusion, and simulate defense questions. As long as each change returns to the central ${discipline.titleEn} claim, revision stays coherent.`,
+    materialsZh: ({ discipline }) =>
+      `这一阶段最该随手整理的，是可快速调用的答辩材料：关键页码、核心图表、指标解释、案例片段、补充文献、以及涉及${discipline.evidenceZh}的原始出处。答辩现场能否迅速回应，常常取决于这些细节准备。`,
+    materialsEn: ({ discipline }) =>
+      `The materials worth organizing now are quick-access defense assets: key page numbers, core figures, indicator explanations, case excerpts, supporting references, and the original sources behind ${discipline.evidenceEn}. Fast responses in a defense often depend on this preparation.`,
+    qualityZh: ({ degree }) =>
+      `一篇达到定稿状态的论文，应该在术语、章节目标、图表编号、摘要结论和口头表达上保持一致。对${degree.readerZh}来说，最后这一轮不是简单润色，而是把整篇论文重新拧紧。`,
+    qualityEn: ({ degree }) =>
+      `A thesis that is truly ready for submission should be consistent in terminology, chapter goals, figure numbering, abstract-conclusion language, and oral explanation. For ${degree.readerEn}, this last round is not cosmetic editing but a final tightening of the whole argument.`,
+    deliverableZh: ({ degree }) =>
+      `这一轮结束后，你应该拿到的是一个完整交付包：更新后的定稿、反馈回应清单、答辩问题提纲，以及一套能在短时间内说明研究贡献和局限的表达脚本。对${degree.readerZh}来说，这会显著降低临场失控的概率。`,
+    deliverableEn: ({ degree }) =>
+      `By the end of this round, you should have a full delivery package: the revised final draft, a response list to feedback, a defense question outline, and a short script for explaining the contribution and limits. For ${degree.readerEn}, that preparation sharply reduces the chance of losing control under pressure.`,
+    checklistZh: ({ discipline }) => [
+      `1. 所有高优先级反馈是否已经落实到对应章节，而不是只在批注里“知道要改”。`,
+      `2. 摘要、引言、结论与${discipline.titleZh}核心发现是否已经同步，不存在正文改了但前后文没跟上的问题。`,
+      '3. 针对答辩可能被追问的样本、方法、贡献和局限，是否已经准备好简洁且一致的回答口径。',
+    ],
+    checklistEn: ({ discipline }) => [
+      '1. Have the high-priority comments been resolved in the relevant chapters instead of only being acknowledged in notes?',
+      `2. Are the abstract, introduction, and conclusion now synchronized with the core ${discipline.titleEn} findings?`,
+      '3. Do you already have concise and consistent responses for defense questions about sample choice, method, contribution, and limitations?',
+    ],
+  },
+}
+
+const stageStepSupportZh: Record<
+  StageConfig['slug'],
+  Array<(args: PostBuildArgs) => string>
+> = {
+  proposal: [
+    ({ discipline }) =>
+      `这一步的目标不是把题目写得漂亮，而是让选题对象、比较维度和研究边界在第一页就能被看懂。只要边界收稳，${discipline.evidenceZh}的入口也会跟着变清楚。`,
+    () =>
+      '把问题句改成可以被验证或反驳的问句之后，后面的目录、文献和方法才有主轴。否则你写出来的每一节都像在说相关内容，却始终没有回答同一个问题。',
+    ({ degree }) =>
+      `对${degree.readerZh}来说，第三步最关键的是判断计划是否做得完。材料来源、时间安排和预期成果只要有一环是虚的，开题通过率就会明显下降。`,
+  ],
+  'literature-review': [
+    () =>
+      '第一步最怕的是一边读一边堆摘录，却没有及时做分类。只要你先按主题、立场或方法分组，综述的骨架就会先于细节出现。',
+    ({ discipline }) =>
+      `第二步要把理论真正变成工具：它帮助你解释${discipline.focusZh}中的哪一个矛盾、比较哪一类材料、回应哪一种争议，都应该写得清清楚楚。`,
+    ({ degree }) =>
+      `到了第三步，就要让综述回到你自己的论文任务上。对${degree.readerZh}来说，最有说服力的“研究空白”不是别人没写过，而是别人还没把问题讲到你准备推进的那一步。`,
+  ],
+  'methods-analysis': [
+    ({ discipline }) =>
+      `第一步的作用，是把问题、样本和${discipline.evidenceZh}绑定在一起。只要三者中有一项漂浮，后面的分析就很容易出现“数据很多，但回答不了问题”的情况。`,
+    () =>
+      '第二步最该做的是留下可复核的处理中间件，比如变量口径、编码规则、实验参数和异常样本说明。这样你后面改图表或补分析时，才不会每次都从头返工。',
+    ({ degree }) =>
+      `第三步要主动写出边界条件。对${degree.readerZh}而言，能够说明结果适用于什么情境、不适用于什么情境，往往比把结论写得过满更专业。`,
+  ],
+  'revision-defense': [
+    () =>
+      '第一步先排优先级，能直接修复研究逻辑的反馈一定先改，格式和措辞类问题放在后面。这样时间再紧，也不会只忙表面工作。',
+    ({ discipline }) =>
+      `第二步要检查章节联动，尤其是涉及${discipline.evidenceZh}的图表、案例和方法说明。只要正文更新了，摘要、引言和结论就必须一起跟上。`,
+    ({ degree }) =>
+      `第三步最好做一次模拟答辩。对${degree.readerZh}来说，把最容易被追问的贡献、局限和方法选择先讲顺，现场表现通常会稳很多。`,
+  ],
+}
+
+const stageStepSupportEn: Record<
+  StageConfig['slug'],
+  Array<(args: PostBuildArgs) => string>
+> = {
+  proposal: [
+    ({ discipline }) =>
+      `The aim of the first move is not a prettier title but a title whose object, comparison dimension, and boundary are immediately visible. Once the scope is controlled, the path to ${discipline.evidenceEn} becomes much clearer.`,
+    () =>
+      'Once the problem sentence becomes answerable and debatable, the outline, literature, and method all gain a shared axis. Without that shift, every section may sound relevant while still failing to answer the same question.',
+    ({ degree }) =>
+      `For ${degree.readerEn}, the third move is where realism matters most. If source access, timing, or expected output remains vague, the proposal will still look unstable even after substantial writing.`,
+  ],
+  'literature-review': [
+    () =>
+      'The first move fails when reading notes are collected without being grouped. As soon as the sources are sorted by theme, position, or method, the frame of the review starts appearing before the detailed prose.',
+    ({ discipline }) =>
+      `The second move is where theory must become a tool: what tension in ${discipline.focusEn} it helps explain, what materials it helps compare, and which dispute it helps answer should all be explicit.`,
+    ({ degree }) =>
+      `By the third move, the review has to return to your own project. For ${degree.readerEn}, the strongest gap is rarely that no one has written on the topic; it is that the discussion has not yet been pushed to the point your thesis is targeting.`,
+  ],
+  'methods-analysis': [
+    ({ discipline }) =>
+      `The first move ties the question, sample, and ${discipline.evidenceEn} together. If any one of those floats independently, the analysis often becomes rich in data but weak in explanatory value.`,
+    () =>
+      'The second move should preserve reproducible traces such as variable rules, coding decisions, experiment settings, and notes on irregular samples. Those traces save enormous time when you later revise figures or extend the analysis.',
+    ({ degree }) =>
+      `The third move should name the boundary conditions directly. For ${degree.readerEn}, being clear about where the results do and do not apply often signals more maturity than writing an inflated conclusion.`,
+  ],
+  'revision-defense': [
+    () =>
+      'The first move is triage. Revisions that repair the research logic must come before formatting and wording changes, or the process becomes busy without becoming effective.',
+    ({ discipline }) =>
+      `The second move checks chapter linkage, especially where figures, cases, and method explanations depend on ${discipline.evidenceEn}. Once the body changes, the abstract, introduction, and conclusion must move with it.`,
+    ({ degree }) =>
+      `The third move is a defense rehearsal. For ${degree.readerEn}, pre-answering likely questions about contribution, limits, and method choice usually makes the live presentation much steadier.`,
+  ],
+}
+
+function buildDegreeLensZh({ degree, discipline, stage }: PostBuildArgs) {
+  if (degree.slug === 'undergraduate') {
+    return `对${degree.readerZh}来说，${stage.titleZh}最重要的是把基础动作做准：不要试图一口气覆盖整个${discipline.focusZh}领域，而是先证明你能在有限范围内把问题、材料和结构接稳。`
+  }
+
+  if (degree.slug === 'masters') {
+    return `对${degree.readerZh}来说，评审通常会更看重“分析链条有没有闭合”。也就是说，你提出的问题、调用的理论、使用的${discipline.evidenceZh}和最后的结论，必须能顺着一条线讲通。`
+  }
+
+  return `对${degree.readerZh}来说，标准会再往前一步：除了完成${stage.titleZh}任务，还要让论文显出对${discipline.focusZh}的独立判断、方法意识和研究贡献，不能只是把既有材料重新排列。`
+}
+
+function buildDegreeLensEn({ degree, discipline, stage }: PostBuildArgs) {
+  if (degree.slug === 'undergraduate') {
+    return `For ${degree.readerEn}, the key in ${stage.titleEn.toLowerCase()} is getting the fundamentals right. There is no need to cover the whole field of ${discipline.focusEn}; the priority is to show that the problem, materials, and structure can hold together inside a limited scope.`
+  }
+
+  if (degree.slug === 'masters') {
+    return `For ${degree.readerEn}, reviewers often look hardest at whether the analytical chain is closed. The question, theory, ${discipline.evidenceEn}, and final interpretation should all be explainable as one connected line.`
+  }
+
+  return `For ${degree.readerEn}, the standard moves one step further. Beyond completing the ${stage.titleEn.toLowerCase()} task, the thesis needs to show independent judgment about ${discipline.focusEn}, methodological awareness, and a visible research contribution rather than a rearrangement of existing material.`
+}
+
+function buildEvidenceAlignmentZh({ discipline, stage }: PostBuildArgs) {
+  return `不管你现在处在${stage.titleZh}还是后续章节推进期，最好都留下一张证据对照表：核心判断是什么，对应使用哪类${discipline.evidenceZh}，这些材料的局限会如何影响结论范围。这样后面越改越不容易失控。`
+}
+
+function buildEvidenceAlignmentEn({ discipline, stage }: PostBuildArgs) {
+  return `Whether you are still in ${stage.titleEn.toLowerCase()} or already moving into later chapters, it helps to keep an evidence map: what the core claim is, which type of ${discipline.evidenceEn} supports it, and how the limitations of those materials narrow the conclusion. That map prevents later revisions from drifting out of control.`
+}
+
+function buildChineseMetaDescription(args: PostBuildArgs, theme: ContentTheme) {
+  return `适合${args.degree.readerZh}的${args.discipline.titleZh}${args.stage.titleZh}指南，重点讲清${theme
+    .titleZh(args)
+    .replace(`${args.degree.labelZh}${args.discipline.titleZh}`, '')}，以及导师最关心的边界、证据与写作质量标准。`
+}
+
+function buildEnglishMetaDescription(args: PostBuildArgs) {
+  return `A practical ${args.stage.titleEn.toLowerCase()} guide for ${args.degree.readerEn} in ${args.discipline.titleEn}, covering scope control, evidence planning, advisor expectations, and stronger thesis writing decisions.`
+}
+
+function serializeRichText(value: unknown) {
+  return JSON.stringify(value ?? null)
+}
+
 function buildChinesePost(
   degree: DegreeConfig,
   discipline: DisciplineConfig,
@@ -1428,31 +1718,50 @@ function buildChinesePost(
 ) {
   const theme = stageThemes[stage.slug][disciplineIndex % stageThemes[stage.slug].length]
   const args = { degree, discipline }
+  const postArgs = { degree, discipline, stage }
+  const narrative = stageNarratives[stage.slug]
   const titleZh = theme.titleZh(args)
   const metaTitleZh = `${titleZh} | PaperBridge`
-  const metaDescriptionZh = `围绕${discipline.titleZh}${stage.titleZh}的原创文章，面向${degree.readerZh}，重点处理${theme
-    .titleZh(args)
-    .replace(`${degree.labelZh}${discipline.titleZh}`, '')}。`
+  const metaDescriptionZh = buildChineseMetaDescription(postArgs, theme)
   const [step1, step2, step3] = theme.stepsZh(args)
+  const [check1, check2, check3] = narrative.checklistZh(postArgs)
 
   const contentZh = createRichText([
-    createHeading('先抓住真正的卡点'),
+    createHeading('先判断真正卡在哪'),
     createParagraph(theme.introZh(args)),
     createParagraph(
-      `${degree.standardZh}这在${discipline.focusZh}相关写作里尤其明显，因为你最终都要把判断落到${discipline.evidenceZh}上。`,
+      `${degree.standardZh}这在${discipline.focusZh}相关写作里尤其关键，因为导师最后看的不是你写了多少背景，而是你的判断能否落到${discipline.evidenceZh}、目录结构和章节任务上。`,
     ),
-    createHeading('更稳的处理方式'),
+    createParagraph(narrative.diagnosisZh(postArgs)),
+    createHeading('导师和评审通常会怎么判断'),
+    createParagraph(narrative.reviewerZh(postArgs)),
+    createParagraph(buildDegreeLensZh(postArgs)),
+    createHeading('把问题拆成可以推进的写作任务'),
     createParagraph(theme.strategyZh(args)),
-    createHeading('可以直接照着走的三步'),
+    createParagraph(narrative.workflowZh(postArgs)),
+    createHeading('可以直接照着走的三个关键动作'),
     createHeading('第一步', 'h3'),
     createParagraph(step1),
+    createParagraph(stageStepSupportZh[stage.slug][0](postArgs)),
     createHeading('第二步', 'h3'),
     createParagraph(step2),
+    createParagraph(stageStepSupportZh[stage.slug][1](postArgs)),
     createHeading('第三步', 'h3'),
     createParagraph(step3),
+    createParagraph(stageStepSupportZh[stage.slug][2](postArgs)),
+    createHeading('资料和证据怎么安排才不会后面返工'),
+    createParagraph(narrative.materialsZh(postArgs)),
+    createParagraph(buildEvidenceAlignmentZh(postArgs)),
+    createHeading('这一稿的质量标准是什么'),
+    createParagraph(narrative.qualityZh(postArgs)),
     createHeading('最容易踩的坑'),
     createParagraph(theme.riskZh(args)),
+    createHeading('交稿前自检清单'),
+    createParagraph(check1),
+    createParagraph(check2),
+    createParagraph(check3),
     createHeading('写完这一轮后你应该得到什么'),
+    createParagraph(narrative.deliverableZh(postArgs)),
     createParagraph(theme.closeZh(args)),
   ])
 
@@ -1472,29 +1781,50 @@ function buildEnglishPost(
 ) {
   const theme = stageThemes[stage.slug][disciplineIndex % stageThemes[stage.slug].length]
   const args = { degree, discipline }
+  const postArgs = { degree, discipline, stage }
+  const narrative = stageNarratives[stage.slug]
   const titleEn = theme.titleEn(args)
   const metaTitleEn = `${titleEn} | PaperBridge`
-  const metaDescriptionEn = `An original ${discipline.titleEn.toLowerCase()} article for ${degree.readerEn}, focused on a concrete ${stage.titleEn.toLowerCase()} problem instead of a generic template.`
+  const metaDescriptionEn = buildEnglishMetaDescription(postArgs)
   const [step1, step2, step3] = theme.stepsEn(args)
+  const [check1, check2, check3] = narrative.checklistEn(postArgs)
 
   const contentEn = createRichText([
     createHeading('Find the real bottleneck first'),
     createParagraph(theme.introEn(args)),
     createParagraph(
-      `${degree.standardEn} That becomes even more important in projects about ${discipline.focusEn}, where the argument must ultimately hold against ${discipline.evidenceEn}.`,
+      `${degree.standardEn} That matters even more in projects about ${discipline.focusEn}, where the argument is eventually judged by whether it stands up against ${discipline.evidenceEn}, chapter logic, and actual writing decisions.`,
     ),
-    createHeading('A steadier way to handle it'),
+    createParagraph(narrative.diagnosisEn(postArgs)),
+    createHeading('What advisors and reviewers usually test'),
+    createParagraph(narrative.reviewerEn(postArgs)),
+    createParagraph(buildDegreeLensEn(postArgs)),
+    createHeading('Turn the problem into executable writing work'),
     createParagraph(theme.strategyEn(args)),
+    createParagraph(narrative.workflowEn(postArgs)),
     createHeading('Three moves you can apply immediately'),
     createHeading('Step 1', 'h3'),
     createParagraph(step1),
+    createParagraph(stageStepSupportEn[stage.slug][0](postArgs)),
     createHeading('Step 2', 'h3'),
     createParagraph(step2),
+    createParagraph(stageStepSupportEn[stage.slug][1](postArgs)),
     createHeading('Step 3', 'h3'),
     createParagraph(step3),
+    createParagraph(stageStepSupportEn[stage.slug][2](postArgs)),
+    createHeading('Handle materials and evidence before they cause rework'),
+    createParagraph(narrative.materialsEn(postArgs)),
+    createParagraph(buildEvidenceAlignmentEn(postArgs)),
+    createHeading('What quality should look like in this draft'),
+    createParagraph(narrative.qualityEn(postArgs)),
     createHeading('The easiest trap to fall into'),
     createParagraph(theme.riskEn(args)),
+    createHeading('Quick pre-submission checklist'),
+    createParagraph(check1),
+    createParagraph(check2),
+    createParagraph(check3),
     createHeading('What this round of work should produce'),
+    createParagraph(narrative.deliverableEn(postArgs)),
     createParagraph(theme.closeEn(args)),
   ])
 
@@ -1665,8 +1995,10 @@ async function ensureCategory(
 }
 
 type ExistingPostSnapshot = {
+  content?: unknown
   id: number
   meta?: {
+    description?: string | null
     title?: string | null
   } | null
   publishedAt?: string | null
@@ -1685,8 +2017,10 @@ async function loadExistingPostsBySlug(
       collection: 'posts',
       depth: 0,
       limit: slugChunk.length,
+      locale: 'zh',
       pagination: false,
       select: {
+        content: true,
         id: true,
         meta: true,
         publishedAt: true,
@@ -1788,8 +2122,10 @@ async function main() {
       })
 
       existingPosts.set(post.slug, {
+        content: post.contentZh,
         id: created.id,
         meta: {
+          description: post.metaDescriptionZh,
           title: post.metaTitleZh,
         },
         publishedAt: post.publishedAt,
@@ -1821,7 +2157,9 @@ async function main() {
     } else if (
       existing.title !== post.titleZh ||
       existing.meta?.title !== post.metaTitleZh ||
-      existing.publishedAt !== post.publishedAt
+      existing.meta?.description !== post.metaDescriptionZh ||
+      existing.publishedAt !== post.publishedAt ||
+      serializeRichText(existing.content) !== serializeRichText(post.contentZh)
     ) {
       await payload.update({
         collection: 'posts',
@@ -1869,8 +2207,10 @@ async function main() {
       updatedCount += 1
 
       existingPosts.set(post.slug, {
+        content: post.contentZh,
         id: existing.id,
         meta: {
+          description: post.metaDescriptionZh,
           title: post.metaTitleZh,
         },
         publishedAt: post.publishedAt,
