@@ -1,10 +1,12 @@
 import { formatDateTime } from 'src/utilities/formatDateTime'
 import React from 'react'
+import Link from 'next/link'
 
 import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 import { formatAuthors } from '@/utilities/formatAuthors'
+import { getAudienceCategoryHrefBySlug } from '@/utilities/postTaxonomy'
 import { cn } from '@/utilities/ui'
 
 export const PostHero: React.FC<{
@@ -15,6 +17,11 @@ export const PostHero: React.FC<{
 
   const hasAuthors =
     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
+  const displayAuthor = hasAuthors
+    ? formatAuthors(populatedAuthors)
+    : locale === 'en'
+      ? 'PaperBridge Editorial Team'
+      : 'PaperBridge 编辑团队'
   const heroImageResource =
     heroImage && typeof heroImage === 'object' && 'url' in heroImage ? heroImage : null
   const metaImageResource =
@@ -56,12 +63,19 @@ export const PostHero: React.FC<{
                 const { title: categoryTitle } = category
 
                 const titleToUse = categoryTitle || 'Untitled category'
+                const categoryHref = getAudienceCategoryHrefBySlug(category.slug)
 
                 const isLast = index === categories.length - 1
 
                 return (
                   <React.Fragment key={index}>
-                    {titleToUse}
+                    {categoryHref ? (
+                      <Link className="transition hover:text-[#fdba74]" href={categoryHref}>
+                        {titleToUse}
+                      </Link>
+                    ) : (
+                      titleToUse
+                    )}
                     {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
                   </React.Fragment>
                 )
@@ -82,21 +96,19 @@ export const PostHero: React.FC<{
           </div>
 
           <div className="flex flex-col md:flex-row gap-4 md:gap-16">
-            {hasAuthors && (
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1">
-                  <p className={cn('text-sm', labelClassName)}>{authorLabel}</p>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1">
+                <p className={cn('text-sm', labelClassName)}>{authorLabel}</p>
 
-                  <p className={valueClassName}>{formatAuthors(populatedAuthors)}</p>
-                </div>
+                <p className={valueClassName}>{displayAuthor}</p>
               </div>
-            )}
+            </div>
             {publishedAt && (
               <div className="flex flex-col gap-1">
                 <p className={cn('text-sm', labelClassName)}>{publishedLabel}</p>
 
                 <time className={valueClassName} dateTime={publishedAt}>
-                  {formatDateTime(publishedAt)}
+                  {formatDateTime(publishedAt, locale)}
                 </time>
               </div>
             )}

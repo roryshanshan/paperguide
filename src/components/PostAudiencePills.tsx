@@ -1,25 +1,37 @@
 import React from 'react'
+import Link from 'next/link'
 
 import type { SiteLocale } from '@/utilities/siteLocale'
-
-const pillCopy = {
-  en: ['Undergraduate Thesis', "Master's Thesis", 'PhD Thesis'],
-  zh: ['本科论文', '研究生论文', '博士论文'],
-} satisfies Record<SiteLocale, string[]>
+import {
+  audienceCategories,
+  type AudienceCategorySlug,
+  getAudienceCategoryPath,
+} from '@/utilities/postTaxonomy'
 
 export const PostAudiencePills: React.FC<{
+  activeCategorySlug?: AudienceCategorySlug
   locale: SiteLocale
-}> = ({ locale }) => {
+}> = ({ activeCategorySlug, locale }) => {
   return (
     <div className="mt-6 flex flex-wrap gap-3">
-      {pillCopy[locale].map((item) => (
-        <span
-          className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium tracking-[0.18em] text-slate-600 uppercase"
-          key={item}
-        >
-          {item}
-        </span>
-      ))}
+      {audienceCategories.map((item) => {
+        const isActive = item.categorySlug === activeCategorySlug
+
+        return (
+          <Link
+            aria-current={isActive ? 'page' : undefined}
+            className={`inline-flex items-center rounded-full border px-4 py-2 text-xs font-medium tracking-[0.18em] uppercase transition ${
+              isActive
+                ? 'border-[#c2410c] bg-[#fff7ed] text-[#c2410c] shadow-[0_10px_24px_rgba(249,115,22,0.12)]'
+                : 'border-slate-200 bg-white text-slate-600 hover:border-[#fdba74] hover:text-[#c2410c]'
+            }`}
+            href={getAudienceCategoryPath(item.categorySlug)}
+            key={item.categorySlug}
+          >
+            {item.labels[locale]}
+          </Link>
+        )
+      })}
     </div>
   )
 }

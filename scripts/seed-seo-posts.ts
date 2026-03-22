@@ -1750,6 +1750,7 @@ async function main() {
   let createdCount = 0
   let updatedCount = 0
   const editorialAuthor = await ensureEditorialAuthor(payload)
+  const relationSyncSlugs = new Set<string>()
 
   for (const post of catalog) {
     const category = categoriesBySlug.get(post.categorySlug)
@@ -1795,6 +1796,7 @@ async function main() {
         slug: post.slug,
         title: post.titleZh,
       })
+      relationSyncSlugs.add(post.slug)
 
       await payload.update({
         collection: 'posts',
@@ -1875,6 +1877,7 @@ async function main() {
         slug: post.slug,
         title: post.titleZh,
       })
+      relationSyncSlugs.add(post.slug)
     }
 
     const processedCount = createdCount + updatedCount
@@ -1891,6 +1894,8 @@ async function main() {
   )
 
   for (const post of catalog) {
+    if (!relationSyncSlugs.has(post.slug)) continue
+
     const currentId = postIdBySlug.get(post.slug)
 
     if (!currentId) continue

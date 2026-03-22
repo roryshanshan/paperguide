@@ -1,6 +1,7 @@
 'use client'
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
+import { getAudienceCategoryHrefBySlug } from '@/utilities/postTaxonomy'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
@@ -85,12 +86,19 @@ export const Card: React.FC<{
                     const { title: titleFromCategory } = category
 
                     const categoryTitle = titleFromCategory || 'Untitled category'
+                    const categoryHref = getAudienceCategoryHrefBySlug(category.slug)
 
                     const isLast = index === categories.length - 1
 
                     return (
                       <Fragment key={index}>
-                        {categoryTitle}
+                        {categoryHref ? (
+                          <Link className="transition hover:text-[#c2410c]" href={categoryHref}>
+                            {categoryTitle}
+                          </Link>
+                        ) : (
+                          categoryTitle
+                        )}
                         {!isLast && <Fragment>, &nbsp;</Fragment>}
                       </Fragment>
                     )

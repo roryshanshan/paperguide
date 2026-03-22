@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation'
 
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
 import { ArticleJsonLd } from '@/components/ArticleJsonLd'
+import type { CardPostData } from '@/components/Card'
 import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
+import Link from 'next/link'
 import React, { cache } from 'react'
 import RichText from '@/components/RichText'
 
@@ -14,6 +16,7 @@ import type { Post } from '@/payload-types'
 
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
+import { getAudienceCategoryHrefBySlug, parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import { getSiteLocale } from '@/utilities/siteLocale'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -60,6 +63,21 @@ export default async function Post({ params: paramsPromise }: Args) {
     notFound()
   }
 
+  const relatedDocsFromPost =
+    post.relatedPosts?.filter((candidate): candidate is Post => typeof candidate === 'object') || []
+  const relatedDocs: CardPostData[] =
+    relatedDocsFromPost.length > 0
+      ? relatedDocsFromPost.map((candidate) => toCardPostData(candidate))
+      : await queryFallbackRelatedPosts({ locale, slug: decodedSlug })
+  const primaryCategory = post.categories?.find(
+    (category): category is NonNullable<Post['categories']>[number] & { title?: string; slug?: string } =>
+      typeof category === 'object' && category !== null,
+  )
+  const primaryCategoryHref =
+    primaryCategory && typeof primaryCategory === 'object'
+      ? getAudienceCategoryHrefBySlug(primaryCategory.slug)
+      : null
+
   return (
     <article className="pt-16 pb-16">
       <PageClient />
@@ -75,11 +93,32 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <div className="flex flex-col items-center gap-4 pt-8">
         <div className="container">
+          <nav className="mx-auto mb-6 flex max-w-[48rem] flex-wrap items-center gap-2 text-xs uppercase tracking-[0.22em] text-slate-500">
+            <Link className="transition hover:text-[#c2410c]" href="/">
+              {locale === 'en' ? 'Home' : '首页'}
+            </Link>
+            <span>/</span>
+            <Link className="transition hover:text-[#c2410c]" href="/posts">
+              {locale === 'en' ? 'Articles' : '文章中心'}
+            </Link>
+            {primaryCategory && primaryCategory.title && (
+              <>
+                <span>/</span>
+                {primaryCategoryHref ? (
+                  <Link className="transition hover:text-[#c2410c]" href={primaryCategoryHref}>
+                    {primaryCategory.title}
+                  </Link>
+                ) : (
+                  <span>{primaryCategory.title}</span>
+                )}
+              </>
+            )}
+          </nav>
           <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
+          {relatedDocs.length > 0 && (
             <RelatedPosts
               className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+              docs={relatedDocs}
             />
           )}
         </div>
@@ -125,3 +164,118 @@ const queryPostBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; sl
 
   return result.docs?.[0] || null
 })
+
+const queryFallbackRelatedPosts = cache(
+  async ({ locale, slug }: { locale: 'zh' | 'en'; slug: string }): Promise<CardPostData[]> => {
+    const seoPost = parseSeoPostSlug(slug)
+
+    if (!seoPost) return []
+
+    const { isEnabled: draft } = await draftMode()
+    const payload = await getPayload({ config: configPromise })
+
+    const sameDiscipline = await payload
+      .find({
+        collection: 'posts',
+        depth: 1,
+        draft,
+        limit: 3,
+        locale,
+        overrideAccess: draft,
+        pagination: false,
+        sort: '-publishedAt',
+        select: {
+          heroImage: true,
+          title: true,
+          slug: true,
+          categories: true,
+          meta: true,
+        },
+        where: {
+          and: [
+            {
+              slug: {
+                not_equals: slug,
+              },
+            },
+            {
+              slug: {
+                contains: `${seoPost.degreeSlug}-${seoPost.disciplineSlug}-`,
+              },
+            },
+          ],
+        },
+      })
+      .catch(() => ({ docs: [] as CardPostData[] }))
+
+    if (sameDiscipline.docs.length >= 3) {
+      return sameDiscipline.docs as CardPostData[]
+    }
+
+    const sameDegree = await payload
+      .find({
+        collection: 'posts',
+        depth: 1,
+        draft,
+        limit: 12,
+        locale,
+        overrideAccess: draft,
+        pagination: false,
+        sort: '-publishedAt',
+        select: {
+          heroImage: true,
+          title: true,
+          slug: true,
+          categories: true,
+          meta: true,
+        },
+        where: {
+          and: [
+            {
+              slug: {
+                not_equals: slug,
+              },
+            },
+            {
+              slug: {
+                contains: `${seoPost.degreeSlug}-`,
+              },
+            },
+          ],
+        },
+      })
+      .catch(() => ({ docs: [] as CardPostData[] }))
+
+    const merged = new Map<string, CardPostData>()
+
+    for (const candidate of sameDiscipline.docs as CardPostData[]) {
+      if (candidate.slug) {
+        merged.set(candidate.slug, candidate)
+      }
+    }
+
+    for (const candidate of sameDegree.docs as CardPostData[]) {
+      if (!candidate.slug) continue
+
+      const parsedCandidate = parseSeoPostSlug(candidate.slug)
+
+      if (parsedCandidate?.stageSlug !== seoPost.stageSlug) continue
+      if (candidate.slug === slug) continue
+      if (merged.has(candidate.slug)) continue
+
+      merged.set(candidate.slug, candidate)
+    }
+
+    return Array.from(merged.values()).slice(0, 3)
+  },
+)
+
+const toCardPostData = (post: Pick<Post, 'categories' | 'heroImage' | 'meta' | 'slug' | 'title'>) => {
+  return {
+    categories: post.categories,
+    heroImage: post.heroImage,
+    meta: post.meta,
+    slug: post.slug,
+    title: post.title,
+  } satisfies CardPostData
+}

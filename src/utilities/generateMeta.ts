@@ -42,6 +42,9 @@ export const generateMeta = async (args: {
       : serverUrl
 
   return {
+    alternates: {
+      canonical: url,
+    },
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || '',
