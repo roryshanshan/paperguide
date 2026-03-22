@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
+import { PostAudiencePills } from '@/components/PostAudiencePills'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -35,6 +36,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       limit: POSTS_PER_PAGE,
       locale,
       page: sanitizedPageNumber,
+      sort: '-publishedAt',
       overrideAccess: false,
       select: {
         heroImage: true,
@@ -61,6 +63,7 @@ export default async function Page({ params: paramsPromise }: Args) {
         <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
           {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
         </h1>
+        <PostAudiencePills locale={locale} />
       </div>
 
       <div className="container mb-8">

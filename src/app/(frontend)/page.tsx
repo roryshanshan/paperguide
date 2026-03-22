@@ -29,6 +29,7 @@ export default async function HomePage() {
         depth: 1,
         limit: 3,
         locale,
+        sort: '-publishedAt',
         overrideAccess: draft,
         select: {
           categories: true,
@@ -56,6 +57,9 @@ export async function generateMetadata(): Promise<Metadata> {
       locale === 'en'
         ? 'One-to-one thesis coaching and academic support for proposal, writing, revision, and defense preparation.'
         : '提供开题、写作、返修与答辩准备的一对一论文辅导与学术支持服务。',
-    title: locale === 'en' ? 'PaperBridge | Thesis Coaching & Academic Support' : 'PaperBridge | 论文辅导与学术支持',
+    title:
+      locale === 'en'
+        ? 'PaperBridge | Thesis Coaching & Academic Support'
+        : 'PaperBridge | 论文辅导与学术支持',
   }
 }

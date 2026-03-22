@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
+import { PostAudiencePills } from '@/components/PostAudiencePills'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -22,6 +23,7 @@ export default async function Page() {
       depth: 1,
       limit: POSTS_PER_PAGE,
       locale,
+      sort: '-publishedAt',
       overrideAccess: false,
       select: {
         heroImage: true,
@@ -53,6 +55,7 @@ export default async function Page() {
             ? 'Browse thesis guides, writing strategies, revision notes, and case-based academic support articles.'
             : '浏览论文方法、写作策略、返修建议与案例拆解等学术辅导内容。'}
         </p>
+        <PostAudiencePills locale={locale} />
       </div>
 
       <div className="container mb-8">
