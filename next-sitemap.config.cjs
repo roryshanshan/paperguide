@@ -1,7 +1,9 @@
-const SITE_URL =
+const rawSiteUrl =
   process.env.NEXT_PUBLIC_SERVER_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||
   'https://example.com'
+
+const SITE_URL = rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {

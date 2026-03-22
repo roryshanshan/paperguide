@@ -1,15 +1,13 @@
 import { getServerSideSitemap } from 'next-sitemap'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { getServerSideURL } from '@/utilities/getURL'
 
 export const dynamic = 'force-dynamic'
 
 const getPostsSitemap = async () => {
   const payload = await getPayload({ config })
-  const SITE_URL =
-    process.env.NEXT_PUBLIC_SERVER_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    'https://example.com'
+  const SITE_URL = getServerSideURL()
 
   const results = await payload.find({
     collection: 'posts',
