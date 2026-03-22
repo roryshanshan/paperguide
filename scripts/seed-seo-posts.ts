@@ -36,6 +36,8 @@ type GeneratedPost = {
   categorySlug: string
   contentEn: ReturnType<typeof createRichText>
   contentZh: ReturnType<typeof createRichText>
+  degreeSlug: string
+  disciplineSlug: string
   imageFilename: string
   metaDescriptionEn: string
   metaDescriptionZh: string
@@ -43,6 +45,7 @@ type GeneratedPost = {
   metaTitleZh: string
   publishedAt: string
   slug: string
+  stageSlug: string
   titleEn: string
   titleZh: string
 }
@@ -1520,8 +1523,11 @@ function buildCatalog(): GeneratedPost[] {
         posts.push({
           slug: `${degree.slug}-${discipline.slug}-${stage.slug}-guide`,
           categorySlug: degree.categorySlug,
+          degreeSlug: degree.slug,
+          disciplineSlug: discipline.slug,
           imageFilename: resolveImageFilename(degree, stage),
           publishedAt,
+          stageSlug: stage.slug,
           titleZh: zh.titleZh,
           titleEn: en.titleEn,
           metaTitleZh: zh.metaTitleZh,
@@ -1548,6 +1554,34 @@ function chunk<T>(items: T[], size: number): T[][] {
   }
 
   return chunks
+}
+
+async function ensureEditorialAuthor(payload: Awaited<ReturnType<typeof getPayload>>) {
+  const existing = await payload.find({
+    collection: 'users',
+    depth: 0,
+    limit: 1,
+    pagination: false,
+    where: {
+      email: {
+        equals: 'editorial@paperbridge.local',
+      },
+    },
+  })
+
+  if (existing.docs[0]) {
+    return existing.docs[0]
+  }
+
+  return payload.create({
+    collection: 'users',
+    depth: 0,
+    data: {
+      email: 'editorial@paperbridge.local',
+      name: 'PaperBridge Editorial Team',
+      password: 'paperbridge-editorial-2026',
+    },
+  })
 }
 
 async function ensureMedia(
@@ -1715,6 +1749,7 @@ async function main() {
 
   let createdCount = 0
   let updatedCount = 0
+  const editorialAuthor = await ensureEditorialAuthor(payload)
 
   for (const post of catalog) {
     const category = categoriesBySlug.get(post.categorySlug)
@@ -1738,6 +1773,7 @@ async function main() {
           _status: 'published',
           title: post.titleZh,
           content: post.contentZh,
+          authors: [editorialAuthor.id],
           heroImage: heroImage.id,
           categories: [category.id],
           meta: {
@@ -1748,6 +1784,16 @@ async function main() {
           publishedAt: post.publishedAt,
           relatedPosts: [],
         },
+      })
+
+      existingPosts.set(post.slug, {
+        id: created.id,
+        meta: {
+          title: post.metaTitleZh,
+        },
+        publishedAt: post.publishedAt,
+        slug: post.slug,
+        title: post.titleZh,
       })
 
       await payload.update({
@@ -1786,6 +1832,7 @@ async function main() {
         data: {
           title: post.titleZh,
           content: post.contentZh,
+          authors: [editorialAuthor.id],
           heroImage: heroImage.id,
           categories: [category.id],
           meta: {
@@ -1818,6 +1865,16 @@ async function main() {
       })
 
       updatedCount += 1
+
+      existingPosts.set(post.slug, {
+        id: existing.id,
+        meta: {
+          title: post.metaTitleZh,
+        },
+        publishedAt: post.publishedAt,
+        slug: post.slug,
+        title: post.titleZh,
+      })
     }
 
     const processedCount = createdCount + updatedCount
@@ -1827,6 +1884,43 @@ async function main() {
         `[seed:seo] Processed ${processedCount} / ${catalog.length} articles (created ${createdCount}, updated ${updatedCount})...`,
       )
     }
+  }
+
+  const postIdBySlug = new Map(
+    Array.from(existingPosts.entries()).map(([slug, snapshot]) => [slug, snapshot.id]),
+  )
+
+  for (const post of catalog) {
+    const currentId = postIdBySlug.get(post.slug)
+
+    if (!currentId) continue
+
+    const relatedIds = catalog
+      .filter((candidate) => candidate.slug !== post.slug)
+      .filter(
+        (candidate) =>
+          (candidate.disciplineSlug === post.disciplineSlug &&
+            candidate.degreeSlug === post.degreeSlug) ||
+          (candidate.disciplineSlug === post.disciplineSlug &&
+            candidate.stageSlug === post.stageSlug),
+      )
+      .slice(0, 3)
+      .map((candidate) => postIdBySlug.get(candidate.slug))
+      .filter((value): value is number => typeof value === 'number')
+
+    await payload.update({
+      collection: 'posts',
+      id: currentId,
+      depth: 0,
+      locale: 'zh',
+      context: {
+        disableRevalidate: true,
+      },
+      data: {
+        authors: [editorialAuthor.id],
+        relatedPosts: relatedIds,
+      },
+    })
   }
 
   console.log(

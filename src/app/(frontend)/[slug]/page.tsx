@@ -73,7 +73,10 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
     slug: decodedSlug,
   })
 
-  return generateMeta({ doc: page })
+  return generateMeta({
+    doc: page,
+    pathname: decodedSlug === 'home' ? '/' : `/${decodedSlug}`,
+  })
 }
 
 const queryPageBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; slug: string }) => {
@@ -81,19 +84,21 @@ const queryPageBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; sl
 
   const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    locale,
-    pagination: false,
-    overrideAccess: draft,
-    where: {
-      slug: {
-        equals: slug,
+  const result = await payload
+    .find({
+      collection: 'pages',
+      draft,
+      limit: 1,
+      locale,
+      pagination: false,
+      overrideAccess: draft,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  }).catch(() => ({ docs: [] }))
+    })
+    .catch(() => ({ docs: [] }))
 
   return result.docs?.[0] || null
 })

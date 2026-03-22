@@ -8,8 +8,9 @@ import { formatAuthors } from '@/utilities/formatAuthors'
 import { cn } from '@/utilities/ui'
 
 export const PostHero: React.FC<{
+  locale: 'zh' | 'en'
   post: Post
-}> = ({ post }) => {
+}> = ({ locale, post }) => {
   const { categories, heroImage, meta, populatedAuthors, publishedAt, title } = post
 
   const hasAuthors =
@@ -18,12 +19,13 @@ export const PostHero: React.FC<{
     heroImage && typeof heroImage === 'object' && 'url' in heroImage ? heroImage : null
   const metaImageResource =
     meta?.image && typeof meta.image === 'object' && 'url' in meta.image ? meta.image : null
-  const heroMedia =
-    heroImageResource || metaImageResource
+  const heroMedia = heroImageResource || metaImageResource
   const hasHeroMedia = Boolean(heroMedia)
   const labelClassName = hasHeroMedia ? 'text-white/70' : 'text-slate-500'
   const valueClassName = hasHeroMedia ? 'text-white' : 'text-slate-700'
   const categoriesClassName = hasHeroMedia ? 'text-white/80' : 'text-slate-500'
+  const authorLabel = locale === 'en' ? 'Author' : '作者'
+  const publishedLabel = locale === 'en' ? 'Date Published' : '发布时间'
 
   return (
     <div
@@ -83,7 +85,7 @@ export const PostHero: React.FC<{
             {hasAuthors && (
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <p className={cn('text-sm', labelClassName)}>Author</p>
+                  <p className={cn('text-sm', labelClassName)}>{authorLabel}</p>
 
                   <p className={valueClassName}>{formatAuthors(populatedAuthors)}</p>
                 </div>
@@ -91,7 +93,7 @@ export const PostHero: React.FC<{
             )}
             {publishedAt && (
               <div className="flex flex-col gap-1">
-                <p className={cn('text-sm', labelClassName)}>Date Published</p>
+                <p className={cn('text-sm', labelClassName)}>{publishedLabel}</p>
 
                 <time className={valueClassName} dateTime={publishedAt}>
                   {formatDateTime(publishedAt)}

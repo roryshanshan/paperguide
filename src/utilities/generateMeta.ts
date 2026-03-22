@@ -21,14 +21,25 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
 
 export const generateMeta = async (args: {
   doc: Partial<Page> | Partial<Post> | null
+  openGraphType?: 'article' | 'website'
+  pathname?: string
 }): Promise<Metadata> => {
-  const { doc } = args
+  const { doc, openGraphType, pathname } = args
 
   const ogImage = getImageURL(doc?.meta?.image)
+  const serverUrl = getServerSideURL()
+  const normalizedTitle = doc?.meta?.title?.trim()
 
-  const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | PaperBridge'
+  const title = normalizedTitle
+    ? normalizedTitle.endsWith('| PaperBridge')
+      ? normalizedTitle
+      : `${normalizedTitle} | PaperBridge`
     : 'PaperBridge | Thesis Coaching & Academic Support'
+
+  const url =
+    pathname && pathname !== '/'
+      ? `${serverUrl}${pathname.startsWith('/') ? pathname : `/${pathname}`}`
+      : serverUrl
 
   return {
     description: doc?.meta?.description,
@@ -42,7 +53,8 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url,
+      ...(openGraphType ? { type: openGraphType } : {}),
     }),
     title,
   }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
+import { ArticleJsonLd } from '@/components/ArticleJsonLd'
 import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -68,7 +69,9 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <PostHero post={post} />
+      <ArticleJsonLd locale={locale} post={post} />
+
+      <PostHero locale={locale} post={post} />
 
       <div className="flex flex-col items-center gap-4 pt-8">
         <div className="container">
@@ -92,7 +95,11 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const decodedSlug = decodeURIComponent(slug)
   const post = await queryPostBySlug({ locale, slug: decodedSlug })
 
-  return generateMeta({ doc: post })
+  return generateMeta({
+    doc: post,
+    openGraphType: 'article',
+    pathname: decodedSlug ? `/posts/${decodedSlug}` : '/posts',
+  })
 }
 
 const queryPostBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; slug: string }) => {
@@ -100,19 +107,21 @@ const queryPostBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; sl
 
   const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'posts',
-    draft,
-    limit: 1,
-    locale,
-    overrideAccess: draft,
-    pagination: false,
-    where: {
-      slug: {
-        equals: slug,
+  const result = await payload
+    .find({
+      collection: 'posts',
+      draft,
+      limit: 1,
+      locale,
+      overrideAccess: draft,
+      pagination: false,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  }).catch(() => ({ docs: [] }))
+    })
+    .catch(() => ({ docs: [] }))
 
   return result.docs?.[0] || null
 })
