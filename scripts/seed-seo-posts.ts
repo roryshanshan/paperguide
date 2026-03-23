@@ -2,8 +2,7 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import configPromise from '../src/payload.config'
-import { getPayload } from 'payload'
+import type { Payload } from 'payload'
 
 type DegreeConfig = {
   categorySlug: string
@@ -72,7 +71,7 @@ type WritingHubConfig = {
   topicSlug: string
 }
 
-type GeneratedPost = {
+export type GeneratedPost = {
   categorySlug: string
   contentEn: ReturnType<typeof createRichText>
   contentZh: ReturnType<typeof createRichText>
@@ -11000,7 +10999,7 @@ function buildWritingHubEnglishPost(hub: WritingHubConfig, stage: StageConfig) {
   }
 }
 
-function buildCatalog(): GeneratedPost[] {
+export function buildCatalog(): GeneratedPost[] {
   const posts: GeneratedPost[] = []
   const startDate = new Date('2025-05-01T08:00:00.000Z')
   let index = 0
@@ -11082,7 +11081,7 @@ function chunk<T>(items: T[], size: number): T[][] {
   return chunks
 }
 
-async function ensureEditorialAuthor(payload: Awaited<ReturnType<typeof getPayload>>) {
+async function ensureEditorialAuthor(payload: Payload) {
   const existing = await payload.find({
     collection: 'users',
     depth: 0,
@@ -11111,7 +11110,7 @@ async function ensureEditorialAuthor(payload: Awaited<ReturnType<typeof getPaylo
 }
 
 async function ensureMedia(
-  payload: Awaited<ReturnType<typeof getPayload>>,
+  payload: Payload,
   filenameToEnsure: string,
 ) {
   const existing = await payload.find({
@@ -11149,7 +11148,7 @@ async function ensureMedia(
 }
 
 async function ensureCategory(
-  payload: Awaited<ReturnType<typeof getPayload>>,
+  payload: Payload,
   slug: string,
   titleZh: string,
   titleEn: string,
@@ -11203,7 +11202,7 @@ type ExistingPostSnapshot = {
 }
 
 async function loadExistingPostsBySlug(
-  payload: Awaited<ReturnType<typeof getPayload>>,
+  payload: Payload,
   slugs: string[],
 ) {
   const existingPosts = new Map<string, ExistingPostSnapshot>()
@@ -11241,7 +11240,7 @@ async function loadExistingPostsBySlug(
 }
 
 async function main() {
-  let payloadToDestroy: Awaited<ReturnType<typeof getPayload>> | null = null
+  let payloadToDestroy: Payload | null = null
   const shouldSeed = process.env.SEO_SEED_FORCE === '1' || process.env.VERCEL_ENV === 'production'
   const hasDatabaseUrl = Boolean(process.env.DATABASE_URL || process.env.POSTGRES_URL)
   const hasPayloadSecret = Boolean(process.env.PAYLOAD_SECRET)
@@ -11257,6 +11256,10 @@ async function main() {
   }
 
   try {
+  const [{ default: configPromise }, { getPayload }] = await Promise.all([
+    import('../src/payload.config'),
+    import('payload'),
+  ])
   const config = await configPromise
   const payload = await getPayload({ config })
   payloadToDestroy = payload
@@ -11497,18 +11500,23 @@ const shouldSkipSeedFailure = (error: unknown): boolean => {
   return /cannot connect to Postgres|data transfer quota/i.test(error.message)
 }
 
-main()
-  .then(() => {
-    process.exit(0)
-  })
-  .catch((error) => {
-    if (shouldSkipSeedFailure(error)) {
-      console.warn('[seed:seo] Skipping SEO seed because the database is currently unavailable.')
-      console.warn(error)
-      process.exit(0)
-    }
+const isDirectExecution =
+  Boolean(process.argv[1]) && path.resolve(process.argv[1]) === filename
 
-    console.error('[seed:seo] Failed to seed SEO articles.')
-    console.error(error)
-    process.exit(1)
-  })
+if (isDirectExecution) {
+  main()
+    .then(() => {
+      process.exit(0)
+    })
+    .catch((error) => {
+      if (shouldSkipSeedFailure(error)) {
+        console.warn('[seed:seo] Skipping SEO seed because the database is currently unavailable.')
+        console.warn(error)
+        process.exit(0)
+      }
+
+      console.error('[seed:seo] Failed to seed SEO articles.')
+      console.error(error)
+      process.exit(1)
+    })
+}
