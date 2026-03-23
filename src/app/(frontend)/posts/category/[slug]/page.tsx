@@ -31,6 +31,7 @@ type Args = {
 export const revalidate = 600
 
 const CATEGORY_PAGE_SIZE = 400
+const RECOMMENDED_PATH_STEPS = 3
 
 type CategoryPostData = CardPostData & {
   publishedAt?: string | null
@@ -76,6 +77,44 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
       stage,
     }))
     .filter((section) => section.posts.length > 0)
+  const recommendedPathPosts = stageSections
+    .map((section) => ({
+      post: section.posts.at(-1),
+      stage: section.stage,
+    }))
+    .filter(
+      (
+        section,
+      ): section is {
+        post: CategoryPostData
+        stage: (typeof postStages)[number]
+      } => Boolean(section.post),
+    )
+    .slice(0, RECOMMENDED_PATH_STEPS)
+  const stagePathCopy: Record<
+    string,
+    {
+      en: string
+      zh: string
+    }
+  > = {
+    proposal: {
+      en: 'Use this first to lock the question, scope, and feasibility before the draft spreads.',
+      zh: '先用这一步把问题、边界和可行性收紧，避免正文一开始就散开。',
+    },
+    'literature-review': {
+      en: 'Read this next when the sources exist but the gap, comparison, or review frame still feels weak.',
+      zh: '当文献已经有了，但缺口、比较和综述骨架还不清时，就接着读这一步。',
+    },
+    'methods-analysis': {
+      en: 'Move here once you need the question, evidence, and analysis line to finally align.',
+      zh: '当你需要把问题、证据和分析主线真正对齐时，再进入这一阶段。',
+    },
+    'revision-defense': {
+      en: 'Keep this for the round when response logic, defense pressure, or final consistency starts to matter.',
+      zh: '当返修逻辑、答辩压力和最终一致性开始变重要时，就进入这一阶段。',
+    },
+  }
 
   return (
     <div className="pt-24 pb-24">
@@ -164,6 +203,42 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
                 ))}
               </div>
             </section>
+
+            {recommendedPathPosts.length > 0 && (
+              <section className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-500">
+                  {locale === 'en' ? 'Recommended Path' : '推荐阅读路径'}
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                  {locale === 'en'
+                    ? 'Three reads that usually make this channel click faster'
+                    : '通常最能帮你快速进入这个专题的三篇文章'}
+                </h2>
+
+                <div className="mt-6 space-y-4">
+                  {recommendedPathPosts.map(({ post, stage }, index) => (
+                    <Link
+                      className="block rounded-[1.35rem] border border-slate-200/80 bg-slate-50/70 p-4 transition hover:border-[#fdba74] hover:bg-[#fff7ed]"
+                      href={`/posts/${post.slug}`}
+                      key={`${stage.slug}-${post.slug}`}
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="inline-flex rounded-full border border-[#fed7aa] bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#c2410c]">
+                          {locale === 'en' ? `Step ${index + 1}` : `第 ${index + 1} 步`}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                          {stage.labels[locale]}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm font-medium leading-7 text-slate-900">{post.title}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
+                        {stagePathCopy[stage.slug]?.[locale] || ''}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-sm">
               <div className="flex items-end justify-between gap-4">
