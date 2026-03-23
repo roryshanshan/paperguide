@@ -2719,6 +2719,130 @@ function buildEvidenceAlignmentEn({ discipline, stage }: PostBuildArgs) {
   return `Whether you are still in ${stage.titleEn.toLowerCase()} or already moving into later chapters, it helps to keep an evidence map: what the core claim is, which type of ${discipline.evidenceEn} supports it, and how the limitations of those materials narrow the conclusion. That map prevents later revisions from drifting out of control.`
 }
 
+const publicationThemeMarkersZh = [
+  '期刊',
+  '投稿',
+  'Cover Letter',
+  '审稿',
+  'desk reject',
+  '重投',
+  'proof',
+  '预印本',
+  '图文摘要',
+  'Highlights',
+  '会议摘要',
+  'PPT',
+  '关键词',
+  '读者',
+  '数据声明',
+  'AI 工具',
+  'original article',
+  'review',
+  'special issue',
+  '自引',
+]
+
+const publicationThemeMarkersEn = [
+  'journal',
+  'submission',
+  'cover letter',
+  'reviewer',
+  'desk rejection',
+  'resubmission',
+  'proof',
+  'preprint',
+  'graphical abstract',
+  'highlights',
+  'conference',
+  'ppt',
+  'keyword',
+  'reader',
+  'data statement',
+  'ai',
+  'original article',
+  'review',
+  'special issue',
+  'self-citation',
+]
+
+function hasThemeMarker(title: string, markers: string[]) {
+  const normalized = title.toLowerCase()
+
+  return markers.some((marker) => normalized.includes(marker.toLowerCase()))
+}
+
+function buildPublicationBridgeZh({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `如果你后面还准备把这项研究发展成投稿稿件，现在最值得多做的一步，是先让题目、摘要式表述和潜在期刊读者之间形成基本对应。对${degree.readerZh}来说，越早把研究问题写成别人看得懂、数据库搜得到、并且能由${discipline.evidenceZh}支撑的表达，后面从论文转向文章时就越不容易整盘重来。`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `如果后面准备投稿，文献综述不能只服务于“把导师交代清楚”，还要服务于“让编辑和审稿人迅速看见你的研究坐标”。对${degree.readerZh}来说，这意味着综述里不仅要交代前人做了什么，还要让读者看见你如何借助${discipline.evidenceZh}把问题继续往前推，而不是只把参考文献越堆越厚。`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `如果你后面还要走投稿或公开传播这条线，方法部分最该提前补的就是透明度和可复核性。对${degree.readerZh}来说，样本口径、指标定义、图表来源、稳健性检验和${discipline.evidenceZh}的整理痕迹越早留清楚，后面面对编辑、审稿人或答辩追问时就越不容易陷入“其实做了但当时没写出来”的被动。`
+  }
+
+  return `如果你后面准备把论文继续送到投稿、重投或公开传播阶段，这一轮最该额外检查的是“读者第一次看到这份稿件时会不会迅速抓到重点”。对${degree.readerZh}来说，这意味着摘要、结论、图表、补充材料和${discipline.evidenceZh}的说明都要开始围绕同一条主线服务，而不是正文改好了，前后端材料却仍然各说各话。`
+}
+
+function buildPublicationBridgeEn({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `If you may eventually turn this project into a submission-ready paper, one extra move matters now: make the topic, abstract-style framing, and likely journal reader correspond early. For ${degree.readerEn}, the sooner the question becomes something readers can understand, databases can surface, and ${discipline.evidenceEn} can support, the less painful the later shift from thesis to article will be.`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `If publication is a later goal, the literature review cannot serve only advisor clarity. It also has to help editors and reviewers see your research position quickly. For ${degree.readerEn}, that means the review must show not only what earlier work did but how your study can move the discussion forward through ${discipline.evidenceEn}.`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `If this work may later enter submission or wider circulation, the method section should start building transparency and reviewability now. For ${degree.readerEn}, the earlier the sample rules, indicator definitions, figure sources, robustness checks, and traces of ${discipline.evidenceEn} are documented, the easier it becomes to answer editors, reviewers, or examiners without falling back on “we did it but failed to write it clearly.”`
+  }
+
+  return `If the thesis may continue into submission, resubmission, or broader circulation, this round should already test whether a first-time reader would grasp the point quickly. For ${degree.readerEn}, that means the abstract, conclusion, figures, supplements, and explanation of ${discipline.evidenceEn} should now revolve around one visible line instead of functioning as disconnected materials.`
+}
+
+function buildPublicationBonusZh({ degree, discipline, stage }: PostBuildArgs, titleZh: string) {
+  if (!hasThemeMarker(titleZh, publicationThemeMarkersZh)) {
+    return null
+  }
+
+  if (stage.slug === 'proposal') {
+    return `这类题目天然带着“以后还要面对编辑或同行”的视角，所以在开题阶段就值得多问一层：如果别人只给你两分钟看标题、关键词和迷你摘要，他们能不能立刻看出研究对象、判断方向和${discipline.evidenceZh}的进入方式。对${degree.readerZh}来说，这种提前压力测试通常比再补一页背景更能暴露真正的薄弱点。`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `这类题目到了综述阶段，真正重要的不是把概念讲得多全，而是让编辑、审稿人或领域读者能看见你站在什么位置说话。也就是说，你的综述需要同时处理前人脉络、当前争议和${discipline.evidenceZh}能够补上的那一块，而不能只停留在“我读过很多”的展示层面。`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `这类题目在方法层面尤其强调“别人是否能信服你的处理过程”。所以除了跑出结果，更要提前考虑图表、补充材料、声明文本和${discipline.evidenceZh}的整理方式，因为这些内容后来会直接决定稿件在投稿系统、外审和答辩场景里的表现。`
+  }
+
+  return `这类题目到了修改和投稿阶段，关键已经不是单点修辞，而是整套材料能不能前后一致。标题、摘要、Cover Letter、回复信、图表说明和${discipline.evidenceZh}的版本关系，只要有一处掉链子，读者就会感觉这篇稿件的主线还没有真正拧紧。`
+}
+
+function buildPublicationBonusEn({ degree, discipline, stage }: PostBuildArgs, titleEn: string) {
+  if (!hasThemeMarker(titleEn, publicationThemeMarkersEn)) {
+    return null
+  }
+
+  if (stage.slug === 'proposal') {
+    return `Topics like this already carry a future editor-and-peer perspective, so the proposal stage should ask one extra question: if someone only had two minutes with the title, keywords, and a mini abstract, would they understand the object, the judgment direction, and how ${discipline.evidenceEn} enters the study? For ${degree.readerEn}, that stress test usually reveals weak points faster than another page of background ever will.`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `At the review stage, this kind of topic is not mainly about naming every concept. It is about making your position legible to editors, reviewers, and field readers. The review therefore has to connect earlier scholarship, the current dispute, and the piece that ${discipline.evidenceEn} allows your study to add.`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `For topics like this, the methodological issue is not only whether a result exists but whether the process can be trusted. Figures, supplements, disclosure text, and the organization of ${discipline.evidenceEn} all begin to matter here because they will shape how the manuscript performs in submission, review, and defense settings later on.`
+  }
+
+  return `At the revision and submission stage, topics like this succeed or fail less on isolated wording choices than on whether the full material set stays internally aligned. The title, abstract, cover letter, response file, visual notes, and the versioning of ${discipline.evidenceEn} all need to tell the same story.`
+}
+
 function buildChineseMetaDescription(args: PostBuildArgs, theme: ContentTheme) {
   return `适合${args.degree.readerZh}的${args.discipline.titleZh}${args.stage.titleZh}指南，重点讲清${theme
     .titleZh(args)
@@ -2748,6 +2872,7 @@ function buildChinesePost(
   const metaDescriptionZh = buildChineseMetaDescription(postArgs, theme)
   const [step1, step2, step3] = theme.stepsZh(args)
   const [check1, check2, check3] = narrative.checklistZh(postArgs)
+  const publicationBonusZh = buildPublicationBonusZh(postArgs, titleZh)
 
   const contentZh = createRichText([
     createHeading('先判断真正卡在哪'),
@@ -2777,6 +2902,9 @@ function buildChinesePost(
     createParagraph(buildEvidenceAlignmentZh(postArgs)),
     createHeading('这一稿的质量标准是什么'),
     createParagraph(narrative.qualityZh(postArgs)),
+    createHeading('如果你后面还想继续走投稿或公开传播'),
+    createParagraph(buildPublicationBridgeZh(postArgs)),
+    ...(publicationBonusZh ? [createParagraph(publicationBonusZh)] : []),
     createHeading('最容易踩的坑'),
     createParagraph(theme.riskZh(args)),
     createHeading('交稿前自检清单'),
@@ -2811,6 +2939,7 @@ function buildEnglishPost(
   const metaDescriptionEn = buildEnglishMetaDescription(postArgs)
   const [step1, step2, step3] = theme.stepsEn(args)
   const [check1, check2, check3] = narrative.checklistEn(postArgs)
+  const publicationBonusEn = buildPublicationBonusEn(postArgs, titleEn)
 
   const contentEn = createRichText([
     createHeading('Find the real bottleneck first'),
@@ -2840,6 +2969,9 @@ function buildEnglishPost(
     createParagraph(buildEvidenceAlignmentEn(postArgs)),
     createHeading('What quality should look like in this draft'),
     createParagraph(narrative.qualityEn(postArgs)),
+    createHeading('If this work may later move toward submission or public circulation'),
+    createParagraph(buildPublicationBridgeEn(postArgs)),
+    ...(publicationBonusEn ? [createParagraph(publicationBonusEn)] : []),
     createHeading('The easiest trap to fall into'),
     createParagraph(theme.riskEn(args)),
     createHeading('Quick pre-submission checklist'),
