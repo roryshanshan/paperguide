@@ -2843,6 +2843,70 @@ function buildPublicationBonusEn({ degree, discipline, stage }: PostBuildArgs, t
   return `At the revision and submission stage, topics like this succeed or fail less on isolated wording choices than on whether the full material set stays internally aligned. The title, abstract, cover letter, response file, visual notes, and the versioning of ${discipline.evidenceEn} all need to tell the same story.`
 }
 
+function buildDepthPriorityZh({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `如果你想把这篇内容继续扩成更像可投稿的长文，最该优先补深的通常不是背景铺陈，而是三层判断：这个问题为什么值得现在回答，现有研究为什么还没把它讲透，以及你手上的${discipline.evidenceZh}究竟能把论证推进到哪一步。对${degree.readerZh}来说，先把这三层写实，比把题目写得更宏大更能拉开深度。`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `综述类文章要写得更深，重点也不在于多列几篇文献，而在于把“现有共识、关键分歧、尚未解决的解释缺口”拆开来写。对${degree.readerZh}来说，只要你能明确指出不同研究如何处理${discipline.focusZh}、为何会得出不同结论、以及你的论文准备补哪一段，综述就会从资料整理升级成真正的学术对话。`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `方法和分析部分如果想写得更扎实，优先增加的不是更多结果截图，而是决策过程本身：样本为什么这样筛，变量为什么这样定，异常值为什么这样处理，哪些稳健性检验真的会改变解释。对${degree.readerZh}来说，把${discipline.evidenceZh}背后的方法判断说透，往往比单纯多放一张图更能体现研究成熟度。`
+  }
+
+  return `到了修改定稿阶段，文章深度往往体现在“你如何解释修改逻辑”，而不只是“你改了多少地方”。对${degree.readerZh}来说，更值得补写的是为什么保留某些论点、为什么删去某些枝节、摘要和结论为何必须同步调整，以及${discipline.evidenceZh}对应的关键图表为什么足以支撑最终版本。`
+}
+
+function buildDepthPriorityEn({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `If you want this piece to grow into something closer to a submission-ready long article, depth usually comes less from adding background and more from clarifying three judgments: why the question matters now, why existing work has not resolved it yet, and how far your available ${discipline.evidenceEn} can actually push the argument. For ${degree.readerEn}, writing those three layers clearly often adds more depth than making the title sound larger.`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `A deeper review does not come from naming more sources. It comes from separating the current consensus, the core disputes, and the explanatory gap that remains unresolved. For ${degree.readerEn}, once the review shows how earlier studies handled ${discipline.focusEn}, why they reached different conclusions, and exactly where the thesis enters that gap, the section starts reading like scholarship rather than reading notes.`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `When the methods and analysis section needs more depth, the most valuable addition is rarely more screenshots of results. It is the decision trail itself: why the sample was defined this way, why variables were operationalized this way, how irregular cases were handled, and which robustness checks would genuinely change the interpretation. For ${degree.readerEn}, explaining the judgment behind ${discipline.evidenceEn} often signals more maturity than simply adding another figure.`
+  }
+
+  return `At the revision and finalization stage, depth often shows up in how you explain the logic of revision rather than the sheer number of edits. For ${degree.readerEn}, it is worth expanding why some claims were retained, why some branches were removed, why the abstract and conclusion had to change together, and why the key figures based on ${discipline.evidenceEn} are sufficient to support the final version.`
+}
+
+function buildSubmissionReadyPackZh({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `如果你后面确实想把这题继续做成投稿稿件，建议现在就同步搭一个“投稿准备草包”：一页目标读者画像、两到三个可能承接该主题的栏目或期刊方向、一版 150 字迷你摘要，以及一张“题目关键词-${discipline.evidenceZh}-预期贡献”的对照表。这样以后从学位论文转成文章时，你不是从零开始改，而是在一套已经想过发表路径的框架里继续推进。`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `综述阶段最值得顺手搭建的，是一个可投稿化的引言材料包：高价值核心引用、争议分组、研究缺口句、理论进入点，以及一句能够把${discipline.evidenceZh}与贡献说清楚的 novelty statement。对${degree.readerZh}来说，这套材料以后不管是写引言、Cover Letter 还是答辩陈述，都会直接复用。`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `如果以后会进入投稿流程，这一阶段最好就开始整理 submission-ready evidence pack：样本筛选规则、编码本、变量口径、图表源文件、异常值说明、补充分析、伦理或数据声明草稿。很多${degree.readerZh}的稿件并不是输在“结果不够多”，而是输在编辑和审稿人追问时，作者拿不出一套前后一致的处理记录。`
+  }
+
+  return `定稿前最值得准备的，是一套完整的 response package：一页式贡献总结、修改前后差异表、Cover Letter 主线、答辩高频问题、以及涉及${discipline.evidenceZh}的版本说明。这样无论你下一步是交导师、进答辩还是改投期刊，整套表达都会保持稳定，不会每到一个场景就换一套说法。`
+}
+
+function buildSubmissionReadyPackEn({ degree, discipline, stage }: PostBuildArgs) {
+  if (stage.slug === 'proposal') {
+    return `If you really want this project to move toward journal submission later, it helps to build a rough submission pack now: a one-page audience profile, two or three plausible journal or section directions, a 150-word mini abstract, and a map connecting the title terms, ${discipline.evidenceEn}, and the intended contribution. Then the later shift from thesis to article becomes an extension of an existing plan rather than a rewrite from zero.`
+  }
+
+  if (stage.slug === 'literature-review') {
+    return `At the review stage, the most reusable package is an introduction kit for future submission: the highest-value core references, the dispute clusters, the gap sentence, the theory entry point, and one novelty statement that connects your contribution to ${discipline.evidenceEn}. For ${degree.readerEn}, that material can later feed the introduction, the cover letter, and even the oral defense framing.`
+  }
+
+  if (stage.slug === 'methods-analysis') {
+    return `If submission is part of the later path, this is the stage to start assembling a submission-ready evidence pack: sample-screening rules, coding sheets, variable definitions, figure source files, notes on outliers, supplementary analyses, and draft ethics or data statements. Many manuscripts do not fail because the results are too few. They fail because the author cannot present one consistent processing record when editors and reviewers ask follow-up questions.`
+  }
+
+  return `Before the final draft goes out, the most valuable preparation is a full response package: a one-page contribution summary, a before-and-after revision table, the core cover-letter line, likely defense questions, and a version note for the pieces tied to ${discipline.evidenceEn}. That package keeps the story stable whether the next step is advisor review, oral defense, or submission to another journal.`
+}
+
 function buildChineseMetaDescription(args: PostBuildArgs, theme: ContentTheme) {
   return `适合${args.degree.readerZh}的${args.discipline.titleZh}${args.stage.titleZh}指南，重点讲清${theme
     .titleZh(args)
@@ -2905,6 +2969,9 @@ function buildChinesePost(
     createHeading('如果你后面还想继续走投稿或公开传播'),
     createParagraph(buildPublicationBridgeZh(postArgs)),
     ...(publicationBonusZh ? [createParagraph(publicationBonusZh)] : []),
+    createHeading('想把这篇内容继续写深并往投稿版本靠'),
+    createParagraph(buildDepthPriorityZh(postArgs)),
+    createParagraph(buildSubmissionReadyPackZh(postArgs)),
     createHeading('最容易踩的坑'),
     createParagraph(theme.riskZh(args)),
     createHeading('交稿前自检清单'),
@@ -2972,6 +3039,9 @@ function buildEnglishPost(
     createHeading('If this work may later move toward submission or public circulation'),
     createParagraph(buildPublicationBridgeEn(postArgs)),
     ...(publicationBonusEn ? [createParagraph(publicationBonusEn)] : []),
+    createHeading('If you want to deepen this piece and move it closer to submission'),
+    createParagraph(buildDepthPriorityEn(postArgs)),
+    createParagraph(buildSubmissionReadyPackEn(postArgs)),
     createHeading('The easiest trap to fall into'),
     createParagraph(theme.riskEn(args)),
     createHeading('Quick pre-submission checklist'),
