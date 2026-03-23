@@ -49,6 +49,86 @@ export const audienceCategories = [
       zh: '博士论文文章库',
     },
   },
+  {
+    categorySlug: 'research-topic-planning',
+    degreeSlug: 'research-topic',
+    labels: {
+      en: 'Topic Selection',
+      zh: '选题与问题定义',
+    },
+    hubDescriptions: {
+      en: 'Long-form writing guides on narrowing topics, defining research questions, checking feasibility, and turning vague interests into workable paper plans.',
+      zh: '围绕选题缩题、研究问题、创新表达与可行性判断，整理更贴近真实写作卡点的长文内容。',
+    },
+    hubTitles: {
+      en: 'Topic Selection and Question Design',
+      zh: '选题与问题定义文章库',
+    },
+  },
+  {
+    categorySlug: 'literature-reading-review',
+    degreeSlug: 'literature-reading',
+    labels: {
+      en: 'Literature Review',
+      zh: '文献阅读与综述',
+    },
+    hubDescriptions: {
+      en: 'A practical hub focused on search strategy, literature grouping, review structure, and reading notes that can actually feed the paper.',
+      zh: '聚焦检索策略、文献分组、综述结构和可复用阅读笔记，让“读过很多”真正变成“写得出来”。',
+    },
+    hubTitles: {
+      en: 'Literature Reading and Review Library',
+      zh: '文献阅读与综述文章库',
+    },
+  },
+  {
+    categorySlug: 'structure-abstract-writing',
+    degreeSlug: 'paper-structure',
+    labels: {
+      en: 'Structure Writing',
+      zh: '摘要引言与结构写作',
+    },
+    hubDescriptions: {
+      en: 'Guides on mini abstracts, introduction logic, section boundaries, results-discussion separation, and synchronized revision of the front and back matter.',
+      zh: '围绕迷你摘要、引言逻辑、章节分工、结果讨论拆分与前后文联动修改，补齐论文结构表达的高频短板。',
+    },
+    hubTitles: {
+      en: 'Abstract, Introduction, and Structure Writing',
+      zh: '摘要引言与结构写作文章库',
+    },
+  },
+  {
+    categorySlug: 'methods-data-presentation',
+    degreeSlug: 'methods-data',
+    labels: {
+      en: 'Methods and Data',
+      zh: '方法设计与结果表达',
+    },
+    hubDescriptions: {
+      en: 'A deeper article track for hypotheses, theory-to-method translation, evidence maps, figures, and answering detailed method questions clearly.',
+      zh: '聚焦研究假设、理论落地、证据地图、图表表达和方法追问回应，帮助把分析链条真正写实。',
+    },
+    hubTitles: {
+      en: 'Methods Design and Evidence Presentation',
+      zh: '方法设计与结果表达文章库',
+    },
+  },
+  {
+    categorySlug: 'submission-defense-workflow',
+    degreeSlug: 'submission-workflow',
+    labels: {
+      en: 'Revision and Submission',
+      zh: '返修投稿与答辩',
+    },
+    hubDescriptions: {
+      en: 'Long-form workflow notes on novelty statements, reviewer responses, cover letters, proofs, defense preparation, and version consistency.',
+      zh: '围绕 novelty statement、返修信、投稿材料、proof 校样、答辩准备与版本一致性，形成更贴近真实发表流程的文章库。',
+    },
+    hubTitles: {
+      en: 'Revision, Submission, and Defense Workflow',
+      zh: '返修投稿与答辩文章库',
+    },
+  },
 ] as const
 
 export const postStages = [
@@ -118,7 +198,9 @@ export const getPostStage = (stageSlug: string | null | undefined) => {
 export const parseSeoPostSlug = (slug: string | null | undefined) => {
   if (!slug) return null
 
-  const category = audienceCategories.find((entry) => slug.startsWith(`${entry.degreeSlug}-`))
+  const category = [...audienceCategories]
+    .sort((left, right) => right.degreeSlug.length - left.degreeSlug.length)
+    .find((entry) => slug.startsWith(`${entry.degreeSlug}-`))
   const stage = postStages.find((entry) => slug.endsWith(`-${entry.slug}-guide`))
 
   if (!category || !stage) return null

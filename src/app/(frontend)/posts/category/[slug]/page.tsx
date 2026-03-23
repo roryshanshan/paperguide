@@ -85,7 +85,7 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
         </nav>
 
         <p className="mt-8 text-xs uppercase tracking-[0.32em] text-[#c2410c]">
-          {locale === 'en' ? 'Degree Hub' : '学位分类'}
+          {locale === 'en' ? 'Topic Hub' : '专题分类'}
         </p>
         <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
           {category.hubTitles[locale]}

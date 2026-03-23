@@ -52,8 +52,8 @@ export default async function Page() {
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
           {locale === 'en'
-            ? 'Browse thesis guides, writing strategies, revision notes, and case-based academic support articles.'
-            : '浏览论文方法、写作策略、返修建议与案例拆解等学术辅导内容。'}
+            ? 'Browse thesis guides, topic-based writing hubs, revision notes, and long-form academic support articles.'
+            : '浏览论文方法、专题写作频道、返修建议与长文辅导内容。'}
         </p>
         <PostAudiencePills locale={locale} />
       </div>
