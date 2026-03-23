@@ -2,10 +2,10 @@ import { getPayload } from 'payload'
 import { NextRequest, NextResponse } from 'next/server'
 
 import config from '@payload-config'
+import { storeConsultationInboxRecord } from '@/utilities/consultationInbox'
 import { isSiteLocale } from '@/utilities/siteLocale'
 
 export async function POST(request: NextRequest) {
-  const payload = await getPayload({ config })
   const body = await request.json()
 
   const name = typeof body?.name === 'string' ? body.name.trim() : ''
@@ -20,18 +20,35 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
   }
 
-  await payload.create({
-    collection: 'consultation-requests',
-    data: {
-      education,
-      locale,
-      name,
-      notes,
-      phone,
-      sourcePage,
-      topic,
-    },
+  const record = await storeConsultationInboxRecord({
+    education,
+    locale,
+    name,
+    notes,
+    phone,
+    sourcePage,
+    topic,
   })
 
-  return NextResponse.json({ success: true })
+  try {
+    const payload = await getPayload({ config })
+
+    await payload.create({
+      collection: 'consultation-requests',
+      data: {
+        education,
+        locale,
+        name,
+        notes,
+        phone,
+        sourcePage,
+        topic,
+      },
+    })
+  } catch (error) {
+    console.warn('[submit-consultation] Saved request to consultation inbox, but database sync failed.')
+    console.warn(error)
+  }
+
+  return NextResponse.json({ id: record.id, success: true })
 }
