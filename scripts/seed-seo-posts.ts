@@ -11489,11 +11489,25 @@ async function main() {
   }
 }
 
+const shouldSkipSeedFailure = (error: unknown): boolean => {
+  if (!(error instanceof Error)) {
+    return false
+  }
+
+  return /cannot connect to Postgres|data transfer quota/i.test(error.message)
+}
+
 main()
   .then(() => {
     process.exit(0)
   })
   .catch((error) => {
+    if (shouldSkipSeedFailure(error)) {
+      console.warn('[seed:seo] Skipping SEO seed because the database is currently unavailable.')
+      console.warn(error)
+      process.exit(0)
+    }
+
     console.error('[seed:seo] Failed to seed SEO articles.')
     console.error(error)
     process.exit(1)
