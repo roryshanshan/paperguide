@@ -115,6 +115,30 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
       zh: '当返修逻辑、答辩压力和最终一致性开始变重要时，就进入这一阶段。',
     },
   }
+  const stageStarterCopy: Record<
+    string,
+    {
+      en: string
+      zh: string
+    }
+  > = {
+    proposal: {
+      en: 'Start here if the topic is still broad, unstable, or hard to make feasible.',
+      zh: '如果题目还偏大、偏虚，或者总觉得不可行，就先从这里开始。',
+    },
+    'literature-review': {
+      en: 'Use this as the first read when the sources exist but the review still will not take shape.',
+      zh: '当文献已经找到了，但综述还是搭不起来时，先从这篇开始。',
+    },
+    'methods-analysis': {
+      en: 'Read this first if the question, evidence, and analysis line still refuse to align.',
+      zh: '如果问题、证据和分析主线总对不齐，先读这篇会更省时间。',
+    },
+    'revision-defense': {
+      en: 'Start here once the draft exists and you need a steadier revision or defense route.',
+      zh: '如果正文已经成形，需要更稳地进入返修或答辩，就先读这里。',
+    },
+  }
 
   return (
     <div className="pt-24 pb-24">
@@ -303,9 +327,12 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
       </div>
 
       <div className="mt-14 space-y-14">
-        {stageSections.map((section) => (
+        {stageSections.map((section) => {
+          const recommendedStarter = section.posts.at(-1)
+
+          return (
           <section key={section.stage.slug}>
-            <div className="container mb-8">
+            <div className="container mb-8 space-y-6">
               <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
@@ -321,10 +348,35 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
                     : `该阶段共 ${section.posts.length} 篇文章`}
                 </p>
               </div>
+
+              {recommendedStarter && (
+                <div className="rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,#fffaf5_0%,#ffffff_100%)] p-5 shadow-sm md:p-6">
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-2xl">
+                      <p className="text-xs uppercase tracking-[0.24em] text-[#c2410c]">
+                        {locale === 'en' ? 'Recommended Starter' : '建议先读'}
+                      </p>
+                      <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                        {recommendedStarter.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
+                        {stageStarterCopy[section.stage.slug]?.[locale] || ''}
+                      </p>
+                    </div>
+
+                    <Link
+                      className="inline-flex h-11 items-center justify-center rounded-full bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
+                      href={`/posts/${recommendedStarter.slug}`}
+                    >
+                      {locale === 'en' ? 'Read this first' : '先读这篇'}
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
             <CollectionArchive posts={section.posts} />
           </section>
-        ))}
+        )})}
       </div>
     </div>
   )
