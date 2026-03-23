@@ -7293,6 +7293,696 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'academic-voice',
+    topicSlug: 'hedging-signposting',
+    categorySlug: 'academic-voice-argument',
+    labelZh: '学术表达与论证语言',
+    labelEn: 'Academic Voice and Argument',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'hedging、signposting、段落判断和 scholarly voice',
+    focusEn: 'hedging, signposting, paragraph judgment, and scholarly voice',
+    evidenceZh: '句式版本、段落主句和过渡词笔记',
+    evidenceEn: 'sentence versions, paragraph topic claims, and transition notes',
+    standardZh: '重点不是把句子写得更像模板，而是让判断强度、段落推进和读者引导真正匹配。',
+    standardEn:
+      'The goal is not to make sentences sound more templated but to align claim strength, paragraph movement, and reader guidance with one another.',
+    articles: {
+      proposal: {
+        titleZh: '开题表达总像口号？先学会给判断加边界，而不是一味写满',
+        titleEn:
+          'Does your proposal writing sound like slogans? Learn to add boundaries to claims instead of only making them bigger',
+        introZh:
+          '很多开题文本的问题，不是信息太少，而是判断说得太满。作者想显得有把握，就把 every claim 都写成绝对句，结果反而让老师更容易追问“你凭什么敢这样说”。',
+        introEn:
+          'Many proposal drafts are not weak because they contain too little information but because their judgments are too absolute. Writers try to sound confident by making every claim categorical, only to make advisors ask more quickly why such certainty is justified.',
+        zhihuAngleZh:
+          '在很多国外写作中心的指导里，常会反复强调一个点：academic voice 不等于把话说得更满，而是知道什么时候该给判断留边界。',
+        zhihuAngleEn:
+          'Across many overseas writing-center guides, one point is repeated again and again: academic voice does not mean making every statement stronger, but knowing when a judgment should carry a boundary.',
+        strategyZh:
+          '更稳的开题表达，是把每个关键判断都写成“结论 + 条件 + 边界”三段式。只要你能说明这个判断在哪种材料和范围里成立，文字就会比单纯堆大词更像学术表达。',
+        strategyEn:
+          'A steadier proposal-stage style is to write each major judgment in a three-part form: conclusion, condition, and boundary. Once you can show under what material and within what range the claim holds, the writing sounds far more scholarly than language inflated by large words alone.',
+        stepsZh: [
+          '先找出开题里说得最满的三到五句判断。',
+          '再为每句补上成立条件和适用边界。',
+          '最后删掉只负责放大语气却不增加信息的词。',
+        ],
+        stepsEn: [
+          'Identify the three to five most over-assertive claim sentences in the proposal first.',
+          'Add the condition and scope boundary for each sentence next.',
+          'Remove the words that only inflate tone without adding information at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步很重要，因为国际期刊常见的第一感觉并不是“这作者敢不敢说”，而是“这作者会不会准确控制判断强度”。',
+        submissionEn:
+          'If the work later moves toward journal submission, this step is important because international editorial expectations are often shaped less by whether the author sounds bold than by whether the author controls claim strength accurately.',
+        riskZh:
+          '如果判断一直写得很满，最常见的后果就是文字看起来有气势，但论证基础明显跟不上，读者很快就会失去信任。',
+        riskEn:
+          'If claims remain consistently overstated, the common result is language that sounds forceful while the argumentative base lags behind, causing readers to lose trust quickly.',
+        checklistZh: [
+          '1. 是否找出了说得最满的关键判断句。',
+          '2. 每句是否补上了成立条件和适用边界。',
+          '3. 是否删掉了只放大语气、不增加信息的词。',
+        ],
+        checklistEn: [
+          '1. Have the most over-assertive key claim sentences been identified?',
+          '2. Has each one been given a condition and scope boundary?',
+          '3. Have purely tone-inflating words been removed?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更稳的开题表达，让老师看到的是判断控制，而不是口号式夸张。',
+        deliverableEn:
+          'After this round, you should have a steadier proposal voice that shows control of judgment rather than slogan-like inflation.',
+        closeZh:
+          '学术表达真正显得成熟的时候，往往不是话更大，而是边界更清楚。',
+        closeEn:
+          'Academic expression often starts to feel mature not when the wording becomes bigger but when the boundaries become clearer.',
+      },
+      'literature-review': {
+        titleZh: '综述段落总像文献串烧？用 signposting 把比较和判断真正带出来',
+        titleEn:
+          'Do literature-review paragraphs read like stitched summaries? Use signposting to bring comparison and judgment to the surface',
+        introZh:
+          '很多综述段落不是没读文献，而是每篇文献都被单独讲了一遍，读者看完仍然不知道这一段到底在比较什么、准备推进什么判断。',
+        introEn:
+          'Many literature-review paragraphs are not weak because the sources were not read, but because each study is retold separately, leaving readers unsure what the paragraph is actually comparing or what judgment it is trying to advance.',
+        zhihuAngleZh:
+          '国外写作中心常把 signposting 当成读者导航工具来看待：不是为了装饰语言，而是为了让段落里的比较、转折和判断更容易被看见。',
+        zhihuAngleEn:
+          'Overseas writing-center guidance often treats signposting as a reader-navigation tool: not as decoration, but as a way to make comparison, contrast, and judgment visible inside a paragraph.',
+        strategyZh:
+          '更稳的综述段落写法，是先写段落要推进的比较句，再用 signposting 把 supporting studies 组织成同向、相反或补充三类。只要判断句先出现，文献就不会再像流水式排队。',
+        strategyEn:
+          'A steadier review-paragraph method begins by writing the comparison claim the paragraph must advance, then uses signposting to organize supporting studies into aligning, opposing, or extending groups. Once the judgment sentence comes first, the literature no longer reads like a queue of summaries.',
+        stepsZh: [
+          '先写出每一段真正要推进的比较句。',
+          '再把文献按同向、相反和补充分组。',
+          '最后用过渡词明确告诉读者这一组材料为什么被放在一起。',
+        ],
+        stepsEn: [
+          'Write the real comparison sentence each paragraph must advance first.',
+          'Group the studies into aligning, opposing, and extending sets next.',
+          'Use transition language at the end to make clear why those materials were placed together.',
+        ],
+        submissionZh:
+          '如果后面还要写成英文学术引言，这种段落组织会很值钱，因为国外期刊非常在意综述是不是在做 synthesis，而不只是 summary。',
+        submissionEn:
+          'If the material later becomes an English-language journal introduction, this paragraph organization is highly valuable because international journals care strongly about whether the review is performing synthesis rather than mere summary.',
+        riskZh:
+          '如果综述段落一直没有判断句和 signposting，最常见的后果就是材料很多、引用很多，但整段还是像在平铺信息。',
+        riskEn:
+          'If review paragraphs never gain judgment sentences or signposting, the common result is a large amount of literature and citation volume that still reads like flat information display.',
+        checklistZh: [
+          '1. 每段是否先写出了要推进的比较句。',
+          '2. 文献是否按同向、相反和补充分组。',
+          '3. 是否用过渡词说明了这些材料为什么被放在一起。',
+        ],
+        checklistEn: [
+          '1. Has each paragraph begun with the comparison sentence it must advance?',
+          '2. Have studies been grouped into aligning, opposing, and extending sets?',
+          '3. Do transition cues explain why these materials belong together?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更像 synthesis 的综述段落，而不是文献串烧式段落。',
+        deliverableEn:
+          'After this round, you should have literature-review paragraphs that behave more like synthesis than stitched-together summaries.',
+        closeZh:
+          '综述真正开始像论证的时候，signposting 不是装饰，而是把判断带到台前。',
+        closeEn:
+          'A literature review begins to feel argumentative when signposting stops being decoration and starts bringing the judgment to the front.',
+      },
+      'methods-analysis': {
+        titleZh: '结果写得总像报告单？用 hedging 调准判断强度，而不是一味抬高',
+        titleEn:
+          'Do your findings read like a raw report? Use hedging to calibrate claim strength instead of only lifting it upward',
+        introZh:
+          '很多分析段落一到结果部分就会出现两个极端：要么像报告单一样只摆事实，要么为了显得有结论，把有限结果说成了过度外推的判断。',
+        introEn:
+          'Many analysis paragraphs swing between two extremes in the findings section: they either list raw observations like a report sheet or overstate limited findings to sound more conclusive than the evidence allows.',
+        zhihuAngleZh:
+          '国外学术写作指导里经常强调 hedging 的价值，不是把观点写虚，而是让结果、解释和外推范围彼此对齐。',
+        zhihuAngleEn:
+          'International academic-writing guidance often emphasizes the value of hedging not to make ideas weak, but to align findings, interpretation, and the range of generalization.',
+        strategyZh:
+          '更稳的分析表达，是把结果句拆成“观察到什么、可以推到哪里、不能推到哪里”。只要这三层不再混在一起，结果段就会既不发虚，也不冒进。',
+        strategyEn:
+          'A steadier analytical style splits each findings sentence into what was observed, how far it can be interpreted, and where it should stop. Once those three layers stop blending together, the results section becomes neither timid nor overreaching.',
+        stepsZh: [
+          '先把结果段里最容易过度外推的句子圈出来。',
+          '再拆成观察、解释和外推三层。',
+          '最后用 hedging 调整那些超出证据强度的判断。',
+        ],
+        stepsEn: [
+          'Mark the sentences in the results section most likely to overgeneralize first.',
+          'Split them into observation, interpretation, and generalization layers next.',
+          'Use hedging at the end to recalibrate the claims that exceed the strength of the evidence.',
+        ],
+        submissionZh:
+          '如果后面还要走国际投稿，这一步非常重要，因为 reviewer 常常不是反对你的结果，而是反对结果被说得超出了它实际能支撑的范围。',
+        submissionEn:
+          'If the work later moves toward international submission, this step becomes very important because reviewers often do not reject the finding itself. They reject the way the finding is stated beyond the range it can actually support.',
+        riskZh:
+          '如果结果段一直不是平铺事实、就是过度拔高，最常见的后果就是文章不是缺结论感，就是缺可信度。',
+        riskEn:
+          'If the results section remains stuck between flat reporting and overstatement, the common result is a paper that lacks either a sense of conclusion or a sense of credibility.',
+        checklistZh: [
+          '1. 是否圈出了最容易过度外推的结果句。',
+          '2. 是否拆分了观察、解释和外推三层。',
+          '3. 是否用 hedging 调整了超出证据强度的判断。',
+        ],
+        checklistEn: [
+          '1. Have the result sentences most likely to overgeneralize been marked?',
+          '2. Have they been split into observation, interpretation, and generalization layers?',
+          '3. Has hedging been used to recalibrate claims beyond the evidence strength?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更有判断感、同时也更可信的结果表达。',
+        deliverableEn:
+          'After this round, you should have a results section that feels more interpretive while remaining more credible.',
+        closeZh:
+          'hedging 用得好的时候，读者感受到的不是你不敢说，而是你知道自己该说到哪里。',
+        closeEn:
+          'When hedging is used well, readers do not hear hesitation. They hear that you know exactly how far the claim should go.',
+      },
+      'revision-defense': {
+        titleZh: '老师说写得啰嗦又发虚？返修时先改段落主句和过渡，不要只换词',
+        titleEn:
+          'Does feedback say the writing is wordy and vague? During revision, fix paragraph claims and transitions before merely replacing words',
+        introZh:
+          '很多返修会陷入“换几个更学术的词”这种表面动作，但如果段落主句本身不清、过渡也不承担导航作用，再高级的词汇也很难救回整段的论证力。',
+        introEn:
+          'Many revisions get trapped in surface-level changes such as swapping in more academic vocabulary. If the paragraph claim itself remains unclear and the transitions do not guide the reader, more advanced wording rarely rescues the actual argument.',
+        zhihuAngleZh:
+          '国外写作中心在处理 wordy / vague 反馈时，常会先回到 paragraph topic sentence 和 signposting，而不是先做同义词替换。',
+        zhihuAngleEn:
+          'When responding to wordy or vague feedback, overseas writing-center guidance often returns first to paragraph topic sentences and signposting rather than beginning with synonym replacement.',
+        strategyZh:
+          '更稳的返修顺序，是先查每段主句在不在、判断清不清，再查过渡是不是在帮助读者理解段落之间的关系。只有这两层站住后，词句细修才真的有效。',
+        strategyEn:
+          'A steadier revision order first checks whether each paragraph has a real claim sentence and whether that claim is clear, then checks whether the transitions help readers understand the relationships between paragraphs. Only once those two layers stand does sentence-level polishing become truly effective.',
+        stepsZh: [
+          '先逐段检查有没有真正的段落主句。',
+          '再检查过渡是否在说明关系，而不只是填空式连接。',
+          '最后才做词句级的紧缩和替换。',
+        ],
+        stepsEn: [
+          'Check paragraph by paragraph whether a real topic claim is present first.',
+          'Check next whether transitions explain relationships instead of serving as filler links.',
+          'Only then do sentence-level tightening and replacement at the end.',
+        ],
+        submissionZh:
+          '如果后面还要进国际投稿，这种返修会很有帮助，因为编辑和 reviewer 对 wordiness 的判断往往首先来自段落控制，而不是单句辞藻。',
+        submissionEn:
+          'If international submission lies ahead, this kind of revision is very helpful because editorial and reviewer judgments about wordiness often begin with paragraph control rather than sentence-level vocabulary.',
+        riskZh:
+          '如果返修时只做词汇替换，最常见的后果就是文字看起来更“学术”，但读者还是抓不住段落在推进什么。',
+        riskEn:
+          'If revision consists only of vocabulary substitution, the common result is writing that looks more academic on the surface while readers still cannot tell what each paragraph is advancing.',
+        checklistZh: [
+          '1. 是否逐段检查了真正的段落主句。',
+          '2. 过渡是否在说明段落关系，而不是仅作填充。',
+          '3. 是否把词句级细修放到了最后。',
+        ],
+        checklistEn: [
+          '1. Has each paragraph been checked for a real topic claim sentence?',
+          '2. Do transitions explain paragraph relationships rather than merely filling space?',
+          '3. Has sentence-level polishing been left until the end?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更紧、更清楚、更像真正学术论证的返修稿。',
+        deliverableEn:
+          'After this round, you should have a revised draft that is tighter, clearer, and much closer to real academic argument.',
+        closeZh:
+          '学术表达返修最有效的地方，往往不是词更“高级”，而是段落终于真正开始推进判断。',
+        closeEn:
+          'The most effective part of academic-style revision is often not more elevated vocabulary but the moment paragraphs finally begin advancing real judgments.',
+      },
+    },
+  },
+  {
+    slug: 'research-integrity',
+    topicSlug: 'reporting-transparency',
+    categorySlug: 'research-integrity-ethics',
+    labelZh: '研究伦理与学术规范',
+    labelEn: 'Research Integrity and Ethics',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'reporting transparency、引用溯源、排除规则和 disclosure',
+    focusEn: 'reporting transparency, source traceability, exclusion rules, and disclosure',
+    evidenceZh: '资料来源表、排除日志和 reporting checklist',
+    evidenceEn: 'source logs, exclusion notes, and reporting checklists',
+    standardZh: '重点不是把合规写成口号，而是让读者看得见判断、数据和写作背后的记录路径。',
+    standardEn:
+      'The goal is not to turn compliance into slogans but to make the record path behind judgments, data, and writing visible to readers.',
+    articles: {
+      proposal: {
+        titleZh: '国外很多导师一开始就看 reporting plan：开题时先补一张 transparency checklist',
+        titleEn:
+          'Many overseas supervisors look for a reporting plan from the start: add a transparency checklist during the proposal stage',
+        introZh:
+          '很多人把 research integrity 理解成“别抄袭”这么简单，但在国外研究训练里，另一条很重要的线是 transparency：你准备怎么记录来源、选择、排除和修改。',
+        introEn:
+          'Many writers understand research integrity only as avoiding plagiarism, but in much overseas research training another major line is transparency: how you plan to document source selection, exclusion decisions, and revision history.',
+        zhihuAngleZh:
+          '国外作者指南和研究规范里常会强调 reporting plan 的价值：不是等结果出来再解释，而是一开始就知道哪些决策需要留下记录。',
+        zhihuAngleEn:
+          'International author guides and research-integrity guidance often stress the value of a reporting plan: not waiting until the results appear to explain decisions, but knowing from the start which decisions must leave a trace.',
+        strategyZh:
+          '更稳的开题准备，是先做一张 transparency checklist，至少写清四件事：资料来源如何记录、样本如何筛选、哪些情况会被排除、方法和版本怎样留痕。只要这张表先出现，后期很多合规压力会明显降低。',
+        strategyEn:
+          'A steadier proposal-stage preparation is to create a transparency checklist covering at least four things: how sources are logged, how samples are screened, which cases are excluded, and how methods and versions leave a trace. Once this sheet exists early, much later compliance pressure drops sharply.',
+        stepsZh: [
+          '先列出来源记录、筛选规则、排除条件和版本留痕四项。',
+          '再判断哪些决策最容易在后期被追问。',
+          '最后把这些内容整理成一页 reporting checklist。',
+        ],
+        stepsEn: [
+          'List source logging, screening rules, exclusion conditions, and version trace first.',
+          'Judge next which decisions are most likely to be challenged later.',
+          'Organize them into a one-page reporting checklist at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步非常值钱，因为很多国际期刊的 integrity 要求其实就是在问：你的记录路径能不能支持你现在的写法。',
+        submissionEn:
+          'If the work later goes to submission, this step is highly valuable because many international journal integrity requirements are effectively asking whether your record path can support the way the manuscript is written now.',
+        riskZh:
+          '如果开题阶段没有 transparency checklist，最常见的后果就是后面很多关键判断只能靠记忆回补，越解释越不稳。',
+        riskEn:
+          'If no transparency checklist exists during the proposal stage, the common result is that many key decisions later have to be reconstructed from memory, making explanations progressively less stable.',
+        checklistZh: [
+          '1. 是否列出了来源记录、筛选规则、排除条件和版本留痕。',
+          '2. 是否判断了最容易被追问的关键决策。',
+          '3. 是否已经整理出一页 reporting checklist。',
+        ],
+        checklistEn: [
+          '1. Have source logging, screening rules, exclusion conditions, and version trace been listed?',
+          '2. Has it been judged which key decisions are most likely to be challenged later?',
+          '3. Has a one-page reporting checklist already been organized?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一张更像研究记录底稿的 transparency checklist，而不是只停留在原则层的“要规范”。',
+        deliverableEn:
+          'After this round, you should have a transparency checklist that behaves like a real research record draft rather than a principle-level wish to be rigorous.',
+        closeZh:
+          '研究规范真正开始起作用的时候，往往不是提醒你别犯错，而是提醒你把决策留下来。',
+        closeEn:
+          'Research integrity begins to work most effectively not by warning you against mistakes alone but by helping you leave a trace of decisions.',
+      },
+      'literature-review': {
+        titleZh: '引用不只是一串文献：国外写作训练很强调 claim 要能追回原始来源',
+        titleEn:
+          'Citation is not just a list of references: overseas writing training strongly expects claims to trace back to their original source',
+        introZh:
+          '很多综述里的引用问题，不是没引文献，而是判断句挂在了二手转述上。看起来有 citation，实际上读者并不知道这个 claim 最初来自哪项研究、在哪个条件下成立。',
+        introEn:
+          'Many citation problems in literature reviews arise not from missing references but from judgments resting on secondhand paraphrase. A sentence appears cited, yet readers still cannot tell which original study generated the claim or under what conditions it held.',
+        zhihuAngleZh:
+          '国外学术写作训练里经常会强调“claim-to-source traceability”这个意识：每个重要判断都应该能追回原始来源，而不是只停在转引链条上。',
+        zhihuAngleEn:
+          'Overseas academic-writing training often emphasizes claim-to-source traceability: every major judgment should be traceable back to an original source rather than stopping at a chain of secondary citation.',
+        strategyZh:
+          '更稳的综述写法，是把关键判断句单独挑出来，检查它们是否真的对应原始文献、是否说明了适用条件、是否只是沿用了别人对文献的总结。只要这一步做细，综述的可信度会明显上升。',
+        strategyEn:
+          'A steadier review practice isolates the key judgment sentences and checks whether they actually map to primary literature, whether they state the conditions of applicability, and whether they merely repeat someone else’s summary. Once this is done carefully, the review’s credibility rises noticeably.',
+        stepsZh: [
+          '先圈出综述中最重要的 judgment sentence。',
+          '再检查每句是否能追回原始来源和成立条件。',
+          '最后改写那些停留在转引链条上的判断。',
+        ],
+        stepsEn: [
+          'Mark the most important judgment sentences in the review first.',
+          'Check next whether each one traces back to a primary source and its conditions of validity.',
+          'Rewrite at the end the claims that remain trapped in secondary citation chains.',
+        ],
+        submissionZh:
+          '如果后面还要写英文或国际投稿，这一步非常重要，因为 reviewer 对 citation quality 的判断往往不在数量，而在 traceability。',
+        submissionEn:
+          'If the work later becomes English-language or internationally submitted, this step is especially important because reviewer judgments about citation quality often depend less on quantity than on traceability.',
+        riskZh:
+          '如果关键判断一直挂在二手总结上，最常见的后果就是综述看起来很密，但真正追问起来很难站稳。',
+        riskEn:
+          'If major claims continue resting on secondhand summaries, the common result is a dense-looking review that becomes difficult to defend once questioned closely.',
+        checklistZh: [
+          '1. 是否圈出了最重要的 judgment sentence。',
+          '2. 每句是否能追回原始来源和适用条件。',
+          '3. 是否改写了停留在转引链上的判断。',
+        ],
+        checklistEn: [
+          '1. Have the most important judgment sentences been marked?',
+          '2. Does each one trace back to a primary source and applicable condition?',
+          '3. Have the claims trapped in secondary citation chains been rewritten?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更能经得起追问的综述引用结构，而不是只有数量上的充实感。',
+        deliverableEn:
+          'After this round, you should have a review citation structure that can withstand closer scrutiny instead of offering only the appearance of density.',
+        closeZh:
+          '引用真正显得规范的时候，不是参考文献更长，而是关键判断更能追得回去。',
+        closeEn:
+          'Citation begins to look truly rigorous not when the reference list grows longer but when the key claims become easier to trace back.',
+      },
+      'methods-analysis': {
+        titleZh: '样本排除和清洗别写成一句带过：把 exclusion log 和处理依据写出来',
+        titleEn:
+          'Do not reduce exclusions and cleaning to one sentence: write out the exclusion log and the basis for each processing decision',
+        introZh:
+          '很多方法部分最容易引起 integrity 追问的地方，不是模型名，而是样本为什么少了、哪些观测被删了、这些处理依据到底在哪里。',
+        introEn:
+          'The point in many methods sections most likely to trigger integrity questions is not the model name but why the sample became smaller, which observations were removed, and where the basis for those decisions can actually be found.',
+        zhihuAngleZh:
+          '国外期刊和作者指南里经常会强调 exclusions and deviations 要能解释：不是为了挑刺，而是为了让结果看起来不是“按作者喜好整理出来的”。',
+        zhihuAngleEn:
+          'International journals and author guides often stress that exclusions and deviations must be explainable, not to create difficulty for authors but to show that the findings were not shaped purely by author preference.',
+        strategyZh:
+          '更稳的方法写法，是把样本处理拆成三部分：原始样本规模、排除动作及依据、最终分析集形成路径。必要时再配一份 exclusion log，让读者能顺着路径看见每次处理是怎么发生的。',
+        strategyEn:
+          'A steadier methods section separates sample handling into three parts: raw sample size, exclusion actions with their basis, and the path to the final analytical set. When necessary, it is reinforced by an exclusion log so readers can follow how each decision occurred.',
+        stepsZh: [
+          '先列出原始样本、排除动作和最终样本三个节点。',
+          '再为每一类排除补上规则依据。',
+          '最后整理成可追踪的 exclusion log 或附录说明。',
+        ],
+        stepsEn: [
+          'List the raw sample, exclusion actions, and final sample as three nodes first.',
+          'Add the rule basis for each type of exclusion next.',
+          'Organize them into a traceable exclusion log or appendix note at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这一步非常重要，因为很多 reviewer 对 methods transparency 的第一反应就来自排除与处理是不是讲清楚了。',
+        submissionEn:
+          'If the manuscript later goes to submission, this step is very important because many reviewers form their first impression of methods transparency from whether exclusions and processing decisions were explained clearly.',
+        riskZh:
+          '如果排除和清洗一直只写成一句带过，最常见的后果就是结果看似整洁，但可信度会被细问迅速削弱。',
+        riskEn:
+          'If exclusion and cleaning remain condensed into a single passing sentence, the common result is a results section that looks neat but loses credibility quickly under detailed questioning.',
+        checklistZh: [
+          '1. 是否列出了原始样本、排除动作和最终样本三个节点。',
+          '2. 是否为每类排除补上了规则依据。',
+          '3. 是否整理出 exclusion log 或附录说明。',
+        ],
+        checklistEn: [
+          '1. Have the raw sample, exclusion actions, and final sample been listed as three nodes?',
+          '2. Has the rule basis been added for each type of exclusion?',
+          '3. Has an exclusion log or appendix note been organized?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更透明、更能经得起 integrity 追问的方法说明。',
+        deliverableEn:
+          'After this round, you should have a methods explanation that is more transparent and much better able to withstand integrity questions.',
+        closeZh:
+          '研究透明度真正上来的时候，读者看到的不是“结果更整洁”，而是“路径更看得见”。',
+        closeEn:
+          'Research transparency rises not when the results merely look cleaner but when the path behind them becomes more visible.',
+      },
+      'revision-defense': {
+        titleZh: '被问研究规范时别只说“我都按要求做了”：用记录路径回答 integrity 追问',
+        titleEn:
+          'Do not answer integrity questions only with “I followed the rules”: respond through the record path behind the study',
+        introZh:
+          '很多答辩和返修里，一旦被问到规范问题，作者会本能地说“我都有按要求处理”。可这种回答太抽象，听起来更像态度表态，而不是研究路径说明。',
+        introEn:
+          'In many defenses and revisions, once a question about integrity appears, authors instinctively answer that they followed the required rules. This is too abstract and sounds more like a declaration of attitude than an explanation of the research path.',
+        zhihuAngleZh:
+          '国外 peer review 和研究训练里都很强调一件事：对 integrity 的回答最好落在记录路径上，而不是落在自我保证上。',
+        zhihuAngleEn:
+          'Both international peer review culture and research training strongly emphasize one point: answers about integrity should rest on the documented path rather than on self-assurance.',
+        strategyZh:
+          '更稳的回答，是按“资料从哪里来、如何处理、依据什么规则、留下了哪些记录”四步展开。只要顺着记录链说，老师和评审听到的就不只是态度，而是可核查的过程。',
+        strategyEn:
+          'A steadier answer unfolds in four steps: where the material came from, how it was handled, which rules justified the handling, and what records remain. Once you speak along the record chain, examiners and reviewers hear not only attitude but a verifiable process.',
+        stepsZh: [
+          '先整理出资料来源、处理动作、规则依据和记录文件。',
+          '再为高频 integrity 问题配好四步答法。',
+          '最后练习把“记录路径”说成统一口径，而不是临场回忆。',
+        ],
+        stepsEn: [
+          'Organize the material source, handling actions, rule basis, and record files first.',
+          'Match the high-frequency integrity questions with the four-step answer next.',
+          'Practice delivering the record path as one consistent line at the end rather than reconstructing it live.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这种记录路径答法也能直接转成 response letter、ethics clarification 和 appendix note。',
+        submissionEn:
+          'If revision or submission still lies ahead, this record-path answer can also transfer directly into response letters, ethics clarifications, and appendix notes.',
+        riskZh:
+          '如果面对 integrity 追问时只会说“我按规则做了”，最常见的后果就是对方会继续追问路径细节，而你的回答会越来越被动。',
+        riskEn:
+          'If integrity questions are answered only with statements about following rules, the common result is deeper follow-up on path details and increasingly passive responses.',
+        checklistZh: [
+          '1. 是否整理了资料来源、处理动作、规则依据和记录文件。',
+          '2. 是否为高频问题配好了四步答法。',
+          '3. 是否已经把记录路径练成统一口径。',
+        ],
+        checklistEn: [
+          '1. Have the material source, handling actions, rule basis, and record files been organized?',
+          '2. Has the four-step answer been prepared for high-frequency questions?',
+          '3. Has the record path already been rehearsed into one consistent line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更能经得住规范追问的 integrity 回应框架。',
+        deliverableEn:
+          'After this round, you should have an integrity-response framework better able to withstand detailed questions.',
+        closeZh:
+          '研究规范答得稳的时候，对方听到的不是你在保证自己没问题，而是你真的拿得出路径。',
+        closeEn:
+          'Research integrity sounds steady when the audience hears not that you insist nothing is wrong, but that you can actually show the path.',
+      },
+    },
+  },
+  {
+    slug: 'global-publishing',
+    topicSlug: 'author-guidelines-peer-review',
+    categorySlug: 'global-publishing-peer-review',
+    labelZh: '国际投稿与同行评审',
+    labelEn: 'Global Publishing and Peer Review',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'author guidelines、peer review 预期和编辑沟通',
+    focusEn: 'author guidelines, peer-review expectations, and editorial communication',
+    evidenceZh: '期刊说明、审稿回应和投稿包件版本',
+    evidenceEn: 'journal instructions, reviewer responses, and submission-package drafts',
+    standardZh: '重点不是学会几句投稿套话，而是理解国际期刊在 framing、packaging 和 response 上的真实预期。',
+    standardEn:
+      'The goal is not to memorize a few submission phrases but to understand what international journals actually expect in framing, packaging, and response.',
+    articles: {
+      proposal: {
+        titleZh: '国外作者指南为什么总让你先看 aims and scope：开题时就别只按导师视角写',
+        titleEn:
+          'Why do international author guidelines keep sending you back to aims and scope? Do not write only from the advisor’s perspective during the proposal stage',
+        introZh:
+          '很多人开题时默认唯一读者就是导师，于是整篇项目从第一天开始都按熟人阅读习惯组织。可国外期刊作者指南最常提醒的，恰恰是 scope、reader fit 和 contribution positioning。',
+        introEn:
+          'Many writers assume from the proposal stage onward that the advisor is the only reader, so the project is organized from day one around a familiar reading context. Yet one of the most repeated reminders in international author guidelines concerns scope, reader fit, and contribution positioning.',
+        zhihuAngleZh:
+          '国外出版社和作者指南很常见的一条思路是：越早想清 journal reader，后面从 thesis 走向 article 的代价就越低。',
+        zhihuAngleEn:
+          'A very common idea in overseas publisher guidance is that the earlier you think about the journal reader, the lower the later cost of moving from thesis to article becomes.',
+        strategyZh:
+          '更稳的开题准备，是在导师视角之外，再补一个 journal-reader 视角：如果未来要走国际投稿，这篇研究最像给谁看、会先被哪类期刊接住、这些读者真正关心哪一个问题入口。',
+        strategyEn:
+          'A steadier proposal-stage preparation adds a journal-reader perspective on top of the advisor perspective: if this work later goes to international publication, who is it most like being written for, which journal type might receive it first, and what problem entry those readers actually care about.',
+        stepsZh: [
+          '先写清导师视角和未来 journal-reader 视角的差别。',
+          '再挑两到三本目标期刊看 aims and scope。',
+          '最后把开题中的问题入口调到更接近期刊读者。',
+        ],
+        stepsEn: [
+          'Write out the difference between the advisor perspective and the future journal-reader perspective first.',
+          'Check the aims and scope of two or three plausible target journals next.',
+          'Adjust the proposal’s problem entry at the end so it moves closer to the journal reader.',
+        ],
+        submissionZh:
+          '如果以后还要走国际投稿，这一步会非常值钱，因为很多首轮不送审的问题，本质上就是作者一直只在导师语境里写。',
+        submissionEn:
+          'If international submission comes later, this step is highly valuable because many first-round editorial rejections essentially happen when a manuscript remains written entirely inside an advisor-centered context.',
+        riskZh:
+          '如果开题阶段完全没有 journal-reader 视角，最常见的后果就是后面不得不花大力气把 thesis 语言整体改造成 article 语言。',
+        riskEn:
+          'If the proposal stage never develops a journal-reader perspective, the common result is a later need for a heavy rewrite turning thesis language into article language.',
+        checklistZh: [
+          '1. 是否写清了导师视角和期刊读者视角的差别。',
+          '2. 是否看过两到三本目标期刊的 aims and scope。',
+          '3. 是否把问题入口调得更接近期刊读者。',
+        ],
+        checklistEn: [
+          '1. Has the difference between advisor and journal-reader perspectives been written clearly?',
+          '2. Have the aims and scope of two or three target journals been checked?',
+          '3. Has the problem entry been adjusted to move closer to journal readers?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更接近国际投稿读者的项目入口，而不是只适合导师阅读的开题表达。',
+        deliverableEn:
+          'After this round, you should have a project entry much closer to international journal readers rather than one readable only in the advisor context.',
+        closeZh:
+          '越早把读者从导师扩到 journal reader，后面的国际投稿就越不会像另写一篇。',
+        closeEn:
+          'The earlier the reader expands from advisor to journal reader, the less international submission later feels like writing an entirely different paper.',
+      },
+      'literature-review': {
+        titleZh: '国外期刊最常见的“文献综述不够像 article introduction”是什么问题',
+        titleEn:
+          'What makes a literature review fail to feel like an article introduction in international journals',
+        introZh:
+          '很多 thesis 综述的问题，不是文献不够，而是写法更像为导师证明“我读过很多”，而不是为期刊读者说明“这个问题为什么现在值得继续读下去”。',
+        introEn:
+          'Many thesis-style reviews are weak not because they lack literature but because they are written to prove to an advisor that the writer has read widely, rather than to show journal readers why the problem remains worth following now.',
+        zhihuAngleZh:
+          '国外作者指南和写作课程经常提醒：article introduction 不是背景越全越好，而是要尽快建立问题、位置和 contribution。',
+        zhihuAngleEn:
+          'International author guidance and writing courses often remind researchers that an article introduction is not improved by more complete background alone, but by establishing the problem, position, and contribution quickly.',
+        strategyZh:
+          '更稳的引言准备，是把 thesis review 和 article introduction 分开想：前者可以展开背景，后者必须尽快推进问题线、文献位置和 contribution。只要这三步开始提前出现，国际期刊读者就更容易进入状态。',
+        strategyEn:
+          'A steadier introduction strategy separates thesis review from article introduction: the former may expand background, while the latter must move quickly into the problem line, the literature position, and the contribution. Once those three moves begin appearing earlier, international journal readers enter the manuscript much more easily.',
+        stepsZh: [
+          '先找出综述里只服务导师阅读、却不服务期刊读者的背景段。',
+          '再把问题线、位置和 contribution 提前到更前面的段落。',
+          '最后删掉那些只增加背景厚度、不增加 journal fit 的内容。',
+        ],
+        stepsEn: [
+          'Identify the background paragraphs that serve advisor reading but not journal readers first.',
+          'Move the problem line, positioning, and contribution earlier in the introduction next.',
+          'Delete at the end the content that adds background thickness without improving journal fit.',
+        ],
+        submissionZh:
+          '如果后面还要走国际投稿，这一步特别关键，因为编辑往往不是在问“你读没读够”，而是在问“这篇稿件是不是一上来就进入 article mode”。',
+        submissionEn:
+          'If international submission still lies ahead, this step is especially important because editors are often asking not whether you read enough, but whether the manuscript enters article mode early enough.',
+        riskZh:
+          '如果综述一直按 thesis 逻辑铺背景，最常见的后果就是编辑和 reviewer 还没等到真正的问题线就已经失去耐心。',
+        riskEn:
+          'If the review continues unfolding only through a thesis-style background logic, the common result is that editors and reviewers lose patience before the real problem line arrives.',
+        checklistZh: [
+          '1. 是否找出了只服务导师、不服务期刊读者的背景段。',
+          '2. 是否把问题线、位置和 contribution 提前了。',
+          '3. 是否删掉了不增加 journal fit 的背景厚度。',
+        ],
+        checklistEn: [
+          '1. Have the background paragraphs serving advisors but not journal readers been identified?',
+          '2. Have the problem line, positioning, and contribution been moved earlier?',
+          '3. Has background thickness that does not improve journal fit been removed?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更像国际 article introduction 的前言，而不是 thesis 式综述延长版。',
+        deliverableEn:
+          'After this round, you should have an introduction that behaves much more like an international article opening rather than an extended thesis review.',
+        closeZh:
+          '国际期刊引言真正起作用的时候，读者感受到的不是“背景更全”，而是“问题更快站起来了”。',
+        closeEn:
+          'An international-journal introduction begins to work when readers feel not that the background is more complete, but that the problem stands up faster.',
+      },
+      'methods-analysis': {
+        titleZh: '国际期刊看方法和结果时最怕什么：evidence packaging 不清，而不是材料太少',
+        titleEn:
+          'What do international journals fear most in methods and results? Unclear evidence packaging rather than too little material',
+        introZh:
+          '很多作者以为国际投稿失败是因为材料不够多、结果不够大，但其实很多编辑和 reviewer 的第一反应是：我能不能快速看懂这套 evidence packaging，到底问题、方法、图表和结果有没有说同一套话。',
+        introEn:
+          'Many authors assume international submission fails because there is not enough material or the findings are not dramatic enough. In practice, many editors and reviewers react first to whether the evidence packaging is legible: do the question, method, figures, and results appear to be telling the same story quickly enough?',
+        zhihuAngleZh:
+          '国外期刊作者指南里很常见的一条线索是“presentation for reviewers”：材料不只要存在，还要按 reviewer 能最快判断的方式被包装出来。',
+        zhihuAngleEn:
+          'A common thread in international journal guidance concerns presentation for reviewers: evidence does not merely need to exist, but to be packaged in the form reviewers can judge most quickly.',
+        strategyZh:
+          '更稳的投稿前整理，是把问题、方法、图表和结果当成一个 reviewer package 去检查。只要这四块开始说同一条线，材料就会比单纯“多做几个分析”更容易得到理解。',
+        strategyEn:
+          'A steadier pre-submission preparation treats the question, method, figures, and results as one reviewer package. Once these four parts begin telling the same line, the evidence becomes easier to understand than if you merely keep adding extra analyses.',
+        stepsZh: [
+          '先检查问题、方法、图表和结果是否都在支撑同一条主线。',
+          '再找出最容易让 reviewer 掉线的断点。',
+          '最后优先修改 packaging 问题，而不是先盲目加分析。',
+        ],
+        stepsEn: [
+          'Check first whether the question, method, figures, and results all support the same main line.',
+          'Find next the break points most likely to cause reviewer disengagement.',
+          'Prioritize fixing packaging problems at the end instead of blindly adding more analysis first.',
+        ],
+        submissionZh:
+          '如果后面还要走国际投稿，这一步很关键，因为 reviewer 并不会自动帮你把四块材料拼起来，package 不清就会直接影响判断。',
+        submissionEn:
+          'If international submission still lies ahead, this step is crucial because reviewers will not automatically assemble the four evidence blocks for you. Unclear packaging directly affects judgment.',
+        riskZh:
+          '如果 evidence packaging 一直不清，最常见的后果就是稿件材料其实不差，但 reviewer 还是会觉得“故事没立起来”。',
+        riskEn:
+          'If the evidence packaging remains unclear, the common result is a manuscript with decent material that still leaves reviewers feeling that the story never properly stood up.',
+        checklistZh: [
+          '1. 问题、方法、图表和结果是否都在支撑同一条主线。',
+          '2. 是否找出了最容易让 reviewer 掉线的断点。',
+          '3. 是否优先改了 packaging 问题而不是盲目加分析。',
+        ],
+        checklistEn: [
+          '1. Do the question, method, figures, and results all support the same main line?',
+          '2. Have the break points most likely to lose reviewers been identified?',
+          '3. Have packaging problems been fixed before blindly adding more analysis?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更像 reviewer package 的方法与结果组合，而不是材料各自为战的稿件。',
+        deliverableEn:
+          'After this round, you should have a methods-and-results combination that behaves more like a reviewer package than a manuscript whose materials work separately.',
+        closeZh:
+          '国际投稿里很多“看不懂”的问题，根源不是材料不够，而是 package 没搭起来。',
+        closeEn:
+          'Many problems described as unclear in international submission do not stem from insufficient material, but from a package that never came together.',
+      },
+      'revision-defense': {
+        titleZh: 'reviewer response 为什么总显得情绪化：先学会国际同行评审里的 professional tone',
+        titleEn:
+          'Why do reviewer responses often sound emotional? Learn the professional tone expected in international peer review first',
+        introZh:
+          '很多 response file 的问题，不是没回应意见，而是 tone 一上来就显得太防御、太解释自己、太想证明 reviewer 看错了。国际同行评审更看重的，往往是 professional tone 和 action clarity。',
+        introEn:
+          'Many response files are not weak because comments were ignored, but because the tone becomes defensive too quickly, overexplains the author’s intentions, or tries too hard to prove the reviewer mistaken. International peer-review culture often values professional tone and action clarity much more.',
+        zhihuAngleZh:
+          '国外出版社和作者指南里很常见的一条建议是：response file 先让 reviewer 看见你做了什么，再看你为什么这么做，而不是先展开情绪化解释。',
+        zhihuAngleEn:
+          'A very common recommendation in overseas publisher guidance is that a response file should first let reviewers see what was changed, then why it was changed, rather than beginning with emotional justification.',
+        strategyZh:
+          '更稳的 reviewer response，是按“感谢 + 动作 + 位置 + 必要解释”来写。只要顺序一稳，整份回应就更像 professional peer-review communication，而不是作者情绪记录。',
+        strategyEn:
+          'A steadier reviewer response follows the order of appreciation, action taken, location of change, and only then necessary explanation. Once this sequence stabilizes, the whole reply reads much more like professional peer-review communication than an emotional author log.',
+        stepsZh: [
+          '先把现有回应里的情绪化解释句标出来。',
+          '再改成“动作 + 修改位置 + 必要解释”的顺序。',
+          '最后统一整份 response 的 professional tone。',
+        ],
+        stepsEn: [
+          'Mark the emotionally defensive explanation lines in the current response first.',
+          'Rewrite them next in the order of action taken, location of revision, and necessary explanation.',
+          'Unify the professional tone of the whole response file at the end.',
+        ],
+        submissionZh:
+          '如果后面还要继续国际重投，这一步非常有用，因为很多编辑在决定是否继续送审时，也会感受到作者的 response 是否 professional 和 manageable。',
+        submissionEn:
+          'If international resubmission still lies ahead, this step is very useful because editors often feel from the response file whether the author’s revision process appears professional and manageable enough to continue review.',
+        riskZh:
+          '如果 response file 一直带着防御性 tone，最常见的后果就是即使你改了很多，也会让 reviewer 觉得合作成本很高。',
+        riskEn:
+          'If the response file keeps a defensive tone, the common result is that even substantial revisions may still leave reviewers feeling that collaboration with the manuscript is costly.',
+        checklistZh: [
+          '1. 是否标出了情绪化或防御性解释句。',
+          '2. 是否改成了“动作 + 位置 + 必要解释”的顺序。',
+          '3. 是否统一了整份 response 的 professional tone。',
+        ],
+        checklistEn: [
+          '1. Have emotionally defensive explanation lines been marked?',
+          '2. Have they been rewritten in the order of action, location, and necessary explanation?',
+          '3. Has the professional tone of the whole response file been unified?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更像国际同行评审沟通的 response file，而不是情绪化返修记录。',
+        deliverableEn:
+          'After this round, you should have a response file much closer to international peer-review communication rather than an emotional revision diary.',
+        closeZh:
+          'reviewer response 真正显得专业的时候，reviewer 先看到的不是你有多委屈，而是你到底做了什么。',
+        closeEn:
+          'A reviewer response starts to look truly professional when reviewers first see not how frustrated you were, but what you actually changed.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {

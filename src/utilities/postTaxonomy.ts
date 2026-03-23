@@ -137,6 +137,57 @@ export const audienceCategories = [
       zh: '返修投稿与答辩文章库',
     },
   },
+  {
+    categorySlug: 'academic-voice-argument',
+    degreeSlug: 'academic-voice',
+    kind: 'topic',
+    labels: {
+      en: 'Academic Voice and Argument',
+      zh: '学术表达与论证语言',
+    },
+    hubDescriptions: {
+      en: 'Source-inspired guides from writing-center style thinking on claim strength, paragraph focus, signposting, hedging, and building a scholarly voice that still stays readable.',
+      zh: '借鉴国外写作中心常见思路，围绕 claim strength、段落聚焦、signposting、hedging 和 scholarly voice，补足论文表达层的系统训练。',
+    },
+    hubTitles: {
+      en: 'Academic Voice and Argument Library',
+      zh: '学术表达与论证语言文章库',
+    },
+  },
+  {
+    categorySlug: 'research-integrity-ethics',
+    degreeSlug: 'research-integrity',
+    kind: 'topic',
+    labels: {
+      en: 'Research Integrity and Ethics',
+      zh: '研究伦理与学术规范',
+    },
+    hubDescriptions: {
+      en: 'A practical library on ethics statements, consent routes, data handling, citation transparency, and writing methods sections that can actually withstand integrity questions.',
+      zh: '聚焦 ethics statement、consent 路线、数据处理、引用透明度与可经得住追问的方法写法，形成更贴近国际规范的研究合规内容库。',
+    },
+    hubTitles: {
+      en: 'Research Integrity and Ethics Library',
+      zh: '研究伦理与学术规范文章库',
+    },
+  },
+  {
+    categorySlug: 'global-publishing-peer-review',
+    degreeSlug: 'global-publishing',
+    kind: 'topic',
+    labels: {
+      en: 'Global Publishing and Peer Review',
+      zh: '国际投稿与同行评审',
+    },
+    hubDescriptions: {
+      en: 'Guides shaped by international journal workflows on author guidelines, editor expectations, peer review culture, reviewer response, and resubmission decisions.',
+      zh: '围绕国际期刊 author guidelines、编辑判断、peer review 文化、reviewer response 与重投判断，整理更贴近海外发表流程的文章入口。',
+    },
+    hubTitles: {
+      en: 'Global Publishing and Peer Review Library',
+      zh: '国际投稿与同行评审文章库',
+    },
+  },
 ] as const
 
 export const postStages = [
@@ -330,6 +381,90 @@ export const categoryHubEnhancements: Partial<Record<AudienceCategorySlug, Categ
           '如果只是模糊地想着以后投稿，先看最前面的读者定位文章。',
           '当 Cover Letter、补充材料和版本说明开始成形时，再读中段流程文章。',
           '编辑信、审稿意见或 proof 已经来了，就直接读最后一阶段的返修文章。',
+        ],
+      },
+    },
+    'academic-voice-argument': {
+      featuredQuestions: {
+        en: [
+          'How do I sound academic without turning every sentence into jargon?',
+          'When should a claim be softened rather than stated absolutely?',
+          'Why do my paragraphs look complete but still feel weak as arguments?',
+          'How can transitions guide readers without becoming repetitive?',
+        ],
+        zh: [
+          '怎么写得像学术表达，却又不把句子写成术语堆？',
+          '什么时候该 hedging，什么时候又要把判断说稳？',
+          '为什么段落看起来完整，论证却还是发虚？',
+          '过渡和 signposting 怎么写才引导读者，又不显得重复？',
+        ],
+      },
+      startTips: {
+        en: [
+          'Start from the proposal-stage pieces if your topic sounds broad, ambitious, or verbally inflated.',
+          'Move into the review-stage articles when paragraphs exist but the argument still feels under-signaled.',
+          'Use the final-stage pieces when feedback keeps saying the writing is vague, wordy, or not scholarly enough.',
+        ],
+        zh: [
+          '如果题目和开头总显得大而空，先从前面的学术表达文章读起。',
+          '当段落已经写出来，但论证 still under-signaled 时，再进入中段内容。',
+          '如果导师一直说表达发虚、啰嗦或不够学术，就优先看最后阶段的返修文章。',
+        ],
+      },
+    },
+    'research-integrity-ethics': {
+      featuredQuestions: {
+        en: [
+          'What should an ethics statement actually explain besides a formal sentence?',
+          'When do consent, anonymization, or data permissions need to be stated explicitly?',
+          'How much method transparency is enough for data handling and exclusions?',
+          'How do I answer integrity questions without sounding defensive?',
+        ],
+        zh: [
+          '除了格式句子，ethics statement 到底还要交代什么？',
+          'consent、匿名化和数据许可什么时候必须写明？',
+          '样本筛选、排除和清洗写到什么程度才算透明？',
+          '被问研究合规时，怎样回答才不显得防御性很强？',
+        ],
+      },
+      startTips: {
+        en: [
+          'Begin with the proposal-stage notes if your materials involve people, platforms, interviews, or restricted records.',
+          'Read the methods-stage articles when you already have data but the handling path is still not fully documented.',
+          'Jump to the revision-stage pieces once reviewers, examiners, or editors start probing compliance details.',
+        ],
+        zh: [
+          '如果你的材料涉及访谈、问卷、平台数据或限制性资料，先从开题阶段文章读起。',
+          '已经拿到数据但处理路径还没写清时，再进入方法阶段内容。',
+          '当老师、评审或编辑开始追问合规细节时，就直接看返修阶段文章。',
+        ],
+      },
+    },
+    'global-publishing-peer-review': {
+      featuredQuestions: {
+        en: [
+          'What do international editors really notice in the first screening round?',
+          'How should author guidelines change the way the manuscript is framed?',
+          'What makes a reviewer response sound professional rather than emotional?',
+          'When should a rejected paper be rewritten, redirected, or simply repackaged?',
+        ],
+        zh: [
+          '国际期刊编辑在首轮 screening 里最先看什么？',
+          'author guidelines 到底会怎样改变稿件 framing？',
+          '什么样的 reviewer response 会显得专业，而不是情绪化辩解？',
+          '一篇被拒稿件什么时候该重写、换刊，还是只重做包装？',
+        ],
+      },
+      startTips: {
+        en: [
+          'Start with the early-stage positioning articles if publication is only a future possibility right now.',
+          'Move into the review and methods-stage workflow pieces when journal fit and evidence packaging start to matter.',
+          'Use the revision-stage articles once peer review, rejection letters, or resubmission choices are already on the table.',
+        ],
+        zh: [
+          '如果你现在只是模糊地想着以后投稿，先从前面的读者定位文章开始。',
+          '当 journal fit、包件组织和证据包装开始变重要时，再进入中段流程内容。',
+          '如果 peer review、拒稿信或重投选择已经摆在眼前，就直接看最后阶段文章。',
         ],
       },
     },
