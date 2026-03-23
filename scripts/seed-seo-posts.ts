@@ -4993,6 +4993,1156 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'research-topic',
+    topicSlug: 'scope-narrowing',
+    categorySlug: 'research-topic-planning',
+    labelZh: '选题与问题定义',
+    labelEn: 'Topic Selection',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '缩题、大题小做和研究范围收束',
+    focusEn: 'topic narrowing, manageable scope, and boundary control',
+    evidenceZh: '题目版本、范围删减记录和边界说明',
+    evidenceEn: 'title versions, scope-reduction notes, and boundary explanations',
+    standardZh: '重点不是把题目写得更宏大，而是让范围、材料和时间真正匹配。',
+    standardEn:
+      'The goal is not to make the topic sound larger but to make the scope, material, and timeline genuinely fit one another.',
+    articles: {
+      proposal: {
+        titleZh: '题目一上来就太大？开题时先学会把问题缩到可完成',
+        titleEn:
+          'Is the topic too large from the start? Learn to narrow the question into a manageable proposal',
+        introZh:
+          '很多人开题时一看到自己感兴趣的方向，就想把整片领域一起写进题目里。结果题目看起来很有气势，但材料拿不到、时间撑不起、方法也跟不上，真正卡住的并不是写作能力，而是范围失控。',
+        introEn:
+          'Many writers begin with a broad area they care about and immediately try to place the whole field inside the title. The topic then looks ambitious, yet the materials are unreachable, the timeline cannot support it, and the method cannot keep pace. The real bottleneck is often not writing ability but loss of scope control.',
+        zhihuAngleZh:
+          '知乎里关于“大题怎么小做”的高频讨论，反复会出现一个提醒：不是方向不能大，而是第一次写作时必须把可完成部分先切出来。',
+        zhihuAngleEn:
+          'High-frequency Zhihu discussions on how to turn a big topic into a manageable one often return to one reminder: the overall direction may be broad, but the first project must cut out a part that can actually be completed.',
+        strategyZh:
+          '更稳的开题动作，是把题目拆成对象、场景、时间和判断层级四块，然后每次只放过其中最必要的一层。只要你能清楚说出自己暂时不研究什么，缩题就不再像退让，而会像研究设计。',
+        strategyEn:
+          'A steadier proposal-stage move is to split the topic into object, setting, time frame, and judgment level, then allow only the most necessary range in each layer. Once you can clearly state what the study will not examine for now, narrowing no longer feels like retreat and starts feeling like design.',
+        stepsZh: [
+          '先把题目拆成对象、场景、时间和判断层级四层。',
+          '再问每一层里哪一部分是当前项目非做不可的。',
+          '最后写一句边界说明，明确本研究暂不覆盖的部分。',
+        ],
+        stepsEn: [
+          'Split the topic into object, setting, time frame, and judgment level first.',
+          'Ask which part of each layer is truly necessary for the current project next.',
+          'Finish with one boundary sentence stating what the study will not cover for now.',
+        ],
+        submissionZh:
+          '如果以后还想投稿，这一步尤其重要，因为很多期刊稿件失败并不是研究不成立，而是题目宣称的范围明显大于正文真正能承载的范围。',
+        submissionEn:
+          'If publication may come later, this step matters especially because many journal manuscripts fail not because the study is invalid but because the scope promised by the title is visibly larger than what the paper can actually support.',
+        riskZh:
+          '如果缩题一直拖到后期，最常见的后果就是前面写了很多背景和综述，最后才发现真正可做的部分只占很小一块，返工会非常重。',
+        riskEn:
+          'If topic narrowing is delayed until late stages, the common result is a large amount of background and review writing followed by the realization that only a small part is actually feasible, making rework extremely costly.',
+        checklistZh: [
+          '1. 题目是否已拆成对象、场景、时间和判断层级。',
+          '2. 每一层是否都只保留当前项目必须承担的部分。',
+          '3. 是否已经写出明确的不研究范围。',
+        ],
+        checklistEn: [
+          '1. Has the topic been split into object, setting, time frame, and judgment level?',
+          '2. Does each layer retain only what the current project must carry?',
+          '3. Have you written a clear statement of what lies outside the study scope?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更可完成的题目、一条更稳的问题线和一份明确的边界说明。',
+        deliverableEn:
+          'After this round, you should have a more manageable title, a steadier question line, and a clear boundary statement.',
+        closeZh:
+          '缩题不是把研究做小，而是把真正能做成的部分先做实。',
+        closeEn:
+          'Narrowing a topic does not make the research smaller in value. It makes the part that can truly be completed more solid.',
+      },
+      'literature-review': {
+        titleZh: '综述越读越想做更大？用缩题标准筛掉现在不做的线',
+        titleEn:
+          'Does the review make you want to do more and more? Use narrowing criteria to filter out the lines you will not pursue now',
+        introZh:
+          '很多人做综述时会出现一个错觉：文献读得越多，题目就应该越大越完整。可实际情况往往相反，读得越多，越需要判断哪些线索现在应该停在“知道它存在”，而不是全部写进主线。',
+        introEn:
+          'Many writers develop one illusion during the review stage: the more literature they read, the broader and more complete the topic should become. In practice, the opposite is often true. The more you read, the more you need to decide which lines should remain at the level of knowing they exist rather than entering the main line.',
+        zhihuAngleZh:
+          '知乎里关于“文献越看越收不住题”的问题，经常会提到一个关键动作：建立删线标准，而不是只建立阅读清单。',
+        zhihuAngleEn:
+          'Zhihu questions on losing control of the topic after reading too much literature often point to one key move: build a standard for removing lines, not just a list for collecting them.',
+        strategyZh:
+          '更稳的综述组织法，是给文献做两次筛选。第一次问它是否直接支撑你的核心问题，第二次问它是否会在当前篇幅、材料和时间条件下真正进入论证。过不了第二次筛选的，不是没价值，而是暂不进入主线。',
+        strategyEn:
+          'A steadier review structure applies two filters to the literature. The first asks whether a study directly supports the core question. The second asks whether it can truly enter the argument within the current length, material base, and timeline. Studies that fail the second filter are not worthless; they simply do not enter the main line for now.',
+        stepsZh: [
+          '先把文献分成直接支撑核心问题与间接相关两类。',
+          '再用篇幅、材料和时间三项标准筛掉暂不进入主线的线索。',
+          '最后把删下来的方向写进边界说明，而不是硬塞进综述。',
+        ],
+        stepsEn: [
+          'Split the literature into directly supporting and only indirectly related groups first.',
+          'Use length, material, and timeline as three criteria to remove the lines that should not enter the main line yet.',
+          'Write those removed directions into the boundary note rather than forcing them into the review.',
+        ],
+        submissionZh:
+          '如果后面还要写成投稿型引言，这种删线能力会非常重要，因为期刊更需要一个清楚的进入点，而不是面面俱到的综述铺陈。',
+        submissionEn:
+          'If the material later becomes a submission-style introduction, this ability to cut lines is extremely important because journals need a clear entry point far more than an all-encompassing review panorama.',
+        riskZh:
+          '如果综述阶段不建立缩题标准，最常见的后果就是背景越写越厚，主问题却越来越模糊，最后只能靠大幅删减补救。',
+        riskEn:
+          'If the review stage never develops narrowing criteria, the common result is an increasingly thick background and an increasingly blurred core question, followed by drastic late-stage cuts.',
+        checklistZh: [
+          '1. 是否区分了直接支撑与间接相关文献。',
+          '2. 是否用篇幅、材料和时间做了第二轮筛选。',
+          '3. 暂不进入主线的方向是否已写入边界说明。',
+        ],
+        checklistEn: [
+          '1. Have directly supporting studies been separated from indirectly related ones?',
+          '2. Has a second filtering round been done through length, material, and timeline?',
+          '3. Have the directions that do not enter the main line been captured in the boundary note?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更收束的综述框架和一份能解释“为什么现在只做这一块”的理由。',
+        deliverableEn:
+          'After this round, you should have a more focused review framework and a rationale explaining why the study now covers only this part.',
+        closeZh:
+          '真正让综述变强的，不是把所有线都留住，而是知道哪条线现在最值得被留下。',
+        closeEn:
+          'What truly strengthens a review is not retaining every line but knowing which one deserves to remain now.',
+      },
+      'methods-analysis': {
+        titleZh: '方法写不稳常常不是方法问题，而是题目大过了样本和分析',
+        titleEn:
+          'An unstable methods section is often not a method problem but a topic that exceeds the sample and analysis',
+        introZh:
+          '很多人以为方法部分之所以显得弱，是因为模型不够复杂、样本不够多，或者分析不够花哨。可更常见的真实原因，是题目和问题本身开得太大，让现有材料怎么写都像在勉强托举。',
+        introEn:
+          'Many writers think the methods section feels weak because the model is not advanced enough, the sample is not large enough, or the analysis is not sophisticated enough. More often, the real reason is that the topic and question were opened too wide, leaving the available material to carry more than it reasonably can.',
+        zhihuAngleZh:
+          '知乎里关于“方法总显得撑不起题目”的经验，常会提醒一个很关键的判断：先缩题，再补方法，不要顺序反了。',
+        zhihuAngleEn:
+          'Zhihu advice on methods sections that seem unable to support the topic often offers one crucial judgment: narrow the topic first and only then decide whether the method still needs to be strengthened.',
+        strategyZh:
+          '更稳的分析动作，是反过来看材料和样本到底能支持什么层级的判断，再把题目与研究问题收回到这个层级。只要问题和证据同一尺度，方法部分就会比单纯再加一层技术更有说服力。',
+        strategyEn:
+          'A steadier analytical move is to work backward from what level of judgment the material and sample can truly support, then pull the topic and research question back to that level. Once the question and evidence operate on the same scale, the methods section becomes more convincing than it would by adding another technical layer alone.',
+        stepsZh: [
+          '先判断现有样本与材料最多能支持哪一级研究判断。',
+          '再把题目和研究问题缩回这个判断层级。',
+          '最后重写方法说明，让它服务收束后的问题。',
+        ],
+        stepsEn: [
+          'Judge first what highest level of research judgment the current sample and material can support.',
+          'Pull the topic and research question back to that judgment level next.',
+          'Rewrite the methods explanation so it serves the narrowed question at the end.',
+        ],
+        submissionZh:
+          '如果以后还要走投稿，这种收束尤其重要，因为审稿人通常能接受边界清楚的小问题，却很难接受证据明显托不起的大问题。',
+        submissionEn:
+          'If publication lies ahead, this narrowing is especially important because reviewers can usually accept a clearly bounded small question, while they rarely accept a large question carried by obviously insufficient evidence.',
+        riskZh:
+          '如果方法部分总靠加术语补救而不先缩题，最常见的后果就是写得越来越复杂，但说服力并没有同步增长。',
+        riskEn:
+          'If the methods section keeps trying to rescue itself with more terminology before narrowing the topic, the common result is increasing complexity without a matching increase in persuasiveness.',
+        checklistZh: [
+          '1. 现有样本能支持的判断层级是否已说清。',
+          '2. 题目和研究问题是否已收回到这个层级。',
+          '3. 方法说明是否开始服务收束后的问题而不是原来的大承诺。',
+        ],
+        checklistEn: [
+          '1. Has the judgment level supported by the current sample been stated clearly?',
+          '2. Have the topic and question been pulled back to that level?',
+          '3. Does the methods explanation now serve the narrowed question rather than the original oversized promise?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更协调的题目、问题和方法说明，而不是继续让方法替题目兜底。',
+        deliverableEn:
+          'After this round, you should have a more coordinated title, question, and methods explanation rather than forcing the method to rescue the topic.',
+        closeZh:
+          '很多时候让方法变稳的最快办法，不是升级技术，而是先把题目收回来。',
+        closeEn:
+          'Very often, the fastest way to stabilize a methods section is not upgrading the technique but bringing the topic back into range first.',
+      },
+      'revision-defense': {
+        titleZh: '导师总说范围太大怎么改：返修时用缩题 note 解释为什么这版更稳',
+        titleEn:
+          'Does the advisor keep saying the scope is too broad? Use a narrowing note during revision to explain why the new version is steadier',
+        introZh:
+          '很多人听到“范围太大”后，第一反应只是删几个词、改短一点题目，但老师往往还是不买账，因为他们想看到的不是表面变小，而是你是否真的知道这次缩掉了什么、保留了什么、为什么这样更稳。',
+        introEn:
+          'Many writers hear the feedback that the scope is too broad and respond by removing a few words or shortening the title. Advisors often remain unconvinced because what they want to see is not only a smaller surface but whether you truly know what was removed, what was retained, and why the new version is steadier.',
+        zhihuAngleZh:
+          '知乎里关于“老师总让我缩题但我不知道怎么说明”的经验，经常会建议做一页缩题 note，把调整前后讲清楚。',
+        zhihuAngleEn:
+          'Zhihu advice on repeated requests to narrow a topic often recommends creating a one-page narrowing note that clearly explains the before and after of the adjustment.',
+        strategyZh:
+          '更稳的返修方式，是附一页缩题 note：原题目为什么过大、新题目在哪些层面被收窄、删掉的部分将来若继续做应如何展开。这样你的修改不只是表面动作，而是一次有理有据的研究收束。',
+        strategyEn:
+          'A steadier revision method is to attach a one-page narrowing note explaining why the old topic was oversized, on which levels the new topic has been narrowed, and how the removed parts could be developed in future work. The revision then becomes not a cosmetic cut but a reasoned research refocusing.',
+        stepsZh: [
+          '先写清原题目过大的具体位置。',
+          '再写清新题目在哪些层面被收窄。',
+          '最后说明删掉的部分为什么现在不做以及未来如何延伸。',
+        ],
+        stepsEn: [
+          'State clearly where the old topic was oversized first.',
+          'Explain on which levels the new topic has been narrowed next.',
+          'Finish by showing why the removed part is not done now and how it could be extended later.',
+        ],
+        submissionZh:
+          '如果后面还要投稿或答辩，这份缩题 note 也会很有用，因为它几乎可以直接转成 limitations 和 future work 的说明逻辑。',
+        submissionEn:
+          'If submission or defense still lies ahead, this narrowing note is also highly useful because it can almost directly become the logic behind the limitations and future-work explanation.',
+        riskZh:
+          '如果返修只改题目表面不改边界说明，最常见的后果就是老师仍会觉得你只是换了个说法，范围并没有真正稳住。',
+        riskEn:
+          'If revision changes only the surface of the title without updating the boundary explanation, the common result is that the advisor feels the wording changed but the scope itself did not truly stabilize.',
+        checklistZh: [
+          '1. 是否写清了原题目过大的具体位置。',
+          '2. 是否明确了新题目的收窄层面。',
+          '3. 是否解释了删掉部分现在不做和未来可做的理由。',
+        ],
+        checklistEn: [
+          '1. Have you stated clearly where the old topic was oversized?',
+          '2. Have the levels on which the new topic was narrowed been made explicit?',
+          '3. Have you explained why the removed part is not done now and how it could be pursued later?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更容易让老师接受的缩题方案和一份解释修改逻辑的 note。',
+        deliverableEn:
+          'After this round, you should have a narrowing plan that is easier for an advisor to accept and a note explaining the logic of the revision.',
+        closeZh:
+          '缩题真正有说服力的时候，改掉的不只是字面，而是整套范围逻辑。',
+        closeEn:
+          'Topic narrowing becomes persuasive when it changes not only the wording but the full logic of the scope.',
+      },
+    },
+  },
+  {
+    slug: 'literature-reading',
+    topicSlug: 'classic-recent-balance',
+    categorySlug: 'literature-reading-review',
+    labelZh: '文献阅读与综述',
+    labelEn: 'Literature Review',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '经典文献、近五年文献和平衡引用',
+    focusEn: 'classic sources, recent literature, and balanced citation strategy',
+    evidenceZh: '经典文献清单、近年文献清单和引用分层笔记',
+    evidenceEn: 'classic reading lists, recent-literature lists, and layered citation notes',
+    standardZh: '重点不是只追新或只守旧，而是让经典负责框架、近作负责位置。',
+    standardEn:
+      'The goal is not to chase only the newest work or rely only on old classics but to let foundational sources provide the frame and recent work provide the current position.',
+    articles: {
+      proposal: {
+        titleZh: '开题文献到底是经典优先还是近五年优先？先把两类任务分开',
+        titleEn:
+          'Should proposal reading prioritize classics or the last five years? Separate the jobs of the two literature types first',
+        introZh:
+          '很多人在开题时会纠结一个问题：老师说要看经典，可大家又总在强调近五年文献。于是阅读笔记越来越乱，因为你其实把两类文献放在同一个任务里要求了。',
+        introEn:
+          'Many writers become stuck during proposal preparation on one question: advisors ask for classic literature while everyone also stresses work from the last five years. Reading notes then grow more chaotic because the two literature types are being forced into the same task.',
+        zhihuAngleZh:
+          '知乎里关于“经典文献和近年文献怎么搭配”的讨论，经常会提醒一个很基础的判断：这两类文献并不是互相替代，而是承担不同功能。',
+        zhihuAngleEn:
+          'Zhihu discussions on balancing classic and recent literature often point to one basic judgment: the two types are not substitutes for one another but carry different functions.',
+        strategyZh:
+          '更稳的开题阅读法，是先让经典文献负责概念框架、基本问题和研究传统，再让近五年文献负责当前争议、方法变化和前沿入口。只要功能分清，阅读顺序和引用策略都会顺很多。',
+        strategyEn:
+          'A steadier proposal-stage reading practice lets classic literature handle conceptual frames, fundamental questions, and research traditions, while work from the last five years handles current disputes, methodological shifts, and frontier entry points. Once those functions are separated, both reading order and citation strategy become much smoother.',
+        stepsZh: [
+          '先列出支撑框架与基本问题的经典文献。',
+          '再列出反映当前争议与趋势的近年文献。',
+          '最后为两类文献分别写出它们在开题中的任务。',
+        ],
+        stepsEn: [
+          'List the classic sources that support the frame and the basic question first.',
+          'List the recent studies that reflect current disputes and trends next.',
+          'Write down the proposal-stage job carried by each literature type at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这种分工尤其重要，因为成熟稿件通常既要让人看到你站在传统里，也要让人看到你没有落在当下讨论之外。',
+        submissionEn:
+          'If the project later moves toward submission, this division is especially important because a mature manuscript usually needs to show both that it stands within a tradition and that it has not fallen outside the current conversation.',
+        riskZh:
+          '如果经典和近作一直混着读、混着记，最常见的后果就是框架不稳、位置不清，最后既显得不扎实也显得不新。',
+        riskEn:
+          'If classic and recent sources keep being read and noted together without distinction, the common result is an unstable frame and an unclear position, making the draft seem neither grounded nor current enough.',
+        checklistZh: [
+          '1. 是否已经分别列出经典文献与近年文献。',
+          '2. 两类文献是否承担了不同任务。',
+          '3. 开题说明里是否已经体现了这种分工。',
+        ],
+        checklistEn: [
+          '1. Have classic and recent sources been listed separately?',
+          '2. Do the two literature types now carry different jobs?',
+          '3. Does the proposal explanation already reflect that division?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有两张更清楚的文献清单和一套不再打架的阅读顺序。',
+        deliverableEn:
+          'After this round, you should have two clearer reading lists and a reading sequence that no longer pulls in opposite directions.',
+        closeZh:
+          '经典和近作真正搭配起来时，不是谁压过谁，而是各自把该做的事做好。',
+        closeEn:
+          'When classics and recent work are truly balanced, neither overpowers the other. Each simply does its own job well.',
+      },
+      'literature-review': {
+        titleZh: '综述别把经典和近文献写成一排：用双层文献架构写出深度和位置',
+        titleEn:
+          'Do not line up classic and recent studies in one flat review: use a two-layer literature structure to show depth and position',
+        introZh:
+          '很多综述把几十年前的经典研究和近两三年的新研究按作者顺序放在一起写，结果既看不出理论基础，也看不出当前争议，整段像在报菜名。',
+        introEn:
+          'Many reviews place decades-old classics and very recent studies together in author order, making it hard to see either the theoretical foundation or the current dispute. The paragraph ends up sounding like a menu rather than an argument.',
+        zhihuAngleZh:
+          '知乎里关于“综述怎么写出层次感”的问题，经常会提到一个动作：把文献按功能分层，而不是按时间简单堆叠。',
+        zhihuAngleEn:
+          'Zhihu questions on giving a review a sense of layers often point to one move: organize literature by function instead of stacking it simply by time.',
+        strategyZh:
+          '更稳的综述结构，是双层写法。第一层交代哪几篇经典文献奠定了你所站的框架，第二层再说明近年的研究如何延展、修正或挑战这个框架。这样读者既能看到深度，也能看到你当下的位置。',
+        strategyEn:
+          'A steadier review structure uses two layers. The first explains which classic works established the frame you stand in. The second shows how recent studies extend, revise, or challenge that frame. Readers can then see both depth and current position.',
+        stepsZh: [
+          '先找出奠定框架的经典研究线。',
+          '再把近年研究按延展、修正或挑战来分组。',
+          '最后写一段连接句，把经典基础和当下位置接起来。',
+        ],
+        stepsEn: [
+          'Identify the classic line that established the frame first.',
+          'Group recent studies as extensions, revisions, or challenges next.',
+          'Write one connective paragraph at the end linking the classic base to the current position.',
+        ],
+        submissionZh:
+          '如果后面要写投稿型引言，这种双层结构很有帮助，因为编辑和审稿人能很快看到你既懂基础，也知道现在的问题线在哪里。',
+        submissionEn:
+          'If the material later becomes a submission-style introduction, this two-layer structure is highly useful because editors and reviewers can quickly see that you know both the foundation and the current problem line.',
+        riskZh:
+          '如果综述一直把经典和近作混成一排，最常见的后果就是论文既不显得有根基，也不显得真正进入了前沿问题。',
+        riskEn:
+          'If the review keeps mixing classic and recent studies into one flat row, the common result is a paper that feels neither well grounded nor genuinely engaged with frontier issues.',
+        checklistZh: [
+          '1. 是否已经分出经典框架层与近年争议层。',
+          '2. 近年研究是否按延展、修正或挑战分组。',
+          '3. 是否写出了连接两层的判断句。',
+        ],
+        checklistEn: [
+          '1. Have the classic frame layer and the recent-dispute layer been separated?',
+          '2. Are recent studies grouped as extensions, revisions, or challenges?',
+          '3. Have you written a judgment sentence connecting the two layers?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更有层次的综述结构，让深度和当下位置同时可见。',
+        deliverableEn:
+          'After this round, you should have a more layered review structure that makes both depth and current positioning visible.',
+        closeZh:
+          '综述有层次时，经典负责打地基，近作负责告诉读者你现在站在哪。',
+        closeEn:
+          'A layered review lets classics build the foundation while recent work shows readers where you stand now.',
+      },
+      'methods-analysis': {
+        titleZh: '分析阶段怎么补近年文献才不补乱：只补会改变判断的那一批',
+        titleEn:
+          'How do you add recent literature during analysis without creating chaos? Add only the work that changes the judgment',
+        introZh:
+          '很多人写到分析阶段，才发现导师或审稿人会追问近年的研究有没有跟进。于是开始临时狂补新文献，结果正文被打乱，原来已经成型的逻辑也被冲散。',
+        introEn:
+          'Many writers reach the analysis stage and only then realize that advisors or reviewers may ask whether recent studies have been incorporated. They begin adding new papers in a hurry, often disrupting the body and scattering logic that had already started to hold together.',
+        zhihuAngleZh:
+          '知乎里关于“后期补文献越补越乱”的经验，常会提到一个原则：不是所有新文献都要补，只有会改判断的才要补进主线。',
+        zhihuAngleEn:
+          'Zhihu advice on late-stage literature additions becoming chaotic often returns to one principle: not every new paper must be inserted. Only those that actually change the judgment belong in the main line.',
+        strategyZh:
+          '更稳的后期补文献法，是先判断一篇近作会不会改变你的问题定位、结果解释或方法合理性。如果不会，它可以进笔记或附带说明；只有会改判断的，才需要进入正文重写。',
+        strategyEn:
+          'A steadier late-stage literature update asks first whether a recent study changes your problem positioning, result interpretation, or method justification. If it does not, it can stay in notes or a brief mention. Only work that changes the judgment needs to enter a body rewrite.',
+        stepsZh: [
+          '先筛出真正可能改写你判断的新文献。',
+          '再区分哪些只需补一句说明，哪些需要改正文结构。',
+          '最后只对会改变判断的文献做深度整合。',
+        ],
+        stepsEn: [
+          'Filter out the new studies that could genuinely alter your judgment first.',
+          'Separate those needing only a brief mention from those requiring structural revision next.',
+          'Integrate deeply only the literature that changes the judgment at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这一步很重要，因为成熟稿件的更新不是简单加参考文献数量，而是让当前位置和最近讨论真正接上。',
+        submissionEn:
+          'If the work later goes to submission, this step matters greatly because a mature manuscript is not updated by increasing citation count alone but by genuinely connecting its current position to the latest discussion.',
+        riskZh:
+          '如果分析阶段见新文献就补，最常见的后果就是稿件越来越碎，真正重要的新变化反而被淹没。',
+        riskEn:
+          'If every new study is inserted during analysis, the common result is an increasingly fragmented manuscript in which the truly important updates are buried.',
+        checklistZh: [
+          '1. 是否筛出会改变判断的新文献。',
+          '2. 是否区分了轻补与重写的更新方式。',
+          '3. 是否只对关键新文献做了深度整合。',
+        ],
+        checklistEn: [
+          '1. Have you filtered the new studies that actually change the judgment?',
+          '2. Have light additions been separated from revisions requiring structural change?',
+          '3. Have only the key new studies been integrated deeply?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更新过但不凌乱的正文位置说明和文献整合方案。',
+        deliverableEn:
+          'After this round, you should have an updated yet still coherent body-positioning section and literature-integration plan.',
+        closeZh:
+          '补近年文献最有效的时候，不是加得最多，而是加得最会改变判断。',
+        closeEn:
+          'Updating recent literature is most effective not when you add the most papers but when you add the ones that most alter the judgment.',
+      },
+      'revision-defense': {
+        titleZh: '答辩被问参考文献太老或太新怎么办：用经典/近期双清单回应',
+        titleEn:
+          'How do you answer when asked whether the references are too old or too new in a defense? Respond with a classic-versus-recent dual list',
+        introZh:
+          '很多答辩里都会出现一个看似简单却很难答好的问题：你的参考文献是不是太老了，或者是不是只追新没有根基。临场如果只说“我看了很多”，通常说服力并不够。',
+        introEn:
+          'Many defenses include a question that looks simple but is hard to answer well: are your references too old, or are they too recent without enough foundation? Saying only that you read a lot rarely sounds persuasive.',
+        zhihuAngleZh:
+          '知乎里关于“答辩老师质疑文献新旧搭配”的经验，常会建议不要空泛解释，而是把经典与近期文献的功能直接拆开说明。',
+        zhihuAngleEn:
+          'Zhihu advice on examiners questioning the age balance of references often recommends not giving a vague reply but explicitly separating the roles of classic and recent literature.',
+        strategyZh:
+          '更稳的回答，是准备两张清单：一张说明哪些经典文献提供了框架与基本问题，一张说明哪些近年文献界定了当前争议和研究位置。这样你不是在解释“我读得够不够多”，而是在解释“我的引用结构为什么成立”。',
+        strategyEn:
+          'A steadier answer prepares two lists: one showing which classic works provide the frame and basic question, and another showing which recent studies define the current dispute and research position. You then stop arguing about quantity and start explaining why your citation structure is valid.',
+        stepsZh: [
+          '先整理经典框架文献清单与近年位置文献清单。',
+          '再分别为两张清单写一句功能说明。',
+          '最后练习把这两类文献如何共同支撑论文讲清楚。',
+        ],
+        stepsEn: [
+          'Organize one list of classic frame literature and one list of recent positioning literature first.',
+          'Write one function sentence for each list next.',
+          'Practice explaining how the two lists support the paper together at the end.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这种双清单结构也能直接帮助你调整引言和 response letter 的文献说明。',
+        submissionEn:
+          'If revision or submission still lies ahead, this dual-list structure can also directly help you revise the literature explanation in the introduction and the response letter.',
+        riskZh:
+          '如果面对这个问题时只会说“我引用了很多最新文献”或“我也看了经典”，最常见的后果就是答辩显得没有结构感。',
+        riskEn:
+          'If this question is answered only with I cited many recent studies or I also read classics, the common result is a defense answer that lacks structure and force.',
+        checklistZh: [
+          '1. 是否已整理经典文献与近年文献双清单。',
+          '2. 两张清单是否都有明确功能说明。',
+          '3. 是否能把二者如何共同支撑论文讲清楚。',
+        ],
+        checklistEn: [
+          '1. Have you organized dual lists of classic and recent literature?',
+          '2. Does each list have a clear function statement?',
+          '3. Can you explain how the two lists support the paper together?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更有结构的答辩回应，不再只是泛泛解释文献新旧问题。',
+        deliverableEn:
+          'After this round, you should have a more structured defense response rather than a vague explanation of literature age balance.',
+        closeZh:
+          '文献新旧搭配最有说服力的时候，不是数量平衡，而是功能清楚。',
+        closeEn:
+          'The most persuasive balance between classic and recent literature is not numerical symmetry but clarity of function.',
+      },
+    },
+  },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'introduction-ending-pivot',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '结构与摘要写作',
+    labelEn: 'Structure and Abstract',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '引言最后一段、研究入口和正文转轴',
+    focusEn: 'the final paragraph of the introduction, research entry, and the pivot into the body',
+    evidenceZh: '引言结尾版本、研究问题句和路线说明',
+    evidenceEn: 'introduction-ending drafts, research-question lines, and route statements',
+    standardZh: '重点不是把引言拖得更长，而是让最后一段真正把读者送进正文。',
+    standardEn:
+      'The goal is not to make the introduction longer but to let its final paragraph truly carry the reader into the body of the paper.',
+    articles: {
+      proposal: {
+        titleZh: '引言最后一段不会写？开题时先学会用一段把问题引到你的研究',
+        titleEn:
+          'Cannot write the final paragraph of the introduction? Learn during the proposal stage how one paragraph carries the problem into your study',
+        introZh:
+          '很多人开题时会把引言写得很长，但最后一段总像突然结束，既没把前面的背景收住，也没把自己的研究平稳送进来。这样正文一开始就容易像另起一篇。',
+        introEn:
+          'Many writers make the introduction long during proposal drafting, yet the final paragraph often feels abrupt. It neither gathers the earlier background nor brings the study in smoothly, leaving the body to feel like the start of a different paper.',
+        zhihuAngleZh:
+          '知乎里关于“引言结尾怎么接研究问题”的问题很多，背后暴露的其实是一个结构问题：大家会铺垫，但不太会转轴。',
+        zhihuAngleEn:
+          'Zhihu contains many questions on how to connect the end of the introduction to the research question, and underneath them lies a structural issue: writers can set up context but often struggle to pivot.',
+        strategyZh:
+          '更稳的开题写法，是把引言最后一段当成一个三步转轴来写：前文留下了什么未解决点、你的研究将如何进入、正文接下来按什么路线展开。只要这三步排顺，正文就不会再像硬切进去。',
+        strategyEn:
+          'A steadier proposal-stage practice treats the final paragraph of the introduction as a three-step pivot: what unresolved point remains from the earlier discussion, how your study will enter it, and by what route the body will proceed next. Once these three steps are ordered clearly, the body stops feeling abruptly cut in.',
+        stepsZh: [
+          '先写一句前文留下的未解决点。',
+          '再写一句你的研究如何进入这个点。',
+          '最后写一句正文接下来将按什么路线展开。',
+        ],
+        stepsEn: [
+          'Write one sentence naming the unresolved point left by the earlier discussion first.',
+          'Add one sentence explaining how your study enters that point next.',
+          'Finish with one sentence showing how the body will proceed from there.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这个转轴段会很值钱，因为编辑通常会在这里判断这篇稿件是不是已经从背景成功转入研究。',
+        submissionEn:
+          'If the work later goes to submission, this pivot paragraph is highly valuable because editors often judge here whether the manuscript has successfully moved from background into research.',
+        riskZh:
+          '如果引言最后一段一直空着或写得很虚，最常见的后果就是前言和正文像两块材料拼在一起，读者会在进入正文时掉线。',
+        riskEn:
+          'If the final paragraph of the introduction remains vague or empty, the common result is an introduction and body that feel stitched together, causing readers to lose the line at the transition.',
+        checklistZh: [
+          '1. 是否写出前文留下的未解决点。',
+          '2. 是否写清研究如何进入这个点。',
+          '3. 是否交代正文的展开路线。',
+        ],
+        checklistEn: [
+          '1. Have you written the unresolved point left by the earlier discussion?',
+          '2. Have you explained how the study enters that point?',
+          '3. Have you stated the route by which the body unfolds?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版真正能把前言送进正文的引言结尾段。',
+        deliverableEn:
+          'After this round, you should have an introduction-ending paragraph that genuinely carries the reader into the body.',
+        closeZh:
+          '引言结尾真正写好时，正文不是另起一页，而是顺势开始。',
+        closeEn:
+          'When the final paragraph of the introduction is written well, the body does not begin as a separate page. It begins as the natural next step.',
+      },
+      'literature-review': {
+        titleZh: '引言结尾不是目录预告：把文献缺口、研究问题和文章路线接起来',
+        titleEn:
+          'The end of the introduction is not a table-of-contents preview: connect the literature gap, research question, and article route',
+        introZh:
+          '很多人把引言最后一段写成“本文分为几部分”的目录预告，形式上没有错，但真正关键的信息反而缺了：前面的文献到底留下了什么缺口，你的问题怎么接上，正文为什么要这样展开。',
+        introEn:
+          'Many writers use the final paragraph of the introduction as a preview of the paper’s sections. Formally this is not wrong, yet the crucial information often goes missing: what gap the literature actually left, how your question enters it, and why the body must unfold in this route.',
+        zhihuAngleZh:
+          '知乎里关于“引言结尾写目录有没有用”的讨论，经常会指出：只有目录没有转轴，读者知道你怎么排版，却不知道你为什么这样排。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether it helps to end the introduction with an outline often point out that an outline without a pivot tells readers how the paper is arranged but not why it is arranged that way.',
+        strategyZh:
+          '更稳的写法，是先用一句话收束文献缺口，再用一句话推出研究问题，最后才用一句话说明文章路线。顺序一旦调对，引言结尾就不再只是目录，而会变成真正的进入点。',
+        strategyEn:
+          'A steadier writing practice first closes on the literature gap in one sentence, then pushes out the research question in one sentence, and only then states the paper route in a final sentence. Once this order is right, the introduction ending stops being a mere outline and becomes a real entry point.',
+        stepsZh: [
+          '先删掉只有目录功能但没有研究推进作用的句子。',
+          '再补上一句文献缺口和一句研究问题。',
+          '最后让路线句只服务于前两句而不是独立存在。',
+        ],
+        stepsEn: [
+          'Remove the sentences that function only as an outline without advancing the research first.',
+          'Add one sentence on the literature gap and one on the research question next.',
+          'Let the route sentence serve those first two lines rather than stand alone at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种引言结尾会更有力，因为它让审稿人在进入正文前就知道正文为什么按这个顺序展开。',
+        submissionEn:
+          'If submission comes later, this kind of introduction ending is more powerful because it lets reviewers know why the body proceeds in this order before they enter it.',
+        riskZh:
+          '如果引言结尾一直只是目录预告，最常见的后果就是正文结构看起来像被安排好了，但论证动力并没有真正建立起来。',
+        riskEn:
+          'If the final paragraph of the introduction remains only a section preview, the common result is a body that looks organized on paper without having built the argumentative force that should drive it.',
+        checklistZh: [
+          '1. 是否已经写出文献缺口句。',
+          '2. 是否已经写出研究问题句。',
+          '3. 路线句是否开始服务缺口与问题，而不是单独报目录。',
+        ],
+        checklistEn: [
+          '1. Have you written the literature-gap sentence?',
+          '2. Have you written the research-question sentence?',
+          '3. Does the route sentence now serve the gap and the question rather than merely listing sections?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更像研究入口的引言结尾，而不是形式正确但推进很弱的目录段。',
+        deliverableEn:
+          'After this round, you should have an introduction ending that behaves more like a research entry than a formally correct but weak outline paragraph.',
+        closeZh:
+          '引言结尾最有力量的时候，目录只是结果，转轴才是核心。',
+        closeEn:
+          'The ending of an introduction is strongest when the outline is only the result and the pivot is the core.',
+      },
+      'methods-analysis': {
+        titleZh: '正文总接不进方法部分？重写引言结尾的过渡枢纽',
+        titleEn:
+          'Does the body never connect smoothly to the methods section? Rewrite the transition hinge at the end of the introduction',
+        introZh:
+          '很多稿件正文一进入方法部分就显得突兀，作者往往会以为是方法写得不好，其实更常见的问题是前言最后一段没有把“为什么需要这套方法”提前送到门口。',
+        introEn:
+          'Many manuscripts feel abrupt when the body enters the methods section. Writers often assume the method is poorly written, yet the more common problem is that the final paragraph of the introduction never delivered readers to the point where this method becomes necessary.',
+        zhihuAngleZh:
+          '知乎里关于“方法段开头总像硬转”的讨论，常会提醒一个细节：不是方法段自己孤立有问题，而是前言没有把过渡做完。',
+        zhihuAngleEn:
+          'Zhihu discussions on methods sections that feel forced often remind writers of one detail: the method paragraph is not isolated by itself. The introduction may have failed to complete the transition.',
+        strategyZh:
+          '更稳的结构修法，是让引言结尾先交代为什么这个问题需要这种证据与方法，再让方法部分顺势接手具体规则。这样方法部分就不再像突然换频道，而像对前文承诺的执行。',
+        strategyEn:
+          'A steadier structural repair is to let the end of the introduction explain why this question requires this kind of evidence and method first, then allow the methods section to take over the practical rules. The methods section then stops feeling like a channel switch and starts reading as the execution of a promise already made.',
+        stepsZh: [
+          '先检查引言结尾有没有交代为什么需要这套方法。',
+          '再补一句问题到证据类型的过渡说明。',
+          '最后让方法部分直接接规则而不是重新讲背景。',
+        ],
+        stepsEn: [
+          'Check first whether the end of the introduction already explains why this method is needed.',
+          'Add one transition sentence from the question to the evidence type next.',
+          'Let the methods section move directly into rules at the end instead of repeating background.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这种重写会很重要，因为很多审稿人对方法段的第一感受其实来自它与前言是否接得自然。',
+        submissionEn:
+          'If the manuscript later goes to submission, this rewrite is important because many reviewers’ first impression of the methods section depends on whether it connects naturally to the introduction.',
+        riskZh:
+          '如果方法部分总靠自己重新解释为什么存在，最常见的后果就是前后重复增加，而方法段仍然显得突然。',
+        riskEn:
+          'If the methods section has to keep re-explaining why it exists, the common result is more repetition across sections while the transition still feels abrupt.',
+        checklistZh: [
+          '1. 引言结尾是否已说明为什么需要这套方法。',
+          '2. 是否补上了问题到证据的过渡句。',
+          '3. 方法部分是否开始直接接规则与执行。',
+        ],
+        checklistEn: [
+          '1. Does the end of the introduction already explain why this method is needed?',
+          '2. Has a transition sentence from the question to the evidence type been added?',
+          '3. Does the methods section now move directly into rules and execution?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更顺滑的前言到方法过渡，不再让正文像突然切段。',
+        deliverableEn:
+          'After this round, you should have a smoother transition from introduction to method, without the body feeling like an abrupt cut.',
+        closeZh:
+          '方法段顺的时候，往往不是它单独变好了，而是引言最后一段终于把它送到了该出现的位置。',
+        closeEn:
+          'A methods section often feels smooth not because it improved alone but because the final paragraph of the introduction finally delivered it to the right place.',
+      },
+      'revision-defense': {
+        titleZh: '老师说前言收不住？返修时把引言最后一段做成整篇转轴',
+        titleEn:
+          'Does feedback say the introduction never lands? During revision, turn the final paragraph into the pivot of the whole paper',
+        introZh:
+          '很多老师会说一篇论文“前言太散”“收不住”“进不了正文”，这类评价看似抽象，实际往往都指向同一个地方: 引言最后一段没有承担起整篇转轴的功能。',
+        introEn:
+          'Many advisors describe a manuscript as having an introduction that feels loose, never lands, or does not lead into the body. These comments sound abstract, yet they often point to the same place: the final paragraph of the introduction has not taken on the role of the paper’s pivot.',
+        zhihuAngleZh:
+          '知乎里关于“老师总说前言不收束”的经验，常会给出一个很具体的建议：先别急着全篇重写，先重写引言最后一段。',
+        zhihuAngleEn:
+          'Zhihu advice on repeated feedback that the introduction does not close properly often gives one very concrete suggestion: before rewriting the whole paper, rewrite the final paragraph of the introduction.',
+        strategyZh:
+          '更稳的返修动作，是把引言结尾当作总控点来修。只要这里把缺口、问题和路线接顺了，前言就会收束，正文也会更自然地被带出来，很多局部问题会跟着一起缓解。',
+        strategyEn:
+          'A steadier revision move is to treat the ending of the introduction as a control point. Once the gap, question, and route are connected smoothly there, the introduction begins to close properly and the body is brought out more naturally, often easing many local problems at the same time.',
+        stepsZh: [
+          '先定位引言最后一段现在缺的是缺口、问题还是路线。',
+          '再按这个缺口补齐对应句子。',
+          '最后通读前言和正文开头，检查转轴是否真正成立。',
+        ],
+        stepsEn: [
+          'Identify first whether the current final paragraph is missing the gap, the question, or the route.',
+          'Fill the missing sentence type next.',
+          'Reread the introduction together with the body opening at the end to test whether the pivot now works.',
+        ],
+        submissionZh:
+          '如果后面还要答辩或投稿，这种返修会很有价值，因为你修的不是一个局部句子，而是整篇论文的进入效率。',
+        submissionEn:
+          'If defense or submission still lies ahead, this revision is highly valuable because you are repairing not a local sentence but the entry efficiency of the whole manuscript.',
+        riskZh:
+          '如果前言收不住时只在前面加背景，最常见的后果就是篇幅更长、问题更多，转轴却还是空的。',
+        riskEn:
+          'If a loose introduction is answered only by adding more background earlier on, the common result is a longer introduction with more problems and the same empty pivot.',
+        checklistZh: [
+          '1. 是否定位了结尾段缺的是缺口、问题还是路线。',
+          '2. 是否已补齐对应的关键句。',
+          '3. 通读时前言和正文开头是否已经真正接顺。',
+        ],
+        checklistEn: [
+          '1. Have you identified whether the ending paragraph is missing the gap, question, or route?',
+          '2. Have the corresponding key sentences been added?',
+          '3. When reread together, do the introduction and body opening now genuinely connect?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更收得住、也更能把正文带出来的前言结构。',
+        deliverableEn:
+          'After this round, you should have an introduction structure that closes more firmly and carries the body out more smoothly.',
+        closeZh:
+          '前言真正收住的时候，最后一段通常不是尾巴，而是整篇的转轴。',
+        closeEn:
+          'When an introduction truly lands, its final paragraph is usually not a tail but the pivot of the entire manuscript.',
+      },
+    },
+  },
+  {
+    slug: 'methods-data',
+    topicSlug: 'data-cleaning-trace',
+    categorySlug: 'methods-data-presentation',
+    labelZh: '方法与数据呈现',
+    labelEn: 'Methods and Data',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '数据清洗、筛选路径和处理留痕',
+    focusEn: 'data cleaning, screening paths, and processing traceability',
+    evidenceZh: '筛选规则、清洗日志和版本记录',
+    evidenceEn: 'screening rules, cleaning logs, and version histories',
+    standardZh: '重点不是让数据处理看起来更复杂，而是让别人看得见你怎么得到这批结果。',
+    standardEn:
+      'The goal is not to make data handling look more complex but to let others see how this result set was actually produced.',
+    articles: {
+      proposal: {
+        titleZh: '开题就要想清数据怎么清洗：别等结果出来才补规则',
+        titleEn:
+          'Think through data cleaning already at the proposal stage: do not wait until results appear to invent the rules',
+        introZh:
+          '很多人以为数据清洗是后期操作，等结果快出来时再补写就行。可一旦早期没有想清筛选、剔除、修正和版本保存的基本规则，后面的方法说明和结果可信度都会变得很被动。',
+        introEn:
+          'Many writers assume data cleaning is a late-stage operation that can be described once results are already in hand. Yet if the basic rules of screening, exclusion, correction, and version saving are not thought through early, both the methods explanation and the credibility of the results become much more fragile later.',
+        zhihuAngleZh:
+          '知乎里关于“数据处理该写到什么程度”的问题，常会提醒一个事实：很多后期的解释压力，其实来自前期没有留痕。',
+        zhihuAngleEn:
+          'Zhihu questions on how much detail data handling requires often point to one fact: much of the later explanation pressure comes from a lack of traceability set up early on.',
+        strategyZh:
+          '更稳的开题准备，是先写出一版基础 cleaning rule：哪些样本会被保留、哪些情况会被剔除、异常值如何处理、版本怎么保存。即使后面还会调整，这版初始规则也会让后续方法和结果更容易站稳。',
+        strategyEn:
+          'A steadier proposal-stage preparation is to draft a basic cleaning rule set first: which samples are retained, which cases are excluded, how outliers are handled, and how versions are saved. Even if later adjustments occur, this initial rule set makes the later methods and results far easier to stabilize.',
+        stepsZh: [
+          '先写下保留、剔除和修正规则。',
+          '再决定异常情况如何记录而不是临时处理。',
+          '最后建立最简单的版本保存方式。',
+        ],
+        stepsEn: [
+          'Write down the retention, exclusion, and correction rules first.',
+          'Decide how unusual cases will be recorded rather than handled ad hoc next.',
+          'Set up the simplest workable version-saving method at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步非常有帮助，因为很多审稿追问并不是针对结果本身，而是针对结果生成路径是否清楚。',
+        submissionEn:
+          'If submission may follow later, this step is very helpful because many reviewer questions target not the result itself but whether the path that produced it is clear.',
+        riskZh:
+          '如果清洗规则一直拖到结果之后才补，最常见的后果就是方法说明像事后解释，而不是事前设定。',
+        riskEn:
+          'If cleaning rules are postponed until after results appear, the common result is a methods section that reads like after-the-fact explanation rather than prior design.',
+        checklistZh: [
+          '1. 是否写下了保留、剔除和修正规则。',
+          '2. 异常情况是否有记录方案。',
+          '3. 是否建立了最基本的版本保存方式。',
+        ],
+        checklistEn: [
+          '1. Have the retention, exclusion, and correction rules been written down?',
+          '2. Is there a recording plan for unusual cases?',
+          '3. Has a basic version-saving method been established?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版基础的数据清洗规则和一条能继续扩展的处理留痕路径。',
+        deliverableEn:
+          'After this round, you should have a basic data-cleaning rule set and a processing-trace path that can continue to develop later.',
+        closeZh:
+          '数据处理越早留痕，后面越不需要靠回忆补逻辑。',
+        closeEn:
+          'The earlier data handling leaves a trace, the less later writing depends on memory to rebuild logic.',
+      },
+      'literature-review': {
+        titleZh: '看方法文献时顺手记清洗规则：为以后附录和复现留痕',
+        titleEn:
+          'When reading methods papers, record cleaning rules as you go: leave a trace for later appendices and reproducibility',
+        introZh:
+          '很多人读方法文献时只记模型、变量和结果，却不记作者的数据是怎么一步步筛出来的。等自己写方法和附录时，才发现最难补的往往不是术语，而是处理过程。',
+        introEn:
+          'Many writers record only models, variables, and results when reading methods papers, without noting how the data was screened step by step. When they later write their own methods and appendix, the hardest part to reconstruct is often not terminology but process.',
+        zhihuAngleZh:
+          '知乎里关于“附录到底要不要写数据处理细节”的讨论，经常会指出：你后期能不能写出来，很大程度取决于前期有没有在阅读时就学会观察这些细节。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether appendices should include data-handling detail often point out that your ability to write it later depends heavily on whether you learned to notice those details while reading earlier.',
+        strategyZh:
+          '更稳的阅读方法，是在方法笔记里额外开一列“处理路径”，记录样本从原始材料到最终分析集的关键步骤。只要这一列开始积累，你以后写自己的 cleaning log 就不容易完全从零开始。',
+        strategyEn:
+          'A steadier reading practice adds one extra column called processing path to the method notes, recording the key steps from raw material to final analytical set. Once that column accumulates over time, writing your own cleaning log later no longer starts from zero.',
+        stepsZh: [
+          '先在方法阅读笔记里加一列处理路径。',
+          '再记录代表性文献如何筛样本与处理异常值。',
+          '最后总结哪些步骤最值得在自己研究中提前留痕。',
+        ],
+        stepsEn: [
+          'Add a processing-path column to the method reading notes first.',
+          'Record how representative papers screen samples and treat outliers next.',
+          'Summarize which steps are most worth tracing early in your own project at the end.',
+        ],
+        submissionZh:
+          '如果后面还要写附录或应对审稿，这类阅读笔记会特别有用，因为它能直接转化成你自己的透明度写法。',
+        submissionEn:
+          'If appendices or reviewer responses still lie ahead, this kind of reading note becomes especially useful because it can directly inform your own transparency writing.',
+        riskZh:
+          '如果看方法文献时完全不记处理路径，最常见的后果就是自己做的时候知道大概该做什么，却说不清每一步怎么写出来。',
+        riskEn:
+          'If reading notes never record processing paths, the common result is knowing roughly what to do in practice while being unable to write each step clearly later.',
+        checklistZh: [
+          '1. 阅读笔记里是否已加入处理路径一列。',
+          '2. 是否记录了代表性文献的筛样本与异常值处理方式。',
+          '3. 是否总结出哪些步骤最该提前留痕。',
+        ],
+        checklistEn: [
+          '1. Has a processing-path column been added to your reading notes?',
+          '2. Have the sample-screening and outlier-handling practices of representative studies been recorded?',
+          '3. Have you summarized which steps most need early traceability in your own project?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一份更适合转成附录和方法说明的阅读笔记结构。',
+        deliverableEn:
+          'After this round, you should have a reading-note structure that can much more easily turn into appendices and methods explanation later.',
+        closeZh:
+          '方法阅读真正帮到后文的时候，学到的不只是结果，而是结果背后的处理路径。',
+        closeEn:
+          'Method reading helps later writing most when it teaches not only the result but the processing path behind it.',
+      },
+      'methods-analysis': {
+        titleZh: '数据清洗别写成黑箱：用筛选路径和版本记录提高可信度',
+        titleEn:
+          'Do not write data cleaning as a black box: use screening paths and version records to raise credibility',
+        introZh:
+          '很多方法部分会一句带过“对原始数据做了清洗处理”，这种写法看似省事，却会让读者立刻怀疑你到底改了什么、删了什么、为什么这么做。数据处理一旦黑箱化，结果就很难稳。',
+        introEn:
+          'Many methods sections wave away data cleaning with a single line saying the raw data was cleaned. This looks efficient, yet it immediately makes readers wonder what was changed, what was removed, and why. Once data processing becomes a black box, the results become hard to trust.',
+        zhihuAngleZh:
+          '知乎里关于“方法部分怎样写得透明”的经验，经常会提到一个关键词：路径。不是只说结果被清洗过，而是让人看到从原始到最终的路径。',
+        zhihuAngleEn:
+          'Zhihu advice on writing a transparent methods section often highlights one keyword: path. Do not merely say the data was cleaned; show the route from raw to final.',
+        strategyZh:
+          '更稳的写法，是把数据清洗拆成一条路径：原始样本是多少，按什么规则删除或修正后剩多少，中间版本怎么保存，最终分析集如何形成。只要这条路径能被复述，可信度就会上来。',
+        strategyEn:
+          'A steadier writing practice turns data cleaning into a path: how many raw cases there were, by what rules cases were removed or corrected, how intermediate versions were saved, and how the final analysis set emerged. Once this path can be retold, credibility rises sharply.',
+        stepsZh: [
+          '先列出原始样本到最终样本的关键变化节点。',
+          '再写清每个节点对应的删除或修正规则。',
+          '最后补上版本记录或附录入口，让处理链可追踪。',
+        ],
+        stepsEn: [
+          'List the key change points from raw sample to final sample first.',
+          'Explain the deletion or correction rule for each point next.',
+          'Add version records or appendix references at the end so the chain can be traced.',
+        ],
+        submissionZh:
+          '如果后面要应对答辩或审稿，这种写法会非常有帮助，因为很多质疑在正文里就能被提前化解。',
+        submissionEn:
+          'If defense or review still lies ahead, this writing style is highly useful because many doubts can be resolved in the body before they become formal questions.',
+        riskZh:
+          '如果数据清洗一直被写成黑箱，最常见的后果就是读者不一定能指出具体问题，但会明显感觉整套结果不够踏实。',
+        riskEn:
+          'If data cleaning continues to be written as a black box, the common result is that readers may not name a precise flaw but still feel that the full result set is not solid.',
+        checklistZh: [
+          '1. 是否列出了原始样本到最终样本的关键节点。',
+          '2. 每个节点是否都有明确规则说明。',
+          '3. 是否补上了版本记录或附录入口。',
+        ],
+        checklistEn: [
+          '1. Have the key nodes from raw to final sample been listed?',
+          '2. Does each node have a clear rule explanation?',
+          '3. Have version records or appendix references been added?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更透明的数据处理说明，让结果部分更能站住。',
+        deliverableEn:
+          'After this round, you should have a more transparent data-processing explanation that gives the results section much stronger footing.',
+        closeZh:
+          '数据清洗越看得见，结果越不需要靠读者自行相信。',
+        closeEn:
+          'The more visible data cleaning becomes, the less the results rely on readers simply trusting you.',
+      },
+      'revision-defense': {
+        titleZh: '被问数据怎么处理时别临场回忆：返修前先做一份 cleaning log',
+        titleEn:
+          'Do not reconstruct data handling from memory when asked: make a cleaning log before revision or defense',
+        introZh:
+          '很多人一到答辩或返修，被问“这些数据怎么处理的”时就开始凭记忆回想。可一旦处理过程没有提前整理成 log，回答很容易前后不一，甚至把原本没问题的结果说得不稳。',
+        introEn:
+          'Many writers reach a defense or revision and, when asked how the data was handled, begin reconstructing the process from memory. If the procedure has not been organized into a log in advance, the answer easily becomes inconsistent and can make even solid results sound unstable.',
+        zhihuAngleZh:
+          '知乎里关于“答辩时被追问数据处理细节怎么办”的经验，常会建议提前做一份 cleaning log，不要把整个处理过程留给临场记忆。',
+        zhihuAngleEn:
+          'Zhihu advice on being questioned about data-processing details during a defense often recommends preparing a cleaning log beforehand rather than leaving the full process to live memory.',
+        strategyZh:
+          '更稳的后期准备，是整理一份 cleaning log：原始数据来源、每轮处理动作、规则依据、版本变化和最终输出。这样你在答辩和返修里都能按同一条处理链来解释，不容易前后跑偏。',
+        strategyEn:
+          'A steadier late-stage preparation is to build a cleaning log covering the raw data source, each processing action, the rule behind it, version changes, and the final output. You can then explain the process through the same chain in both defense and revision without drifting between answers.',
+        stepsZh: [
+          '先整理原始来源、处理动作和版本变化。',
+          '再为每一步补上规则依据。',
+          '最后用这份 log 练习答辩和返修中的统一说法。',
+        ],
+        stepsEn: [
+          'Organize the raw source, processing actions, and version changes first.',
+          'Add the rule basis for each step next.',
+          'Use the log to rehearse a consistent explanation for defense and revision at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这份 cleaning log 也会直接帮助你写 response letter、supplementary note 和方法附录。',
+        submissionEn:
+          'If submission still lies ahead, this cleaning log will also directly help with the response letter, supplementary note, and methods appendix.',
+        riskZh:
+          '如果后期还靠临场回忆讲数据处理，最常见的后果就是不同场景里说法不一致，反而放大读者对结果可靠性的担心。',
+        riskEn:
+          'If later explanation still depends on live memory, the common result is inconsistent descriptions across contexts, which amplifies concern about result reliability.',
+        checklistZh: [
+          '1. 是否整理了原始来源、处理动作和版本变化。',
+          '2. 每一步是否写明规则依据。',
+          '3. 是否已经用同一份 log 练习统一说法。',
+        ],
+        checklistEn: [
+          '1. Have the raw source, processing actions, and version changes been organized?',
+          '2. Does each step state the rule basis clearly?',
+          '3. Have you practiced one consistent explanation from the same log?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份可直接用于答辩、返修和投稿补充说明的 cleaning log。',
+        deliverableEn:
+          'After this round, you should have a cleaning log that can be used directly for defense, revision, and submission supplements.',
+        closeZh:
+          '处理过程一旦写成 log，后期就不再需要靠记忆拼答案。',
+        closeEn:
+          'Once the process is written into a log, late-stage explanations no longer have to be assembled from memory.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'feedback-priority-matrix',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '反馈优先级、大修路线和修改顺序',
+    focusEn: 'feedback prioritization, major revision routes, and revision order',
+    evidenceZh: '反馈清单、优先级矩阵和修改路线表',
+    evidenceEn: 'feedback lists, priority matrices, and revision route sheets',
+    standardZh: '重点不是把所有意见一起改，而是先找出会决定整篇稳定性的那几条。',
+    standardEn:
+      'The goal is not to revise every comment at once but to identify the few issues that determine the stability of the whole manuscript.',
+    articles: {
+      proposal: {
+        titleZh: '开题阶段就练反馈优先级：别把所有意见都当成同一层',
+        titleEn:
+          'Practice feedback prioritization already during the proposal stage: do not treat every comment as the same level',
+        introZh:
+          '很多人第一次收到开题反馈，就会把老师说的每一句都当成同等重要，结果改得很累却抓不到重点。其实很多反馈之间是有层级的，有些决定题目和结构，有些只是表达层修补。',
+        introEn:
+          'Many writers receive proposal feedback for the first time and treat every sentence from the advisor as equally important. They revise hard yet fail to catch the center. In reality, feedback comments usually have levels: some determine the topic and structure, while others only polish expression.',
+        zhihuAngleZh:
+          '知乎里关于“导师意见太多不知道先改哪个”的问题，经常会提醒：先分层，不要先全改。',
+        zhihuAngleEn:
+          'Zhihu discussions on not knowing which advisor comment to revise first often give one reminder: classify first and revise everything only after that.',
+        strategyZh:
+          '更稳的开题修改法，是先把反馈分成主线层、结构层和表达层。主线层决定题目、问题和边界；结构层决定章节安排；表达层才是措辞和例子。只要先改前两层，后面很多表达问题会自动消失。',
+        strategyEn:
+          'A steadier proposal-stage revision practice divides feedback into main-line, structure, and expression levels. The main-line layer determines the topic, question, and boundary; the structure layer shapes section arrangement; only then does the expression layer concern wording and examples. Once the first two levels are revised, many expression problems disappear automatically.',
+        stepsZh: [
+          '先把反馈分成主线、结构和表达三层。',
+          '再优先处理会改变题目与问题线的意见。',
+          '最后才处理措辞、例子和局部补充。',
+        ],
+        stepsEn: [
+          'Divide the feedback into main-line, structure, and expression layers first.',
+          'Prioritize the comments that change the topic and question line next.',
+          'Handle wording, examples, and local additions only at the end.',
+        ],
+        submissionZh:
+          '如果以后还要返修或投稿，这种分层思维会非常有帮助，因为大修最怕的不是意见多，而是顺序乱。',
+        submissionEn:
+          'If revision or submission comes later, this layered mindset is highly useful because the greatest danger in major revision is often not the number of comments but the disorder of the sequence.',
+        riskZh:
+          '如果开题反馈一上来就逐句全改，最常见的后果就是局部变好了，但主线还没稳，很多工作会被下一轮重新推翻。',
+        riskEn:
+          'If proposal feedback is revised line by line immediately, the common result is local improvement without a stable main line, causing much of the work to be overturned in the next round.',
+        checklistZh: [
+          '1. 是否已把反馈分成主线、结构和表达三层。',
+          '2. 是否优先处理了改变题目和问题线的意见。',
+          '3. 是否把表达层修改放到了后面。',
+        ],
+        checklistEn: [
+          '1. Has the feedback been divided into main-line, structure, and expression layers?',
+          '2. Have the comments that alter the topic and question line been handled first?',
+          '3. Have expression-layer revisions been moved later in the process?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更清楚的反馈优先级表，而不是一张看起来什么都要改的清单。',
+        deliverableEn:
+          'After this round, you should have a much clearer feedback-priority table instead of a list where everything looks equally urgent.',
+        closeZh:
+          '反馈一旦分层，修改就不再只是忙，而会开始变得有效。',
+        closeEn:
+          'Once feedback is layered, revision stops being only busy and starts becoming effective.',
+      },
+      'literature-review': {
+        titleZh: '读反馈时先分主线和细节：建立一张 revision priority matrix',
+        titleEn:
+          'Separate main-line issues from detail issues when reading feedback: build a revision priority matrix',
+        introZh:
+          '很多人看到一整页反馈时会被数量压住，开始按顺序一点点改。但反馈清单真正需要的不是线性阅读，而是优先级排序。只有这样，你才知道哪几条会带动整篇变化，哪几条只是最后润色。',
+        introEn:
+          'Many writers feel overwhelmed by a full page of feedback and begin revising linearly from top to bottom. Yet what a feedback list truly needs is not linear reading but priority ranking. Only then do you know which comments will move the whole paper and which belong to final polishing.',
+        zhihuAngleZh:
+          '知乎里关于“大修意见怎么下手”的经验，常会提到一个办法：先做 matrix，不要先打开文档硬改。',
+        zhihuAngleEn:
+          'Zhihu advice on where to begin with major revisions often recommends one move above all: build a matrix first instead of opening the document and revising blindly.',
+        strategyZh:
+          '更稳的反馈处理法，是做一张 revision priority matrix，用“影响主线程度”和“改动牵连范围”两轴来排。高影响且牵连广的，先改；影响低、牵连小的，最后处理。顺序一旦定清，返修就不会被细节拖走。',
+        strategyEn:
+          'A steadier way to handle feedback is to build a revision priority matrix using two axes: degree of impact on the main line and breadth of downstream consequences. Comments with high impact and wide consequences go first; low-impact, low-consequence items go last. Once the order is set clearly, revision is less likely to be dragged away by detail.',
+        stepsZh: [
+          '先把每条反馈按影响主线程度打一个层级。',
+          '再判断它会牵连多少章节或段落。',
+          '最后按矩阵顺序排出修改路线。',
+        ],
+        stepsEn: [
+          'Assign each feedback item a level based on how strongly it affects the main line first.',
+          'Judge how many sections or paragraphs each item will influence next.',
+          'Use the matrix to produce a revision route at the end.',
+        ],
+        submissionZh:
+          '如果后面还要回复审稿或继续重投，这种 matrix 很值钱，因为它能让你的 response 更像有策略的返修，而不是被动逐条应付。',
+        submissionEn:
+          'If reviewer response or resubmission lies ahead, this matrix is highly valuable because it makes your revision response look strategic rather than passively item by item.',
+        riskZh:
+          '如果反馈一多就直接逐条改，最常见的后果就是时间花得很多，但高影响问题仍然排在后面甚至被漏掉。',
+        riskEn:
+          'If a large feedback set triggers immediate line-by-line revision, the common result is much time spent while high-impact issues remain late in the process or even get missed.',
+        checklistZh: [
+          '1. 是否给每条反馈标了主线影响层级。',
+          '2. 是否判断了每条反馈的牵连范围。',
+          '3. 是否已经按矩阵排出修改顺序。',
+        ],
+        checklistEn: [
+          '1. Has each feedback item been marked by its main-line impact level?',
+          '2. Has the consequence range of each item been judged?',
+          '3. Has a revision order already been produced from the matrix?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一张能指导返修顺序的 priority matrix，而不是继续被反馈数量压着走。',
+        deliverableEn:
+          'After this round, you should have a priority matrix that can guide revision order instead of continuing to be pushed around by the sheer amount of feedback.',
+        closeZh:
+          '反馈矩阵最有价值的时候，不是看起来专业，而是真的帮你先改对最重要的地方。',
+        closeEn:
+          'A feedback matrix becomes most valuable not when it looks professional but when it truly helps you revise the most important places first.',
+      },
+      'methods-analysis': {
+        titleZh: '大修意见很多时先救主线：把方法、结果和格式问题分层处理',
+        titleEn:
+          'When major revision comments are numerous, save the main line first: process method, result, and formatting issues in layers',
+        introZh:
+          '很多大修阶段最危险的事，不是意见太多，而是作者把方法质疑、结果解释、图表调整和格式修改一股脑同时推进。这样不仅效率低，还容易让主线被细节打散。',
+        introEn:
+          'The most dangerous thing in major revision is often not the number of comments but the tendency to tackle methodological challenges, result interpretation, figure adjustments, and formatting changes all at once. This reduces efficiency and makes it easy for the main line to scatter under the weight of detail.',
+        zhihuAngleZh:
+          '知乎里关于“大修怎么安排顺序”的讨论，经常会说一句很实用的话：先救会影响结论成立的地方，别先救排版。',
+        zhihuAngleEn:
+          'Zhihu discussions on how to sequence major revisions often give one practical line: rescue the places that affect the validity of the conclusion before rescuing formatting.',
+        strategyZh:
+          '更稳的大修路线，是先处理会影响结论和问题线成立的方法与结果问题，再处理结构与图表，最后处理格式、语言和局部润色。只要顺序反过来，后面很多已做的细节改动都可能要被重来。',
+        strategyEn:
+          'A steadier major-revision route handles methodological and result-related issues that affect the validity of the conclusion and question line first, then addresses structure and figures, and only at the end works on formatting, language, and local polish. Reverse the order and many of the detailed fixes may need to be redone later.',
+        stepsZh: [
+          '先筛出会影响问题线与结论成立的意见。',
+          '再处理结构、图表和正文组织问题。',
+          '最后统一做格式、语言和局部修辞调整。',
+        ],
+        stepsEn: [
+          'Filter out the comments that affect the validity of the question line and conclusion first.',
+          'Handle structure, figures, and body organization next.',
+          'Complete formatting, language, and local phrasing adjustments only at the end.',
+        ],
+        submissionZh:
+          '如果后面还要继续送审，这种分层顺序尤其关键，因为 response letter 的可信度往往来自你是否先解决了真正关键的问题。',
+        submissionEn:
+          'If further review still lies ahead, this layered sequence is especially important because the credibility of the response letter often depends on whether you solved the genuinely critical issues first.',
+        riskZh:
+          '如果大修时先动格式和细节，最常见的后果就是看起来改了很多，但主线问题仍在，下一轮压力只会更大。',
+        riskEn:
+          'If major revision starts with formatting and detail, the common result is a manuscript that looks heavily revised while the main-line problems remain, making the next round even harder.',
+        checklistZh: [
+          '1. 是否筛出影响结论与问题线成立的高优先级意见。',
+          '2. 是否把结构图表问题放在第二层处理。',
+          '3. 是否把格式语言调整留到了最后。',
+        ],
+        checklistEn: [
+          '1. Have the high-priority comments affecting the conclusion and question line been filtered out?',
+          '2. Have structure and figure issues been placed in the second layer of revision?',
+          '3. Have formatting and language adjustments been left until the end?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一条更稳的大修路线，不再被大量细节反馈牵着跑。',
+        deliverableEn:
+          'After this round, you should have a much steadier major-revision route instead of being pulled around by a large number of detailed comments.',
+        closeZh:
+          '大修最怕的不是事情多，而是顺序错。顺序一对，很多难度会自己降下来。',
+        closeEn:
+          'The real danger in major revision is often not the amount of work but the wrong order. Once the order is right, much of the difficulty begins to drop on its own.',
+      },
+      'revision-defense': {
+        titleZh: '返修回复怎么排顺序：先解决会影响送审的核心问题',
+        titleEn:
+          'How should you order a revision response? Resolve the core issues that affect review first',
+        introZh:
+          '很多人写 response file 时会机械地按审稿意见顺序往下答，但真正更有效的路线，通常不是跟着评论顺序走，而是跟着问题的影响级别走。',
+        introEn:
+          'Many writers draft the response file by following reviewer comments in order. The more effective route is usually not to follow the review order mechanically but to follow the impact level of the issues involved.',
+        zhihuAngleZh:
+          '知乎里关于“response letter 怎么写才像真的改了”的经验，经常会提醒：先解决决定送审概率的核心问题，读者才会相信后面的细节回应。',
+        zhihuAngleEn:
+          'Zhihu advice on making a response letter feel like a real revision often stresses one point: solve the core issues that determine reviewability first, and only then will readers trust the detailed responses that follow.',
+        strategyZh:
+          '更稳的返修回复，是先在内部把问题分成核心问题、结构问题和局部问题，再安排答复和改稿顺序。虽然 response 文件最终可以按评论顺序呈现，但你的内部工作顺序应该优先解决真正决定是否继续送审的地方。',
+        strategyEn:
+          'A steadier revision response separates issues internally into core, structural, and local levels before arranging the answer and revision order. The final response file may still follow reviewer order, but your internal workflow should first resolve the places that truly determine whether the manuscript can move forward in review.',
+        stepsZh: [
+          '先标出会影响送审与可信度的核心问题。',
+          '再处理结构性与跨章节问题。',
+          '最后再补局部措辞、格式和细节回应。',
+        ],
+        stepsEn: [
+          'Mark the core issues that affect reviewability and credibility first.',
+          'Handle structural and cross-section issues next.',
+          'Add local wording, formatting, and detail responses only at the end.',
+        ],
+        submissionZh:
+          '如果后面还会有下一轮审稿，这种顺序非常重要，因为编辑和审稿人最先感受到的，往往就是你有没有先把真正关键的问题处理掉。',
+        submissionEn:
+          'If another review round may still follow, this order is extremely important because the first thing editors and reviewers often feel is whether the manuscript has dealt with the genuinely decisive issues.',
+        riskZh:
+          '如果 response file 只是按顺序逐条应付，最常见的后果就是看起来回复很完整，但真正关键的问题并没有被优先解决。',
+        riskEn:
+          'If the response file merely follows reviewer order item by item, the common result is a complete-looking reply in which the truly critical issues were never solved first.',
+        checklistZh: [
+          '1. 是否已标出影响送审与可信度的核心问题。',
+          '2. 是否先处理了结构性和跨章节问题。',
+          '3. 局部细节回应是否放到了后面。',
+        ],
+        checklistEn: [
+          '1. Have the core issues affecting reviewability and credibility been marked?',
+          '2. Have structural and cross-section problems been addressed first?',
+          '3. Have local detail responses been moved later in the sequence?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更像有策略返修的 response 路线，而不是机械逐条回应。',
+        deliverableEn:
+          'After this round, you should have a response route that behaves like strategic revision rather than mechanical item-by-item reply.',
+        closeZh:
+          '返修回复最有说服力的时候，不是回得最快，而是先回对最关键的那几条。',
+        closeEn:
+          'A revision response becomes most persuasive not when it answers the fastest but when it answers the most critical issues first.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {
