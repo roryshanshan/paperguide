@@ -832,6 +832,68 @@ const proposalThemes: ContentTheme[] = [
     closeEn: () =>
       'The earlier the title and keyword set are calibrated for searchability, the easier it becomes for the review, abstract, and submission materials to reinforce one another.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}开题就先写一个迷你摘要：用 150 字测试题目是否站得住`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: draft a mini abstract during the proposal to stress-test the topic`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}觉得摘要要等${discipline.titleZh}论文写完才能写，但越是这样，越容易到后面才发现题目、方法和结果链条其实并没有提前讲顺。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} assume the abstract belongs only at the end of a ${discipline.titleEn} project, but that often delays the moment when they discover the topic, method, and result chain were never clear enough in the first place.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在开题阶段先写一个 120 到 180 字的迷你摘要，强迫自己用最短篇幅讲清问题、方法方向和${discipline.evidenceZh}来源。摘要写不顺，通常说明题目本身还没稳。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier move is to write a 120- to 180-word mini abstract during the proposal stage, forcing the problem, method direction, and source of ${discipline.evidenceEn} into a short controlled form. If the abstract cannot be written cleanly, the topic itself is usually not stable yet.`,
+    stepsZh: () => [
+      '先用一句话写出论文到底研究什么，而不是为什么这个领域很重要。',
+      '再用一句话说明你准备如何研究，以及主要证据从哪里来。',
+      '最后用一句话写出潜在结果或预期贡献，看它是否真的能和前两句接上。',
+    ],
+    stepsEn: () => [
+      'Write one sentence on what the thesis actually studies instead of why the field is important.',
+      'Add one sentence on how the study will be conducted and where the main evidence comes from.',
+      'Finish with one sentence on the likely result or contribution and test whether it truly connects with the earlier two lines.',
+    ],
+    riskZh: () =>
+      '如果迷你摘要总是写成三段背景介绍，通常不是摘要技巧差，而是研究问题、边界和判断方向根本还没有收稳。',
+    riskEn: () =>
+      'If the mini abstract keeps turning into three lines of background, the issue is usually not abstract technique but an unstable research question, boundary, and judgment path.',
+    closeZh: () => '早写一版摘要，不是为了提前交作业，而是为了尽快发现题目哪里还站不住。',
+    closeEn: () =>
+      'Writing an early abstract is not about finishing homework in advance. It is about locating where the topic still fails to stand.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}如果以后想投 special issue：开题就别把问题写得太死`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: keep some framing flexibility early if a future special issue might fit`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}会在写${discipline.titleZh}论文时完全按单一题目推进，等后面看到相关 special issue 征稿，才发现自己的问题表述太窄、结构太硬，几乎无法对接新的议题窗口。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} drive a ${discipline.titleEn} thesis through one fixed framing and only later, when a relevant special-issue call appears, realize that the question has been written too narrowly and too rigidly to adapt.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，不是把题目写得模糊，而是在开题时保留一点 framing flexibility：核心问题要清楚，但对应用场景、比较角度和${discipline.evidenceZh}呈现方式不要一开始就锁死到只剩一种写法。`,
+    strategyEn: ({ discipline }) =>
+      `The steadier approach is not vagueness but framing flexibility. The core question should stay clear, while the application scene, comparison angle, and presentation of ${discipline.evidenceEn} should not be frozen so early that only one later framing remains possible.`,
+    stepsZh: () => [
+      '先把论文的核心判断和可变外层区分开，知道什么不能动、什么还可以调。',
+      '再让目录中至少保留一个能根据未来读者或栏目方向重新命名的模块。',
+      '最后检查题目和摘要是否既具体，又保留一定的转向空间。',
+    ],
+    stepsEn: () => [
+      'Separate the non-negotiable core judgment from the outer framing elements that can still move later.',
+      'Keep at least one module in the outline that could be renamed or reframed for a future audience or issue theme.',
+      'Check that the title and abstract remain specific while still preserving some room for later directional adjustment.',
+    ],
+    riskZh: () =>
+      '如果前期把 framing 锁得过死，后面一旦遇到更合适的投稿窗口，调整成本会远高于重写摘要那么简单。',
+    riskEn: () =>
+      'If the framing is locked too tightly too early, later adaptation to a better submission window becomes far more expensive than merely rewriting the abstract.',
+    closeZh: () => '保留一点可转向空间，不会削弱论文，反而能让后续发表路径更灵活。',
+    closeEn: () =>
+      'Keeping some room for reframing does not weaken the thesis. It often makes later publication paths more flexible.',
+  },
 ]
 
 const literatureReviewThemes: ContentTheme[] = [
@@ -1231,6 +1293,68 @@ const literatureReviewThemes: ContentTheme[] = [
     closeEn: () =>
       'The earlier the references become a traceable system, the easier later revision, submission, and defense preparation become.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}自引怎么用才不显得刻意：综述里先判定是否真的必要`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: use self-citation in the review only when it is genuinely necessary`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}在${discipline.titleZh}综述里一遇到自己或课题组相关工作，就会陷入两个极端：要么完全不敢引用，要么为了证明连续性而把自引堆得过重。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} swing between two extremes in a ${discipline.titleEn} review when their own earlier work is relevant: they either avoid self-citation entirely or pile it in too heavily to signal continuity.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的判断标准不是“是不是自己的文章”，而是这条文献在当前问题链里是否真的不可替代，是否能帮助读者理解${discipline.evidenceZh}、方法路径或研究断点，而不是只是在增加存在感。`,
+    strategyEn: ({ discipline }) =>
+      `The steadier standard is not authorship identity but whether the item is actually irreplaceable in the current problem chain, helping the reader understand ${discipline.evidenceEn}, the method path, or the break in the field rather than merely increasing visibility.`,
+    stepsZh: () => [
+      '先把自己相关工作和他人同类工作并列，判断它是否真的多提供了一层必要信息。',
+      '再检查自引是否改变了综述结构，还是只是重复证明自己做过这个题。',
+      '最后让每一次自引都能回答“没有它，这段会少掉什么”。',
+    ],
+    stepsEn: () => [
+      'Place your own relevant work next to comparable external work and test whether it adds a genuinely necessary layer.',
+      'Check whether the self-citation changes the structure of the review or merely repeats that you have worked on the topic before.',
+      'Make sure each self-citation can answer the question: what would this paragraph lose without it?',
+    ],
+    riskZh: () =>
+      '自引一旦失去必要性，读者最直接的感受通常不是“信息更多”，而是综述开始带出明显的防御性或自我放大感。',
+    riskEn: () =>
+      'Once self-citation loses necessity, the reader usually does not feel more informed but senses defensiveness or self-amplification in the review.',
+    closeZh: () => '自引本身不是问题，问题是它有没有真正服务综述判断。',
+    closeEn: () =>
+      'Self-citation is not the problem by itself. The real question is whether it genuinely serves the judgment of the review.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}别让综述看起来像参考文献清单：先压掉低价值引用`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: prune low-value citations before the review starts reading like a bibliography`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}为了显得读得多，会在${discipline.titleZh}综述里不断加引用，结果段落越来越密，但真正支撑判断的高价值文献反而被淹没了。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} keep adding references to make a ${discipline.titleEn} review look well read, but the paragraphs become denser while the high-value sources that actually support the judgment are buried.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是把文献先分成“核心必引、补充背景、可删可不删”三层，再判断哪些引用真正帮助你解释${discipline.evidenceZh}、争议和研究空白。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier method is to sort the references into core must-cite items, background support, and optional extras, then ask which citations really help explain ${discipline.evidenceEn}, the debate, and the research gap.`,
+    stepsZh: () => [
+      '先标出每一段里真正承担判断功能的核心文献。',
+      '再删掉那些只增加数量、却不改变论证方向的低价值引用。',
+      '最后检查删减后段落是否更容易读懂，且判断关系是否更突出。',
+    ],
+    stepsEn: () => [
+      'Mark the sources in each paragraph that actually carry the judgmental load.',
+      'Remove low-value citations that add quantity without changing the argumentative direction.',
+      'Check whether the paragraph becomes easier to read and whether the judgment structure grows more visible after pruning.',
+    ],
+    riskZh: () =>
+      '如果综述总想靠引用数量建立权威感，最容易牺牲的就是可读性和判断强度。',
+    riskEn: () =>
+      'If the review tries to build authority mainly through citation volume, readability and judgment strength are often the first casualties.',
+    closeZh: () => '删掉低价值引用，不会让综述变薄，通常只会让它更有判断力。',
+    closeEn: () =>
+      'Removing low-value citations rarely makes the review weaker. It usually makes the judgment sharper.',
+  },
 ]
 
 const methodsThemes: ContentTheme[] = [
@@ -1628,6 +1752,68 @@ const methodsThemes: ContentTheme[] = [
     closeZh: () => '报告规范越早进入方法写作，后面的投稿和审稿阶段就越少出现“本来做了，却没写出来”的遗憾。',
     closeEn: () =>
       'The earlier reporting guidance enters the methods draft, the fewer “we did it but failed to write it” regrets appear later in submission and review.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}文件夹和版本别乱：先搭一个可复核的研究工作区`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: build a reviewable research workspace before files and versions drift`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}做${discipline.titleZh}研究时，正文、数据、图表、附件和返修稿分散在不同文件夹里，等到要解释结果来源时，连自己都得先花时间找版本。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} keep the manuscript, data, figures, supplements, and revision copies of a ${discipline.titleEn} project scattered across folders, which means even they need time to reconstruct the version trail when asked where a result came from.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的研究工作区，不只是为了整洁，而是为了让${discipline.evidenceZh}、分析脚本、图表输出和正文之间保留清楚的来路关系。可复核的文件结构，本身就是研究可信度的一部分。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier research workspace is not about neatness alone. It preserves clear pathways among ${discipline.evidenceEn}, analysis scripts, figure outputs, and the manuscript. A reviewable file structure is itself part of research credibility.`,
+    stepsZh: () => [
+      '先把原始材料、处理中间件、结果输出和正文草稿分成不同层级存放。',
+      '再统一版本命名和日期规则，避免“最终版”和“最终最终版”反复出现。',
+      '最后确保每张图、每个表和每段关键结果都能追溯到相应的来源文件。',
+    ],
+    stepsEn: () => [
+      'Separate raw material, intermediate processing files, result outputs, and manuscript drafts into different layers.',
+      'Standardize naming and date rules so the project stops generating endless “final” and “final-final” files.',
+      'Make sure each figure, table, and key result can be traced back to the file that produced it.',
+    ],
+    riskZh: () =>
+      '文件结构一旦失控，方法章节最容易出问题的不是写不出来，而是写出来以后你自己也很难证明每一步到底怎么来的。',
+    riskEn: () =>
+      'Once the file structure slips out of control, the methods chapter problem is often not writing it but being unable to prove clearly how each step actually happened.',
+    closeZh: () => '先把研究工作区搭稳，后面的返修、投稿和答辩都更容易站住。',
+    closeEn: () =>
+      'Once the research workspace is stable, later revision, submission, and defense all become easier to defend.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}别把所有稳健性检验都堆到最后：先判断哪些才真的有用`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: choose robustness checks deliberately instead of piling them on at the end`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}会在${discipline.titleZh}方法部分后期疯狂补稳健性检验，结果表格越做越多，但真正能回答质疑的关键检验并没有被优先安排。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} start adding robustness checks aggressively late in the methods stage of a ${discipline.titleEn} project, producing more and more tables without prioritizing the checks that actually answer likely criticism.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是先判断你的结论最容易被从哪里质疑，再倒推最有解释力的稳健性检验。稳健性不是数量竞赛，而是证明${discipline.evidenceZh}和结果链条没有被某个单点设定绑架。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier move is to identify first where the conclusion is most vulnerable to criticism and then choose the robustness checks with the strongest explanatory value. Robustness is not a quantity race. It is a way of showing that the ${discipline.evidenceEn} and result chain are not being driven by one arbitrary setting.`,
+    stepsZh: () => [
+      '先列出结论最可能被挑战的两到三个薄弱点。',
+      '再为每个薄弱点匹配一个最直接的稳健性检验，而不是机械复制相似模型。',
+      '最后决定哪些检验值得进主文，哪些更适合留在附录或补充材料。',
+    ],
+    stepsEn: () => [
+      'List the two or three points where the conclusion is most likely to be challenged.',
+      'Match each weak point to one direct robustness check instead of mechanically repeating similar models.',
+      'Decide which checks deserve the main text and which belong in appendices or supplements.',
+    ],
+    riskZh: () =>
+      '如果稳健性检验只是越多越好，最常见的结果就是正文负担越来越重，但真正重要的解释反而被一堆次要结果淹没。',
+    riskEn: () =>
+      'If robustness checking becomes a more-is-better exercise, the common result is a heavier manuscript in which the most important explanation is buried under secondary outputs.',
+    closeZh: () => '把稳健性检验做成“有针对性的回应”，通常比单纯堆结果更能说服读者。',
+    closeEn: () =>
+      'Turning robustness checks into targeted responses usually persuades readers far more than simply piling on extra outputs.',
   },
 ]
 
@@ -2121,6 +2307,130 @@ const revisionThemes: ContentTheme[] = [
     closeZh: () => '先查政策、再写说明，通常比等投稿系统弹窗后临时补一句要稳得多。',
     closeEn: () =>
       'Checking policy first and writing the disclosure deliberately is far steadier than improvising a sentence when the submission system suddenly asks for it.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}被拒后先别急着改题目：先判断是范围错了还是贡献没讲清`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: after rejection, decide whether the issue was scope fit or contribution clarity before rewriting everything`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}在${discipline.titleZh}稿件被拒后，第一反应就是把标题和摘要大改一遍，甚至整个题目都想推倒重来。但很多拒稿并不是研究彻底失败，而是范围、读者定位或贡献表达出了偏差。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} respond to a rejected ${discipline.titleEn} manuscript by immediately rewriting the title, abstract, or even the entire topic. Yet many rejections do not mean the study failed completely; they mean the scope fit, audience targeting, or contribution framing was off.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的拒稿处理方式，是先做 rejection triage：编辑信和评审意见究竟在说范围不匹配、结果不够强、${discipline.evidenceZh}不足，还是写法让人看不出价值。只有先分清问题类型，重投才不会乱。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier rejection response is to run a rejection triage first. Is the editor letter signaling a scope mismatch, a weak result, insufficient ${discipline.evidenceEn}, or a writing problem that hid the value? Resubmission becomes much more controlled once the failure type is clear.`,
+    stepsZh: () => [
+      '先把拒稿信息拆成定位问题、证据问题、结构问题和表达问题四类。',
+      '再判断哪些问题必须换期刊解决，哪些问题主要靠改摘要、引言或结果呈现就能改善。',
+      '最后在动正文前先写一版重投策略说明，避免情绪化大改。',
+    ],
+    stepsEn: () => [
+      'Separate the rejection message into positioning, evidence, structure, and expression problems.',
+      'Decide which problems require a different journal and which can be improved mainly by changing the abstract, introduction, or result presentation.',
+      'Write a resubmission strategy note before editing the manuscript so the rewrite is not driven by emotion alone.',
+    ],
+    riskZh: () =>
+      '如果拒稿后第一步就是大面积重写，最容易发生的不是进步，而是把原本有效的部分也一起拆掉，结果下一版依然没有真正对准问题。',
+    riskEn: () =>
+      'If the first move after rejection is massive rewriting, the common danger is not improvement but dismantling parts that already worked while still missing the real issue in the next round.',
+    closeZh: () => '拒稿后最值钱的动作通常不是立刻大修，而是先把失败类型看准。',
+    closeEn: () =>
+      'After rejection, the most valuable move is often not immediate major revision but accurately identifying the failure type first.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}重投要不要换标题和摘要：先看编辑第一眼是在哪里失去兴趣`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: decide whether title and abstract need rewriting by locating where editor interest was lost`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}重投${discipline.titleZh}稿件时，会机械地把标题和摘要都换一版，但如果没有判断编辑到底是在 scope、亮点、方法还是${discipline.evidenceZh}层面失去兴趣，这种改动常常只是表面工作。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} mechanically replace the title and abstract when resubmitting a ${discipline.titleEn} manuscript, but those changes often stay superficial if they never identify whether the editor lost interest at the level of scope, novelty, method, or ${discipline.evidenceEn}.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的重投思路，是先回看原稿前两页：标题有没有把对象和贡献说准，摘要有没有过早铺背景，结果句有没有真正显示${discipline.evidenceZh}支持下的新信息。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier resubmission approach is to reread the first two pages of the original draft. Did the title name the object and contribution precisely? Did the abstract overinvest in background? Did the result sentence actually show new information supported by ${discipline.evidenceEn}?`,
+    stepsZh: () => [
+      '先定位编辑最可能在标题、摘要或引言的哪一个点上停住。',
+      '再重写最先出问题的那一层，而不是一次性把前文全部推翻。',
+      '最后让新标题、新摘要和目标期刊范围重新对齐，再决定是否需要同步调整正文结构。',
+    ],
+    stepsEn: () => [
+      'Locate the point in the title, abstract, or introduction where an editor was most likely to stop engaging.',
+      'Rewrite that layer first instead of overturning the entire front end of the paper at once.',
+      'Realign the new title and abstract with the target journal scope before deciding whether the main body needs synchronized structural changes.',
+    ],
+    riskZh: () =>
+      '如果重投时只是“换个说法”，而不是解决第一眼定位问题，稿件很容易在新期刊那里重复遭遇相似的第一轮误判。',
+    riskEn: () =>
+      'If resubmission only changes the wording without fixing the first-impression positioning problem, the manuscript may face the same early misunderstanding at the next journal.',
+    closeZh: () => '重投时改标题和摘要当然重要，但前提是你知道第一眼到底哪里掉了分。',
+    closeEn: () =>
+      'Title and abstract changes matter in resubmission, but only when you already know where the first impression truly failed.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}proof 校样怎么改：别把最后一轮当成小修小补`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: treat page proofs as a final integrity check, not minor cosmetics`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}把${discipline.titleZh}稿件进入 proof 阶段理解成“已经结束”，于是只草草看几眼拼写和格式。但真正到这一步时，图表、公式、作者信息、补充材料链接和术语一致性都还可能出问题。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} treat the proof stage of a ${discipline.titleEn} manuscript as effectively finished and only skim spelling and layout, while figures, equations, author details, supplement links, and terminology consistency can still break at this point.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的 proof 思路，不是继续大修论点，而是做最后一轮完整性检查：排版后${discipline.evidenceZh}是否仍然被准确呈现，图表编号和交叉引用是否仍然成立，作者和声明信息是否全部正确。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier proof-stage mindset is not to reopen the argument but to run a last integrity check: is ${discipline.evidenceEn} still presented accurately after typesetting, do figure numbers and cross-references still work, and are the author and declaration details fully correct?`,
+    stepsZh: () => [
+      '先按标题、作者、摘要、正文、图表、参考文献、补充链接的顺序完整过一遍。',
+      '再重点检查排版后最容易出错的符号、单位、注释、图题和链接信息。',
+      '最后把所有修改控制在 proof 允许的范围内，避免把最后一轮又拖回大修状态。',
+    ],
+    stepsEn: () => [
+      'Read through the title, authors, abstract, main text, figures, references, and supplement links in order.',
+      'Check carefully the symbols, units, notes, captions, and links most likely to break after typesetting.',
+      'Keep all changes within what the proof stage allows so the final round does not collapse back into major revision.',
+    ],
+    riskZh: () =>
+      '如果 proof 阶段只被当成形式确认，最容易漏掉的往往不是拼写，而是那些会直接影响可读性和可追溯性的细节错误。',
+    riskEn: () =>
+      'If the proof stage is treated only as formal confirmation, the details most likely to be missed are often not spelling errors but the ones that directly affect readability and traceability.',
+    closeZh: () => 'proof 不是结束前的走流程，而是全文最后一次被完整校准的机会。',
+    closeEn: () =>
+      'Proofs are not merely a final administrative step. They are the last full opportunity to recalibrate the manuscript.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}预印本和重复发表边界怎么拿捏：先分清传播、重写和重投`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: distinguish preprint sharing, legitimate rewriting, and duplicate publication`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}在处理${discipline.titleZh}论文公开传播时，会把预印本、会议版本、学位论文公开和正式期刊投稿混在一起理解，结果最担心的往往是“会不会算重复发表”，但真正该分清的是不同传播形式之间的边界。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} blur preprints, conference versions, thesis disclosure, and formal journal submission together when handling public circulation of a ${discipline.titleEn} project. The fear usually centers on duplicate publication, but the real task is distinguishing the boundaries among different forms of dissemination.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的处理方式，是先查目标期刊或出版社对预印本、会议版本和已公开学位论文的政策，再判断你的稿件与原版之间在结果、结构和${discipline.evidenceZh}层面究竟发生了多大变化。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier approach is to check the target journal or publisher policy on preprints, conference versions, and publicly available theses first, and then judge how much the manuscript has changed from the earlier version in results, structure, and ${discipline.evidenceEn}.`,
+    stepsZh: () => [
+      '先列清你这项研究已经以哪些形式出现过，以及每一版对外公开到了什么程度。',
+      '再对照期刊政策判断哪些属于允许传播、哪些需要声明、哪些可能触及重复发表风险。',
+      '最后在投稿材料和正文说明里如实交代版本关系，避免后面解释不清。',
+    ],
+    stepsEn: () => [
+      'List the forms in which the research has already appeared and how public each version has become.',
+      'Check the journal policy to distinguish what is acceptable sharing, what requires disclosure, and what may approach duplicate-publication risk.',
+      'State the version relationship honestly in the submission materials and manuscript notes so the history stays transparent.',
+    ],
+    riskZh: () =>
+      '如果传播边界一直靠猜，最容易出现的问题不是“多写了几句话”，而是等投稿后才发现版本关系解释不清，平白增加风险。',
+    riskEn: () =>
+      'If the dissemination boundary is handled by guesswork, the main problem is not a few extra sentences but discovering after submission that the version history cannot be explained clearly.',
+    closeZh: () => '把预印本、会议稿和正式稿的关系先理顺，通常比后面临时解释要安全得多。',
+    closeEn: () =>
+      'Clarifying the relationship among preprints, conference versions, and the formal paper early is usually far safer than trying to explain it later under pressure.',
   },
 ]
 
