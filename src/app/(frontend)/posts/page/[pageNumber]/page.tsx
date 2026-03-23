@@ -12,6 +12,7 @@ import { notFound } from 'next/navigation'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 export const revalidate = 600
+export const dynamic = 'force-dynamic'
 const POSTS_PER_PAGE = 12
 
 type Args = {

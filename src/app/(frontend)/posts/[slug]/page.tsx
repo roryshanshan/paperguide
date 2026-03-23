@@ -23,6 +23,7 @@ import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 export async function generateStaticParams() {
   try {
