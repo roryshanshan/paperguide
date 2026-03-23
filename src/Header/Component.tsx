@@ -8,7 +8,12 @@ import type { Header } from '@/payload-types'
 
 export async function Header() {
   const locale = await getSiteLocale()
-  const headerData: Header = await getCachedGlobal('header', 1, locale)()
+  const headerData: Header =
+    (await getCachedGlobal('header', 1, locale)().catch(() => null)) ||
+    ({
+      id: 0,
+      navItems: [],
+    } as Header)
 
   const localizedNavItems =
     headerData?.navItems && headerData.navItems.length > 0

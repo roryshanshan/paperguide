@@ -11,7 +11,12 @@ import { Logo } from '@/components/Logo/Logo'
 
 export async function Footer() {
   const locale = await getSiteLocale()
-  const footerData: Footer = await getCachedGlobal('footer', 1, locale)()
+  const footerData: Footer =
+    (await getCachedGlobal('footer', 1, locale)().catch(() => null)) ||
+    ({
+      id: 0,
+      navItems: [],
+    } as Footer)
 
   const navItems =
     footerData?.navItems && footerData.navItems.length > 0
