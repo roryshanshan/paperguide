@@ -677,6 +677,99 @@ const proposalThemes: ContentTheme[] = [
     closeEn: () =>
       'The more concrete the value statement becomes in the proposal, the less likely the later review and conclusion sections are to drift.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}别等写完再选刊：开题就先做一轮期刊匹配`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: test journal fit early instead of waiting until the paper is finished`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}会把“以后投什么期刊”留到论文写完再想，但等到那时才发现${discipline.titleZh}题目太散、结构太重、语言和图表都不符合目标读者的阅读习惯。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} postpone journal choice until the thesis is finished and only then discover that the ${discipline.titleEn} project is too broad or too thesis-shaped for the target readership.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在开题阶段就挑 3 到 5 本可能相关的期刊，看它们最近发表的研究问题、篇幅风格和证据偏好，再反过来校准你的${discipline.evidenceZh}与题目边界。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier move is to select three to five plausible journals during the proposal stage, inspect their recent questions, article shape, and evidence preferences, and then use that information to calibrate your ${discipline.evidenceEn} and scope.`,
+    stepsZh: () => [
+      '先找出和自己题目最接近的几本期刊，快速浏览近两到三年的目录和摘要。',
+      '再记录这些期刊更偏爱什么样的问题设定、方法路径和结果表达。',
+      '最后把题目和目录改到一个既能完成论文、又保留后续投稿可能性的范围里。',
+    ],
+    stepsEn: () => [
+      'Identify a few journals closest to your topic and scan their tables of contents and abstracts from the last two or three years.',
+      'Track the kinds of questions, methods, and result presentations those journals prefer.',
+      'Adjust the topic and outline so the project remains thesis-ready while still preserving a route to later submission.',
+    ],
+    riskZh: () =>
+      '如果完全不看目标期刊，最常见的后果不是“投稿晚一点”，而是整篇论文从问题设置到表达方式都更像课程作业，不像面向学术读者的研究。',
+    riskEn: () =>
+      'If target journals are ignored completely, the usual result is not just a later submission but a thesis that reads like course work rather than research written for a scholarly audience.',
+    closeZh: () => '选刊不一定在开题时就定死，但期刊匹配的思路越早进入，后面改文章时越不容易大拆大改。',
+    closeEn: () =>
+      'You do not need a final journal decision in the proposal, but the earlier journal-fit thinking enters the project, the less drastic the later article revision becomes.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}想把论文改成文章？开题时就要预留一条可投稿主线`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: reserve one submission-ready line early if you hope to publish later`,
+    introZh: ({ degree, discipline }) =>
+      `不少${degree.readerZh}一开始就希望毕业后把${discipline.titleZh}论文改成文章，但真正写作时还是按“大而全”的论文思路展开，结果到后期很难拆出一个能独立成立的投稿版本。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} hope to turn a finished ${discipline.titleEn} thesis into an article later, yet still write the whole project in an oversized thesis mode that is hard to convert into a stand-alone submission.`,
+    strategyZh: ({ discipline }) =>
+      `如果后面有投稿计划，开题时就应该先问自己：整篇论文里哪一个结果、比较或案例最可能独立成立，并能稳定依靠${discipline.evidenceZh}支撑。`,
+    strategyEn: ({ discipline }) =>
+      `If later publication is part of the plan, the proposal should already ask which one result, comparison, or case line could stand alone and be supported reliably by ${discipline.evidenceEn}.`,
+    stepsZh: () => [
+      '先在开题里划出一个最适合单独发展的核心问题。',
+      '再让目录至少有一章或一节明显围绕这条主线服务，而不是平均分散火力。',
+      '最后把可能投稿需要的图表、变量、案例和文献入口提前留出位置。',
+    ],
+    stepsEn: () => [
+      'Mark one central question in the proposal that has the strongest stand-alone potential.',
+      'Make sure at least one chapter or section clearly serves that line instead of spreading attention evenly.',
+      'Reserve early space for the figures, variables, cases, and literature base that a later submission would need.',
+    ],
+    riskZh: () =>
+      '如果前期没有预留投稿主线，后面改文章时就会发现每一章都重要，但没有哪一章足够集中，删什么都伤筋动骨。',
+    riskEn: () =>
+      'Without an early publication line, later article conversion often fails because every chapter feels important while none of them is concentrated enough to submit on its own.',
+    closeZh: () => '论文和文章当然不是一回事，但开题时先预留一条投稿主线，能显著降低后续二次改写的成本。',
+    closeEn: () =>
+      'A thesis and an article are not the same form, but reserving one submission line in the proposal can sharply reduce the later cost of rewriting.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}开题前先想清未来读者：你的论文到底写给谁看`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: identify the future reader before the proposal gets too generic`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}写${discipline.titleZh}开题时默认唯一读者就是导师，于是背景铺得很全、概念解释很多，却没有真正想过未来学术读者最在意哪一个判断。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} assume the advisor is the only reader and therefore produce proposals rich in background and definition but weak in the one judgment a later scholarly reader would care about most.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的开题不是只问“导师会不会过”，而是顺手再问一遍：如果这项研究以后面对${discipline.titleZh}领域的同行、编辑或审稿人，他们最先会看什么，最先质疑什么。`,
+    strategyEn: ({ discipline }) =>
+      `A stronger proposal asks not only whether the advisor will approve it but also what a later peer, editor, or reviewer in ${discipline.titleEn} would examine or challenge first.`,
+    stepsZh: () => [
+      '先写一句“这篇论文最希望说服谁，他们为什么会关心这个问题”。',
+      '再把背景和理论部分压到刚好够用，让真正的研究判断更早出现。',
+      '最后检查摘要式表述是不是还能同时说服导师和领域读者，而不是只满足课堂汇报口径。',
+    ],
+    stepsEn: () => [
+      'Write one sentence naming the reader you most hope to persuade and why that reader should care.',
+      'Compress the background and theory to what is necessary so the actual research judgment appears earlier.',
+      'Check whether the framing can persuade both the advisor and field readers instead of sounding like a classroom report only.',
+    ],
+    riskZh: () =>
+      '如果读者定位始终模糊，论文就很容易写成“什么都照顾到一点”，最后却没有一个判断真正打得准。',
+    riskEn: () =>
+      'If the reader target remains vague, the thesis often tries to satisfy everyone a little and ends up landing no central judgment sharply.',
+    closeZh: () => '读者一旦被想清楚，开题里的题目、摘要、目录和研究价值都会更容易收束到同一条线上。',
+    closeEn: () =>
+      'Once the reader is defined clearly, the title, summary, outline, and value statement are far easier to align around one line.',
+  },
 ]
 
 const literatureReviewThemes: ContentTheme[] = [
@@ -921,6 +1014,99 @@ const literatureReviewThemes: ContentTheme[] = [
     closeZh: () => '搜得准，比搜得广更能提升综述质量。',
     closeEn: () => 'Precision usually improves a review far more than endless expansion.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}综述可以倒着读：先看目标期刊近三年的引言`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: rebuild the review by reading recent target-journal introductions backwards`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}做${discipline.titleZh}综述时，只会从数据库结果往前堆，却很少反过来看近三年目标期刊是怎样界定问题、铺陈争议和摆出研究空白的。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} build a ${discipline.titleEn} review only from raw database hits and rarely read backwards from how target journals frame problems, debates, and gaps in recent introductions.`,
+    strategyZh: ({ discipline }) =>
+      `倒着读的价值在于，它能快速告诉你这个领域现在怎样组织综述、怎样引出贡献，以及${discipline.evidenceZh}通常被放在论证链的什么位置。`,
+    strategyEn: ({ discipline }) =>
+      `Reading backwards helps you see how the field currently organizes reviews, introduces contribution, and positions ${discipline.evidenceEn} inside the argumentative chain.`,
+    stepsZh: () => [
+      '先挑几本最相关的期刊，连续读近三年的相关文章引言和文献综述段。',
+      '再记录这些文章重复出现的关键词、争议点和研究缺口写法。',
+      '最后把自己的综述提纲改成更接近领域真实写法，而不是只按课堂笔记拼装。',
+    ],
+    stepsEn: () => [
+      'Select a few of the most relevant journals and read their introductions and review sections from the last three years in sequence.',
+      'Track the recurring terms, debate points, and gap patterns that appear across them.',
+      'Adjust your own review outline so it resembles the field’s actual writing logic rather than a classroom note structure.',
+    ],
+    riskZh: () =>
+      '如果综述完全不接领域当下的写法，最大的问题不只是“像学生作业”，而是你可能会错过当前真正被讨论的切口。',
+    riskEn: () =>
+      'If the review never engages with current field writing patterns, it may not only feel student-like but also miss the entry points that are actively being discussed now.',
+    closeZh: () => '读目标期刊的引言，不是为了模仿句子，而是为了校准综述的视角和节奏。',
+    closeEn: () =>
+      'Reading target-journal introductions is not about copying sentences but about calibrating the angle and rhythm of the review.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}术语总是前后不一？先做双语术语表和缩写表`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: build a bilingual terminology sheet before key terms drift`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}写${discipline.titleZh}综述时，会出现同一个概念来回换说法、中文和英文对应不稳、缩写时有时无的情况，读到后面连自己都容易混乱。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} let the same ${discipline.titleEn} concept drift across multiple Chinese and English labels, with unstable abbreviations that later confuse even the writer.`,
+    strategyZh: ({ discipline }) =>
+      `术语表不是格式洁癖，而是综述控制力的一部分。尤其当你同时处理中文文献、英文文献和${discipline.evidenceZh}时，统一术语会直接决定论证是否顺畅。`,
+    strategyEn: ({ discipline }) =>
+      `A terminology sheet is not a formatting obsession. It is part of controlling the review. When you move across Chinese sources, English sources, and ${discipline.evidenceEn}, stable terminology directly affects argumentative clarity.`,
+    stepsZh: () => [
+      '先列出题目、摘要和综述里会反复出现的核心术语。',
+      '再给每个术语固定中文写法、英文对应、缩写形式和不建议混用的替代表达。',
+      '最后在正文里统一替换，并给新出现的概念继续补充到术语表中。',
+    ],
+    stepsEn: () => [
+      'List the core terms that recur in the title, abstract, and literature review.',
+      'Fix one Chinese label, one English equivalent, one abbreviation pattern, and the variants you do not want to mix for each term.',
+      'Standardize the draft accordingly and keep adding new concepts to the sheet as they appear.',
+    ],
+    riskZh: () =>
+      '术语一旦漂移，最直接的后果就是综述像在谈很多相似问题，却始终没有把同一个问题讲透。',
+    riskEn: () =>
+      'Once terminology drifts, the review starts sounding like it addresses many similar issues while never fully developing the same issue across the chapter.',
+    closeZh: () => '术语先统一，后面的摘要、图表、讨论和投稿材料也会更容易保持一致。',
+    closeEn: () =>
+      'Once the terminology is stabilized, the abstract, figures, discussion, and later submission materials become much easier to keep consistent.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}想写出亮点，综述里先给 novelty 找坐标`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: locate the novelty in the review before you claim it later`,
+    introZh: ({ degree, discipline }) =>
+      `不少${degree.readerZh}到结论或投稿阶段才开始硬提“创新点”，但如果综述前面没有先把前人做到哪里、哪里还有断点说清，这种创新声明通常站不稳。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} try to declare novelty only at the conclusion or submission stage, but that claim rarely stands if the literature review never clarified where earlier work stops.`,
+    strategyZh: ({ discipline }) =>
+      `亮点不是突然冒出来的句子，而是综述里慢慢建立的坐标系：前人做到了什么、遗漏了什么、你为什么能用${discipline.evidenceZh}往前推进一步。`,
+    strategyEn: ({ discipline }) =>
+      `A contribution claim is not a sentence that appears suddenly. It is a coordinate system built inside the review: what earlier work achieved, what it left unresolved, and why ${discipline.evidenceEn} lets you move one step further.`,
+    stepsZh: () => [
+      '先给每个文献主题簇写出“现有工作最强的一点”和“仍然没讲透的一点”。',
+      '再把这些断点归并成一到两个真正支撑自己论文的贡献方向。',
+      '最后检查摘要、引言和结论里提到的亮点，是否都能在综述中找到依据。',
+    ],
+    stepsEn: () => [
+      'Write one strongest achievement and one unresolved weakness for each literature cluster.',
+      'Combine those breaks into one or two contribution directions that genuinely support your thesis.',
+      'Check whether every highlight claimed in the abstract, introduction, or conclusion is already grounded in the review.',
+    ],
+    riskZh: () =>
+      '如果综述里没有给 novelty 找到坐标，后面所谓的亮点往往只剩下态度感，很难变成真正的学术判断。',
+    riskEn: () =>
+      'If the review never locates the novelty, later highlights often shrink into attitude statements instead of academic judgments with real support.',
+    closeZh: () => '综述先把贡献坐标搭起来，后面的摘要、封面信和投稿自述都会更有底气。',
+    closeEn: () =>
+      'When the review builds the coordinates of contribution first, the later abstract, cover letter, and submission positioning become much easier to justify.',
+  },
 ]
 
 const methodsThemes: ContentTheme[] = [
@@ -1163,6 +1349,99 @@ const methodsThemes: ContentTheme[] = [
     closeZh: () => '把风险控制写进方法设计，本身就是研究可信度的一部分。',
     closeEn: () =>
       'Writing risk control into the method design is part of building research credibility.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}统计分析计划别等出结果才补：先写一页 analysis plan`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: write a one-page analysis plan before the results exist`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}做${discipline.titleZh}研究时，是先把数据收回来再想怎么分析，结果到方法章节只能反向解释，整条分析链显得很被动。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} in ${discipline.titleEn} collect the data first and only then decide how to analyze them, which leaves the methods chapter sounding retrospective and improvised.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在正式跑结果前先写一页 analysis plan，明确研究问题、变量口径、主要检验、备选检验，以及这些分析如何对应${discipline.evidenceZh}。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier approach is to write a one-page analysis plan before running the results, specifying the question, variable definitions, main tests, fallback tests, and how each step uses ${discipline.evidenceEn}.`,
+    stepsZh: () => [
+      '先把每个研究问题后面要对应的分析动作一一写清。',
+      '再列出主要模型或统计检验，以及可能出现异常情况时的备选处理方案。',
+      '最后让结果表格和图形都提前对应到这份 plan，而不是边做边想。',
+    ],
+    stepsEn: () => [
+      'Map each research question to the analysis action that is supposed to answer it.',
+      'List the main models or tests together with fallback treatments for likely irregular cases.',
+      'Let later tables and figures correspond to that plan instead of being invented on the fly.',
+    ],
+    riskZh: () =>
+      '如果分析计划完全靠后补，方法章节最容易出现的问题就是“统计做了很多，但每一步为什么要做并不清楚”。',
+    riskEn: () =>
+      'If the analysis plan is created too late, the methods chapter often shows many statistics without making clear why each step was necessary.',
+    closeZh: () => 'analysis plan 不会限制你的灵活性，反而能让方法、结果和回复质疑时都更有依据。',
+    closeEn: () =>
+      'An analysis plan does not reduce flexibility. It gives the methods, results, and later responses to criticism a much firmer basis.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}图表不是最后排版：先按投稿规格反推结果展示`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: design figures and tables early instead of treating them as final formatting`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}会把${discipline.titleZh}论文里的图表留到最后统一处理，但真到临门一脚时才发现图不够清楚、表太多、结果线索也没有被真正突出。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} leave figures and tables to the end of a ${discipline.titleEn} thesis and only then discover that the visuals are unclear, excessive, or poorly aligned with the argument.`,
+    strategyZh: ({ discipline }) =>
+      `图表真正的作用不是“把结果摆上去”，而是帮你筛选最值得被看到的发现。越早按潜在投稿规格反推图表结构，${discipline.evidenceZh}就越容易被组织得更清楚。`,
+    strategyEn: ({ discipline }) =>
+      `The real function of figures and tables is not just to display results but to force a decision about what deserves to be seen first. The earlier you reverse-engineer them from plausible submission standards, the clearer the ${discipline.evidenceEn} becomes.`,
+    stepsZh: () => [
+      '先判断哪些结果必须进主文、哪些更适合做补充表或补充图。',
+      '再给每个图表写一句标题式结论，检查它是否真的推进了论文主张。',
+      '最后统一变量命名、图例、单位和注释，避免正文与图表互相打架。',
+    ],
+    stepsEn: () => [
+      'Decide which findings belong in the main text and which should live in supplementary tables or figures.',
+      'Write one conclusion-like sentence for each figure or table title and test whether it advances the thesis claim.',
+      'Standardize variable names, legends, units, and notes so the visuals and prose stop fighting each other.',
+    ],
+    riskZh: () =>
+      '如果图表只是最后排版动作，最容易发生的不是“不好看”，而是关键结果没有被清楚展示，读者也抓不住你的重点。',
+    riskEn: () =>
+      'When visuals are treated only as final formatting, the core problem is not aesthetics but that the key findings never become legible enough for the reader to grasp.',
+    closeZh: () => '把图表前置思考，结果章节会更紧，后面改投稿格式时也会轻松很多。',
+    closeEn: () =>
+      'Thinking about figures and tables early usually tightens the results chapter and makes later submission formatting far easier.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}图文摘要和 Highlights 怎么准备：先把论文压成一条结果链`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: prepare graphical-abstract logic and highlights by compressing the result chain`,
+    introZh: ({ degree, discipline }) =>
+      `不少${degree.readerZh}直到准备投稿材料时，才第一次被迫把${discipline.titleZh}论文压缩成几条 highlights 或一张图文摘要，这时往往才发现自己的结果主线其实还不够集中。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} first attempt highlights or a graphical abstract only when submission materials are due and then discover that the result line of the ${discipline.titleEn} thesis is still too diffuse.`,
+    strategyZh: ({ discipline }) =>
+      `无论最后是否真的需要图文摘要，提前做一次“压缩实验”都很有用。它会逼你判断问题、方法、核心结果和${discipline.evidenceZh}之间到底哪一条链最值得保留。`,
+    strategyEn: ({ discipline }) =>
+      `Whether or not a final submission will require a graphical abstract, doing one round of compression early is useful. It forces you to decide which chain from problem to method, result, and ${discipline.evidenceEn} is most worth preserving.`,
+    stepsZh: () => [
+      '先用 3 到 5 条 bullets 写出这篇论文最想留下的发现和意义。',
+      '再尝试把这些 bullets 改写成一张图或一条流程线，看看哪里还不够清楚。',
+      '最后反推正文，删除那些无法进入 highlights 的冗余信息或弱结果。',
+    ],
+    stepsEn: () => [
+      'Write three to five bullets naming the findings and meanings the paper most needs to leave behind.',
+      'Convert those bullets into one visual or one process line and note where the logic still feels unclear.',
+      'Use that compression to remove redundant information or weak findings from the main draft.',
+    ],
+    riskZh: () =>
+      '如果论文永远压不成几条 highlights，往往说明主线还太散，或者结果之间的层级关系还没有真正建立。',
+    riskEn: () =>
+      'If the thesis can never be compressed into a few highlights, that usually means the core line is still too diffuse or the hierarchy among findings has not been established yet.',
+    closeZh: () => '能被压缩清楚的论文，通常也更容易被编辑、审稿人和答辩老师迅速读懂。',
+    closeEn: () =>
+      'A thesis that can be compressed clearly is usually much easier for editors, reviewers, and examiners to understand quickly.',
   },
 ]
 
@@ -1409,10 +1688,134 @@ const revisionThemes: ContentTheme[] = [
     closeEn: () =>
       'Turning a thesis into an article is less about deleting words and more about rebuilding the center of gravity.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}Cover Letter 别写成自夸信：投稿包要回答编辑最关心什么`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: write the cover letter as an editor-facing submission note, not self-praise`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}第一次准备${discipline.titleZh}投稿材料时，会把 Cover Letter 写成“这篇文章很有价值”的自我推荐信，但编辑真正想先知道的并不是你有多努力。`,
+    introEn: ({ degree, discipline }) =>
+      `When ${degree.readerEn} prepare a first ${discipline.titleEn} submission package, the cover letter often becomes a praise note about the paper, while editors are looking for something more practical.`,
+    strategyZh: ({ discipline }) =>
+      `更有效的 Cover Letter，通常只需要回答三件事：这篇稿件在研究什么、为什么适合这本期刊、以及${discipline.evidenceZh}支撑下最值得被快速看见的结果是什么。`,
+    strategyEn: ({ discipline }) =>
+      `A stronger cover letter usually answers three things only: what the manuscript studies, why it fits this journal, and what result supported by ${discipline.evidenceEn} deserves to be seen quickly.`,
+    stepsZh: () => [
+      '先用一到两句说明论文的问题、对象和结果，不要先从宏大背景写起。',
+      '再明确点出这本期刊为什么是合适的发表场景，而不是群发式套话。',
+      '最后补充必要的声明信息，但不要让信件变成冗长摘要。',
+    ],
+    stepsEn: () => [
+      'Use the opening one or two sentences to state the question, object, and result instead of starting with a grand background.',
+      'Name why this journal is a plausible publication venue instead of using broadcast-style generic praise.',
+      'Add the necessary declarations, but do not let the letter turn into a long abstract.',
+    ],
+    riskZh: () =>
+      '如果 Cover Letter 只会说“文章很重要”，却说不出为什么适合这本期刊，编辑很难从第一页就判断这份投稿值不值得继续送审。',
+    riskEn: () =>
+      'If the cover letter only says the manuscript is important without explaining journal fit, the editor has little reason to feel confident about sending it out for review.',
+    closeZh: () => '一封好的 Cover Letter 不是替论文加戏，而是帮编辑更快看懂这篇稿件为什么应该出现在这里。',
+    closeEn: () =>
+      'A good cover letter does not dramatize the paper. It helps the editor see quickly why the manuscript belongs here.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}回复审稿意见怎么写：先分承认、补证、解释三类`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: answer reviewer comments by separating concession, added evidence, and explanation`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}一拿到${discipline.titleZh}审稿意见，就急着逐条硬回，结果要么口气太冲，要么解释很多却没有真正补到证据。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} react to ${discipline.titleEn} reviewer comments by answering line by line too quickly, which often leads either to an overly defensive tone or to long explanations without real added evidence.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的回复信写法，是先判断每条意见属于哪一类：需要承认并修改、需要补充${discipline.evidenceZh}或分析、还是需要礼貌解释为什么原方案仍然成立。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier response-letter strategy is to classify each comment first: admit and revise, add ${discipline.evidenceEn} or analysis, or explain politely why the original choice can still stand.`,
+    stepsZh: () => [
+      '先把所有意见整理成表格，标明问题类型和准备采取的动作。',
+      '再在回复信里做到“感谢意见 + 明确动作 + 指出修改位置”三步完整出现。',
+      '最后检查语气是否合作、证据是否足够、改动是否真的进入正文，而不是只停留在回复里。',
+    ],
+    stepsEn: () => [
+      'Organize all comments into a table that labels the issue type and the action you plan to take.',
+      'Make sure each response includes three parts: appreciation, a concrete action, and the exact location of revision.',
+      'Check at the end whether the tone is collaborative, the evidence is sufficient, and the actual manuscript was changed rather than the response letter alone.',
+    ],
+    riskZh: () =>
+      '回复审稿意见最容易失败的地方，不是承认问题，而是表面上回应了，正文却没有真正同步修改。',
+    riskEn: () =>
+      'The common failure in reviewer responses is not admitting weakness but appearing to answer the point while leaving the manuscript itself largely unchanged.',
+    closeZh: () => '把回复信写成“问题处理记录”，而不是情绪反应，返修质量通常会稳很多。',
+    closeEn: () =>
+      'When the response letter becomes a record of problem handling rather than an emotional reaction, the quality of revision usually rises sharply.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}投稿前格式排查怎么做：标题页、图表和补充材料一次过`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: run a full pre-submission format check on title page, visuals, and supplements`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}以为投稿前的格式排查只是改参考文献和行距，但真正容易被编辑退回重整的，常常是标题页信息、图表命名、文件拆分和补充材料不完整。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} think pre-submission formatting only means references and spacing, while editors often send papers back because of title-page details, figure naming, file splitting, or incomplete supplements.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在投稿前做一次 package check，把主文、标题页、图表、附录、补充材料和涉及${discipline.evidenceZh}的说明文件当成一个整体来审。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier move is to run one package check before submission, treating the main manuscript, title page, visuals, appendices, supplements, and files tied to ${discipline.evidenceEn} as one submission bundle.`,
+    stepsZh: () => [
+      '先按期刊要求列出必须上传和可选上传的全部文件清单。',
+      '再逐项检查标题页信息、图表编号、文件命名、匿名化要求和补充材料是否对应一致。',
+      '最后用“编辑第一次打开这些文件时会不会迷路”这个标准再审一次。',
+    ],
+    stepsEn: () => [
+      'List all mandatory and optional files required by the journal before uploading anything.',
+      'Check the title-page details, figure numbering, file names, anonymization rules, and supplement links for consistency.',
+      'Run one final pass with the question: would an editor get lost the first time these files are opened?',
+    ],
+    riskZh: () =>
+      '格式排查做得不完整，最大的代价不是多花几分钟，而是明明内容已成熟，却因为包件混乱拖慢了后续流程。',
+    riskEn: () =>
+      'An incomplete format check costs more than a few minutes. It can slow the whole process even when the manuscript itself is already mature.',
+    closeZh: () => '投稿前把文件包件整理清楚，既是效率问题，也是专业感问题。',
+    closeEn: () =>
+      'A clean submission package is both an efficiency issue and a professionalism issue.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}会议摘要、海报和 PPT 怎么拆：别缩短全文，先重做信息层级`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: turn the thesis into an abstract, poster, or PPT by rebuilding information hierarchy`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}把${discipline.titleZh}论文拿去做会议摘要、海报或 PPT 时，第一反应是“把全文缩短”，结果内容看似精简了，现场表达却依然拥挤。`,
+    introEn: ({ degree, discipline }) =>
+      `When ${degree.readerEn} turn a ${discipline.titleEn} thesis into a conference abstract, poster, or PPT, the first instinct is often to shorten everything, but the result still feels crowded in presentation.`,
+    strategyZh: ({ discipline }) =>
+      `更有效的转换方式，不是压缩全文，而是重做信息层级：哪一句问题必须被先听懂，哪一个结果最值得被看见，哪一项${discipline.evidenceZh}最适合支撑现场讲解。`,
+    strategyEn: ({ discipline }) =>
+      `A stronger conversion does not simply shorten the whole thesis. It rebuilds the information hierarchy: what question must be understood first, what result deserves immediate attention, and which ${discipline.evidenceEn} best supports live explanation.`,
+    stepsZh: () => [
+      '先判断这次输出面对的是摘要读者、海报观众还是口头报告听众。',
+      '再把论文内容缩成“问题 - 方法 - 发现 - 意义”四层，而不是保留原章节顺序。',
+      '最后检查每一页或每一块版面是否只有一个真正的焦点，避免现场信息过载。',
+    ],
+    stepsEn: () => [
+      'Decide first whether the output is for abstract readers, poster viewers, or an oral-presentation audience.',
+      'Compress the thesis into four layers: problem, method, finding, and meaning, rather than preserving the original chapter order.',
+      'Check that each slide or poster block has one real focus only, so the live setting does not become overloaded.',
+    ],
+    riskZh: () =>
+      '如果只是机械缩短全文，最容易发生的就是信息量很大但层级很乱，观众听完仍然抓不住你最想强调的发现。',
+    riskEn: () =>
+      'If the full thesis is only shortened mechanically, the common outcome is heavy information with weak hierarchy, leaving the audience unsure what finding mattered most.',
+    closeZh: () => '会议材料做得好，考验的不是删了多少字，而是你有没有重新组织研究的可听、可看、可记忆版本。',
+    closeEn: () =>
+      'Strong conference material is judged less by how many words were cut than by whether the research was rebuilt into something audible, visible, and memorable.',
+  },
 ]
 
 // Themes are original syntheses inspired by academic writing guidance from university writing centers,
-// libraries, and researcher training resources.
+// libraries, researcher training resources, and publication-support resource hubs.
 const stageThemes: Record<StageConfig['slug'], ContentTheme[]> = {
   proposal: proposalThemes,
   'literature-review': literatureReviewThemes,
