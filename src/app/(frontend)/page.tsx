@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
 import configPromise from '@payload-config'
+import { getCachedGlobal } from '@/utilities/getGlobals'
+import { getCachedHomepagePosts } from '@/utilities/getCachedPostQueries'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import React from 'react'
@@ -11,6 +13,7 @@ import { getAudienceCategory, getPostStage, parseSeoPostSlug } from '@/utilities
 import { getSiteLocale } from '@/utilities/siteLocale'
 import deepMerge from '@/utilities/deepMerge'
 
+export const revalidate = 900
 const HOMEPAGE_POST_SCAN_LIMIT = 60
 
 const homepageStarterRouteSpecs = [
@@ -63,39 +66,43 @@ const homepageStarterRouteSpecs = [
 export default async function HomePage() {
   const locale = await getSiteLocale()
   const { isEnabled: draft } = await draftMode()
-  const payload = await getPayload({ config: configPromise })
+  const payload = draft ? await getPayload({ config: configPromise }) : null
+  const homepageResultPromise =
+    draft && payload
+      ? payload
+          .findGlobal({
+            draft,
+            locale,
+            slug: 'homepage',
+          })
+          .catch(() => null)
+      : getCachedGlobal('homepage', 0, locale)().catch(() => null)
+  const postsPromise =
+    draft && payload
+      ? payload
+          .find({
+            collection: 'posts',
+            depth: 1,
+            limit: HOMEPAGE_POST_SCAN_LIMIT,
+            locale,
+            sort: '-publishedAt',
+            overrideAccess: true,
+            select: {
+              categories: true,
+              heroImage: true,
+              meta: true,
+              slug: true,
+              title: true,
+            },
+          })
+          .then((result) => result.docs)
+          .catch(() => [])
+      : getCachedHomepagePosts(locale, HOMEPAGE_POST_SCAN_LIMIT).catch(() => [])
 
-  const [homepageResult, posts] = await Promise.all([
-    payload
-      .findGlobal({
-        draft,
-        locale,
-        slug: 'homepage',
-      })
-      .catch(() => null),
-    payload
-      .find({
-        collection: 'posts',
-        depth: 1,
-        limit: HOMEPAGE_POST_SCAN_LIMIT,
-        locale,
-        sort: '-publishedAt',
-        overrideAccess: draft,
-        select: {
-          categories: true,
-          heroImage: true,
-          meta: true,
-          slug: true,
-          title: true,
-        },
-      })
-      .catch(() => ({
-        docs: [],
-      })),
-  ])
+  const [homepageResult, posts] = await Promise.all([homepageResultPromise, postsPromise])
 
   const content = deepMerge(getHomepageFallback(locale), homepageResult || {})
-  const latestArticles = posts.docs.slice(0, 3)
+  const latestArticles = posts.slice(0, 3)
   const stagePriority = ['proposal', 'literature-review', 'methods-analysis', 'revision-defense']
   const starterPaths = homepageStarterRouteSpecs
     .map((spec) => {
@@ -103,7 +110,7 @@ export default async function HomePage() {
 
       if (!category) return null as HomepageStarterPath | null
 
-      const matchingPosts = posts.docs.filter((post) => {
+      const matchingPosts = posts.filter((post) => {
         return parseSeoPostSlug(post.slug)?.categorySlug === spec.categorySlug
       })
 

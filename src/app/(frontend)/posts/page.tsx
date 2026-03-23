@@ -5,8 +5,7 @@ import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getCachedArchivePosts } from '@/utilities/getCachedPostQueries'
 import React from 'react'
 import PageClient from './page.client'
 import { getSiteLocale } from '@/utilities/siteLocale'
@@ -16,24 +15,7 @@ const POSTS_PER_PAGE = 12
 
 export default async function Page() {
   const locale = await getSiteLocale()
-  const payload = await getPayload({ config: configPromise })
-
-  const posts = await payload
-    .find({
-      collection: 'posts',
-      depth: 1,
-      limit: POSTS_PER_PAGE,
-      locale,
-      sort: '-publishedAt',
-      overrideAccess: false,
-      select: {
-        heroImage: true,
-        title: true,
-        slug: true,
-        categories: true,
-        meta: true,
-      },
-    })
+  const posts = await getCachedArchivePosts(locale, 1, POSTS_PER_PAGE)
     .catch(() => ({
       docs: [],
       page: 1,

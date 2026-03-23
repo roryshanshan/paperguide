@@ -16,10 +16,13 @@ import type { Post } from '@/payload-types'
 
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
+import { getCachedFallbackRelatedPosts, getCachedPostBySlug } from '@/utilities/getCachedPostQueries'
 import { getAudienceCategoryHrefBySlug, parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import { getSiteLocale } from '@/utilities/siteLocale'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+
+export const revalidate = 3600
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -144,44 +147,51 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 const queryPostBySlug = cache(async ({ locale, slug }: { locale: 'zh' | 'en'; slug: string }) => {
   const { isEnabled: draft } = await draftMode()
 
+  if (!draft) {
+    return getCachedPostBySlug(locale, slug).catch(() => null)
+  }
+
   const payload = await getPayload({ config: configPromise })
-
-  const result = await payload
-    .find({
-      collection: 'posts',
-      draft,
-      limit: 1,
-      locale,
-      overrideAccess: draft,
-      pagination: false,
-      where: {
-        slug: {
-          equals: slug,
-        },
+  const result = await payload.find({
+    collection: 'posts',
+    depth: 1,
+    draft: true,
+    limit: 1,
+    locale,
+    overrideAccess: true,
+    pagination: false,
+    where: {
+      slug: {
+        equals: slug,
       },
-    })
-    .catch(() => ({ docs: [] }))
+    },
+  })
 
-  return result.docs?.[0] || null
+  return (result.docs?.[0] as Post | undefined) || null
 })
 
 const queryFallbackRelatedPosts = cache(
   async ({ locale, slug }: { locale: 'zh' | 'en'; slug: string }): Promise<CardPostData[]> => {
+    const { isEnabled: draft } = await draftMode()
+
+    if (!draft) {
+      return getCachedFallbackRelatedPosts(locale, slug).catch(() => [])
+    }
+
     const seoPost = parseSeoPostSlug(slug)
 
     if (!seoPost) return []
 
-    const { isEnabled: draft } = await draftMode()
     const payload = await getPayload({ config: configPromise })
 
     const sameDiscipline = await payload
       .find({
         collection: 'posts',
         depth: 1,
-        draft,
+        draft: true,
         limit: 3,
         locale,
-        overrideAccess: draft,
+        overrideAccess: true,
         pagination: false,
         sort: '-publishedAt',
         select: {
@@ -216,10 +226,10 @@ const queryFallbackRelatedPosts = cache(
       .find({
         collection: 'posts',
         depth: 1,
-        draft,
+        draft: true,
         limit: 12,
         locale,
-        overrideAccess: draft,
+        overrideAccess: true,
         pagination: false,
         sort: '-publishedAt',
         select: {

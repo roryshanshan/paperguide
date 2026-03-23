@@ -5,8 +5,7 @@ import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getCachedArchivePosts } from '@/utilities/getCachedPostQueries'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
@@ -24,29 +23,12 @@ type Args = {
 export default async function Page({ params: paramsPromise }: Args) {
   const locale = await getSiteLocale()
   const { pageNumber } = await paramsPromise
-  const payload = await getPayload({ config: configPromise })
 
   const sanitizedPageNumber = Number(pageNumber)
 
   if (!Number.isInteger(sanitizedPageNumber)) notFound()
 
-  const posts = await payload
-    .find({
-      collection: 'posts',
-      depth: 1,
-      limit: POSTS_PER_PAGE,
-      locale,
-      page: sanitizedPageNumber,
-      sort: '-publishedAt',
-      overrideAccess: false,
-      select: {
-        heroImage: true,
-        title: true,
-        slug: true,
-        categories: true,
-        meta: true,
-      },
-    })
+  const posts = await getCachedArchivePosts(locale, sanitizedPageNumber, POSTS_PER_PAGE)
     .catch(() => ({
       docs: [],
       page: sanitizedPageNumber,
@@ -118,7 +100,9 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
+  const { getPayload } = await import('payload')
+  const { default: config } = await import('@payload-config')
+  const payload = await getPayload({ config })
   const { totalDocs } = await payload
     .count({
       collection: 'posts',

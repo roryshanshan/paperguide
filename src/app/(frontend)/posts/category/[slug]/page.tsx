@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getCachedCategoryPosts } from '@/utilities/getCachedPostQueries'
 import Link from 'next/link'
 import React from 'react'
 
@@ -44,30 +43,9 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
 
   if (!category) notFound()
 
-  const payload = await getPayload({ config: configPromise })
-  const posts = await payload
-    .find({
-      collection: 'posts',
-      depth: 1,
-      limit: CATEGORY_PAGE_SIZE,
-      locale,
-      overrideAccess: false,
-      pagination: false,
-      sort: '-publishedAt',
-      select: {
-        heroImage: true,
-        title: true,
-        slug: true,
-        categories: true,
-        meta: true,
-        publishedAt: true,
-      },
-    })
+  const posts = await getCachedCategoryPosts(locale, category.categorySlug, CATEGORY_PAGE_SIZE)
     .catch(() => ({ docs: [] as CategoryPostData[] }))
-
-  const matchingPosts = posts.docs.filter((post) => {
-    return parseSeoPostSlug(post.slug)?.categorySlug === category.categorySlug
-  })
+  const matchingPosts = Array.isArray(posts) ? posts : []
   const hubEnhancement = categoryHubEnhancements[category.categorySlug]
   const latestPosts = matchingPosts.slice(0, 3)
 

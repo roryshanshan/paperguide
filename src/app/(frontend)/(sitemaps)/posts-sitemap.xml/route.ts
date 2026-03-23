@@ -1,46 +1,9 @@
 import { getServerSideSitemap } from 'next-sitemap'
-import { getPayload } from 'payload'
-import config from '@payload-config'
+import { getCachedPostSitemapEntries } from '@/utilities/getCachedPostQueries'
 import { getServerSideURL } from '@/utilities/getURL'
 
-export const dynamic = 'force-dynamic'
-
-const getPostsSitemap = async () => {
-  const payload = await getPayload({ config })
-  const SITE_URL = getServerSideURL()
-
-  const results = await payload.find({
-    collection: 'posts',
-    overrideAccess: false,
-    draft: false,
-    depth: 0,
-    limit: 1000,
-    pagination: false,
-    where: {
-      _status: {
-        equals: 'published',
-      },
-    },
-    select: {
-      slug: true,
-      updatedAt: true,
-    },
-  })
-
-  const dateFallback = new Date().toISOString()
-
-  return results.docs
-    ? results.docs
-        .filter((post) => Boolean(post?.slug))
-        .map((post) => ({
-          loc: `${SITE_URL}/posts/${post?.slug}`,
-          lastmod: post.updatedAt || dateFallback,
-        }))
-    : []
-}
-
 export async function GET() {
-  const sitemap = await getPostsSitemap()
+  const sitemap = await getCachedPostSitemapEntries(getServerSideURL())
 
   return getServerSideSitemap(sitemap)
 }
