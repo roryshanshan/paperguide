@@ -5,6 +5,7 @@ import React from 'react'
 
 import { ConsultationForm } from '@/components/ConsultationForm'
 import { Card, type CardPostData } from '@/components/Card'
+import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
 import type { HomepageFallback } from '@/utilities/homepageFallback'
 import type { SiteLocale } from '@/utilities/siteLocale'
 
@@ -38,6 +39,7 @@ export const HomePageView: React.FC<{
           process: 'Work Process',
           services: 'Academic Support',
           stories: 'Student Outcomes',
+          topics: 'Writing Topic Hubs',
         }
       : {
           articles: '内容中心',
@@ -47,6 +49,7 @@ export const HomePageView: React.FC<{
           process: '服务流程',
           services: '论文辅导',
           stories: '学员结果',
+          topics: '写作专题',
         }
   const consultationCopy =
     locale === 'en'
@@ -276,6 +279,31 @@ export const HomePageView: React.FC<{
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="container mt-24">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">{sectionCopy.topics}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              {locale === 'en' ? 'Browse high-intent thesis writing channels' : '按真实写作问题进入专题频道'}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'Start from topic selection, literature review, structure writing, methods, or revision workflow instead of guessing where to read next.'
+                : '从选题、综述、结构、方法和返修流程切入，不用再在文章列表里盲找下一篇该看什么。'}
+            </p>
+          </div>
+          <Link
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-slate-950"
+            href="/posts"
+          >
+            {locale === 'en' ? 'Open article center' : '打开文章中心'}
+            <ArrowRight className="size-4" />
+          </Link>
+        </div>
+
+        <PostTopicHubGrid locale={locale} />
       </section>
 
       <section className="container mt-24">

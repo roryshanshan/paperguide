@@ -4,6 +4,7 @@ export const audienceCategories = [
   {
     categorySlug: 'undergraduate-thesis',
     degreeSlug: 'undergraduate',
+    kind: 'degree',
     labels: {
       en: 'Undergraduate Thesis',
       zh: '本科论文',
@@ -20,6 +21,7 @@ export const audienceCategories = [
   {
     categorySlug: 'masters-thesis',
     degreeSlug: 'masters',
+    kind: 'degree',
     labels: {
       en: "Master's Thesis",
       zh: '研究生论文',
@@ -36,6 +38,7 @@ export const audienceCategories = [
   {
     categorySlug: 'doctoral-thesis',
     degreeSlug: 'doctoral',
+    kind: 'degree',
     labels: {
       en: 'PhD Thesis',
       zh: '博士论文',
@@ -52,6 +55,7 @@ export const audienceCategories = [
   {
     categorySlug: 'research-topic-planning',
     degreeSlug: 'research-topic',
+    kind: 'topic',
     labels: {
       en: 'Topic Selection',
       zh: '选题与问题定义',
@@ -68,6 +72,7 @@ export const audienceCategories = [
   {
     categorySlug: 'literature-reading-review',
     degreeSlug: 'literature-reading',
+    kind: 'topic',
     labels: {
       en: 'Literature Review',
       zh: '文献阅读与综述',
@@ -84,6 +89,7 @@ export const audienceCategories = [
   {
     categorySlug: 'structure-abstract-writing',
     degreeSlug: 'paper-structure',
+    kind: 'topic',
     labels: {
       en: 'Structure Writing',
       zh: '摘要引言与结构写作',
@@ -100,6 +106,7 @@ export const audienceCategories = [
   {
     categorySlug: 'methods-data-presentation',
     degreeSlug: 'methods-data',
+    kind: 'topic',
     labels: {
       en: 'Methods and Data',
       zh: '方法设计与结果表达',
@@ -116,6 +123,7 @@ export const audienceCategories = [
   {
     categorySlug: 'submission-defense-workflow',
     degreeSlug: 'submission-workflow',
+    kind: 'topic',
     labels: {
       en: 'Revision and Submission',
       zh: '返修投稿与答辩',
@@ -167,6 +175,10 @@ export type AudienceCategorySlug = AudienceCategory['categorySlug']
 export type DegreeSlug = AudienceCategory['degreeSlug']
 export type PostStage = (typeof postStages)[number]
 export type PostStageSlug = PostStage['slug']
+export type AudienceCategoryKind = AudienceCategory['kind']
+
+export const topicHubCategories = audienceCategories.filter((category) => category.kind === 'topic')
+export const degreeHubCategories = audienceCategories.filter((category) => category.kind === 'degree')
 
 export const getAudienceCategory = (categorySlug: string | null | undefined) => {
   return audienceCategories.find((category) => category.categorySlug === categorySlug)

@@ -4,6 +4,7 @@ import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
+import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -56,6 +57,25 @@ export default async function Page() {
             : '浏览论文方法、专题写作频道、返修建议与长文辅导内容。'}
         </p>
         <PostAudiencePills locale={locale} />
+      </div>
+
+      <div className="container mb-16">
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
+            {locale === 'en' ? 'Topic Hubs' : '专题频道'}
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+            {locale === 'en'
+              ? 'Choose a writing problem instead of browsing blindly'
+              : '先选写作问题，再进对应文章库'}
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+            {locale === 'en'
+              ? 'These channels group long-form guides by real writing bottlenecks such as topic selection, literature review, methods, and submission workflow.'
+              : '这些频道按真实卡点组织长文内容，比如选题、综述、结构、方法和投稿返修，而不是只按学历分。'}
+          </p>
+        </div>
+        <PostTopicHubGrid locale={locale} />
       </div>
 
       <div className="container mb-8">

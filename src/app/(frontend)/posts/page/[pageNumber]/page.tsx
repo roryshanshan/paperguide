@@ -4,6 +4,7 @@ import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
+import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -63,7 +64,26 @@ export default async function Page({ params: paramsPromise }: Args) {
         <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
           {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
         </h1>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+          {locale === 'en'
+            ? 'Browse long-form writing guidance, thesis workflow articles, and problem-based academic support content.'
+            : '浏览长文写作指南、论文流程文章和按真实卡点组织的辅导内容。'}
+        </p>
         <PostAudiencePills locale={locale} />
+      </div>
+
+      <div className="container mb-16">
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
+            {locale === 'en' ? 'Topic Hubs' : '专题频道'}
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+            {locale === 'en'
+              ? 'Jump straight into the writing bottleneck you need to solve'
+              : '直接进入你现在最需要解决的写作卡点'}
+          </h2>
+        </div>
+        <PostTopicHubGrid locale={locale} />
       </div>
 
       <div className="container mb-8">
