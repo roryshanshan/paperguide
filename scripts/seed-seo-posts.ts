@@ -6143,6 +6143,1156 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'limitations-writing',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '结构与摘要写作',
+    labelEn: 'Structure and Abstract',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'limitations 写法、边界表达和未来研究衔接',
+    focusEn: 'writing limitations, expressing boundaries, and linking to future research',
+    evidenceZh: 'limitations 草稿、边界说明和 future work 笔记',
+    evidenceEn: 'limitations drafts, boundary statements, and future-work notes',
+    standardZh: '重点不是把 limitations 写成自我否定，而是把边界写成可信度的一部分。',
+    standardEn:
+      'The goal is not to turn limitations into self-negation but to make boundary awareness part of the paper’s credibility.',
+    articles: {
+      proposal: {
+        titleZh: 'limitations 不是最后补的客套话：开题时就先画出研究边界',
+        titleEn:
+          'Limitations are not a polite paragraph added at the end: draw the research boundaries during the proposal stage',
+        introZh:
+          '很多人以为 limitations 只要在定稿前随手补一段就够了，所以开题时只顾着讲意义和创新，却不提前说明哪些部分当前研究做不到、也不准备做到。这样后面一旦被追问边界，整个项目就容易显得承诺过大。',
+        introEn:
+          'Many writers assume limitations can be added casually near the final draft, so during the proposal stage they focus only on significance and novelty without stating what the current study cannot and does not aim to do. Later, once the boundary is questioned, the project can start looking overpromised.',
+        zhihuAngleZh:
+          '知乎里关于“limitations 要不要最后再写”的讨论，经常会提醒一个事实：边界不是收尾动作，而是研究设计的一部分。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether limitations can be written only at the end often return to one fact: boundaries are not a finishing move but part of research design itself.',
+        strategyZh:
+          '更稳的开题准备，是先写一版 boundary note，说明研究对象、材料、时间、方法和结论层级分别到哪里为止。只要边界在前期就被画出来，后面的 limitations 段就不会像临时补救，而会像前后一致的设计说明。',
+        strategyEn:
+          'A steadier proposal-stage preparation is to draft a boundary note explaining where the study stops in terms of object, material, time frame, method, and level of conclusion. Once these boundaries are drawn early, the later limitations section stops sounding like damage control and starts reading like consistent design.',
+        stepsZh: [
+          '先为对象、材料、时间、方法和结论层级分别写出边界。',
+          '再判断哪些边界需要在开题说明里提前出现。',
+          '最后把这些边界整理成一页 boundary note。',
+        ],
+        stepsEn: [
+          'Write boundaries separately for object, material, time frame, method, and conclusion level first.',
+          'Judge which of those boundaries should already appear in the proposal explanation next.',
+          'Organize them into a one-page boundary note at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步尤其值钱，因为成熟稿件的 credibility 往往来自作者是否一开始就知道研究只能走到哪里，而不是后期被逼着承认做不到什么。',
+        submissionEn:
+          'If submission may come later, this step is especially valuable because the credibility of a mature manuscript often depends on whether the author knew from the start how far the study could go, rather than being forced later to admit what could not be done.',
+        riskZh:
+          '如果开题阶段完全不画边界，最常见的后果就是前文承诺越来越大，到了结果和结论阶段只能靠模糊措辞收回。',
+        riskEn:
+          'If the proposal stage never draws boundaries, the common result is an ever-expanding promise that must later be pulled back through vague wording in the results and conclusion.',
+        checklistZh: [
+          '1. 是否已为对象、材料、时间、方法和结论层级写出边界。',
+          '2. 哪些边界需要前置到开题说明里是否已判断清楚。',
+          '3. 是否已经整理出一页 boundary note。',
+        ],
+        checklistEn: [
+          '1. Have boundaries been written for object, material, time frame, method, and conclusion level?',
+          '2. Has it been judged which boundaries should already appear in the proposal explanation?',
+          '3. Has a one-page boundary note already been organized?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更稳的边界说明，为后面的 limitations、答辩和投稿都提前打底。',
+        deliverableEn:
+          'After this round, you should have a steadier boundary explanation that lays groundwork for the later limitations section, defense, and submission.',
+        closeZh:
+          'limitations 真正写得稳的时候，边界从来不是最后才想起来的。',
+        closeEn:
+          'When limitations are written steadily, the boundary was never something remembered only at the very end.',
+      },
+      'literature-review': {
+        titleZh: '综述里先把“文献没做到”和“我这篇不做”区分开，limitations 才不会发虚',
+        titleEn:
+          'Separate what the literature has not done from what this paper will not do in the review, and the limitations section will stop sounding vague',
+        introZh:
+          '很多人写综述时会把前人没做到的部分和自己这篇也不打算做的部分混在一起，结果到最后写 limitations 时，只能模糊地说“仍有不足”，既不清楚也不可信。',
+        introEn:
+          'Many writers blend together what prior literature has not done and what this study itself does not intend to do. By the time the limitations section is drafted, all that remains is a vague statement that some shortcomings still exist, which feels neither clear nor credible.',
+        zhihuAngleZh:
+          '知乎里关于“limitations 怎么写才不像套话”的经验，经常会指出一个前置动作：综述阶段就要区分 field 的空白和本研究的边界。',
+        zhihuAngleEn:
+          'Zhihu advice on writing limitations without sounding formulaic often points to one earlier move: during the review stage, distinguish the field’s open questions from the current study’s own boundary.',
+        strategyZh:
+          '更稳的综述组织法，是把“前人没解决的问题”和“这篇研究暂不处理的问题”分开记录。前者进入 gap 说明，后者进入 boundary note。只要这两条线不再混着写，后面的 limitations 段就会清楚很多。',
+        strategyEn:
+          'A steadier review structure keeps separate records for the problems prior work did not solve and the problems this study itself will not address. The first enters the gap explanation and the second enters the boundary note. Once these two lines stop being mixed, the later limitations section becomes much clearer.',
+        stepsZh: [
+          '先把文献缺口和本研究边界分成两列记录。',
+          '再检查综述里哪些句子把这两类问题混在了一起。',
+          '最后把属于本研究边界的内容移到 boundary note。',
+        ],
+        stepsEn: [
+          'Record literature gaps and study boundaries in two separate columns first.',
+          'Check which review sentences are mixing the two kinds of issues next.',
+          'Move the lines belonging to the study boundary into the boundary note at the end.',
+        ],
+        submissionZh:
+          '如果后面还要写成投稿型引言，这个区分会非常重要，因为审稿人会更容易看出你既知道 field 的问题，也知道自己这篇稿件不该虚假承诺什么。',
+        submissionEn:
+          'If the material later becomes a submission-style introduction, this distinction matters greatly because reviewers can see more easily that you understand both the field’s open questions and what this manuscript should not falsely promise.',
+        riskZh:
+          '如果综述里一直混写缺口和边界，最常见的后果就是稿件一边宣称自己要填某个 gap，一边又在结尾含糊地承认其实没有做到。',
+        riskEn:
+          'If the review keeps mixing gaps and boundaries, the common result is a manuscript that claims to fill a gap while later admitting vaguely that it did not really do so.',
+        checklistZh: [
+          '1. 是否已把文献缺口和本研究边界分成两列。',
+          '2. 是否找出了综述里混写两类问题的句子。',
+          '3. 属于边界的内容是否已移入 boundary note。',
+        ],
+        checklistEn: [
+          '1. Have literature gaps and study boundaries been separated into two columns?',
+          '2. Have the review sentences mixing the two issue types been identified?',
+          '3. Has the content belonging to the boundary been moved into the boundary note?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更干净的综述问题线，也为后面的 limitations 段留出了更稳定的位置。',
+        deliverableEn:
+          'After this round, you should have a cleaner review problem line and a far steadier place from which to write the later limitations section.',
+        closeZh:
+          'limitations 不再发虚，往往是因为综述阶段已经把 gap 和边界分开了。',
+        closeEn:
+          'Limitations often stop sounding vague once the review stage has separated the gap from the study boundary.',
+      },
+      'methods-analysis': {
+        titleZh: 'limitations 别只写“样本有限”：把限制写到证据链的真实位置',
+        titleEn:
+          'Do not reduce limitations to “small sample size”: place each limitation at its real position in the evidence chain',
+        introZh:
+          '很多论文的 limitations 段都停留在“样本有限、时间有限、能力有限”这种泛泛表述上，读者看完并不知道这些限制到底影响了哪一层判断，也不知道结果还能信到什么程度。',
+        introEn:
+          'Many limitations sections stop at broad lines such as limited sample, limited time, or limited ability. After reading them, readers still do not know which layer of judgment these limits affect or how far the findings remain trustworthy.',
+        zhihuAngleZh:
+          '知乎里关于“limitations 写得像模板怎么办”的经验，常会提醒：不要只写限制是什么，要写它影响证据链的哪一段。',
+        zhihuAngleEn:
+          'Zhihu advice on limitations sections that read like templates often gives one reminder: do not say only what the limit is. Explain which part of the evidence chain it affects.',
+        strategyZh:
+          '更稳的写法，是把限制逐一挂到证据链上：哪些限制影响样本代表性，哪些影响因果解释，哪些影响外推范围，哪些只是影响表达完整度。只要限制和判断层级对上，limitations 段就会从模板变成分析。',
+        strategyEn:
+          'A steadier writing practice attaches each limitation to the evidence chain: some affect sample representativeness, some affect causal interpretation, some constrain generalizability, and some only affect explanatory completeness. Once the limitation matches the level of judgment it touches, the section turns from template into analysis.',
+        stepsZh: [
+          '先列出当前研究的主要限制，不急着写成段落。',
+          '再判断每条限制影响的是样本、解释、外推还是表达。',
+          '最后按影响层级重写 limitations 段。',
+        ],
+        stepsEn: [
+          'List the study’s major limitations first without forcing them into paragraph form.',
+          'Judge whether each one affects sample, interpretation, generalizability, or explanation next.',
+          'Rewrite the limitations section by impact level at the end.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种写法会更有说服力，因为审稿人通常并不排斥有限性本身，而更在意作者是否准确知道有限性影响到了哪里。',
+        submissionEn:
+          'If the manuscript later goes to submission, this approach is more persuasive because reviewers are usually not opposed to limits themselves. They care more about whether the author accurately knows where those limits matter.',
+        riskZh:
+          '如果 limitations 继续只写成泛泛自我否定，最常见的后果就是稿件看起来谦虚了，却没有真正提升可信度。',
+        riskEn:
+          'If the limitations section remains a set of broad self-deprecating lines, the common result is a manuscript that appears humble without becoming any more credible.',
+        checklistZh: [
+          '1. 是否已经列出主要限制而不是直接套模板。',
+          '2. 每条限制是否都对应了样本、解释、外推或表达层级。',
+          '3. limitations 段是否已按影响层级重写。',
+        ],
+        checklistEn: [
+          '1. Have the major limitations been listed instead of dropped directly into a template?',
+          '2. Does each limitation now map to sample, interpretation, generalizability, or explanation level?',
+          '3. Has the limitations section been rewritten by impact level?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更像分析说明的 limitations 段，而不是一段礼貌性自我否定。',
+        deliverableEn:
+          'After this round, you should have a limitations section that reads like analysis rather than a polite act of self-negation.',
+        closeZh:
+          'limitations 一旦被挂回证据链，读者看到的就不只是问题，而是你对问题的判断力。',
+        closeEn:
+          'Once limitations are reattached to the evidence chain, readers see not only the problem but your judgment about the problem.',
+      },
+      'revision-defense': {
+        titleZh: '答辩被问局限性时怎么答：先说明边界，再说明为什么结论仍成立',
+        titleEn:
+          'How do you answer when asked about limitations in a defense? State the boundary first, then explain why the conclusion still holds',
+        introZh:
+          '很多人一被问到局限性，就本能地进入防御状态，要么过度否认问题，要么把整篇研究说得很没价值。其实更稳的回答不是回避限制，而是把限制放到正确的判断层级里。',
+        introEn:
+          'Many writers react defensively as soon as they are asked about limitations. They either deny the issue too strongly or make the whole study sound worthless. The steadier answer does not avoid the limitation but places it at the correct level of judgment.',
+        zhihuAngleZh:
+          '知乎里关于“答辩老师问局限性怎么答才不扣分”的经验，经常会强调：先承认边界，再说明这不等于结论失效。',
+        zhihuAngleEn:
+          'Zhihu advice on answering defense questions about limitations without losing credibility often emphasizes one order: acknowledge the boundary first, then explain why that does not invalidate the conclusion.',
+        strategyZh:
+          '更稳的答法，是按两步走：第一步准确说明限制在哪；第二步说明它影响的是哪一层判断，以及哪些结论仍然站得住。这样回答既不会显得嘴硬，也不会把研究整体推翻。',
+        strategyEn:
+          'A steadier answer follows two moves: first, state accurately where the limitation lies; second, explain which layer of judgment it affects and which conclusions still stand. This avoids sounding stubborn while also preventing the whole study from collapsing under the question.',
+        stepsZh: [
+          '先为每个高频局限性问题准备边界说明。',
+          '再为每个问题补一条“仍然成立的结论”说明。',
+          '最后练习把两步答法说成统一口径。',
+        ],
+        stepsEn: [
+          'Prepare a boundary explanation for each high-frequency limitation question first.',
+          'Add one still-valid conclusion statement for each question next.',
+          'Practice turning the two-step answer into one consistent speaking line at the end.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这种答法也能直接转成 response letter 和 conclusion 里的 limitations 处理逻辑。',
+        submissionEn:
+          'If revision or submission still lies ahead, this answer style can also transfer directly into the logic used for limitations in the response letter and conclusion.',
+        riskZh:
+          '如果答辩时一被问局限性就开始情绪化防御，最常见的后果就是老师会进一步怀疑你是不是根本没有想清边界。',
+        riskEn:
+          'If defense questions on limitations trigger an emotional defense, the common result is that examiners begin to suspect that the boundaries were never thought through clearly in the first place.',
+        checklistZh: [
+          '1. 是否为高频局限性问题准备了边界说明。',
+          '2. 是否为每个问题补了“仍然成立的结论”说明。',
+          '3. 是否已经把两步答法练成统一口径。',
+        ],
+        checklistEn: [
+          '1. Have boundary explanations been prepared for high-frequency limitation questions?',
+          '2. Has a still-valid conclusion statement been added for each question?',
+          '3. Has the two-step answer been rehearsed into one consistent line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更稳的局限性答辩口径，不再把 limitations 说成整篇研究的失败证明。',
+        deliverableEn:
+          'After this round, you should have a steadier defense script for limitations instead of making them sound like proof that the whole study failed.',
+        closeZh:
+          '局限性答得稳的时候，老师听到的不是你在自保，而是你真的知道研究能走到哪里。',
+        closeEn:
+          'When limitations are answered steadily, examiners hear not self-protection but real awareness of how far the study can go.',
+      },
+    },
+  },
+  {
+    slug: 'methods-data',
+    topicSlug: 'ethics-data-statement',
+    categorySlug: 'methods-data-presentation',
+    labelZh: '方法与数据呈现',
+    labelEn: 'Methods and Data',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '研究伦理、数据来源、知情同意与声明写法',
+    focusEn: 'research ethics, data sources, informed consent, and statement writing',
+    evidenceZh: '伦理说明、数据来源记录和 consent 笔记',
+    evidenceEn: 'ethics notes, data-source records, and consent documentation',
+    standardZh: '重点不是把伦理声明写成格式条款，而是让读者看见研究资料的来源和处理是否合规。',
+    standardEn:
+      'The goal is not to turn ethics statements into formal boilerplate but to let readers see whether the source and handling of the material are compliant and credible.',
+    articles: {
+      proposal: {
+        titleZh: '伦理声明别等定稿再补：开题时先把数据来源和 consent 路线想清楚',
+        titleEn:
+          'Do not postpone ethics statements until the final draft: think through data-source and consent routes during the proposal stage',
+        introZh:
+          '很多人开题时只想题目、方法和结果，觉得伦理声明等写到最后再补就行。但一旦研究涉及访谈、问卷、用户数据、病例或平台材料，早期不想清楚来源与 consent 路线，后面会直接影响数据能不能用。',
+        introEn:
+          'Many writers focus only on topic, method, and findings during the proposal stage and assume ethics statements can be added near the end. Yet once a study involves interviews, surveys, user data, clinical material, or platform records, failing to think through source and consent routes early can directly determine whether the data can be used at all.',
+        zhihuAngleZh:
+          '知乎里关于“伦理审查是不是最后再看”的讨论，经常会提醒：很多研究的真正风险不是写不出声明，而是前期就没有按声明的要求去做。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether ethics review can be considered only at the end often return to one reminder: the real risk is not failing to draft a statement but failing to conduct the work in a way that the statement can honestly support later.',
+        strategyZh:
+          '更稳的开题准备，是先写清三件事：数据来自哪里、使用是否需要 consent 或匿名处理、材料存储与展示要遵守什么规则。只要这三件事先想通，后面的 ethics statement 才不会变成事后补词。',
+        strategyEn:
+          'A steadier proposal-stage preparation is to clarify three things first: where the data comes from, whether its use requires consent or anonymization, and what rules govern storage and presentation. Once those three points are thought through, the later ethics statement stops becoming an after-the-fact patch.',
+        stepsZh: [
+          '先写清材料来源和获取路径。',
+          '再判断是否需要 consent、匿名化或额外审批。',
+          '最后记录材料存储与展示的基本规则。',
+        ],
+        stepsEn: [
+          'Write down the material source and acquisition path first.',
+          'Judge whether consent, anonymization, or additional approval is required next.',
+          'Record the basic rules for storage and presentation at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步尤其重要，因为很多期刊对 ethics 和 data statement 的要求并不是补一句就过，而是要和实际研究过程对得上。',
+        submissionEn:
+          'If the work later moves toward submission, this step matters especially because many journals do not accept ethics and data statements as one added sentence. They must align with the actual research process.',
+        riskZh:
+          '如果开题阶段完全不考虑伦理与数据来源，最常见的后果就是后面数据已经拿到了，却发现声明根本写不圆。',
+        riskEn:
+          'If ethics and data-source issues are ignored during the proposal stage, the common result is obtaining data first and then discovering that no credible statement can be written to support it.',
+        checklistZh: [
+          '1. 是否写清了材料来源与获取路径。',
+          '2. 是否判断了 consent、匿名化或审批要求。',
+          '3. 是否记录了存储与展示规则。',
+        ],
+        checklistEn: [
+          '1. Have the material source and acquisition path been stated clearly?',
+          '2. Have consent, anonymization, or approval requirements been judged?',
+          '3. Have storage and presentation rules been recorded?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更可执行的 ethics/data note，不用等到定稿时才发现声明写不出来。',
+        deliverableEn:
+          'After this round, you should have a more executable ethics/data note rather than discovering at the final draft stage that no statement can be written honestly.',
+        closeZh:
+          '伦理声明真正稳的时候，支撑它的不是一句话，而是前期已经做对的路径。',
+        closeEn:
+          'An ethics statement becomes steady not because of one sentence but because the underlying path was handled correctly from the start.',
+      },
+      'literature-review': {
+        titleZh: '读方法文献时顺手看 ethics statement：别只学方法，不学合规路径',
+        titleEn:
+          'Read ethics statements alongside methods papers: do not learn the method without learning the compliance path',
+        introZh:
+          '很多人读方法文献时只盯着工具和结果，很少看作者如何说明数据来源、匿名化、知情同意或公共数据边界。结果自己做研究时，只学会了技术步骤，却不会写合规说明。',
+        introEn:
+          'Many writers read methodology papers with their eyes fixed on tools and findings, rarely looking at how authors explain data source, anonymization, informed consent, or the boundaries of public data. When they conduct their own work, they end up learning the technical steps without learning how to write a compliant explanation.',
+        zhihuAngleZh:
+          '知乎里关于“数据是公开的还要不要写伦理声明”的讨论很多，背后暴露的是另一个问题：很多人平时读文献时根本没把 ethics statement 当成要学习的内容。',
+        zhihuAngleEn:
+          'Zhihu contains many discussions on whether public data still needs an ethics statement, revealing another problem underneath: many writers never treated ethics statements as something to learn while reading literature.',
+        strategyZh:
+          '更稳的阅读法，是在方法笔记里增加 ethics/data 一列，记录作者如何说明来源、许可、匿名化和展示边界。只要这类信息开始积累，你以后写自己的 statement 就不会完全凭感觉。',
+        strategyEn:
+          'A steadier reading practice adds an ethics/data column to the method notes, recording how authors explain source, permission, anonymization, and presentation boundaries. Once this type of information accumulates, writing your own statement later no longer depends purely on instinct.',
+        stepsZh: [
+          '先在方法阅读笔记里加一列 ethics/data 说明。',
+          '再记录代表性文献如何处理 consent、匿名化和来源。',
+          '最后总结哪些写法最值得迁移到自己的研究。',
+        ],
+        stepsEn: [
+          'Add an ethics/data column to the method reading notes first.',
+          'Record how representative studies handle consent, anonymization, and source explanation next.',
+          'Summarize which writing patterns are most worth adapting to your own work at the end.',
+        ],
+        submissionZh:
+          '如果后面还要写成投稿稿，这类阅读笔记会很有用，因为很多期刊的 data availability 和 ethics statement 都要求你说清“为什么这样处理是合理的”。',
+        submissionEn:
+          'If the work later becomes a submission manuscript, this reading note is very useful because many journals require the data-availability and ethics statements to explain why the handling choice was reasonable.',
+        riskZh:
+          '如果平时阅读完全忽略 ethics/data 声明，最常见的后果就是自己写时只能套用空话，无法匹配真实研究路径。',
+        riskEn:
+          'If ethics and data statements are ignored during ordinary reading, the common result is writing your own section later with empty boilerplate that fails to match the actual research path.',
+        checklistZh: [
+          '1. 是否在阅读笔记里加入了 ethics/data 一列。',
+          '2. 是否记录了代表性文献对 consent、匿名化和来源的处理。',
+          '3. 是否总结出可迁移到自己研究的写法。',
+        ],
+        checklistEn: [
+          '1. Has an ethics/data column been added to your reading notes?',
+          '2. Have representative treatments of consent, anonymization, and source explanation been recorded?',
+          '3. Have you summarized writing patterns that can be adapted to your own study?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一份更适合支撑 ethics/data statement 的方法阅读笔记。',
+        deliverableEn:
+          'After this round, you should have method reading notes that are much more useful for supporting a later ethics/data statement.',
+        closeZh:
+          '方法阅读真正完整的时候，学到的不只是怎么做，还包括怎么合规地说明自己怎么做。',
+        closeEn:
+          'Method reading becomes truly complete when it teaches not only how the work was done but how it was explained compliantly.',
+      },
+      'methods-analysis': {
+        titleZh: 'ethics statement 怎么写得不空：把来源、处理和展示规则写实',
+        titleEn:
+          'How do you write an ethics statement without sounding empty? Make the source, handling, and presentation rules concrete',
+        introZh:
+          '很多伦理声明看起来规范，却读起来非常空，因为只有原则，没有路径。读者知道作者“重视伦理”，却不知道材料到底怎么来的、怎么处理、如何避免不当披露。',
+        introEn:
+          'Many ethics statements look formally correct yet feel empty because they contain principles without pathways. Readers learn that the author values ethics but still do not know where the material came from, how it was handled, or how improper disclosure was avoided.',
+        zhihuAngleZh:
+          '知乎里关于“ethics statement 怎么写才不像模板”的经验，经常会指出一个核心：不要只写态度，要写处理过程。',
+        zhihuAngleEn:
+          'Zhihu advice on writing ethics statements that do not sound templated often returns to one core point: do not state only attitude; state the handling process.',
+        strategyZh:
+          '更稳的写法，是按三段来写 ethics/data statement：材料来源是什么，处理过程中采取了哪些 consent 或匿名化措施，展示和存储遵守了哪些边界。只要这三段落到具体路径，说明就会稳很多。',
+        strategyEn:
+          'A steadier writing practice structures the ethics/data statement in three parts: what the material source is, what consent or anonymization measures were used during handling, and what boundaries govern storage and presentation. Once those three parts are tied to concrete pathways, the statement becomes much steadier.',
+        stepsZh: [
+          '先写清材料来源与获取方式。',
+          '再写清 consent、匿名化或审批的实际处理动作。',
+          '最后写清存储、展示和访问边界。',
+        ],
+        stepsEn: [
+          'Write the material source and acquisition method clearly first.',
+          'Describe the actual handling actions around consent, anonymization, or approval next.',
+          'State the storage, presentation, and access boundaries at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种结构特别重要，因为很多期刊现在不只看有没有 statement，而是看 statement 是否能反映真实流程。',
+        submissionEn:
+          'If the manuscript later goes to submission, this structure is particularly important because many journals now assess not only whether a statement exists but whether it reflects the real process.',
+        riskZh:
+          '如果 ethics statement 继续停留在原则口号上，最常见的后果就是形式上合规，内容上却让人不放心。',
+        riskEn:
+          'If the ethics statement remains at the level of principle slogans, the common result is formal compliance without substantive reassurance.',
+        checklistZh: [
+          '1. 是否写清了材料来源与获取方式。',
+          '2. 是否写清了 consent、匿名化或审批的实际动作。',
+          '3. 是否交代了存储、展示和访问边界。',
+        ],
+        checklistEn: [
+          '1. Has the material source and acquisition method been written clearly?',
+          '2. Have the real actions on consent, anonymization, or approval been explained?',
+          '3. Have the storage, presentation, and access boundaries been stated?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更像真实过程说明的 ethics/data statement，而不是格式型套话。',
+        deliverableEn:
+          'After this round, you should have an ethics/data statement that reads like a real process explanation rather than formal boilerplate.',
+        closeZh:
+          'ethics statement 真正让人安心的时候，靠的不是措辞严肃，而是路径清楚。',
+        closeEn:
+          'An ethics statement truly reassures readers not through solemn wording but through a clear pathway.',
+      },
+      'revision-defense': {
+        titleZh: '被问数据来源是否合规时怎么答：先讲路径，再讲规则',
+        titleEn:
+          'How do you answer when asked whether the data source is compliant? Explain the path first, then the rules',
+        introZh:
+          '很多人一被问到数据来源、授权、匿名化或公开范围，就会急着背原则和术语，但老师和审稿人真正想听的通常不是口号，而是这批材料到底怎么来的、怎么处理的。',
+        introEn:
+          'Many writers react to questions on data source, authorization, anonymization, or scope of disclosure by reciting principles and technical terms. What examiners and reviewers usually want to hear, however, is not a slogan but how the material actually came into the study and was handled.',
+        zhihuAngleZh:
+          '知乎里关于“答辩被追问伦理合规怎么办”的经验，经常会提醒：先讲真实路径，再讲你依据了什么规则。',
+        zhihuAngleEn:
+          'Zhihu advice on being questioned about ethics compliance in a defense often gives one reminder: explain the real path first and only then the rules that justified it.',
+        strategyZh:
+          '更稳的答法，是用两步说明：第一步交代材料来源、获取方式和处理动作；第二步说明 consent、匿名化、存储或展示规则如何支撑这些动作。这样回答既不空泛，也不容易被继续追问到失守。',
+        strategyEn:
+          'A steadier answer uses two steps: first explain the source, acquisition route, and handling actions of the material; second explain how consent, anonymization, storage, or presentation rules support those actions. This avoids sounding empty and makes it harder for follow-up questions to destabilize the answer.',
+        stepsZh: [
+          '先为高频伦理问题准备材料路径说明。',
+          '再为每个问题补上对应规则依据。',
+          '最后练习把“路径+规则”说成稳定口径。',
+        ],
+        stepsEn: [
+          'Prepare a material-path explanation for high-frequency ethics questions first.',
+          'Add the corresponding rule basis for each question next.',
+          'Practice turning path plus rule into a stable speaking line at the end.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这套答法也能直接转成 ethics clarification、data availability note 和 response letter 里的说明文字。',
+        submissionEn:
+          'If revision or submission still lies ahead, this answer style can also be transferred directly into ethics clarifications, data-availability notes, and response-letter explanations.',
+        riskZh:
+          '如果被问伦理合规时只会背原则，最常见的后果就是对方会继续追问具体路径，而你越答越不稳。',
+        riskEn:
+          'If ethics-compliance questions are answered only with abstract principles, the common result is more probing about the concrete pathway, making the answer increasingly unstable.',
+        checklistZh: [
+          '1. 是否为高频伦理问题准备了材料路径说明。',
+          '2. 是否补上了每个问题对应的规则依据。',
+          '3. 是否已经把“路径+规则”练成稳定口径。',
+        ],
+        checklistEn: [
+          '1. Have material-path explanations been prepared for high-frequency ethics questions?',
+          '2. Has the rule basis corresponding to each question been added?',
+          '3. Have you rehearsed path plus rule into a stable answer line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更能经得住答辩和返修追问的 ethics/data 回应方案。',
+        deliverableEn:
+          'After this round, you should have an ethics/data response framework better able to withstand defense and revision questions.',
+        closeZh:
+          '伦理问题答得稳的时候，对方听到的不是态度表态，而是你真的知道整条处理路径。',
+        closeEn:
+          'When ethics questions are answered steadily, the audience hears not a statement of attitude but real knowledge of the full handling pathway.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'defense-question-prep',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '答辩高频问题、追问路径和应答框架',
+    focusEn: 'high-frequency defense questions, follow-up paths, and answer frameworks',
+    evidenceZh: '问题清单、答辩提纲和统一口径笔记',
+    evidenceEn: 'question lists, defense outlines, and unified response notes',
+    standardZh: '重点不是背一堆答案，而是提前识别哪些问题最可能决定整场节奏。',
+    standardEn:
+      'The goal is not to memorize many answers but to identify in advance which questions are most likely to determine the rhythm of the whole defense.',
+    articles: {
+      proposal: {
+        titleZh: '答辩准备别等定稿后：开题时就先列三类高频追问',
+        titleEn:
+          'Do not postpone defense preparation until after the final draft: list the three major question types already during the proposal stage',
+        introZh:
+          '很多人把答辩准备完全留到论文写完以后，觉得现在想这些太早。可实际上，开题时就能看出将来最可能被问的三类问题：为什么做这个题、为什么用这套方法、结论到底能走到哪里。',
+        introEn:
+          'Many writers postpone defense preparation until after the manuscript is finished and feel that thinking about it earlier is premature. In reality, the three main question types usually become visible already during the proposal stage: why this topic, why this method, and how far the conclusion can really go.',
+        zhihuAngleZh:
+          '知乎里关于“答辩总是被问同样几个问题”的经验，经常会提醒：高频追问其实从开题时就埋下来了。',
+        zhihuAngleEn:
+          'Zhihu advice on why defenses often revolve around the same repeated questions often points out that those high-frequency challenges are already embedded at the proposal stage.',
+        strategyZh:
+          '更稳的前期训练，是先把问题分成题目与价值、方法与证据、边界与结论三类。只要这三类问题在项目推进中被持续记录和预答，后期答辩就不容易被打乱。',
+        strategyEn:
+          'A steadier early-stage training method is to divide likely questions into three groups: topic and value, method and evidence, and boundary and conclusion. Once these three groups are tracked and pre-answered as the project develops, the later defense becomes much harder to derail.',
+        stepsZh: [
+          '先列出题目与价值、方法与证据、边界与结论三类问题。',
+          '再为每类准备一句最核心的主答。',
+          '最后把这三类问题持续写进项目笔记。',
+        ],
+        stepsEn: [
+          'List the three question groups of topic and value, method and evidence, and boundary and conclusion first.',
+          'Prepare one core main answer for each group next.',
+          'Keep writing those groups into the project notes as the work develops.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种准备也很有价值，因为很多 cover letter、response letter 和摘要主线，其实都和这些高频答辩问题共用同一套逻辑。',
+        submissionEn:
+          'If submission lies ahead later, this preparation is also highly valuable because many cover letters, response letters, and abstract lines share the same logic as these high-frequency defense questions.',
+        riskZh:
+          '如果答辩问题从来不提前记录，最常见的后果就是后期只能临时练口头表达，而没有真正准备问题结构。',
+        riskEn:
+          'If defense questions are never recorded in advance, the common result is late-stage practice focused only on speaking delivery without any real preparation of question structure.',
+        checklistZh: [
+          '1. 是否已经分出三类高频问题。',
+          '2. 每类是否都有一句核心主答。',
+          '3. 是否把这些问题持续写进项目笔记。',
+        ],
+        checklistEn: [
+          '1. Have the three high-frequency question groups been separated?',
+          '2. Does each group already have one core answer line?',
+          '3. Have these questions been continuously written into the project notes?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一份更像答辩底稿的高频问题清单，而不是只在心里大概想过。',
+        deliverableEn:
+          'After this round, you should have a high-frequency question list that behaves more like a defense base draft than a set of vague mental reminders.',
+        closeZh:
+          '答辩最稳的人，通常不是最后背得最多的人，而是最早开始整理问题结构的人。',
+        closeEn:
+          'The people who look steadiest in a defense are usually not those who memorize the most at the end but those who began structuring the questions earliest.',
+      },
+      'literature-review': {
+        titleZh: '答辩追问很多都藏在综述里：先找出最可能被问的文献与立场问题',
+        titleEn:
+          'Many defense follow-up questions are hidden in the review: identify the literature and positioning issues most likely to be challenged',
+        introZh:
+          '很多答辩里的追问看似针对结果，其实源头在综述。老师和评审常会从“你为什么站这个文献位置”“为什么没纳入另一条研究线”“你怎么解释相反观点”这些地方开始追。',
+        introEn:
+          'Many defense follow-up questions seem to target the results on the surface, yet their source lies in the review. Examiners often begin by asking why you stand in this literature position, why another line was not included, or how you explain opposing views.',
+        zhihuAngleZh:
+          '知乎里关于“答辩最容易被问哪里”的经验，经常会指出：综述部分如果立场不清，后面几乎一定会被追问。',
+        zhihuAngleEn:
+          'Zhihu advice on the parts most likely to trigger defense questions often points out that if the review section does not make the author’s position clear, follow-up questions are almost guaranteed later.',
+        strategyZh:
+          '更稳的准备方法，是把综述里的易追问点先找出来：位置选择、文献删线、争议解释、关键词定义。只要这些点提前有答法，很多看似临场的问题其实都可以被预演。',
+        strategyEn:
+          'A steadier preparation method is to identify the challenge points inside the review first: position choice, omitted literature lines, dispute explanation, and keyword definitions. Once these points have prepared answers, many apparently spontaneous defense questions can already be rehearsed.',
+        stepsZh: [
+          '先圈出综述里最可能被追问的位置句和判断句。',
+          '再为每一类问题写一句答辩主答。',
+          '最后练习把文献立场问题接回你的研究主线。',
+        ],
+        stepsEn: [
+          'Mark the position sentences and judgment lines in the review most likely to be challenged first.',
+          'Write one main answer for each category of challenge next.',
+          'Practice connecting literature-position questions back to your research line at the end.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这种准备也很有帮助，因为很多 reviewer comment 的起点和答辩追问其实是同一类位置问题。',
+        submissionEn:
+          'If revision or submission still lies ahead, this preparation is also very useful because many reviewer comments begin from the same positioning issues as defense follow-up questions.',
+        riskZh:
+          '如果综述中的立场问题完全不预答，最常见的后果就是答辩时不断被带回前文，整场节奏很容易散掉。',
+        riskEn:
+          'If the review’s positioning issues are never pre-answered, the common result is a defense repeatedly pulled back into earlier sections, making the whole session lose rhythm.',
+        checklistZh: [
+          '1. 是否圈出了综述中最可能被追问的判断句。',
+          '2. 是否为每一类文献与立场问题写了主答。',
+          '3. 是否练习了把这些问题接回研究主线。',
+        ],
+        checklistEn: [
+          '1. Have the judgment lines in the review most likely to be challenged been marked?',
+          '2. Has a main answer been written for each literature and positioning issue type?',
+          '3. Have you practiced connecting these questions back to the research main line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更像答辩地图的综述追问清单，而不是只知道哪些地方自己也心虚。',
+        deliverableEn:
+          'After this round, you should have a review challenge map that behaves more like a defense roadmap than a vague sense of where you feel uncertain.',
+        closeZh:
+          '答辩追问最容易爆发的地方，往往不是结果本身，而是前面立场没站稳的地方。',
+        closeEn:
+          'Defense follow-up questions most often erupt not where the results are weak alone but where the earlier positioning never fully stood firm.',
+      },
+      'methods-analysis': {
+        titleZh: '答辩前怎么练“为什么这样做”：把方法、样本和结果问题串成一条答题链',
+        titleEn:
+          'How do you rehearse “why was it done this way” before a defense? Turn method, sample, and result questions into one answer chain',
+        introZh:
+          '很多答辩最难的部分，不是单个问题太难，而是老师从方法问到样本、再从样本追到结果，你的回答如果没有一条连起来的主线，很快就会被拆散。',
+        introEn:
+          'The hardest part of many defenses is not any single question but the movement from method to sample and then from sample to result. If your answer lacks one connecting line, it quickly gets broken apart under follow-up pressure.',
+        zhihuAngleZh:
+          '知乎里关于“答辩时一连串追问怎么扛”的经验，经常会提醒：不要每个问题都独立答，要让它们共用一条方法逻辑。',
+        zhihuAngleEn:
+          'Zhihu advice on handling chains of follow-up questions in a defense often reminds writers not to answer each item in isolation but to let them share one methodological logic line.',
+        strategyZh:
+          '更稳的练法，是把高频方法问题串成一条答题链：研究问题需要什么证据、样本为什么够支撑这类证据、结果为什么因此可以走到当前结论。只要这条链能顺着说，连续追问就不容易把你带偏。',
+        strategyEn:
+          'A steadier rehearsal method links high-frequency methodological questions into one answer chain: what evidence the research question requires, why the sample is sufficient for that evidence, and why the results can therefore support the current conclusion. Once this chain is speakable in order, consecutive follow-up questions are much less likely to pull you off course.',
+        stepsZh: [
+          '先写出问题、证据、样本和结论之间的四步链条。',
+          '再把常见方法追问挂到这条链上的不同节点。',
+          '最后练习从任一节点都能回到整条链。',
+        ],
+        stepsEn: [
+          'Write the four-step chain from question to evidence to sample to conclusion first.',
+          'Attach common method follow-up questions to the different nodes of that chain next.',
+          'Practice returning to the full chain from any one node at the end.',
+        ],
+        submissionZh:
+          '如果后面还要返修或投稿，这条答题链也会很有帮助，因为 response letter 里很多方法问题同样需要这样成链地解释。',
+        submissionEn:
+          'If revision or submission still lies ahead, this answer chain is also highly useful because many methodological issues in response letters require the same chained explanation.',
+        riskZh:
+          '如果答辩时方法、样本和结果各自分开答，最常见的后果就是每个答案都不算错，但整套解释听起来没有主心骨。',
+        riskEn:
+          'If method, sample, and result questions are answered separately in a defense, the common result is that no single answer is wrong while the full explanation still lacks a backbone.',
+        checklistZh: [
+          '1. 是否写出了问题、证据、样本和结论的四步链条。',
+          '2. 是否把常见方法追问挂到了这条链上。',
+          '3. 是否练习了从任一节点回到整条链。',
+        ],
+        checklistEn: [
+          '1. Has the four-step chain from question to evidence to sample to conclusion been written?',
+          '2. Have common method follow-up questions been attached to that chain?',
+          '3. Have you practiced returning to the full chain from any node?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一条更稳的答辩方法主线，而不是零散的单题答案。',
+        deliverableEn:
+          'After this round, you should have a steadier methodological defense line rather than scattered answers to isolated questions.',
+        closeZh:
+          '连续追问最怕的不是题多，而是你的答案之间没有链。',
+        closeEn:
+          'What makes consecutive follow-up questions difficult is not their number alone but the absence of a chain connecting your answers.',
+      },
+      'revision-defense': {
+        titleZh: '答辩高频问题怎么压缩成一页：做一张 question bank 比背整稿更有用',
+        titleEn:
+          'How do you compress high-frequency defense questions into one page? Building a question bank is more useful than memorizing the whole manuscript',
+        introZh:
+          '很多人到答辩前会反复通读整篇论文，希望靠熟悉内容来应对追问，但真正更有用的准备常常不是背全文，而是提前把高频问题整理成一张可快速复习的 question bank。',
+        introEn:
+          'Many writers reread the whole manuscript repeatedly before a defense, hoping that familiarity with the text will carry them through follow-up questions. The more useful preparation is often not memorizing the full paper but organizing the high-frequency questions into a question bank that can be reviewed quickly.',
+        zhihuAngleZh:
+          '知乎里关于“答辩前到底该看什么”的经验，经常会建议做一页高频问题表，因为真正会决定现场节奏的，不是全文，而是那几类重复出现的追问。',
+        zhihuAngleEn:
+          'Zhihu advice on what to review before a defense often recommends building a one-page high-frequency question sheet, because what truly determines the live rhythm is not the entire manuscript but the few categories of questions that recur again and again.',
+        strategyZh:
+          '更稳的后期准备，是做一页 question bank，把问题分成价值、方法、结果、边界和未来研究五类，每类只留最核心的主答和一个回接全文的入口句。这样临场复习效率会比通读整稿高得多。',
+        strategyEn:
+          'A steadier late-stage preparation is to build a one-page question bank dividing likely questions into value, method, result, boundary, and future-research groups. Each group keeps only the main answer and one bridge sentence back to the full manuscript. This makes last-minute review far more efficient than rereading the entire draft.',
+        stepsZh: [
+          '先把高频问题压缩成价值、方法、结果、边界和未来研究五类。',
+          '再为每类写一句主答和一句回接全文的入口句。',
+          '最后用这一页反复练口头表达，而不是只重读整稿。',
+        ],
+        stepsEn: [
+          'Compress the high-frequency questions into the five groups of value, method, result, boundary, and future research first.',
+          'Write one main answer and one bridge sentence back to the manuscript for each group next.',
+          'Use that one page to rehearse oral delivery repeatedly at the end instead of only rereading the full paper.',
+        ],
+        submissionZh:
+          '如果后面还要返修或重投，这张 question bank 也会很有用，因为它能直接帮助你提炼 cover letter、response letter 和 rebuttal 的核心表达。',
+        submissionEn:
+          'If revision or resubmission still lies ahead, this question bank is also very useful because it can directly help distill the core phrasing of the cover letter, response letter, and rebuttal.',
+        riskZh:
+          '如果答辩前只是一遍遍重读整稿，最常见的后果就是内容熟了，但高频问题仍然没有被压成可快速调用的答案。',
+        riskEn:
+          'If pre-defense preparation consists only of rereading the full draft again and again, the common result is familiarity with the content but no fast, callable answers to the high-frequency questions.',
+        checklistZh: [
+          '1. 是否已把高频问题压成五类。',
+          '2. 每类是否都有一句主答和一句回接全文的入口句。',
+          '3. 是否开始用一页 question bank 练习口头表达。',
+        ],
+        checklistEn: [
+          '1. Have the high-frequency questions been compressed into five groups?',
+          '2. Does each group now have one main answer and one bridge sentence back to the manuscript?',
+          '3. Have you started rehearsing oral delivery from the one-page question bank?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一张真正能在答辩前快速复习的 question bank，而不是只靠整稿记忆。',
+        deliverableEn:
+          'After this round, you should have a question bank that can truly be reviewed quickly before the defense instead of relying only on memory of the full manuscript.',
+        closeZh:
+          '答辩准备最有效的压缩，不是删内容，而是把最常问的东西先做成可调用的答案库。',
+        closeEn:
+          'The most effective compression in defense preparation does not remove content. It turns the most frequently asked material into an answer bank you can call on quickly.',
+      },
+    },
+  },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'abstract-150-compression',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '结构与摘要写作',
+    labelEn: 'Structure and Abstract',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '150 字摘要压缩、信息排序和首屏表达',
+    focusEn: '150-word abstract compression, information ordering, and first-screen expression',
+    evidenceZh: '摘要版本、删减记录和信息排序草图',
+    evidenceEn: 'abstract drafts, deletion notes, and information-order sketches',
+    standardZh: '重点不是把摘要缩短得更狠，而是让最该出现的信息先出现。',
+    standardEn:
+      'The goal is not merely to make the abstract shorter but to make the most necessary information appear first.',
+    articles: {
+      proposal: {
+        titleZh: '150 字摘要不是最后才写：开题时先用短摘要压测题目是否成立',
+        titleEn:
+          'A 150-word abstract is not only for the final stage: use a short abstract during the proposal stage to stress-test whether the topic stands',
+        introZh:
+          '很多人觉得短摘要要等全文差不多写完才有意义，但其实越早写 120 到 150 字版本，越能暴露题目、问题和方法之间是不是已经对齐。',
+        introEn:
+          'Many writers think a short abstract becomes meaningful only after the whole manuscript is nearly complete. In practice, drafting a 120- to 150-word version early often reveals much faster whether the topic, question, and method are truly aligned.',
+        zhihuAngleZh:
+          '知乎里关于“摘要怎么写得短而不空”的经验，经常会提醒：先拿短摘要去压测题目，比最后硬删更有效。',
+        zhihuAngleEn:
+          'Zhihu advice on writing a short abstract without making it empty often points to one move first: use the short abstract to pressure-test the topic rather than trying to delete aggressively at the end.',
+        strategyZh:
+          '更稳的开题动作，是把题目、问题、方法和预期判断压缩进 150 字里。如果某一项怎么写都挤不进去，常常不是摘要的问题，而是项目本身还没有收稳。',
+        strategyEn:
+          'A steadier proposal-stage move is to compress the topic, question, method, and expected judgment into 150 words. If one item refuses to fit no matter how you write it, the problem is often not the abstract but the project itself still lacking focus.',
+        stepsZh: [
+          '先用 150 字写出题目、问题、方法和预期判断。',
+          '再找出最难压进去的一项信息。',
+          '最后回到项目本身调整范围或表达顺序。',
+        ],
+        stepsEn: [
+          'Write the topic, question, method, and expected judgment in 150 words first.',
+          'Identify which information element is hardest to fit next.',
+          'Return to the project itself and adjust scope or information order at the end.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这种早期压测会特别有帮助，因为很多期刊的首轮判断往往就是靠摘要前几行完成的。',
+        submissionEn:
+          'If the manuscript may later be submitted, this early stress test is especially helpful because many journals make their first-round judgment largely from the first few lines of the abstract.',
+        riskZh:
+          '如果摘要压缩一直拖到最后才做，最常见的后果就是你在删词，而不是在调结构，结果短是短了，重点却更乱了。',
+        riskEn:
+          'If abstract compression is postponed until the very end, the common result is deleting words instead of adjusting structure, leaving the abstract shorter but less focused.',
+        checklistZh: [
+          '1. 是否已经用 150 字版本压测了题目、问题、方法和预期判断。',
+          '2. 是否找出了最难压进去的信息项。',
+          '3. 是否回到项目本身调整了范围或顺序。',
+        ],
+        checklistEn: [
+          '1. Has a 150-word version already pressure-tested the topic, question, method, and expected judgment?',
+          '2. Has the hardest information element to compress been identified?',
+          '3. Have you returned to the project itself to adjust scope or order?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更像压测工具的短摘要，而不是只能在最后硬凑的摘要雏形。',
+        deliverableEn:
+          'After this round, you should have a short abstract functioning as a pressure-test tool rather than a draft that can only be assembled late by force.',
+        closeZh:
+          '短摘要最有价值的时候，不是最后省字，而是最早暴露问题。',
+        closeEn:
+          'A short abstract is most valuable not when it saves words at the end but when it exposes problems early.',
+      },
+      'literature-review': {
+        titleZh: '摘要压不进 150 字，多半是引言信息还没排优先级',
+        titleEn:
+          'If the abstract cannot fit into 150 words, the introduction information probably has not been prioritized yet',
+        introZh:
+          '很多人写短摘要时会觉得信息都很重要，哪句都舍不得删。可一旦所有信息都重要，常常意味着引言里的信息层级其实还没有排出来。',
+        introEn:
+          'Many writers feel that every sentence is essential when trying to draft a short abstract. Yet when everything seems equally important, it often means the information hierarchy inside the introduction has not been sorted out in the first place.',
+        zhihuAngleZh:
+          '知乎里关于“摘要越删越乱怎么办”的讨论，经常会指出一个前置问题：不是摘要不会删，而是引言和全文的信息优先级还没排清楚。',
+        zhihuAngleEn:
+          'Zhihu discussions on short abstracts becoming more chaotic with every cut often point to an earlier problem: it is not that the abstract cannot be edited, but that the priority order of information in the introduction and full paper is still unclear.',
+        strategyZh:
+          '更稳的压缩法，是先从引言里找出最不能丢的四项信息，再把其他只负责展开说明的内容留在正文。只要摘要和引言之间的分工清楚，150 字压缩就不会只靠痛苦删句子。',
+        strategyEn:
+          'A steadier compression method begins by locating the four pieces of information in the introduction that cannot be lost, while leaving the rest to the body for expansion. Once the division of labor between abstract and introduction is clear, 150-word compression no longer depends on painful sentence deletion alone.',
+        stepsZh: [
+          '先从引言中圈出最不能丢的四项信息。',
+          '再把负责展开说明的内容留回正文。',
+          '最后只保留能在摘要里完成首轮判断的信息。',
+        ],
+        stepsEn: [
+          'Mark the four pieces of information in the introduction that cannot be lost first.',
+          'Return the content responsible for elaboration back to the body next.',
+          'Keep only the information needed for first-round judgment in the abstract at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投期刊，这一步会很关键，因为编辑首先看到的不是完整引言，而往往就是一个能否在最短时间内成立的摘要。',
+        submissionEn:
+          'If the work later goes to a journal, this step becomes critical because editors do not first see the full introduction. They often see only an abstract that must stand quickly on its own.',
+        riskZh:
+          '如果摘要压缩时信息优先级一直不清，最常见的后果就是删掉的并不是次要信息，而是把真正核心的信息也一起削弱了。',
+        riskEn:
+          'If information priority remains unclear during abstract compression, the common result is not removing minor content but weakening the genuinely essential content as well.',
+        checklistZh: [
+          '1. 是否从引言中圈出了最不能丢的四项信息。',
+          '2. 是否把负责展开的内容留回了正文。',
+          '3. 摘要里是否只保留了首轮判断所需信息。',
+        ],
+        checklistEn: [
+          '1. Have the four indispensable information items been marked from the introduction?',
+          '2. Has the elaborative content been returned to the body?',
+          '3. Does the abstract now keep only the information needed for first-round judgment?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版信息排序更稳的短摘要，而不是越压越碎的浓缩版引言。',
+        deliverableEn:
+          'After this round, you should have a short abstract with a much steadier information order rather than a chopped-up mini introduction.',
+        closeZh:
+          '150 字摘要写得稳，靠的往往不是删得狠，而是先把哪些信息最先该出现排清楚。',
+        closeEn:
+          'A 150-word abstract is usually stabilized not by aggressive cutting alone but by deciding clearly which information must appear first.',
+      },
+      'methods-analysis': {
+        titleZh: '短摘要怎么同时放下问题、方法和结果：用三段信息顺序控制首屏',
+        titleEn:
+          'How do you fit problem, method, and result into a short abstract? Control the first screen through a three-part information order',
+        introZh:
+          '很多人觉得 150 字摘要最难的是字数太少，实际上更难的是顺序。问题、方法、结果都想写，但如果顺序没排好，读者看完仍然抓不到最核心的一条线。',
+        introEn:
+          'Many writers think the hardest part of a 150-word abstract is the small number of words. In practice, the harder issue is often order. The problem, method, and result all need to appear, but if the sequence is wrong, readers still cannot grasp the central line after finishing it.',
+        zhihuAngleZh:
+          '知乎里关于“摘要怎么短还要有结果”的经验，经常会建议先管顺序，再管词数，因为顺序一错，字数再精也会显得乱。',
+        zhihuAngleEn:
+          'Zhihu advice on keeping an abstract short while still including findings often recommends managing order before word count, because once the order is wrong, even concise phrasing feels messy.',
+        strategyZh:
+          '更稳的写法，是用三段信息顺序控制首屏：先一句问题与对象，再一句方法与材料，最后一句结果与判断。只要这三段各守其位，短摘要就更容易又短又清楚。',
+        strategyEn:
+          'A steadier writing method controls the first screen through a three-part order: one sentence for the problem and object, one for the method and material, and one for the result and judgment. Once each part holds its place, the short abstract becomes much easier to keep both concise and clear.',
+        stepsZh: [
+          '先把摘要拆成问题对象、方法材料、结果判断三句。',
+          '再压缩每句里最不必要的修饰词。',
+          '最后检查读者是否能顺着这三句抓住主线。',
+        ],
+        stepsEn: [
+          'Split the abstract into three sentences covering problem-object, method-material, and result-judgment first.',
+          'Compress the least necessary modifiers inside each sentence next.',
+          'Check at the end whether readers can follow the main line through those three sentences.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种三段顺序会非常有帮助，因为编辑读短摘要时往往就是按这三层在做最快判断。',
+        submissionEn:
+          'If the work later goes to submission, this three-part order is highly useful because editors often make their fastest judgment of a short abstract through exactly these three layers.',
+        riskZh:
+          '如果短摘要一直没有稳定的信息顺序，最常见的后果就是你每次都在删字，但首屏的判断效率始终没有上来。',
+        riskEn:
+          'If a short abstract never gains a stable information order, the common result is repeated word cutting without any real increase in first-screen judgment efficiency.',
+        checklistZh: [
+          '1. 是否把摘要拆成了问题对象、方法材料、结果判断三句。',
+          '2. 是否压缩了每句里的非必要修饰词。',
+          '3. 读者是否能顺着这三句抓住主线。',
+        ],
+        checklistEn: [
+          '1. Has the abstract been split into three sentences for problem-object, method-material, and result-judgment?',
+          '2. Have unnecessary modifiers inside each sentence been compressed?',
+          '3. Can readers now follow the main line through those three sentences?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更适合首屏判断的 150 字摘要结构。',
+        deliverableEn:
+          'After this round, you should have a 150-word abstract structure far better suited to first-screen judgment.',
+        closeZh:
+          '短摘要真正清楚的时候，读者不是看完才懂，而是第一眼就能顺着顺序走下来。',
+        closeEn:
+          'A short abstract becomes truly clear when readers do not understand only after finishing it but can follow the order from the first glance.',
+      },
+      'revision-defense': {
+        titleZh: '老师说摘要太长太散怎么改：先做一轮 150 字极限压缩',
+        titleEn:
+          'How do you revise when feedback says the abstract is too long and scattered? Run one round of 150-word extreme compression first',
+        introZh:
+          '很多人收到“摘要太长太散”的反馈后，会先做一些局部删词和换句式的修改，但如果不先经历一轮极限压缩，往往很难真正看出哪些信息是多余的。',
+        introEn:
+          'Many writers respond to feedback that the abstract is too long and scattered by making local word cuts or sentence rewrites. Without going through one round of extreme compression first, however, it remains difficult to see which information is actually expendable.',
+        zhihuAngleZh:
+          '知乎里关于“摘要怎么从 300 字压到 150 字”的经验，经常会建议先做一版极限压缩稿，再回到正常字数重写。',
+        zhihuAngleEn:
+          'Zhihu advice on reducing an abstract from 300 words to 150 often recommends drafting an extreme-compression version first and only then rewriting a stable final version.',
+        strategyZh:
+          '更稳的返修方法，是先逼自己写一版 150 字极限稿，把信息压到最少，再回头看哪些句子本来就不该存在。这样改摘要会比原地修辞更有效，因为你先看到了信息骨架。',
+        strategyEn:
+          'A steadier revision method first forces an extreme 150-word version, compressing information to the minimum, and only then looks back to see which original sentences never deserved to exist. This revises the abstract more effectively than cosmetic editing because it reveals the information skeleton first.',
+        stepsZh: [
+          '先写一版 150 字极限压缩稿。',
+          '再对照原摘要找出不该存在的重复与铺垫。',
+          '最后基于信息骨架重写正式摘要。',
+        ],
+        stepsEn: [
+          'Write one extreme 150-word compression draft first.',
+          'Compare it with the original abstract to identify repetition and setup that should not remain next.',
+          'Rewrite the formal abstract from the information skeleton at the end.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种极限压缩训练很有帮助，因为它会让你更容易适应不同期刊对短摘要和 structured abstract 的要求。',
+        submissionEn:
+          'If submission still lies ahead, this extreme-compression training is very helpful because it makes it easier to adapt to different journal requirements for short abstracts and structured abstracts.',
+        riskZh:
+          '如果摘要返修一直停留在局部删词，最常见的后果就是字数也许降了，但“太散”的问题仍然没有解决。',
+        riskEn:
+          'If abstract revision remains limited to local word cuts, the common result is a lower word count without any real solution to the underlying scattered structure.',
+        checklistZh: [
+          '1. 是否先写过一版 150 字极限压缩稿。',
+          '2. 是否找出了原摘要里不该存在的重复与铺垫。',
+          '3. 是否基于信息骨架重写了正式摘要。',
+        ],
+        checklistEn: [
+          '1. Has one extreme 150-word compression draft been written first?',
+          '2. Have the repetition and setup lines that should not remain in the original abstract been identified?',
+          '3. Has the formal abstract been rewritten from the information skeleton?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更紧、更清楚、更适合首轮判断的正式摘要。',
+        deliverableEn:
+          'After this round, you should have a formal abstract that is tighter, clearer, and much better suited to first-round judgment.',
+        closeZh:
+          '摘要返修最有效的一步，往往不是细修，而是先逼自己看到它真正的骨架。',
+        closeEn:
+          'The most effective step in abstract revision is often not fine-tuning but forcing yourself to see the true skeleton first.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'rejection-letter-diagnosis',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '拒稿信拆解、编辑判断和重投决策',
+    focusEn: 'diagnosing rejection letters, editorial judgment, and resubmission decisions',
+    evidenceZh: '拒稿信、编辑措辞标注和重投路线笔记',
+    evidenceEn: 'rejection letters, editor-phrase annotations, and resubmission-route notes',
+    standardZh: '重点不是把拒稿信当情绪打击，而是把它拆成可操作的判断信息。',
+    standardEn:
+      'The goal is not to treat a rejection letter as an emotional blow but to break it into actionable judgment signals.',
+    articles: {
+      proposal: {
+        titleZh: '如果以后想投稿，开题时就要学会读“拒稿语言”背后的判断逻辑',
+        titleEn:
+          'If submission may come later, start learning during the proposal stage how to read the judgment logic behind rejection language',
+        introZh:
+          '很多人第一次看到拒稿信，最先感受到的是情绪冲击，而不是信息。可真正更值钱的能力，是从那些看似客气的编辑措辞里读出 scope、贡献、方法还是表达层出了问题。',
+        introEn:
+          'When many writers see a rejection letter for the first time, they feel the emotional impact before they see the information. The more valuable skill is learning to read from seemingly polite editorial language whether the issue lies in scope, contribution, method, or presentation.',
+        zhihuAngleZh:
+          '知乎里关于“拒稿信到底在说什么”的讨论很多，反复会提到一个事实：编辑用语很少直接给答案，但往往给了足够的判断线索。',
+        zhihuAngleEn:
+          'Zhihu contains many discussions on what rejection letters are really saying, and they repeatedly point to one fact: editorial wording rarely gives a blunt answer, yet it often provides enough signals for diagnosis.',
+        strategyZh:
+          '更稳的前期训练，是把常见拒稿表达按问题类型分类：scope mismatch、value unclear、method insufficient、packaging weak。只要你习惯这样读信，后面真被拒时就不容易只剩情绪。',
+        strategyEn:
+          'A steadier early-stage training is to classify common rejection phrases by problem type: scope mismatch, unclear value, insufficient method, or weak packaging. Once you build the habit of reading letters this way, a real rejection becomes much less likely to leave only emotion behind.',
+        stepsZh: [
+          '先收集几类常见拒稿措辞并做分类。',
+          '再为每类判断它更接近哪种问题类型。',
+          '最后写一页拒稿信判断对照表。',
+        ],
+        stepsEn: [
+          'Collect several common rejection phrases and classify them first.',
+          'Judge which problem type each one most likely indicates next.',
+          'Write a one-page rejection-diagnosis reference sheet at the end.',
+        ],
+        submissionZh:
+          '如果以后真的走投稿，这种训练会非常有帮助，因为你能更快从拒稿信里提炼下一步该换刊、改文还是重做哪一段。',
+        submissionEn:
+          'If submission later becomes real, this training is extremely useful because it lets you extract much faster from a rejection letter whether the next move is changing journals, revising the manuscript, or rebuilding a section.',
+        riskZh:
+          '如果前期完全没有练过读拒稿信，最常见的后果就是真实拒稿一来，你只知道受打击，却不知道下一步该怎么动。',
+        riskEn:
+          'If rejection-letter reading is never practiced beforehand, the common result is that a real rejection brings only discouragement and no clear sense of what to do next.',
+        checklistZh: [
+          '1. 是否收集并分类了常见拒稿措辞。',
+          '2. 是否判断了每类措辞对应的问题类型。',
+          '3. 是否已经整理出一页拒稿信对照表。',
+        ],
+        checklistEn: [
+          '1. Have common rejection phrases been collected and classified?',
+          '2. Has the problem type corresponding to each phrase been judged?',
+          '3. Has a one-page rejection-letter reference sheet been organized?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更像判断工具的拒稿语言对照表，而不是只把拒稿理解成成败结果。',
+        deliverableEn:
+          'After this round, you should have a rejection-language reference that behaves more like a diagnostic tool than a simple success-or-failure label.',
+        closeZh:
+          '拒稿信最有价值的地方，往往不在“拒”本身，而在它泄露了哪种判断。',
+        closeEn:
+          'The most valuable part of a rejection letter often lies not in the rejection itself but in the kind of judgment it reveals.',
+      },
+      'literature-review': {
+        titleZh: '编辑说“not a good fit”到底是什么意思：先把拒稿信拆成 scope、价值和表达线索',
+        titleEn:
+          'What does an editor mean by “not a good fit”? Break the rejection letter into scope, value, and presentation signals first',
+        introZh:
+          '很多拒稿信里的话看起来都很笼统，比如 not a good fit、limited contribution、better suited elsewhere。问题不在于这些话太模糊，而在于作者常常没有把它们和具体判断类型连接起来。',
+        introEn:
+          'Many lines in rejection letters look broad, such as not a good fit, limited contribution, or better suited elsewhere. The problem is not only that the phrases are vague but that authors often fail to connect them to specific judgment types.',
+        zhihuAngleZh:
+          '知乎里关于“编辑说 fit 不够到底是题目问题还是期刊问题”的讨论，经常会提醒：同一句客套话背后，可能指向完全不同的判断。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether an editor’s fit concern points to the topic or the journal often remind writers that the same polite phrase can hide very different judgments underneath.',
+        strategyZh:
+          '更稳的拆信方法，是先看编辑措辞更像 scope 线索、价值线索还是表达包装线索，再回到稿件看最可能失分的位置。只要判断类别先清楚，拒稿信就不会只剩模糊感。',
+        strategyEn:
+          'A steadier way to parse the letter is first to decide whether the editorial wording points more strongly to scope, value, or presentation signals, and only then return to the manuscript to locate the most likely losing point. Once the judgment category is clear, the rejection letter stops feeling purely vague.',
+        stepsZh: [
+          '先把拒稿信里的核心措辞标出来。',
+          '再判断它们更接近 scope、价值还是表达问题。',
+          '最后把这些线索对应回稿件中的具体位置。',
+        ],
+        stepsEn: [
+          'Mark the core phrases inside the rejection letter first.',
+          'Judge whether they point more to scope, value, or presentation problems next.',
+          'Map those signals back to concrete positions in the manuscript at the end.',
+        ],
+        submissionZh:
+          '如果后面还要重投，这一步很关键，因为它能帮你决定是换刊优先、改摘要优先，还是需要重写引言和方法。',
+        submissionEn:
+          'If resubmission follows later, this step is crucial because it helps decide whether changing journals comes first, whether the abstract should be revised first, or whether the introduction and method need deeper rewriting.',
+        riskZh:
+          '如果拒稿信拆不出判断类别，最常见的后果就是重投动作很多，但改动总在表面打转。',
+        riskEn:
+          'If the rejection letter cannot be broken into judgment categories, the common result is a lot of motion around resubmission with revisions that remain superficial.',
+        checklistZh: [
+          '1. 是否标出了拒稿信里的核心措辞。',
+          '2. 是否判断了这些措辞更接近 scope、价值还是表达问题。',
+          '3. 是否把线索映射回稿件中的具体位置。',
+        ],
+        checklistEn: [
+          '1. Have the core phrases in the rejection letter been marked?',
+          '2. Has it been judged whether they point to scope, value, or presentation problems?',
+          '3. Have those signals been mapped back to concrete places in the manuscript?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更像诊断报告的拒稿信拆解，而不是只剩一句“不合适”。',
+        deliverableEn:
+          'After this round, you should have a rejection-letter diagnosis that reads more like a report than a vague feeling of not being suitable.',
+        closeZh:
+          '拒稿信拆得准的时候，客套话也会开始变成具体线索。',
+        closeEn:
+          'When a rejection letter is diagnosed accurately, even polite generic language starts becoming a specific signal.',
+      },
+      'methods-analysis': {
+        titleZh: '拒稿后先别急着重投：把编辑信对应到题目、摘要、方法和结果四个入口',
+        titleEn:
+          'Do not rush to resubmit after rejection: map the editor letter to the four entry points of title, abstract, method, and results first',
+        introZh:
+          '很多人一收到拒稿就会立刻考虑下一本期刊，但如果不先判断编辑的问题主要落在题目、摘要、方法还是结果入口，重投很容易把旧问题原样带过去。',
+        introEn:
+          'Many writers think immediately about the next journal as soon as rejection arrives. If the editor’s concern is not first mapped to the title, abstract, method, or results entry point, resubmission often carries the old problem over unchanged.',
+        zhihuAngleZh:
+          '知乎里关于“拒稿后先改哪一部分”的经验，经常会提醒：别一开始就全改，先判断问题最先出现在哪个入口。',
+        zhihuAngleEn:
+          'Zhihu advice on where to revise first after rejection often gives one reminder: do not revise everything at once. First decide where the problem appears earliest.',
+        strategyZh:
+          '更稳的后拒稿动作，是把编辑信对应到四个入口：题目是否错位，摘要是否太慢，方法是否不够透明，结果是否不够清楚。只要最早失分点被找出来，重投顺序就会清楚很多。',
+        strategyEn:
+          'A steadier post-rejection move maps the editor letter to four entry points: whether the title is misaligned, the abstract too slow, the method insufficiently transparent, or the results insufficiently clear. Once the earliest losing point is identified, the resubmission order becomes much clearer.',
+        stepsZh: [
+          '先判断编辑信最像在指向哪一个入口问题。',
+          '再检查这一路径上最早失分的具体位置。',
+          '最后按“最早失分点优先”安排重投前修改。',
+        ],
+        stepsEn: [
+          'Judge first which entry-point problem the editor letter most strongly indicates.',
+          'Check the earliest concrete losing point along that path next.',
+          'Arrange pre-resubmission revisions according to the rule of earliest losing point first.',
+        ],
+        submissionZh:
+          '如果后面还要继续送审，这种定位会非常关键，因为编辑的第一轮判断通常并不是全稿细读，而是由这些入口共同决定的。',
+        submissionEn:
+          'If further review still lies ahead, this mapping is crucial because the editor’s first-round judgment is usually not a deep reading of the entire manuscript but a decision shaped by these entry points together.',
+        riskZh:
+          '如果拒稿后直接大改全稿，最常见的后果就是工作量很大，但最先绊住编辑的那个问题并没有被最早修掉。',
+        riskEn:
+          'If rejection triggers immediate full-manuscript revision, the common result is a large workload without fixing the issue that first blocked the editor soon enough.',
+        checklistZh: [
+          '1. 是否判断了编辑信最像指向哪个入口问题。',
+          '2. 是否找出了这一路径上最早失分的具体位置。',
+          '3. 是否按“最早失分点优先”安排了修改顺序。',
+        ],
+        checklistEn: [
+          '1. Has it been judged which entry-point problem the editor letter most strongly indicates?',
+          '2. Has the earliest losing point along that path been identified?',
+          '3. Has the revision order been arranged by fixing the earliest losing point first?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一条更清楚的拒稿后修改路线，而不是情绪推动下的大范围返工。',
+        deliverableEn:
+          'After this round, you should have a much clearer post-rejection revision route instead of an emotion-driven broad rewrite.',
+        closeZh:
+          '拒稿后改得稳，关键不在改得多，而在先改对最早让编辑掉线的地方。',
+        closeEn:
+          'Stable post-rejection revision depends less on how much you revise than on fixing first the point where the editor disengaged earliest.',
+      },
+      'revision-defense': {
+        titleZh: '拒稿信怎么变成下一轮动作表：先诊断，再决定换刊还是重写',
+        titleEn:
+          'How do you turn a rejection letter into the next-round action sheet? Diagnose first, then decide whether to change journals or rewrite',
+        introZh:
+          '很多人收到拒稿信后会在“是不是该马上换刊”和“是不是要大改重写”之间来回摇摆。真正更稳的做法，不是立刻选动作，而是先完成诊断。',
+        introEn:
+          'Many writers swing back and forth after a rejection between immediately changing journals and completely rewriting the manuscript. The steadier move is not to choose an action at once but to complete the diagnosis first.',
+        zhihuAngleZh:
+          '知乎里关于“拒稿后到底是换刊还是重写”的讨论，经常会指出：先看拒稿类型，再决定动作，不要凭情绪选路线。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether to change journals or rewrite after rejection often emphasize the same principle: read the rejection type first and only then choose the route, rather than selecting from emotion.',
+        strategyZh:
+          '更稳的后续动作，是先把拒稿信诊断成几类：scope 错位、价值不清、方法不稳、包装问题。随后再判断哪些问题靠换刊解决，哪些问题必须靠重写。这样下一轮动作才不会乱。',
+        strategyEn:
+          'A steadier next step first diagnoses the rejection letter into categories such as scope misfit, unclear value, unstable method, or packaging weakness. Only then do you judge which issues can be solved by changing journals and which require rewriting. This keeps the next-round action from becoming chaotic.',
+        stepsZh: [
+          '先完成拒稿类型诊断，不急着决定动作。',
+          '再区分哪些问题可以换刊解决，哪些必须重写。',
+          '最后写一页下一轮 action sheet。',
+        ],
+        stepsEn: [
+          'Complete the rejection-type diagnosis first without rushing into action.',
+          'Separate the issues that can be solved by changing journals from those requiring rewriting next.',
+          'Write a one-page next-round action sheet at the end.',
+        ],
+        submissionZh:
+          '如果后面还要继续重投，这份 action sheet 会非常有用，因为它能让你在情绪过去以后仍然按诊断结果推进，而不是反复犹豫。',
+        submissionEn:
+          'If resubmission still lies ahead, this action sheet is highly useful because it lets you keep moving according to diagnosis even after the emotional wave passes, instead of repeatedly hesitating.',
+        riskZh:
+          '如果拒稿后先选动作再做诊断，最常见的后果就是换刊和重写一起做，效率低且容易重复犯错。',
+        riskEn:
+          'If action is chosen before diagnosis after rejection, the common result is trying to change journals and rewrite at the same time, which is inefficient and often repeats the same mistakes.',
+        checklistZh: [
+          '1. 是否完成了拒稿类型诊断。',
+          '2. 是否区分了哪些问题靠换刊解决，哪些必须重写。',
+          '3. 是否写出了一页下一轮 action sheet。',
+        ],
+        checklistEn: [
+          '1. Has the rejection type been fully diagnosed?',
+          '2. Have the issues solvable by changing journals been separated from those requiring rewriting?',
+          '3. Has a one-page next-round action sheet been written?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一份更能指导下一轮动作的拒稿后行动表，而不是只剩下情绪和猜测。',
+        deliverableEn:
+          'After this round, you should have a post-rejection action sheet that can truly guide the next round instead of leaving only emotion and guesswork.',
+        closeZh:
+          '拒稿最容易把人带乱，但诊断一旦做清，下一步就会重新变得可执行。',
+        closeEn:
+          'Rejection can easily create chaos, but once the diagnosis is clear, the next step becomes actionable again.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {
