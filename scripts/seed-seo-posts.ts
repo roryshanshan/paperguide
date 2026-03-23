@@ -1543,6 +1543,1156 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'research-topic',
+    topicSlug: 'feasibility-triage',
+    categorySlug: 'research-topic-planning',
+    labelZh: '选题与问题定义',
+    labelEn: 'Topic Selection',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '可行性判断、资料路径和任务边界',
+    focusEn: 'feasibility checks, source access, and task boundaries',
+    evidenceZh: '资料清单、时间表、样本入口和任务拆解',
+    evidenceEn: 'source lists, timelines, sample access points, and task breakdowns',
+    standardZh: '重点不是把题目说得更大，而是把“现在能不能做、做到哪一步”说得更实。',
+    standardEn:
+      'The aim is not to make the topic sound bigger but to state more honestly whether it can be done now and how far it can go.',
+    articles: {
+      proposal: {
+        titleZh: '开题总被问可行性？先把资料路径、时间和样本说实',
+        titleEn:
+          'Keep getting asked about feasibility in the proposal? Make the source path, timeline, and sample access concrete first',
+        introZh:
+          '很多开题看上去题目不差，真正被打回来的原因却是可行性没有说实。导师担心的往往不是你想得不对，而是你根本拿不到足够资料，或者时间撑不起题目承诺。',
+        introEn:
+          'Many proposals look fine at the level of topic choice, yet the real reason they get pushed back is that feasibility was never stated concretely. Advisors are often less worried that the idea is wrong than that the material is inaccessible or the timeline cannot support the promise of the title.',
+        zhihuAngleZh:
+          '知乎里关于“开题被说不够可行怎么办”的讨论，高频问题不是不会写框架，而是没有把样本入口、资料获取和时间分配写成一条现实路径。',
+        zhihuAngleEn:
+          'In Zhihu discussions about being told a proposal lacks feasibility, the repeated issue is not weak framing but the absence of a realistic path for sample access, source collection, and time allocation.',
+        strategyZh:
+          '更稳的写法，是把可行性拆成三层：资料能不能拿到、任务能不能按阶段完成、当前篇幅能不能承接这个问题。只要三层里有一层发虚，题目就需要再收一步。',
+        strategyEn:
+          'A steadier way to write feasibility is to split it into three layers: whether the sources are actually reachable, whether the tasks can be completed stage by stage, and whether the current length can really carry the question. If any one layer feels weak, the topic still needs to narrow.',
+        stepsZh: [
+          '先列出完成这题至少需要的资料和样本入口，别只写“后续搜集”。',
+          '再把整个任务拆成几个阶段，检查每一阶段有没有明确产出。',
+          '最后用现实时间反推题目边界，把当前周期做不完的承诺先删掉。',
+        ],
+        stepsEn: [
+          'List the minimum sources and sample-entry paths needed to finish the topic instead of saying they will be collected later.',
+          'Break the work into stages and check whether each stage has one concrete output.',
+          'Use the real timeline to push back against the topic boundary and cut claims that cannot be completed in the present cycle.',
+        ],
+        submissionZh:
+          '如果后面还想把这项研究继续写成长文或投稿稿，提早做可行性 triage 很值钱，因为它会直接决定后续样本说明、方法说明和局限表达是不是站得住。',
+        submissionEn:
+          'If the work may later grow into a long article or submission draft, doing a feasibility triage early is extremely useful because it will directly shape whether the later sample note, method note, and limitation statement can stand up.',
+        riskZh:
+          '如果可行性一直只停留在“应该能做”的层面，最常见的后果就是开题通过后才开始大面积缩题，前面写过的很多内容都要重来。',
+        riskEn:
+          'If feasibility remains at the level of it should probably work, the common consequence is that the topic has to be narrowed only after the proposal passes and a large share of the earlier writing must be redone.',
+        checklistZh: [
+          '1. 资料和样本入口是否已经写得具体，而不是停留在模糊设想。',
+          '2. 每个阶段是否有明确任务和产出，而不是只有总时间表。',
+          '3. 题目承诺是否已经被现实条件压实。',
+        ],
+        checklistEn: [
+          '1. Are the source and sample-entry paths now concrete instead of speculative?',
+          '2. Does each stage have a defined task and output rather than only a broad timeline?',
+          '3. Has the promise of the topic already been tightened by real constraints?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一张可行性说明表、一版更实的时间任务拆解，以及一个被现实条件校准过的题目。',
+        deliverableEn:
+          'After this round, you should have a feasibility note, a more realistic task timeline, and a topic recalibrated by actual constraints.',
+        closeZh:
+          '可行性不是给导师看的客套话，而是整篇论文后面会不会崩的第一道预警。',
+        closeEn:
+          'Feasibility is not polite language for the advisor. It is the first warning system for whether the whole project will later collapse.',
+      },
+      'literature-review': {
+        titleZh: '读文献时顺手做 feasibility triage：哪些题值得做，哪些先别碰',
+        titleEn:
+          'Run a feasibility triage while reading: which topics are worth pursuing now and which should wait',
+        introZh:
+          '很多人读文献时只看问题好不好，却不顺手判断这个问题当前能不能做。结果常常是被某个方向吸引很久，后来才发现资料门槛、方法门槛或篇幅门槛都太高。',
+        introEn:
+          'Many writers evaluate whether a topic looks interesting while reading but fail to judge whether it can actually be done now. The result is often spending a long time attracted to a direction only to discover later that the source, method, or length threshold is too high.',
+        zhihuAngleZh:
+          '知乎上关于“看了很多文献更迷茫”的讨论里，经常有人提到一个痛点：大家会评估价值，却不会同步评估成本，所以题目看起来都能做，最后真正能推进的很少。',
+        zhihuAngleEn:
+          'In Zhihu discussions about feeling more lost after reading a lot, one recurring pain point is that writers evaluate value but not cost, so many topics look possible while only a few can genuinely move forward.',
+        strategyZh:
+          '更稳的阅读法，是在笔记里同时记录“有多重要”和“现在多可做”。重要性告诉你值不值得碰，可行性告诉你当下该不该碰，两者要并排判断。',
+        strategyEn:
+          'A steadier reading practice is to record both how important a direction is and how doable it currently is. Importance tells you whether it is worth touching; feasibility tells you whether it should be pursued now. The two judgments need to sit side by side.',
+        stepsZh: [
+          '先在阅读笔记里增加一列可行性评价，不只记主题和发现。',
+          '再把影响题目落地的关键门槛写出来，如数据、样本、方法或时间。',
+          '最后用“高价值高可行”优先原则筛出值得先做的一批题目。',
+        ],
+        stepsEn: [
+          'Add one feasibility column to the reading notes instead of recording only topic and finding.',
+          'Write down the thresholds that affect execution, such as data, sample, method, or time.',
+          'Use a high-value, high-feasibility priority rule to select the topics worth pursuing first.',
+        ],
+        submissionZh:
+          '如果以后要写成长文或投稿，这种阅读中的 triage 会非常有帮助，因为它能提前暴露哪些方向虽然热，但短期内很难做成一篇站得住的稿件。',
+        submissionEn:
+          'If the project may later become a long-form piece or submission draft, this reading-stage triage is very helpful because it exposes early which directions are hot but still unlikely to become a defensible paper in the near term.',
+        riskZh:
+          '如果文献阅读只看价值不看成本，最常见的后果就是题目越来越激动人心，执行却越来越不现实。',
+        riskEn:
+          'If reading evaluates value without cost, the common outcome is that the topic becomes more exciting while the execution becomes less realistic.',
+        checklistZh: [
+          '1. 阅读笔记里是否已有“可行性”这一列。',
+          '2. 每个方向的关键门槛是否已经写明。',
+          '3. 你是否筛出了一批当前优先推进的题目。',
+        ],
+        checklistEn: [
+          '1. Does the reading note already contain a feasibility column?',
+          '2. Are the main thresholds of each direction written down clearly?',
+          '3. Have you already filtered a set of topics worth prioritizing now?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份“高价值但不一定当前可做”的区分表，而不是把所有好题都混在同一层优先级里。',
+        deliverableEn:
+          'After this round, you should have a sheet distinguishing high-value topics from topics that are actually workable now instead of treating every good topic as equally urgent.',
+        closeZh:
+          '真正高效的定题，不只是知道什么值得写，还知道什么现在先不要写。',
+        closeEn:
+          'Efficient topic selection means not only knowing what is worth writing but also knowing what should not be written yet.',
+      },
+      'methods-analysis': {
+        titleZh: '别等开工后才发现样本拿不到：先做一张可行性压力测试表',
+        titleEn:
+          'Do not wait until analysis starts to discover the sample is inaccessible: build a feasibility stress-test sheet first',
+        introZh:
+          '很多研究设计的问题不是写法有误，而是太晚才发现样本、数据或案例根本拿不到。那时再调整，不只是方法要改，连题目和理论入口都要一起动。',
+        introEn:
+          'Many research-design problems do not begin as writing problems but as late discoveries that the sample, data, or cases are not actually accessible. By then, revising the method often means changing the topic and the theoretical entry as well.',
+        zhihuAngleZh:
+          '知乎里关于“方法定了才发现数据不够”的吐槽很多，背后反复出现的一点是：作者缺少一张在开工前就暴露风险的压力测试表。',
+        zhihuAngleEn:
+          'There are many Zhihu complaints about realizing too late that the chosen method lacks enough data, and behind them is the repeated absence of a stress-test sheet that could have exposed the risk earlier.',
+        strategyZh:
+          '更稳的做法，是在方法正式落下前先做一次压力测试：最理想情况是什么、最低可行情况是什么、哪一步一旦拿不到资料就必须改题或改方法。把风险先写出来，后面的调整才不会是慌乱反应。',
+        strategyEn:
+          'A steadier approach is to run a stress test before the method is finalized: what the ideal case would be, what the minimum viable case would be, and which missing source would force a change of topic or method. Once the risks are written down, later adjustment becomes deliberate rather than panicked.',
+        stepsZh: [
+          '先列出理想版、最低可行版和失败触发条件三栏。',
+          '再把样本、数据、案例和时间逐项放进去，看哪一栏最脆弱。',
+          '最后根据最脆弱的一栏回调题目、方法或结论力度。',
+        ],
+        stepsEn: [
+          'Create three columns: ideal version, minimum viable version, and failure trigger.',
+          'Place the sample, data, cases, and time resources into those columns to see which line is weakest.',
+          'Use the weakest line to dial back the topic, the method, or the strength of the claim.',
+        ],
+        submissionZh:
+          '如果后面要答辩或投稿，这张压力测试表非常有用，因为它会帮助你提前写出局限说明，而不是等被追问时才临时解释。',
+        submissionEn:
+          'If defense or submission comes later, this stress-test sheet is extremely useful because it helps you write the limitation note proactively instead of improvising explanations only when questioned.',
+        riskZh:
+          '如果可行性压力从来没有被提前测试，最容易发生的就是项目一旦掉一块关键材料，整条主线都跟着断掉。',
+        riskEn:
+          'If feasibility pressure is never tested in advance, the common danger is that once one key material drops out, the entire project line breaks with it.',
+        checklistZh: [
+          '1. 是否已经区分理想版和最低可行版。',
+          '2. 哪一步最脆弱是否已经被明确指出。',
+          '3. 题目和方法是否已针对最脆弱处做了调整。',
+        ],
+        checklistEn: [
+          '1. Have the ideal version and the minimum viable version been separated clearly?',
+          '2. Is the weakest link in the project already visible?',
+          '3. Have the topic and method already been adjusted around that weak point?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一张能提前暴露风险的可行性压力测试表，以及一版更稳的执行方案。',
+        deliverableEn:
+          'After this round, you should have a feasibility stress-test sheet that exposes risk early and a steadier execution plan.',
+        closeZh:
+          '方法越早经过压力测试，后面的大改就越少来自意外，越多来自主动选择。',
+        closeEn:
+          'The earlier the method goes through stress testing, the less later revision comes from surprise and the more it comes from deliberate choice.',
+      },
+      'revision-defense': {
+        titleZh: '导师说题目太虚怎么改：用 feasibility note 解释为什么现在这版更稳',
+        titleEn:
+          'When the advisor says the topic is too vague, revise it through a feasibility note explaining why this version is steadier',
+        introZh:
+          '很多人被说“题目太虚”之后，第一反应是换几个更具体的词。但如果没有同时说明为什么现在这版更可做、更可支撑，题目改了也未必更稳。',
+        introEn:
+          'When writers hear that the topic is too vague, the first reaction is often to replace a few broad words with more concrete ones. Yet without explaining why the revised version is now more feasible and better supported, the topic may change without becoming steadier.',
+        zhihuAngleZh:
+          '知乎里关于“导师说题目太虚怎么办”的经验，经常会提到一点：真正让导师放心的不是题目换词，而是你能清楚解释为什么现在这版更能落地。',
+        zhihuAngleEn:
+          'In Zhihu advice on handling feedback that a topic is too vague, one repeated point is that what reassures the advisor is not the wording swap alone but your ability to explain why the new version can actually land better.',
+        strategyZh:
+          '更稳的返修方式，是配一页 feasibility note：旧题目哪里太虚、新题目具体收到了哪一层、这次为什么更符合资料和时间条件。这样修改就不只是表面动作，而是有理由的缩题。',
+        strategyEn:
+          'A steadier revision method is to attach a one-page feasibility note: where the old topic was too vague, which layer the new version has tightened, and why the revision now matches the available sources and time better. Then the change becomes a reasoned narrowing rather than a cosmetic edit.',
+        stepsZh: [
+          '先把旧题目中的虚词和过度承诺圈出来。',
+          '再说明新题目具体收紧了对象、范围还是判断力度。',
+          '最后用资料、时间和结构条件解释为什么新版更稳。',
+        ],
+        stepsEn: [
+          'Mark the vague words and overpromises in the old topic first.',
+          'Then explain whether the new topic tightened the object, the scope, or the strength of the claim.',
+          'Finally, use source, time, and structural conditions to show why the revised version is steadier.',
+        ],
+        submissionZh:
+          '如果后面还会答辩或投稿，这份说明也能继续复用，因为它本质上是在回答同一个问题：为什么现在这版比原来更可 defend。',
+        submissionEn:
+          'If defense or submission still lies ahead, this note can continue to be reused because it is answering the same underlying question: why the present version is more defensible than the original one.',
+        riskZh:
+          '如果只改题目不改解释，最容易出现的就是题目表面更具体了，但正文和结构还是旧逻辑，读者一眼就会感觉没有真正收束。',
+        riskEn:
+          'If the title changes without the explanation changing with it, the common result is a superficially more concrete topic attached to an old body and structure, which signals immediately that the project was never truly tightened.',
+        checklistZh: [
+          '1. 旧题目中的虚词和过度承诺是否已经被识别。',
+          '2. 新题目具体收紧的是哪一层是否已经说清。',
+          '3. 是否已经能解释为什么当前版本更稳。',
+        ],
+        checklistEn: [
+          '1. Have the vague terms and overpromises in the old topic been identified clearly?',
+          '2. Is the exact layer tightened by the new topic already stated?',
+          '3. Can you now explain why the current version is steadier?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版收紧后的题目和一页“为什么这样改”的可行性说明。',
+        deliverableEn:
+          'After this round, you should have a tightened topic and a one-page feasibility explanation of why it was revised this way.',
+        closeZh:
+          '题目变稳的标志，不只是更具体，而是你终于能把“为什么这样改”讲清楚。',
+        closeEn:
+          'The sign that a topic has become steadier is not only that it sounds more concrete but that you can now explain clearly why it was revised in this way.',
+      },
+    },
+  },
+  {
+    slug: 'literature-reading',
+    topicSlug: 'literature-matrix',
+    categorySlug: 'literature-reading-review',
+    labelZh: '文献阅读与综述',
+    labelEn: 'Literature Review',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '文献矩阵、引用层级和阅读笔记复用',
+    focusEn: 'literature matrices, citation hierarchy, and reusable reading notes',
+    evidenceZh: '文献矩阵、标签体系、核心引用和段落支持关系',
+    evidenceEn: 'literature matrices, tag systems, core citations, and paragraph support links',
+    standardZh: '重点不是记住更多文献细节，而是把后面写作真正要用到的比较关系留下来。',
+    standardEn:
+      'The goal is not to remember more isolated details but to preserve the comparative relationships that the later writing will actually need.',
+    articles: {
+      proposal: {
+        titleZh: '读文献总是边读边忘？先搭文献矩阵和最小笔记规则',
+        titleEn:
+          'Keep forgetting papers as you read? Build a literature matrix and a minimal note-taking rule first',
+        introZh:
+          '很多人读文献时越读越慌，不是因为看不懂，而是因为读过的东西没有被放进同一个结构里。今天记住了作者和结论，过几天却完全想不起它和别的研究有什么关系。',
+        introEn:
+          'Many writers become more anxious as they read not because the papers are incomprehensible but because the material is never placed inside one shared structure. Today they remember the author and the conclusion; a few days later they cannot recall how the paper relates to anything else.',
+        zhihuAngleZh:
+          '知乎上关于“文献读完就忘”的讨论里，最常见的建议不是做更长笔记，而是先搭一个最小矩阵，让每篇文献至少能被放进同一组比较栏目里。',
+        zhihuAngleEn:
+          'In Zhihu discussions about forgetting papers immediately after reading them, the common suggestion is not longer notes but a minimal matrix that lets every paper enter the same comparison columns.',
+        strategyZh:
+          '更稳的阅读起点，是先固定几个永远要记的栏目，例如问题、方法、核心发现、局限、与你的关系。矩阵一旦稳定，阅读就会从“记信息”变成“积累比较”。',
+        strategyEn:
+          'A steadier reading start is to fix a few columns that will always be recorded: question, method, core finding, limitation, and relevance to your project. Once the matrix becomes stable, reading shifts from storing information to accumulating comparison.',
+        stepsZh: [
+          '先给每篇文献只设最少几个必填栏目，不要一开始就把模板做得过重。',
+          '再把同一类文献放进同一组标签里，方便后面横向比较。',
+          '最后每读完一篇都补一句“它对我的题目有什么用”，防止笔记只剩摘要。',
+        ],
+        stepsEn: [
+          'Set only a few mandatory columns for each paper instead of building an overly heavy template at the beginning.',
+          'Group similar papers under the same labels so they can be compared laterally.',
+          'After each reading, add one sentence on what the paper is useful for in your own topic so the note does not remain a summary only.',
+        ],
+        submissionZh:
+          '如果后面要写综述或投稿引言，这种最小矩阵会特别有价值，因为它让你能快速重建文献关系，而不是重新翻找一堆 PDF。',
+        submissionEn:
+          'If the material later feeds a review or a submission introduction, this minimal matrix becomes especially valuable because it allows the literature relationships to be rebuilt quickly instead of searching through piles of PDFs again.',
+        riskZh:
+          '如果阅读不进矩阵，最常见的后果就是文献看得越多，脑子里的线索越乱，写综述时只能重新从头找。',
+        riskEn:
+          'If the reading never enters a matrix, the common result is that the more papers you read, the messier the mental trace becomes, and the review has to be rebuilt from zero.',
+        checklistZh: [
+          '1. 是否已经固定最小必填栏目。',
+          '2. 相似文献是否已有统一标签。',
+          '3. 每篇笔记里是否都出现了“对我的题目有什么用”这句。',
+        ],
+        checklistEn: [
+          '1. Have the minimum mandatory columns already been fixed?',
+          '2. Do similar papers already share one tag system?',
+          '3. Does each note contain one sentence explaining its use for your own topic?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一个可持续扩展的文献矩阵，而不是一堆彼此独立的阅读摘要。',
+        deliverableEn:
+          'After this round, you should have an expandable literature matrix rather than a pile of isolated reading summaries.',
+        closeZh:
+          '文献矩阵最重要的价值，不是整理得好看，而是让你以后还能把读过的东西重新调用出来。',
+        closeEn:
+          'The main value of a literature matrix is not aesthetic order but the ability to call earlier reading back into use later.',
+      },
+      'literature-review': {
+        titleZh: '引用不是越多越稳：先分核心文献、背景文献和方法文献',
+        titleEn:
+          'More citations do not automatically make the review stronger: separate core, background, and methods references first',
+        introZh:
+          '很多综述引用很多，却还是显得没重点。问题往往不在数量，而在于所有引用被放在同一层，读者看不出哪些是真正支撑定位的核心文献，哪些只是补背景。',
+        introEn:
+          'Many reviews contain a large number of citations and still feel unfocused. The issue is often not quantity but the way every citation is placed on the same level, so the reader cannot tell which sources define positioning and which ones merely supply background.',
+        zhihuAngleZh:
+          '知乎里关于“综述引用太乱怎么办”的讨论，常会提到一个实用做法：把引用分层，不同层级服务不同写作任务。',
+        zhihuAngleEn:
+          'In Zhihu discussions on messy citation use in reviews, one practical move appears repeatedly: stratify the citations so different layers serve different writing tasks.',
+        strategyZh:
+          '更稳的引用结构，至少要分三层：核心文献负责研究定位，背景文献负责场景交代，方法文献负责说明技术或路径。分层之后，综述才不会所有引用都挤在一个句子里。',
+        strategyEn:
+          'A steadier citation structure usually needs at least three layers: core citations for positioning, background citations for context, and methods citations for technique or path. Once the layers exist, the review no longer needs to crowd every source into the same sentence.',
+        stepsZh: [
+          '先把现有引用按核心、背景、方法三层重新标记。',
+          '再检查关键段落是否用了错误层级的文献来撑判断。',
+          '最后让每一层引用只承担它该承担的任务，不再混用。',
+        ],
+        stepsEn: [
+          'Relabel the current citations into core, background, and methods layers.',
+          'Check whether the key paragraphs are using the wrong layer of sources to support major judgments.',
+          'Let each citation layer perform only the job it was meant to perform instead of mixing them together.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种引用分层很关键，因为编辑和审稿人会很快感觉出你有没有抓住领域里真正决定定位的那批文献。',
+        submissionEn:
+          'If the paper may later be submitted, this citation layering is crucial because editors and reviewers sense very quickly whether you have identified the literature that truly determines positioning in the field.',
+        riskZh:
+          '如果所有引用都被同层使用，最常见的后果就是段落看上去很满，判断却很轻，因为真正关键的文献没有被放到关键位置。',
+        riskEn:
+          'If every citation is used on the same layer, the common result is a paragraph that looks full while the judgment remains light because the truly central literature was never placed in the central spot.',
+        checklistZh: [
+          '1. 引用是否已按三层分开。',
+          '2. 关键判断段落是否正在使用核心文献支撑。',
+          '3. 背景和方法文献是否已退出不该承担的任务。',
+        ],
+        checklistEn: [
+          '1. Have the citations been separated into three layers?',
+          '2. Are the major judgment paragraphs now supported by core literature?',
+          '3. Have the background and methods citations been removed from jobs they should not carry?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版层级更清楚的综述引用结构，而不是只增加了数量。',
+        deliverableEn:
+          'After this round, you should have a review with a clearer citation hierarchy instead of simply more references.',
+        closeZh:
+          '引用真正增加深度的时候，不是数量上来，而是层级开始清楚。',
+        closeEn:
+          'Citations begin to add depth not when the count rises but when the hierarchy becomes clear.',
+      },
+      'methods-analysis': {
+        titleZh: '写分析时怎么回引前人：别把引用只留在综述里',
+        titleEn:
+          'How should earlier studies be cited in the analysis? Do not leave all citations inside the review alone',
+        introZh:
+          '很多论文把引用几乎都放在综述阶段，到了分析部分就只剩自己的结果。这样写当然简洁，但也容易让解释显得孤立，好像分析与前人没有持续对话。',
+        introEn:
+          'Many papers place nearly all citations inside the review and leave the analysis section with nothing but the writer’s own results. That approach may feel clean, but it often isolates the interpretation from the continuing conversation with earlier studies.',
+        zhihuAngleZh:
+          '知乎里关于“分析部分还要不要引用”的讨论常会提到一点：如果你的解释在和前人比较，却不显式回引，读者其实很难跟上比较关系。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether citations still belong in the analysis often point out that if the interpretation is comparing itself to earlier studies without citing them explicitly, readers struggle to follow the comparison.',
+        strategyZh:
+          '更稳的做法，是只在真正需要对照或解释分歧时回引关键文献，而不是把分析重新写成综述。引用不是回潮，而是帮助读者看见你的结果在已有讨论中落在什么位置。',
+        strategyEn:
+          'A steadier approach is to bring key sources back only when comparison or disagreement needs to be interpreted, rather than turning the analysis into a second review. The citation returns not as repetition but as a way to show where the new result sits inside the existing discussion.',
+        stepsZh: [
+          '先找出分析中真正需要和前人比较的几个关键点。',
+          '再为这些点各配一两篇最核心的对照文献，而不是整批搬回。',
+          '最后把比较句写清，让引用服务解释而不是抢正文空间。',
+        ],
+        stepsEn: [
+          'Identify the few key points in the analysis that genuinely need comparison with earlier work.',
+          'Assign one or two central comparison sources to each point rather than bringing back a whole batch of literature.',
+          'Write the comparison sentence clearly so the citation serves interpretation instead of taking over the paragraph.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种适度回引很有帮助，因为审稿人通常会看你是否知道自己的结果与已有研究是接续、修正还是冲突。',
+        submissionEn:
+          'If the work may later be submitted, this selective return to earlier studies is useful because reviewers often look to see whether the manuscript knows whether its results continue, revise, or conflict with prior work.',
+        riskZh:
+          '如果分析部分完全不回引，最容易出现的就是解释像悬空评论；如果回引过多，又会把分析写回综述。关键是抓住必要的比较点。',
+        riskEn:
+          'If the analysis never cites earlier studies, the interpretation can feel suspended in the air; if it cites too many, the section collapses back into review. The key is to identify the necessary points of comparison.',
+        checklistZh: [
+          '1. 是否已经找出分析中最需要比较的几个点。',
+          '2. 每个点是否只配了少量高价值对照文献。',
+          '3. 比较句是否真正帮助解释结果。',
+        ],
+        checklistEn: [
+          '1. Have the few most necessary comparison points in the analysis been identified?',
+          '2. Is each point paired with only a small number of high-value comparison sources?',
+          '3. Do the comparison sentences genuinely help interpret the result?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套“分析中何时回引、回引谁、回引来做什么”的清晰规则。',
+        deliverableEn:
+          'After this round, you should have a clear rule set for when the analysis should cite again, whom it should cite, and what that citation is meant to do.',
+        closeZh:
+          '分析阶段回引前人，不是为了看起来更满，而是为了让你的解释继续留在学术对话里。',
+        closeEn:
+          'Citing earlier work again in the analysis is not about filling space but about keeping your interpretation inside the academic conversation.',
+      },
+      'revision-defense': {
+        titleZh: '导师说引用乱怎么办：重建引用层级和段落支持关系',
+        titleEn:
+          'What if the advisor says the citations are chaotic? Rebuild the citation hierarchy and paragraph support structure',
+        introZh:
+          '很多人收到“引用太乱”的反馈时，会先去检查格式，但真正的问题常常不只是格式，而是段落判断和引用支持关系没有对齐。',
+        introEn:
+          'When writers receive feedback that the citations are chaotic, they often begin by checking formatting. Yet the real issue is frequently not formatting alone but the mismatch between paragraph judgments and citation support.',
+        zhihuAngleZh:
+          '知乎里关于“引用乱怎么改”的经验常会提醒：别只修参考文献表，要回到正文看每个判断到底由谁支撑。',
+        zhihuAngleEn:
+          'Zhihu advice on fixing chaotic citation use often reminds writers not to stop at the bibliography but to return to the body and ask which source actually supports each judgment.',
+        strategyZh:
+          '更有效的返修方式，是先给段落找主判断，再让引用围着主判断重新站位。只要支持关系清楚，格式问题反而是最好修的那部分。',
+        strategyEn:
+          'A more effective revision is to identify the main judgment of each paragraph first and then reposition the citations around that judgment. Once the support relationship is clear, formatting becomes the easiest part to fix.',
+        stepsZh: [
+          '先在每个关键段落写出一句主判断。',
+          '再检查当前引用里谁真正支撑这句，谁只是陪衬。',
+          '最后删掉无效堆叠，重排支持顺序。',
+        ],
+        stepsEn: [
+          'Write one main judgment sentence for each key paragraph first.',
+          'Check which current citations genuinely support that sentence and which are merely decorative.',
+          'Remove ineffective stacking and reorder the support structure.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种返修非常值得，因为编辑和审稿人往往就是通过段落支持关系来判断作者有没有真正掌握这批文献。',
+        submissionEn:
+          'If submission may come later, this revision is highly worthwhile because editors and reviewers often judge whether the author truly understands the literature through the support structure of the paragraphs.',
+        riskZh:
+          '如果只修格式不修支持关系，最容易出现的就是参考文献表看起来更整齐了，正文判断却还是站不住。',
+        riskEn:
+          'If only the formatting is corrected while the support structure remains weak, the bibliography may look cleaner while the paragraph judgments still fail to stand.',
+        checklistZh: [
+          '1. 关键段落是否已有主判断句。',
+          '2. 每条判断是否有明确核心支撑。',
+          '3. 无效堆叠引用是否已经删除。',
+        ],
+        checklistEn: [
+          '1. Does each key paragraph now have a main judgment sentence?',
+          '2. Does every judgment have a clearly identified core support source?',
+          '3. Have ineffective citation stacks been removed?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版引用关系更清楚的正文，而不是只完成了表面规范化。',
+        deliverableEn:
+          'After this round, you should have a body text with much clearer citation relationships instead of a merely normalized bibliography.',
+        closeZh:
+          '引用返修真正要修的，是判断和支持之间的关系，而不是文献表的美观程度。',
+        closeEn:
+          'The real target of citation revision is the relationship between judgment and support, not the appearance of the reference list.',
+      },
+    },
+  },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'paragraph-logic',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '摘要引言与结构写作',
+    labelEn: 'Structure Writing',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '段落推进、章节任务和结构过渡',
+    focusEn: 'paragraph movement, chapter tasks, and structural transitions',
+    evidenceZh: '任务句、过渡句、段落主张和章节提纲',
+    evidenceEn: 'task sentences, transition lines, paragraph claims, and chapter outlines',
+    standardZh: '重点不是让结构看起来完整，而是让每一段、每一章都知道自己为什么存在。',
+    standardEn:
+      'The goal is not to make the structure look complete but to let every paragraph and chapter know why it exists.',
+    articles: {
+      proposal: {
+        titleZh: '目录定了还是写不动？先把每章改成一句任务句',
+        titleEn:
+          'The outline is set but the draft still will not move? Turn each chapter into one task sentence first',
+        introZh:
+          '很多人目录看上去已经很完整，但真到写作时还是卡住。问题常常不在目录有没有，而在于每章只是标题，没有任务。',
+        introEn:
+          'Many writers have an outline that looks complete and still cannot begin writing. The problem is often not the absence of chapters but the absence of tasks. Each chapter has a title but no job.',
+        zhihuAngleZh:
+          '知乎上关于“目录有了还是写不动”的讨论里，一个很常见的提醒是：标题不是任务，只有当每章能被改写成一句动作句时，写作才真正开始。',
+        zhihuAngleEn:
+          'In Zhihu discussions about having an outline but still failing to draft, one common reminder is that a title is not a task. Writing begins only when each chapter can be rewritten as an action sentence.',
+        strategyZh:
+          '更稳的推进方式，是把每章都改成一句“这一章要完成什么”的任务句。任务句一出现，材料放哪、段落怎么排、结尾怎么收都会更清楚。',
+        strategyEn:
+          'A steadier way to move forward is to rewrite every chapter as one sentence stating what that chapter must accomplish. Once the task sentence appears, the placement of material, the order of paragraphs, and the ending of the chapter all become clearer.',
+        stepsZh: [
+          '先把目录里的每个标题改写成一句任务句。',
+          '再检查相邻章节的任务有没有重叠或空缺。',
+          '最后让每章的材料都只服务它自己的任务，不再四处乱放。',
+        ],
+        stepsEn: [
+          'Rewrite each chapter title in the outline as one task sentence.',
+          'Check whether the tasks of adjacent chapters overlap or leave gaps.',
+          'Let the materials of each chapter serve its own task only instead of drifting everywhere.',
+        ],
+        submissionZh:
+          '如果以后要把这篇内容改成长文或投稿稿，章节任务句会特别有帮助，因为它能快速暴露哪些部分只是学位论文式铺陈，哪些部分是真正对外部读者有价值的内容。',
+        submissionEn:
+          'If the work later needs to become a long-form piece or submission draft, chapter task sentences are especially useful because they quickly expose which parts are only thesis-style buildup and which parts truly matter for outside readers.',
+        riskZh:
+          '如果目录只有标题没有任务，最容易出现的就是写着写着重复、跳跃或空转，因为章节边界从来没有被设清楚。',
+        riskEn:
+          'If the outline contains titles without tasks, the common result is repetition, jumping, or empty spinning because the chapter boundaries were never clearly set.',
+        checklistZh: [
+          '1. 每章是否已有一句明确任务句。',
+          '2. 相邻章节之间是否不存在明显重叠。',
+          '3. 章节内材料是否已围绕任务重排。',
+        ],
+        checklistEn: [
+          '1. Does every chapter already have one clear task sentence?',
+          '2. Are obvious overlaps between adjacent chapters gone?',
+          '3. Have the materials inside each chapter been rearranged around the task?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版能直接带动正文推进的任务型目录。',
+        deliverableEn:
+          'After this round, you should have a task-driven outline that can directly pull the body forward.',
+        closeZh:
+          '目录能不能真正带动写作，关键不在标题好不好看，而在每章有没有明确任务。',
+        closeEn:
+          'Whether an outline can truly drive writing depends less on how elegant the titles sound and more on whether each chapter has a clear task.',
+      },
+      'literature-review': {
+        titleZh: '段落为什么总是散：每段只推进一个判断',
+        titleEn:
+          'Why do paragraphs keep feeling loose? Let each paragraph advance only one judgment',
+        introZh:
+          '很多段落看上去内容很多，却读完只剩模糊印象。常见原因不是材料不足，而是同一段同时做太多事：交代背景、塞引用、下判断、补解释，全挤在一起。',
+        introEn:
+          'Many paragraphs seem full of material and still leave only a blurred impression. The usual reason is not insufficient content but that one paragraph is trying to do too many jobs at once: background, citations, judgment, and explanation are all squeezed together.',
+        zhihuAngleZh:
+          '知乎里关于“论文段落总写散”的经验常常会提到一个简单但有效的规则：一段只推进一个判断，剩下的信息都围绕它服务。',
+        zhihuAngleEn:
+          'Zhihu advice on loose academic paragraphs often comes back to one simple but effective rule: one paragraph should advance one judgment, and everything else should serve that movement.',
+        strategyZh:
+          '更稳的段落写法，是先写段落主张句，再把证据和解释排进去。只要主张句不稳定，后面的引用和材料只会越加越散。',
+        strategyEn:
+          'A steadier paragraph pattern is to draft the paragraph claim sentence first and then place the evidence and explanation around it. If that claim sentence is unstable, later citations and material will only make the paragraph more diffuse.',
+        stepsZh: [
+          '先为每个段落写一句主张句。',
+          '再删掉不服务这句主张的材料。',
+          '最后检查段尾是否把判断收住，而不是又开一个新话题。',
+        ],
+        stepsEn: [
+          'Write one claim sentence for each paragraph first.',
+          'Remove material that does not serve that claim.',
+          'Check whether the paragraph ending closes the judgment instead of opening a new topic.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种段落控制很关键，因为编辑和审稿人往往是通过段落推进感来判断一篇稿件是否成熟。',
+        submissionEn:
+          'If the manuscript may later be submitted, this paragraph control is crucial because editors and reviewers often judge maturity through the momentum of paragraph movement.',
+        riskZh:
+          '如果一段同时做三四件事，最容易出现的就是作者自己知道想说什么，读者却抓不住这一段到底推进了哪一个判断。',
+        riskEn:
+          'If one paragraph tries to do three or four things at once, the common result is that the writer knows what they meant while the reader cannot tell what judgment the paragraph actually advanced.',
+        checklistZh: [
+          '1. 每段是否都有一句主张句。',
+          '2. 材料是否都服务于这句主张。',
+          '3. 段尾是否真正收束了这一段。',
+        ],
+        checklistEn: [
+          '1. Does each paragraph already have one claim sentence?',
+          '2. Does the material in the paragraph all serve that claim?',
+          '3. Does the paragraph ending truly close that unit?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套更稳定的段落模板，而不是靠临场拼句子。',
+        deliverableEn:
+          'After this round, you should have a more stable paragraph template instead of building each unit by improvisation.',
+        closeZh:
+          '段落一旦只推进一个判断，结构就会自然变得更清楚。',
+        closeEn:
+          'Once a paragraph advances only one judgment, the structure naturally becomes clearer.',
+      },
+      'methods-analysis': {
+        titleZh: '章节之间怎么过渡：用 bridge sentences 让分析往前走',
+        titleEn:
+          'How should sections transition? Use bridge sentences to carry the analysis forward',
+        introZh:
+          '很多论文每一章单看都还可以，但连起来就像分开的几段材料。问题常常出在过渡，读者不知道前一章为什么会走到下一章。',
+        introEn:
+          'Many papers contain chapters that are individually acceptable and still feel disconnected when read together. The usual problem lies in transitions: readers cannot see why one chapter leads to the next.',
+        zhihuAngleZh:
+          '知乎里关于“结构为什么总是断”的讨论里，一个高频建议是写 bridge sentences，也就是明确说出上一段或上一章留下了什么问题，下一段为什么必须接着来。',
+        zhihuAngleEn:
+          'In Zhihu discussions on broken structure, one recurring suggestion is to write bridge sentences that explicitly state what question the previous section left behind and why the next section must follow.',
+        strategyZh:
+          '更稳的章节衔接，不靠目录自然过渡，而靠作者主动写出连接理由。bridge sentence 的任务不是总结，而是推动下一步。',
+        strategyEn:
+          'Steady section linkage does not come from the outline automatically. It comes from the writer actively stating the reason for the connection. A bridge sentence does not merely summarize. It pushes the next move.',
+        stepsZh: [
+          '先在每章结尾写一句“这一章解决了什么，但还留下什么”。',
+          '再在下一章开头写一句“为什么现在必须讨论这一层”。',
+          '最后检查全篇是否存在突然跳段或跳章的地方，并补上过渡。',
+        ],
+        stepsEn: [
+          'Write one sentence at the end of each chapter explaining what it solved and what still remains.',
+          'Add one sentence at the opening of the next chapter explaining why this next layer must now be discussed.',
+          'Check the whole draft for abrupt jumps between paragraphs or sections and add the missing bridges.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这些过渡会显著影响可读性。很多稿件不是没有内容，而是内容之间没有被写出“为什么这样排”。',
+        submissionEn:
+          'If the manuscript later goes out for submission, these transitions strongly affect readability. Many drafts do not lack content; they lack an explicit explanation of why the content is arranged in this order.',
+        riskZh:
+          '如果过渡一直缺位，最容易出现的就是章节像并列堆放，读者只能自己猜结构逻辑。',
+        riskEn:
+          'If transitions remain absent, chapters start feeling like parallel piles and the reader is forced to guess the structural logic alone.',
+        checklistZh: [
+          '1. 各章结尾是否都留下了明确的下一步问题。',
+          '2. 下一章开头是否说明了为什么要接着写。',
+          '3. 全文跳跃处是否已经补上过渡。',
+        ],
+        checklistEn: [
+          '1. Does each chapter ending leave a clear next question?',
+          '2. Does the next chapter opening explain why the discussion must continue there?',
+          '3. Have abrupt jumps in the draft been repaired with bridges?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套能让全文顺着读下去的过渡句，而不是靠标题硬切章节。',
+        deliverableEn:
+          'After this round, you should have a set of transition lines that allows the whole draft to read forward instead of cutting chapters apart by title alone.',
+        closeZh:
+          '结构真正顺的时候，不是目录排得漂亮，而是读者始终知道为什么下一段会出现。',
+        closeEn:
+          'A structure truly feels smooth not when the outline looks elegant but when the reader always knows why the next section appears.',
+      },
+      'revision-defense': {
+        titleZh: '定稿前怎么做结构体检：查重复、跳跃和空转段',
+        titleEn:
+          'How do you perform a final structural check before submission? Look for repetition, jumps, and empty-spinning paragraphs',
+        introZh:
+          '很多论文定稿前最需要的不是再润色几句，而是做一次结构体检。否则正文可能已经写很多了，但重复、跳跃和空转段仍然大量存在。',
+        introEn:
+          'Before final submission, many papers need less line editing and more a structural health check. Without that pass, the body may contain a great deal of writing while repetition, jumping, and empty-spinning paragraphs still remain everywhere.',
+        zhihuAngleZh:
+          '知乎上关于“论文定稿前怎么检查”的讨论，经常会提到一个很实用的办法：不是从头再读一次，而是专门按结构病症去查。',
+        zhihuAngleEn:
+          'Zhihu discussions on how to inspect a paper before final submission often recommend a practical move: do not merely reread from the beginning but check specifically for structural symptoms.',
+        strategyZh:
+          '更有效的体检方式，是分三类查：重复段、跳跃段、空转段。先识别结构病症，再决定删、并、补还是重排，这会比无目的通读更省时间。',
+        strategyEn:
+          'A more effective structural check looks for three kinds of problems: repetition, jumps, and empty-spinning paragraphs. Once the symptoms are identified, you can decide whether to cut, merge, add, or reorder, which is much faster than unfocused rereading.',
+        stepsZh: [
+          '先把内容重复但位置不同的段落圈出来。',
+          '再找出逻辑突然跳转却没有过渡的地方。',
+          '最后识别那些看似在写但实际上没有推进判断的空转段。',
+        ],
+        stepsEn: [
+          'Mark the paragraphs that repeat similar content in different locations first.',
+          'Then identify places where the logic jumps without a bridge.',
+          'Finally, locate the paragraphs that appear busy but do not actually advance any judgment.',
+        ],
+        submissionZh:
+          '如果后面要投稿或答辩，这种结构体检非常值，因为它直接影响读者第一遍读时能不能顺着你的主线走完。',
+        submissionEn:
+          'If submission or defense still lies ahead, this structural check is highly worthwhile because it directly shapes whether readers can follow the main line on the first pass.',
+        riskZh:
+          '如果定稿前只顾着修句子，不修结构病症，最常见的后果就是语言更顺了，论证却还是松的。',
+        riskEn:
+          'If the final stage only polishes sentences but ignores structural symptoms, the common result is smoother language resting on a still-loose argument.',
+        checklistZh: [
+          '1. 重复段是否已被合并或删除。',
+          '2. 跳跃处是否补上了过渡。',
+          '3. 空转段是否已经被重写或删去。',
+        ],
+        checklistEn: [
+          '1. Have the repeated paragraphs been merged or removed?',
+          '2. Have the jumps been repaired with transitions?',
+          '3. Have the empty-spinning paragraphs been rewritten or deleted?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版结构更紧的终稿，而不是只做了表面润色。',
+        deliverableEn:
+          'After this round, you should have a final draft with a tighter structure rather than one that only received surface polishing.',
+        closeZh:
+          '终稿真正变稳，往往不是因为句子更漂亮，而是结构病症终于被处理掉了。',
+        closeEn:
+          'A final draft often becomes truly steadier not because the sentences are prettier but because the structural symptoms were finally treated.',
+      },
+    },
+  },
+  {
+    slug: 'methods-data',
+    topicSlug: 'robustness-interpretation',
+    categorySlug: 'methods-data-presentation',
+    labelZh: '方法设计与结果表达',
+    labelEn: 'Methods and Data',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '稳健性检验、结果解释和边界判断',
+    focusEn: 'robustness checks, result interpretation, and boundary judgments',
+    evidenceZh: '稳健性方案、结果表、对照分析和边界说明',
+    evidenceEn: 'robustness plans, result tables, comparison analyses, and boundary notes',
+    standardZh: '重点不是把检验越堆越多，而是让每一个检验都真正服务于判断。',
+    standardEn:
+      'The goal is not to pile up more and more tests but to make every test genuinely serve the judgment.',
+    articles: {
+      proposal: {
+        titleZh: '稳健性检验不是越多越好：先定义什么结果值得检验',
+        titleEn:
+          'Robustness checks are not better simply because there are more of them: define first which results are worth testing',
+        introZh:
+          '很多研究设计一说到稳健性，就默认后面多做几组检验一定更好。但如果没有先想清楚哪些结论最需要被验证，稳健性很容易变成展示工作量。',
+        introEn:
+          'Many research plans treat robustness as automatically improved by doing more checks. Yet without deciding which conclusions most need to be tested, robustness easily becomes a display of workload rather than a support for inference.',
+        zhihuAngleZh:
+          '知乎里关于“稳健性怎么做”的经验常会提醒：别把所有能做的都堆上去，先想清楚真正脆弱的结论在哪。',
+        zhihuAngleEn:
+          'Zhihu advice on robustness checks often repeats one reminder: do not pile on everything that can be done; identify first where the vulnerable conclusions actually lie.',
+        strategyZh:
+          '更稳的前期设计，是先判断哪些结果一旦不稳，整篇论文就要重写，哪些只是锦上添花。只有抓住关键点，后面的检验安排才不会变成表演。',
+        strategyEn:
+          'A steadier early design is to decide which results would force a rewrite of the paper if they failed and which ones are only nice to have. Only then can the later test plan avoid becoming performance for its own sake.',
+        stepsZh: [
+          '先列出你最关键的几个结论。',
+          '再判断每个结论最可能被质疑的地方是什么。',
+          '最后只围绕这些关键质疑设计稳健性方案。',
+        ],
+        stepsEn: [
+          'List the few conclusions that matter most.',
+          'Identify the most likely point of challenge for each conclusion.',
+          'Design the robustness plan only around those key challenges.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种前置筛选很有帮助，因为审稿人通常不是要求“多做所有检验”，而是要求你回应最关键的识别担忧。',
+        submissionEn:
+          'If the project may later be submitted, this early selection is useful because reviewers rarely ask for every possible test; they ask you to answer the most important identification concern.',
+        riskZh:
+          '如果稳健性设计没有重点，最常见的后果就是时间大量花在边缘检验上，真正关键的怀疑点却还没被碰到。',
+        riskEn:
+          'If the robustness design has no priority, the common result is spending enormous time on peripheral tests while the central doubt is still untouched.',
+        checklistZh: [
+          '1. 最关键结论是否已经列出。',
+          '2. 每个结论的主要质疑点是否已识别。',
+          '3. 稳健性方案是否围绕关键质疑展开。',
+        ],
+        checklistEn: [
+          '1. Have the most important conclusions already been listed?',
+          '2. Has the main challenge to each conclusion been identified?',
+          '3. Is the robustness plan built around those key challenges?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套有优先级的稳健性方案，而不是一个无限扩张的检验清单。',
+        deliverableEn:
+          'After this round, you should have a prioritized robustness plan rather than an endlessly expanding test checklist.',
+        closeZh:
+          '稳健性做得成熟的标志，不是检验数量多，而是关键怀疑点被真正命中。',
+        closeEn:
+          'The sign of mature robustness work is not a large number of tests but that the key doubts are genuinely targeted.',
+      },
+      'literature-review': {
+        titleZh: '看文献时顺手记检验口径：别到分析阶段才补救',
+        titleEn:
+          'Capture robustness patterns while reading literature: do not wait until analysis to improvise',
+        introZh:
+          '很多人做稳健性时才开始回头翻文献，结果既浪费时间，也容易把别人的做法机械搬过来，因为前期阅读没有顺手记下这些口径。',
+        introEn:
+          'Many writers only return to the literature when it is time to build robustness checks, which wastes time and encourages mechanical copying because those patterns were never recorded during earlier reading.',
+        zhihuAngleZh:
+          '知乎里关于“稳健性检验怎么补”的问题里，经常有人提到：要在读文献时就记别人怎么回应质疑，而不是等被追问才临时翻找。',
+        zhihuAngleEn:
+          'In Zhihu questions about adding robustness checks, one repeated suggestion is to record how earlier studies answered challenges during reading rather than hunting for examples only after being questioned.',
+        strategyZh:
+          '更高效的读法，是在文献笔记里增加“他们如何证明结果更稳”这一栏。这样你后面需要设计检验时，已经有一套可比较的口径库。',
+        strategyEn:
+          'A more efficient reading practice adds one column to the literature notes: how this study strengthens confidence in its result. Then later robustness design starts with a reusable comparison library instead of a search from zero.',
+        stepsZh: [
+          '先在阅读笔记里新增一列稳健性口径。',
+          '再记录每篇文献是针对什么质疑做了什么回应。',
+          '最后把高频检验方式按适用条件分类保存。',
+        ],
+        stepsEn: [
+          'Add one robustness column to the reading note.',
+          'Record what concern each paper was answering and what response it used.',
+          'Save the recurring robustness patterns by their conditions of use.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种口径库会很有用，因为很多返修并不是要求你从零设计新检验，而是要求你判断哪些检验适合你的问题。',
+        submissionEn:
+          'If submission is a future step, this pattern library is extremely useful because many revisions do not ask for brand new tests from scratch but for better judgment on which tests actually fit the problem.',
+        riskZh:
+          '如果把稳健性完全留到分析后补，最容易出现的就是检验方案东拼西凑，看起来忙，却没有明显针对性。',
+        riskEn:
+          'If robustness is left entirely until after the analysis, the common result is a patchwork test plan that looks busy without showing clear targeting.',
+        checklistZh: [
+          '1. 阅读笔记里是否已有稳健性口径这一列。',
+          '2. 各类检验是否已按所回应的质疑分类。',
+          '3. 是否已经积累出一套高频可复用的方式。',
+        ],
+        checklistEn: [
+          '1. Does the reading note already contain a robustness column?',
+          '2. Have the tests been classified by the concern they respond to?',
+          '3. Have you already accumulated a reusable high-frequency set of patterns?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一个能在方法阶段直接调用的稳健性口径库。',
+        deliverableEn:
+          'After this round, you should have a robustness pattern library that can be used directly in the methods stage.',
+        closeZh:
+          '最省时间的稳健性准备，不是最后补，而是前面读的时候就顺手记。',
+        closeEn:
+          'The most time-saving way to prepare robustness checks is not to patch them in at the end but to capture them while reading early.',
+      },
+      'methods-analysis': {
+        titleZh: '结果不显著怎么写：先分清没有效果和没有证据',
+        titleEn:
+          'How should non-significant results be written? Separate no effect from no evidence first',
+        introZh:
+          '很多人遇到不显著结果就慌，觉得这段分析是不是没法写了。其实最关键的问题不是显著与否，而是你有没有分清“真的没有效果”和“当前证据不足以说明”。',
+        introEn:
+          'Many writers panic when they see non-significant results and assume the analysis can no longer be written. Yet the key issue is not significance alone but whether the draft distinguishes between no effect and insufficient evidence.',
+        zhihuAngleZh:
+          '知乎里关于“结果不显著怎么办”的经验里，一个很重要的提醒是：别把不显著直接写成没关系，要先回到设计、样本和识别强度上做判断。',
+        zhihuAngleEn:
+          'A crucial reminder in Zhihu discussions on handling non-significant results is not to translate non-significance straight into no relationship but to return to the design, sample, and strength of identification first.',
+        strategyZh:
+          '更稳的解释路径，是分三步：先报告结果，再判断证据强度，最后再谈可能意味着没有效果还是暂时看不出来。顺序一旦反过来，结论就很容易写过头。',
+        strategyEn:
+          'A steadier interpretation path moves in three steps: report the result, judge the strength of the evidence, and only then discuss whether it may indicate no effect or merely limited visibility. Once the order reverses, the conclusion is easily overstated.',
+        stepsZh: [
+          '先客观写出不显著结果本身，不急着解释。',
+          '再结合样本、设计和稳健性判断证据强度。',
+          '最后才谈这意味着没有效果还是只是当前看不清。',
+        ],
+        stepsEn: [
+          'State the non-significant result itself objectively before interpreting it.',
+          'Judge the strength of the evidence through the sample, design, and robustness context.',
+          'Only then discuss whether the result suggests no effect or simply limited visibility at the current stage.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种写法很重要，因为审稿人通常更在意作者有没有谨慎解释边界，而不是有没有把所有结果都写得“好看”。',
+        submissionEn:
+          'If the manuscript may later be submitted, this style matters because reviewers usually care more about cautious boundary control than about whether every result looks attractive.',
+        riskZh:
+          '如果把不显著直接写成“没有关系”，最容易出现的就是过度解释；如果直接跳过不写，又会让读者怀疑你在回避结果。',
+        riskEn:
+          'If non-significance is written immediately as no relationship, the common danger is over-interpretation; if it is skipped entirely, readers may suspect the result is being avoided.',
+        checklistZh: [
+          '1. 结果本身是否已客观呈现。',
+          '2. 证据强度是否已被单独判断。',
+          '3. 解释是否区分了“没有效果”和“没有证据”。',
+        ],
+        checklistEn: [
+          '1. Has the result itself been presented objectively?',
+          '2. Has the strength of evidence been judged separately?',
+          '3. Does the interpretation distinguish between no effect and no evidence?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套能稳住不显著结果写法的解释框架。',
+        deliverableEn:
+          'After this round, you should have an interpretation framework that can handle non-significant results without panic.',
+        closeZh:
+          '不显著结果真正考验的，不是运气，而是作者对证据边界的判断力。',
+        closeEn:
+          'What non-significant results really test is not luck but the writer’s judgment about evidentiary boundaries.',
+      },
+      'revision-defense': {
+        titleZh: '审稿人要稳健性怎么办：补关键检验，不补表演型检验',
+        titleEn:
+          'What if the reviewer asks for robustness checks? Add the critical tests, not performative ones',
+        introZh:
+          '很多人收到“建议增加稳健性检验”的意见后，会下意识地不断往上堆检验，好像做得越多越安全。但返修真正难的是判断审稿人的核心担忧在哪里。',
+        introEn:
+          'When writers receive a comment asking for more robustness checks, the instinct is often to keep piling on tests as if more automatically means safer. Yet the real challenge in revision is identifying the reviewer’s core concern.',
+        zhihuAngleZh:
+          '知乎里关于“审稿人要补稳健性怎么回”的经验，常会提醒别陷进表演型检验，重点是命中评审真正不放心的识别点。',
+        zhihuAngleEn:
+          'Zhihu advice on responding to reviewer requests for more robustness checks often warns against performative testing and stresses the need to hit the identification point the reviewer actually doubts.',
+        strategyZh:
+          '更稳的返修方式，是先把评论翻译成“他究竟在担心什么”，再决定哪一个检验最能回应，而不是把所有能想到的方式都做一遍。',
+        strategyEn:
+          'A steadier revision method is to translate the comment into the specific concern it reflects and then decide which one test responds best instead of running every possible test you can think of.',
+        stepsZh: [
+          '先把审稿意见改写成一条明确担忧。',
+          '再选择最能回应这条担忧的关键检验。',
+          '最后在回复信里解释为什么这个检验比其他备选更贴近问题。',
+        ],
+        stepsEn: [
+          'Rewrite the reviewer comment into one explicit concern first.',
+          'Choose the single most relevant test for that concern.',
+          'Explain in the response file why this test is closer to the issue than the alternative options.',
+        ],
+        submissionZh:
+          '如果这一步做得准，返修会显得很专业，因为你回应的是担忧本身，而不是机械堆工作量。',
+        submissionEn:
+          'When this step is done precisely, the revision feels professional because it answers the concern itself rather than mechanically displaying extra labor.',
+        riskZh:
+          '如果把返修理解成“多做一点总没错”，最容易掉进的就是检验越来越多、主线越来越散，回复却还是没有真正命中评审的问题。',
+        riskEn:
+          'If revision is treated as more is always safer, the usual trap is that the tests multiply, the main line spreads, and the response still fails to answer the reviewer’s real question.',
+        checklistZh: [
+          '1. 审稿意见里的核心担忧是否已经被翻译出来。',
+          '2. 是否选中了最关键的回应检验。',
+          '3. 回复信是否说明了为什么这样补最贴近问题。',
+        ],
+        checklistEn: [
+          '1. Has the core concern inside the reviewer comment been translated explicitly?',
+          '2. Was the most critical response test selected?',
+          '3. Does the response letter explain why this addition fits the issue best?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更聚焦的稳健性返修方案和一段更能说服人的回复说明。',
+        deliverableEn:
+          'After this round, you should have a more focused robustness revision plan and a more persuasive explanation in the response file.',
+        closeZh:
+          '返修里的稳健性真正比拼的，不是数量，而是判断是否打中了评论背后的担忧。',
+        closeEn:
+          'What robustness revision really tests is not quantity but whether the judgment hits the concern behind the comment.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'reviewer-response',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'response mindset、Cover Letter、回复信和 final QA',
+    focusEn: 'response mindset, cover letters, response files, and final QA',
+    evidenceZh: '问题清单、期刊匹配说明、回复信和最终校对单',
+    evidenceEn: 'question lists, journal-fit notes, response files, and final QA sheets',
+    standardZh: '重点不是把每个文件写得单独漂亮，而是让它们一起服务同一条主线。',
+    standardEn:
+      'The goal is not to make each file sound polished in isolation but to make all of them serve one shared line.',
+    articles: {
+      proposal: {
+        titleZh: '开题就练 response mindset：未来最可能被问哪三类问题',
+        titleEn:
+          'Practice a response mindset during the proposal: which three kinds of questions are most likely to come later',
+        introZh:
+          '很多人直到答辩或投稿后才第一次认真想“别人会怎么问我”。其实这种 response mindset 越早练，后面越不容易被临时追问打乱节奏。',
+        introEn:
+          'Many writers only seriously ask how others might question them once defense or submission is already underway. Yet the earlier a response mindset is practiced, the less likely later questioning is to break the rhythm of the project.',
+        zhihuAngleZh:
+          '知乎里关于“答辩紧张怎么办”的讨论，经常会提到一个共同经验：别只准备你想说什么，也要准备别人最可能怎么拆你的说法。',
+        zhihuAngleEn:
+          'Zhihu discussions on handling defense anxiety often repeat one shared lesson: do not prepare only what you want to say; prepare how others are most likely to dismantle what you say.',
+        strategyZh:
+          '更稳的开题训练，是提前列出未来最可能出现的三类问题：可行性质疑、贡献性质疑、方法性质疑。只要现在就开始按这三类反问自己，后面很多临时慌乱都会明显减少。',
+        strategyEn:
+          'A steadier proposal-stage practice is to list the three question types most likely to appear later: feasibility challenges, contribution challenges, and method challenges. Once you begin testing your own project against those three types now, much later panic disappears.',
+        stepsZh: [
+          '先列出最可能被问的三类问题。',
+          '再为每类问题各写一条简短回应。',
+          '最后检查现有题目和结构是否已经能支撑这些回应。',
+        ],
+        stepsEn: [
+          'List the three types of questions you are most likely to face later.',
+          'Write one short response line for each type.',
+          'Check whether the current topic and structure can already support those responses.',
+        ],
+        submissionZh:
+          '如果后面会投稿，这种 response mindset 非常有用，因为编辑信、审稿意见和答辩追问，本质上都在测试你能否稳定回应别人最在意的那几件事。',
+        submissionEn:
+          'If submission is a later goal, this response mindset is extremely useful because editor letters, reviewer comments, and defense questions all test whether you can answer the few things others care about most with stability.',
+        riskZh:
+          '如果前期完全不练回应视角，最容易出现的就是自己写的时候觉得很顺，一被追问却发现论证其实没有准备好。',
+        riskEn:
+          'If the response perspective is never practiced early, the common result is that the draft feels smooth while being written and then suddenly looks unprepared as soon as questions arrive.',
+        checklistZh: [
+          '1. 是否已经列出三类高概率问题。',
+          '2. 每类问题是否已有一条简短回应。',
+          '3. 现有结构是否能撑住这些回应。',
+        ],
+        checklistEn: [
+          '1. Have the three high-probability question types been listed?',
+          '2. Does each type already have one short response line?',
+          '3. Can the current structure support those responses?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套初步 response mindset 清单，而不是只会正向介绍自己的题目。',
+        deliverableEn:
+          'After this round, you should have an initial response-mindset checklist instead of only a forward-facing description of your topic.',
+        closeZh:
+          '越早练会从别人的问题倒看自己的论文，后面真正被问到时就越不会慌。',
+        closeEn:
+          'The earlier you learn to look back at your paper through other people’s questions, the steadier you become when those questions actually arrive.',
+      },
+      'literature-review': {
+        titleZh: 'Cover Letter 不是摘要复述：先写 journal fit 的逻辑',
+        titleEn:
+          'A cover letter is not a repeated abstract: write the journal-fit logic first',
+        introZh:
+          '很多 Cover Letter 看起来很工整，却只是把摘要换个口气再写一遍。真正缺失的，往往是“为什么这篇稿件适合这个刊物和它的读者”。',
+        introEn:
+          'Many cover letters look polished and still function only as abstracts in a different tone. What is usually missing is the logic of why the manuscript fits this journal and its readers specifically.',
+        zhihuAngleZh:
+          '知乎里关于“Cover Letter 怎么写”的讨论，经常会提到一点：编辑不是只想知道你研究了什么，更想知道为什么这篇稿件应该在这里被看见。',
+        zhihuAngleEn:
+          'Zhihu discussions on writing cover letters often point out that editors want not only to know what the paper studied but why this manuscript should be seen here.',
+        strategyZh:
+          '更稳的 Cover Letter 起点，是先写 journal fit：这个刊物关心什么读者、什么问题、什么方法或材料风格，而你的稿件为什么正好能接进去。没有这层逻辑，Cover Letter 很容易沦为摘要副本。',
+        strategyEn:
+          'A steadier starting point for the cover letter is journal fit: what readers, problems, and method or material styles the journal cares about and why your manuscript can enter exactly there. Without that logic, the cover letter easily degrades into an abstract copy.',
+        stepsZh: [
+          '先写清目标期刊最关心的读者和议题。',
+          '再说明你的稿件在哪一点和它的范围真正贴合。',
+          '最后才简要交代研究内容和贡献。',
+        ],
+        stepsEn: [
+          'Write clearly who the journal’s readers are and which issues it cares about first.',
+          'Then explain at what point your manuscript genuinely fits that scope.',
+          'Only after that summarize the study content and contribution briefly.',
+        ],
+        submissionZh:
+          '如果这一步做好，后面不管是第一次投稿还是重投新刊，改动都会更聚焦，因为你调整的是 journal fit，而不是只换措辞。',
+        submissionEn:
+          'If this step is done well, both first submissions and resubmissions become more focused because the revision targets journal fit rather than mere wording.',
+        riskZh:
+          '如果 Cover Letter 只是摘要复述，最常见的后果就是编辑仍然不知道为什么这篇稿件应该送进这个刊物的审稿流程。',
+        riskEn:
+          'If the cover letter only repeats the abstract, the common outcome is that the editor still does not know why this manuscript belongs in the review process of this journal.',
+        checklistZh: [
+          '1. 目标期刊的读者和议题是否已写清。',
+          '2. 稿件和期刊范围的贴合点是否已明确说明。',
+          '3. Cover Letter 是否不再只是摘要复述。',
+        ],
+        checklistEn: [
+          '1. Are the journal’s readers and issues clearly named?',
+          '2. Is the fit point between the manuscript and the journal scope explicit?',
+          '3. Has the cover letter moved beyond repeating the abstract?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版真正围绕 journal fit 展开的 Cover Letter 底稿。',
+        deliverableEn:
+          'After this round, you should have a cover-letter draft genuinely built around journal fit.',
+        closeZh:
+          'Cover Letter 真正打动编辑的时候，不是摘要写得更顺，而是 fit 逻辑写得更准。',
+        closeEn:
+          'A cover letter persuades an editor not when it sounds like a smoother abstract but when its fit logic is sharper.',
+      },
+      'methods-analysis': {
+        titleZh: '回复审稿人意见怎么写：逐条回应，但别失去主线',
+        titleEn:
+          'How should reviewer comments be answered? Respond point by point without losing the main line',
+        introZh:
+          '很多回复信最大的问题不是不礼貌，而是太碎。每一条都回应了，整份文件却像一堆局部补丁，看不出作者到底在如何系统修复稿件。',
+        introEn:
+          'The biggest problem in many response files is not tone but fragmentation. Every point may be answered, yet the document still reads like a pile of local patches with no sense of how the manuscript is being repaired as a whole.',
+        zhihuAngleZh:
+          '知乎里关于“回复审稿人意见”的经验，经常会提到一句话：逐条回应是形式，保持主线才是能力。',
+        zhihuAngleEn:
+          'Zhihu advice on responding to reviewers often condenses into one sentence: point-by-point response is the form, keeping the main line is the real skill.',
+        strategyZh:
+          '更稳的回复写法，是每条先明确承认问题，再说明修改动作，最后回到主线，解释这项修改如何让整篇稿件更稳。这样逐条回应也不会把全文拆散。',
+        strategyEn:
+          'A steadier response pattern states the issue clearly, explains the revision action, and then returns to the main line by showing how that change strengthens the manuscript as a whole. This keeps point-by-point response from scattering the paper.',
+        stepsZh: [
+          '先把评论译成一个明确的问题，而不是直接上解释。',
+          '再写你具体改了什么、改在何处。',
+          '最后补一句这项修改对整篇稿件意味着什么。',
+        ],
+        stepsEn: [
+          'Translate the comment into one clear problem before beginning the explanation.',
+          'State what was revised and where it was revised.',
+          'Add one sentence explaining what this change means for the manuscript as a whole.',
+        ],
+        submissionZh:
+          '如果回复信能做到这一点，返修质量会显得高很多，因为评审看到的不只是你很认真，而是你真的知道每条评论与主线的关系。',
+        submissionEn:
+          'When the response file does this well, the revision appears much stronger because reviewers see not only effort but a real understanding of how each comment connects to the main line.',
+        riskZh:
+          '如果回复只剩碎片动作，最容易出现的就是每条都在改，整篇稿件却还是没有被真正重新拧紧。',
+        riskEn:
+          'If the response is reduced to fragmented actions, the common result is that every point changes while the manuscript as a whole still fails to retighten.',
+        checklistZh: [
+          '1. 每条评论是否都被转写成明确问题。',
+          '2. 修改动作和位置是否已写清。',
+          '3. 是否补上了“这对主线意味着什么”的说明。',
+        ],
+        checklistEn: [
+          '1. Has each comment been translated into a clear problem statement?',
+          '2. Are the revision action and location stated clearly?',
+          '3. Does the response explain what the change means for the main line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一份既逐条回应、又能看见整体修复逻辑的回复信。',
+        deliverableEn:
+          'After this round, you should have a response file that is both point-by-point and visibly guided by an overall repair logic.',
+        closeZh:
+          '回复信真正成熟的时候，不是每条都回了，而是每条都还能回到同一条主线。',
+        closeEn:
+          'A response file becomes truly mature not when every point is answered but when every answer can still return to the same main line.',
+      },
+      'revision-defense': {
+        titleZh: 'proof 校样到底看什么：用 final QA list 收最后一轮',
+        titleEn:
+          'What exactly should be checked in page proofs? Use a final QA list to close the last round',
+        introZh:
+          '很多人进入 proof 阶段后会放松，以为大局已定，只需随手看下拼写。结果最容易漏掉的恰恰是图表编号、链接、作者信息、声明文本和术语一致性这些最后还会出错的细节。',
+        introEn:
+          'Many writers relax once the proof stage begins and assume the major work is already done, checking only spelling casually. Yet the details most likely to fail here are figure numbering, links, author information, disclosure text, and terminology consistency.',
+        zhihuAngleZh:
+          '知乎里关于“proof 阶段还要注意什么”的经验通常都会提醒：别把 proof 当成形式流程，它其实是最后一次完整 QA。',
+        zhihuAngleEn:
+          'Zhihu discussions on what to watch during the proof stage usually share the same reminder: do not treat proofs as a formality; they are the last complete QA round.',
+        strategyZh:
+          '更稳的做法，是提前列一个 final QA list，按标题、作者、摘要、正文、图表、参考文献、附件链接、声明文本和术语一致性逐项核对。这样最后一轮不会只靠眼缘。',
+        strategyEn:
+          'A steadier approach is to prepare a final QA list in advance and check title, authors, abstract, body, figures, references, supplement links, disclosure text, and terminology consistency one by one. Then the last round stops depending on casual visual scanning.',
+        stepsZh: [
+          '先把 final QA list 按模块列出来。',
+          '再按顺序完整通读 proof，而不是哪儿顺眼看哪儿。',
+          '最后把发现的问题按允许修改范围整理提交。',
+        ],
+        stepsEn: [
+          'Build the final QA list by module first.',
+          'Read through the proof in sequence instead of checking random items that catch the eye.',
+          'Organize the discovered issues according to what the proof stage allows to be corrected.',
+        ],
+        submissionZh:
+          '如果这一步做得细，最后的正式版本会稳很多。很多所谓的“小错误”其实直接影响可读性、可追溯性和专业感。',
+        submissionEn:
+          'When this step is done carefully, the final published version becomes much steadier. Many so-called small errors directly affect readability, traceability, and professionalism.',
+        riskZh:
+          '如果 proof 阶段只被当成收尾形式，最容易出现的就是文字没问题，但编号、链接、说明和版本信息悄悄出错。',
+        riskEn:
+          'If the proof stage is treated as a mere closing formality, the common result is that the wording remains fine while numbering, links, notes, and version details quietly break.',
+        checklistZh: [
+          '1. final QA list 是否已分模块列好。',
+          '2. proof 是否按顺序完整通读过。',
+          '3. 问题是否已按允许修改范围整理。',
+        ],
+        checklistEn: [
+          '1. Has the final QA list been prepared by module?',
+          '2. Has the proof been read through completely in order?',
+          '3. Have the issues been organized according to the allowed correction range?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一份真正能撑住最后版本的 QA 清单和修正表。',
+        deliverableEn:
+          'After this round, you should have a QA list and correction sheet that can genuinely protect the final version.',
+        closeZh:
+          'proof 阶段真正值钱的，不是再润色一句，而是把最后可能掉链子的细节全部收住。',
+        closeEn:
+          'What makes the proof stage valuable is not polishing one more sentence but closing every detail that could still break at the very end.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {
