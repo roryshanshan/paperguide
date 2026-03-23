@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import type { Media, Page, Post, Config } from '../payload-types'
 
+import { getMediaUrl } from './getMediaUrl'
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
 
@@ -11,9 +12,11 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   let url = serverUrl + '/website-template-OG.webp'
 
   if (image && typeof image === 'object' && 'url' in image) {
-    const ogUrl = image.sizes?.og?.url
+    const ogUrl = getMediaUrl(image.sizes?.og?.url || image.url)
 
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
+    if (ogUrl) {
+      url = ogUrl.startsWith('http') ? ogUrl : serverUrl + ogUrl
+    }
   }
 
   return url

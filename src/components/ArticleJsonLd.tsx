@@ -2,6 +2,7 @@ import React from 'react'
 
 import type { Post } from '@/payload-types'
 
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const getImageUrl = (post: Post) => {
@@ -14,7 +15,13 @@ const getImageUrl = (post: Post) => {
 
   if (!image?.url) return `${getServerSideURL()}/website-template-OG.webp`
 
-  return `${getServerSideURL()}${image.sizes?.og?.url || image.url}`
+  const resolvedUrl = getMediaUrl(image.sizes?.og?.url || image.url)
+
+  if (!resolvedUrl) {
+    return `${getServerSideURL()}/website-template-OG.webp`
+  }
+
+  return resolvedUrl.startsWith('http') ? resolvedUrl : `${getServerSideURL()}${resolvedUrl}`
 }
 
 export const ArticleJsonLd: React.FC<{
