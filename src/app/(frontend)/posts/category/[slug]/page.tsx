@@ -69,6 +69,21 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
       } => Boolean(section.post),
     )
     .slice(0, RECOMMENDED_PATH_STEPS)
+  const featuredQuestionCards = hubEnhancement
+    ? hubEnhancement.featuredQuestions[locale].map((question, index) => {
+        const linkedStage = postStages[index]
+        const linkedSection = linkedStage
+          ? stageSections.find((section) => section.stage.slug === linkedStage.slug)
+          : null
+        const linkedPost = linkedSection?.posts.at(-1) || matchingPosts.at(index) || null
+
+        return {
+          href: linkedPost?.slug ? `/posts/${linkedPost.slug}` : null,
+          question,
+          stageLabel: linkedStage?.labels[locale] || null,
+        }
+      })
+    : []
   const stagePathCopy: Record<
     string,
     {
@@ -173,14 +188,41 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {hubEnhancement.featuredQuestions[locale].map((question) => (
-                <div
-                  className="rounded-[1.5rem] border border-slate-200/80 bg-slate-50/70 p-5"
-                  key={question}
-                >
-                  <p className="text-sm leading-7 text-slate-700">{question}</p>
-                </div>
-              ))}
+              {featuredQuestionCards.map((item) => {
+                const cardClassName =
+                  'rounded-[1.5rem] border border-slate-200/80 bg-slate-50/70 p-5 transition hover:border-[#fdba74] hover:bg-[#fff7ed]'
+
+                if (!item.href) {
+                  return (
+                    <div className={cardClassName} key={item.question}>
+                      {item.stageLabel && (
+                        <p className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                          {item.stageLabel}
+                        </p>
+                      )}
+                      <p className="mt-2 text-sm leading-7 text-slate-700">{item.question}</p>
+                    </div>
+                  )
+                }
+
+                return (
+                  <Link className={`block ${cardClassName}`} href={item.href} key={item.question}>
+                    <div className="flex items-start justify-between gap-4">
+                      {item.stageLabel ? (
+                        <p className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                          {item.stageLabel}
+                        </p>
+                      ) : (
+                        <span />
+                      )}
+                      <span className="text-xs font-medium text-[#c2410c]">
+                        {locale === 'en' ? 'Open' : '查看'}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-7 text-slate-700">{item.question}</p>
+                  </Link>
+                )
+              })}
             </div>
           </section>
 
