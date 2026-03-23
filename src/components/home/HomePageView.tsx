@@ -12,11 +12,21 @@ import type { SiteLocale } from '@/utilities/siteLocale'
 const serviceIcons = [GraduationCap, Sparkles, ShieldCheck]
 const mentorIcons = [Handshake, BookOpenText, BadgeCheck]
 
+export type HomepageStarterPath = {
+  articleTitle: string
+  categoryLabel: string
+  description: string
+  href: string
+  routeLabel: string
+  stageLabel: string
+}
+
 export const HomePageView: React.FC<{
   articles: CardPostData[]
   content: HomepageFallback
   locale: SiteLocale
-}> = ({ articles, content, locale }) => {
+  starterPaths: HomepageStarterPath[]
+}> = ({ articles, content, locale, starterPaths }) => {
   const articleCopy =
     locale === 'en'
       ? {
@@ -40,6 +50,7 @@ export const HomePageView: React.FC<{
           services: 'Academic Support',
           stories: 'Student Outcomes',
           topics: 'Writing Topic Hubs',
+          paths: 'Starter Routes',
         }
       : {
           articles: '内容中心',
@@ -50,6 +61,7 @@ export const HomePageView: React.FC<{
           services: '论文辅导',
           stories: '学员结果',
           topics: '写作专题',
+          paths: '起步路线',
         }
   const consultationCopy =
     locale === 'en'
@@ -305,6 +317,62 @@ export const HomePageView: React.FC<{
 
         <PostTopicHubGrid locale={locale} />
       </section>
+
+      {starterPaths.length > 0 && (
+        <section className="container mt-24">
+          <div className="mb-10 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">{sectionCopy.paths}</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                {locale === 'en'
+                  ? 'Start from a route, not from a random article'
+                  : '先走一条起步路线，而不是随机点进一篇文章'}
+              </h2>
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+                {locale === 'en'
+                  ? 'These picks are designed for readers who want one useful first read before diving into the full topic hub.'
+                  : '这几条路线适合想先找一篇真正有用的起步文章，再慢慢进入整个专题频道的读者。'}
+              </p>
+            </div>
+            <Link
+              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-slate-950"
+              href="/posts"
+            >
+              {locale === 'en' ? 'Browse all guides' : '浏览全部文章'}
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-4">
+            {starterPaths.map((path) => (
+              <Link
+                className="group rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#99f6e4] hover:shadow-[0_22px_60px_rgba(15,23,42,0.1)]"
+                href={path.href}
+                key={`${path.categoryLabel}-${path.articleTitle}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <span className="inline-flex rounded-full border border-[#ccfbf1] bg-[#f0fdfa] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0f766e]">
+                    {path.routeLabel}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-slate-400 transition group-hover:text-[#0f766e]">
+                    {path.stageLabel}
+                  </span>
+                </div>
+
+                <p className="mt-5 text-xs uppercase tracking-[0.24em] text-slate-500">{path.categoryLabel}</p>
+                <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                  {path.articleTitle}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{path.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition group-hover:text-[#0f766e]">
+                  {locale === 'en' ? 'Open first read' : '打开起步文章'}
+                  <ArrowRight className="size-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="container mt-24">
         <div className="mb-10 flex items-end justify-between gap-4">
