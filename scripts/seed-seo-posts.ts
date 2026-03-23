@@ -390,6 +390,12 @@ const categoryLocaleLabels: Record<string, { en: string; zh: string }> = {
   'structure-abstract-writing': { zh: '摘要引言与结构写作', en: 'Structure Writing' },
   'methods-data-presentation': { zh: '方法设计与结果表达', en: 'Methods and Data' },
   'submission-defense-workflow': { zh: '返修投稿与答辩', en: 'Revision and Submission' },
+  'academic-voice-argument': { zh: '学术表达与论证语言', en: 'Academic Voice and Argument' },
+  'research-integrity-ethics': { zh: '研究伦理与学术规范', en: 'Research Integrity and Ethics' },
+  'global-publishing-peer-review': {
+    zh: '国际投稿与同行评审',
+    en: 'Global Publishing and Peer Review',
+  },
 }
 
 const writingHubs: WritingHubConfig[] = [
@@ -11258,15 +11264,17 @@ async function main() {
   )
 
   const uniqueFilenames = Array.from(new Set(catalog.map((post) => post.imageFilename)))
-  const mediaDocs = await Promise.all(uniqueFilenames.map((name) => ensureMedia(payload, name)))
-  const mediaByFilename = new Map(mediaDocs.map((doc) => [doc.filename, doc]))
+  const mediaEntries = await Promise.all(
+    uniqueFilenames.map(async (name) => [name, await ensureMedia(payload, name)] as const),
+  )
+  const mediaByFilename = new Map(mediaEntries)
 
-  const categoryDocs = await Promise.all(
-    Object.entries(categoryLocaleLabels).map(([slug, titles]) =>
-      ensureCategory(payload, slug, titles.zh, titles.en),
+  const categoryEntries = await Promise.all(
+    Object.entries(categoryLocaleLabels).map(
+      async ([slug, titles]) => [slug, await ensureCategory(payload, slug, titles.zh, titles.en)] as const,
     ),
   )
-  const categoriesBySlug = new Map(categoryDocs.map((doc) => [doc.slug, doc]))
+  const categoriesBySlug = new Map(categoryEntries)
 
   const existingPosts = await loadExistingPostsBySlug(
     payload,
@@ -11284,7 +11292,12 @@ async function main() {
     const existing = existingPosts.get(post.slug)
 
     if (!category || !heroImage) {
-      throw new Error(`Missing category or media for post ${post.slug}`)
+      const missingParts = [
+        !category ? `category:${post.categorySlug}` : null,
+        !heroImage ? `media:${post.imageFilename}` : null,
+      ].filter(Boolean)
+
+      throw new Error(`Missing ${missingParts.join(' and ')} for post ${post.slug}`)
     }
 
     if (!existing) {
