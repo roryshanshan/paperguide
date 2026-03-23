@@ -25,9 +25,9 @@ import { LivePreviewListener } from '@/components/LivePreviewListener'
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const posts = await payload
-    .find({
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const posts = await payload.find({
       collection: 'posts',
       draft: false,
       limit: 1000,
@@ -37,13 +37,15 @@ export async function generateStaticParams() {
         slug: true,
       },
     })
-    .catch(() => ({ docs: [] }))
 
-  const params = posts.docs.map(({ slug }) => {
-    return { slug }
-  })
-
-  return params
+    return posts.docs
+      .map(({ slug }) => slug)
+      .filter((slug): slug is string => typeof slug === 'string' && slug.length > 0)
+      .map((slug) => ({ slug }))
+  } catch (error) {
+    console.warn('[posts/[slug]] Skipping static params generation during build.', error)
+    return []
+  }
 }
 
 type Args = {

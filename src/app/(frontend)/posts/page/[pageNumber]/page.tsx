@@ -100,23 +100,24 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const { getPayload } = await import('payload')
-  const { default: config } = await import('@payload-config')
-  const payload = await getPayload({ config })
-  const { totalDocs } = await payload
-    .count({
+  try {
+    const { getPayload } = await import('payload')
+    const { default: config } = await import('@payload-config')
+    const payload = await getPayload({ config })
+    const { totalDocs } = await payload.count({
       collection: 'posts',
       overrideAccess: false,
     })
-    .catch(() => ({ totalDocs: 0 }))
+    const totalPages = Math.ceil(totalDocs / POSTS_PER_PAGE)
+    const pages: { pageNumber: string }[] = []
 
-  const totalPages = Math.ceil(totalDocs / POSTS_PER_PAGE)
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push({ pageNumber: String(i) })
+    }
 
-  const pages: { pageNumber: string }[] = []
-
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
+    return pages
+  } catch (error) {
+    console.warn('[posts/page/[pageNumber]] Skipping static params generation during build.', error)
+    return []
   }
-
-  return pages
 }
