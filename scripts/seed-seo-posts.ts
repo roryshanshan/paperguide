@@ -3843,6 +3843,1156 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'research-topic',
+    topicSlug: 'contribution-boundary',
+    categorySlug: 'research-topic-planning',
+    labelZh: '选题与问题定义',
+    labelEn: 'Topic Selection',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '创新点表达、贡献边界和研究承诺控制',
+    focusEn: 'novelty framing, contribution boundaries, and promise control',
+    evidenceZh: '选题版本、对比文献和贡献句迭代记录',
+    evidenceEn: 'topic versions, comparison literature, and contribution sentence revisions',
+    standardZh: '重点不是把创新点喊得更大，而是让贡献承诺和可完成工作真正匹配。',
+    standardEn:
+      'The goal is not to make the novelty claim sound bigger but to match the promised contribution with work that can actually be completed.',
+    articles: {
+      proposal: {
+        titleZh: '导师总说创新点太虚？开题时先把贡献边界写清楚',
+        titleEn:
+          'Does the advisor keep saying the novelty claim is vague? Define the contribution boundary clearly during the proposal stage',
+        introZh:
+          '很多人一写开题就急着证明自己有创新，于是把“首次”“系统”“全面”一类的大词先放上去，但真正问到你到底比前人多做了哪一步、少承诺了哪一步时，答复却很容易发虚。',
+        introEn:
+          'Many writers rush to prove novelty as soon as the proposal begins, filling the page with large words such as first, systematic, or comprehensive. Yet when asked which step the project actually adds beyond earlier work and which step it intentionally does not promise, the answer often becomes unstable.',
+        zhihuAngleZh:
+          '知乎里关于“创新点怎么写才不空”的高频讨论，常会指出一个共同问题：大家更会放大意义，却不擅长给创新点画边界。',
+        zhihuAngleEn:
+          'High-frequency Zhihu discussions on writing novelty without sounding empty often point to one shared weakness: writers are much better at enlarging significance than at drawing a boundary around the claim.',
+        strategyZh:
+          '更稳的开题写法，是先把贡献拆成“已有研究做到哪里、我准备推进哪半步、我明确不承担哪一段”。只要这三句能并排站住，创新点就不再是口号，而会变成可核查的研究承诺。',
+        strategyEn:
+          'A steadier proposal-stage practice is to split the contribution into three statements: how far prior work has gone, which half-step your project will advance, and which part you explicitly do not claim to solve. Once those three statements can stand side by side, the novelty claim stops being a slogan and becomes a checkable research commitment.',
+        stepsZh: [
+          '先用一句话写清前人已经做到的最近位置。',
+          '再补一句你准备推进的最小新增动作。',
+          '最后写一句明确边界，说明这篇研究不打算解决什么。',
+        ],
+        stepsEn: [
+          'Write one sentence naming the latest point prior work has already reached.',
+          'Add one sentence describing the smallest new move your project will make.',
+          'Finish with one sentence marking the boundary of what this study will not attempt to solve.',
+        ],
+        submissionZh:
+          '如果以后还想投稿，这一步特别值钱，因为编辑和审稿人往往不是被大词打动，而是被一种“这个作者知道自己到底在补哪一块”的稳定感说服。',
+        submissionEn:
+          'If the work may later be submitted, this step is especially valuable because editors and reviewers are rarely persuaded by large words alone. They are persuaded by the sense that the author knows exactly which gap is being filled.',
+        riskZh:
+          '如果创新点一直只写成宏大表达，最常见的后果就是开题能讲得热闹，真正进入综述、方法和结果时却没有一条可持续支撑的主线。',
+        riskEn:
+          'If the novelty claim remains only a grand expression, the common result is a lively proposal presentation but no durable main line once the review, methods, and results begin.',
+        checklistZh: [
+          '1. 是否已经区分前人做到哪里与本研究只多走哪一步。',
+          '2. 是否写明了本研究明确不承担的部分。',
+          '3. 创新点是否已经从大词变成可核查动作。',
+        ],
+        checklistEn: [
+          '1. Have you separated what prior work already achieved from the one step this study adds?',
+          '2. Have you written down the part this study explicitly does not promise?',
+          '3. Has the novelty claim moved from large wording to a checkable action?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更稳的贡献句、一个更收束的题目说明，以及一条能贯穿后文的研究承诺。',
+        deliverableEn:
+          'After this round, you should have a steadier contribution sentence, a more focused topic explanation, and a research commitment that can hold through later sections.',
+        closeZh:
+          '真正站得住的创新点，往往不是喊得最大，而是边界最清楚。',
+        closeEn:
+          'The novelty claim that truly stands is usually not the loudest one but the one with the clearest boundary.',
+      },
+      'literature-review': {
+        titleZh: '综述里别把所有文章都写成铺垫：用贡献边界区分“可继承”和“先不做”',
+        titleEn:
+          'Do not turn every paper into background in the review: use contribution boundaries to separate what you inherit from what you leave aside',
+        introZh:
+          '很多人写文献综述时习惯把前人研究全部当成“背景”，结果综述越来越厚，自己的位置反而越来越模糊，因为没有真正判断哪些文献是你要继承的，哪些只是暂时不做的邻近路线。',
+        introEn:
+          'Many writers treat all prior studies as background when drafting the review. The result is a thicker and thicker review with a blurrier and blurrier project position, because no real judgment is made about which literature lines are inherited and which neighboring routes are being left aside for now.',
+        zhihuAngleZh:
+          '知乎上关于“综述越写越看不出自己做什么”的讨论，经常会提到一个原因：读了很多，但没有把“借什么”和“不接什么”分开。',
+        zhihuAngleEn:
+          'Zhihu discussions on reviews that become longer while hiding the author’s own direction often point to one cause: reading a lot without separating what the project will borrow from what it will deliberately not take on.',
+        strategyZh:
+          '更稳的综述组织法，是把文献分成三类：直接支撑你问题线的、帮助你界定边界的、以及虽然相关但这次不进入正文主线的。这样综述就不再只是“文献越多越好”，而会开始服务你的贡献边界。',
+        strategyEn:
+          'A steadier review structure is to divide the literature into three classes: studies that directly support your problem line, studies that help define the project boundary, and studies that are related but will not enter the central line this time. The review then stops following a more-is-better logic and begins serving the boundary of your contribution.',
+        stepsZh: [
+          '先标出直接决定你问题位置的核心文献。',
+          '再挑出那些主要用于界定边界的邻近文献。',
+          '最后把看似相关但暂时不进入主线的材料另存说明。',
+        ],
+        stepsEn: [
+          'Mark the core studies that directly determine your problem position first.',
+          'Then identify the adjacent studies used mainly to define the project boundary.',
+          'Store the materials that look related but will not enter the main line in a separate explanatory note.',
+        ],
+        submissionZh:
+          '如果后面要写投稿型引言，这种边界式综述会非常有帮助，因为它能让你更自然地解释“为什么这篇稿件只回答这个问题，而不扩到另一个看似相关的问题”。',
+        submissionEn:
+          'If the project later becomes a submission-oriented introduction, this boundary-based review is highly useful because it lets you explain naturally why the manuscript answers this question rather than expanding into another merely adjacent one.',
+        riskZh:
+          '如果综述不区分继承与边界，最容易出现的就是文章看起来很努力、文献很多，但读者还是抓不到你真正准备补哪一块。',
+        riskEn:
+          'If the review never separates inheritance from boundary setting, the common result is a hardworking-looking manuscript full of literature while readers still cannot locate the specific piece you intend to add.',
+        checklistZh: [
+          '1. 综述中是否已经区分核心支撑文献与边界文献。',
+          '2. 是否保留了“不进入主线”的说明空间。',
+          '3. 文献组织是否已经开始服务贡献边界而不是堆量。',
+        ],
+        checklistEn: [
+          '1. Does the review now distinguish between core support literature and boundary-setting literature?',
+          '2. Is there a place to explain what will not enter the main line?',
+          '3. Has the literature organization begun serving the contribution boundary instead of mere volume?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一份更像“研究位置图”的综述提纲，而不是一份不断变厚的背景材料。',
+        deliverableEn:
+          'After this round, you should have a review outline that behaves more like a research position map than a continuously thickening background file.',
+        closeZh:
+          '综述真正让位置清楚的，不是全写进去，而是知道哪些要留下、哪些先放下。',
+        closeEn:
+          'What truly clarifies your position in a review is not writing everything in but knowing what to keep and what to set aside.',
+      },
+      'methods-analysis': {
+        titleZh: '方法设计别替创新点背锅：让贡献承诺和证据强度真正匹配',
+        titleEn:
+          'Do not let the method carry an oversized novelty claim: make the promised contribution match the strength of the evidence',
+        introZh:
+          '很多项目的问题不在于方法太弱，而在于前面承诺得太满，导致后面的数据、案例或分析手段被迫去承担一个它本来不需要承担的创新强度。',
+        introEn:
+          'Many projects are not weakened because the method itself is poor. They are weakened because the front-end promise became too large, forcing the later data, cases, or analytical tools to carry a level of novelty they were never meant to support.',
+        zhihuAngleZh:
+          '知乎里关于“为什么方法一写就显得撑不起题目”的讨论，常会回到同一个原因：题目和贡献写大了，方法部分只能被动补台。',
+        zhihuAngleEn:
+          'Zhihu discussions on why methods suddenly seem unable to support the topic often return to one reason: the title and contribution were written too large, leaving the method section to rescue an oversized promise.',
+        strategyZh:
+          '更稳的方法设计，不是盲目再加一个模型或再扩一组样本，而是先反过来问：现有证据链最有把握支撑哪一级判断。只要让贡献承诺降到证据真正能托住的位置，整篇论文会立刻稳定很多。',
+        strategyEn:
+          'A steadier method design is not to blindly add another model or expand another sample set but to ask in reverse which level of judgment the existing evidence chain can actually support. Once the promised contribution drops to the level the evidence can truly hold, the whole manuscript becomes much more stable.',
+        stepsZh: [
+          '先判断现有数据和分析最多能支持哪一级结论。',
+          '再对照前文贡献句，删掉超出证据强度的承诺。',
+          '最后让方法说明明确服务于缩稳后的判断目标。',
+        ],
+        stepsEn: [
+          'Judge first what level of conclusion the current data and analysis can realistically support.',
+          'Compare that level with the contribution sentence and remove promises exceeding the evidence strength.',
+          'Then rewrite the method explanation so it clearly serves the narrowed and steadier judgment target.',
+        ],
+        submissionZh:
+          '如果以后要送审，这一步能显著减少“结论说得太满”的风险，因为审稿人通常不会苛责边界清楚的稿件，却很容易质疑被高估的承诺。',
+        submissionEn:
+          'If the work may later be reviewed, this step sharply reduces the risk of overstated conclusions because reviewers are usually less bothered by a clearly bounded manuscript than by one with inflated promises.',
+        riskZh:
+          '如果不先调平贡献和证据，最常见的后果就是方法部分越写越复杂，但读者仍然会觉得这套设计和前面宣称的价值不匹配。',
+        riskEn:
+          'If the contribution and evidence are never brought into alignment, the common result is an increasingly complicated method section that still feels mismatched with the value announced earlier.',
+        checklistZh: [
+          '1. 现有证据链最多能支持到哪一级判断是否已经说清。',
+          '2. 贡献承诺是否已下调到证据可托住的位置。',
+          '3. 方法部分是否开始服务真实可完成的判断目标。',
+        ],
+        checklistEn: [
+          '1. Has the highest level of judgment supported by the current evidence chain been stated clearly?',
+          '2. Has the promised contribution been lowered to the level the evidence can carry?',
+          '3. Is the method section now serving a genuinely achievable judgment target?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更一致的贡献句、方法说明和结果预期，不再让方法被迫替大承诺兜底。',
+        deliverableEn:
+          'After this round, you should have a more consistent contribution line, method explanation, and result expectation instead of forcing the method to rescue an oversized promise.',
+        closeZh:
+          '方法真正显得可靠的时候，往往不是更复杂，而是终于和承诺同一尺度。',
+        closeEn:
+          'A method truly feels reliable not when it becomes more complicated but when it finally operates on the same scale as the promise.',
+      },
+      'revision-defense': {
+        titleZh: '答辩或返修时怎么守住贡献边界：别被问题带着把承诺越说越大',
+        titleEn:
+          'How do you defend the contribution boundary during defense or revision? Do not let questions drag the promise larger and larger',
+        introZh:
+          '很多人进入答辩或返修阶段后，一紧张就会把自己的研究说得越来越大，试图覆盖所有可能的追问，结果原本清楚的边界反而被自己冲散了。',
+        introEn:
+          'Many writers enter the defense or revision stage and, under pressure, begin describing the project in larger and larger terms to cover every possible challenge. The result is that the boundary that once looked clear gets dissolved by the author’s own replies.',
+        zhihuAngleZh:
+          '知乎里关于“答辩时一紧张就乱承诺怎么办”的经验，常会提醒：越到后期越要守住边界，而不是临场扩题。',
+        zhihuAngleEn:
+          'Zhihu advice on panic-driven overpromising during defense often gives one reminder: the later the stage, the more important it is to protect the boundary rather than expand the project on the spot.',
+        strategyZh:
+          '更稳的后期表达，是把高频问题都接回同一条边界说明：我这篇研究解决的是哪一段，不解决的是哪一段，下一步若继续扩展应如何做。这样既不会显得回避，也不会把现有成果说过头。',
+        strategyEn:
+          'A steadier late-stage response is to route frequent questions back to one shared boundary explanation: which segment this study solves, which segment it does not solve, and how a later extension would proceed if needed. This avoids sounding evasive while also preventing the current work from being overstated.',
+        stepsZh: [
+          '先准备一句固定的贡献边界主线。',
+          '再把常见追问改写成“本研究已完成”和“后续可延伸”两段回答。',
+          '最后练习在压力下仍然不扩大原有承诺。',
+        ],
+        stepsEn: [
+          'Prepare one fixed contribution-boundary line first.',
+          'Rewrite common challenges into two-part answers: what this study has completed and what could be extended later.',
+          'Practice keeping the original promise from expanding even under pressure.',
+        ],
+        submissionZh:
+          '如果后面还要修改成投稿稿，这种边界守法也会直接帮助 cover letter、response letter 和摘要保持一致，不会每个场景都换一套口径。',
+        submissionEn:
+          'If the manuscript later moves toward submission, this boundary discipline directly helps the cover letter, the response letter, and the abstract stay aligned instead of shifting tone in every context.',
+        riskZh:
+          '如果后期表达总被问题带着走，最常见的后果就是返修意见越答越散，答辩时也容易因为临场加码而暴露新的漏洞。',
+        riskEn:
+          'If late-stage expression keeps getting dragged by other people’s questions, the common result is a revision file that grows more scattered and a defense that exposes new weaknesses through improvised escalation.',
+        checklistZh: [
+          '1. 是否已经有一条固定的贡献边界主线。',
+          '2. 高频问题是否都能回到“已完成/可延伸”的双段回答。',
+          '3. 是否能在压力下不再扩大原有承诺。',
+        ],
+        checklistEn: [
+          '1. Do you already have one fixed contribution-boundary line?',
+          '2. Can high-frequency questions all return to a two-part answer of completed versus extendable work?',
+          '3. Can you avoid enlarging the original promise under pressure?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更稳的答辩与返修口径，让整篇研究在后期仍然保持同一条贡献边界。',
+        deliverableEn:
+          'After this round, you should have a steadier defense and revision script that keeps the research on one consistent contribution boundary.',
+        closeZh:
+          '后期最成熟的表达，不是越答越大，而是越答越清楚自己到底完成了什么。',
+        closeEn:
+          'The most mature late-stage expression is not answering bigger and bigger claims but becoming clearer and clearer about what the study actually accomplished.',
+      },
+    },
+  },
+  {
+    slug: 'literature-reading',
+    topicSlug: 'conflicting-literature',
+    categorySlug: 'literature-reading-review',
+    labelZh: '文献阅读与综述',
+    labelEn: 'Literature Review',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '冲突文献处理、分歧解释和综述判断句',
+    focusEn: 'conflicting evidence, disagreement handling, and review judgment lines',
+    evidenceZh: '对立结论文献、条件差异和判断句草稿',
+    evidenceEn: 'studies with opposing results, condition differences, and judgment sentence drafts',
+    standardZh: '重点不是把冲突研究都排成列表，而是说明它们为什么会得出不同结论。',
+    standardEn:
+      'The goal is not to list conflicting studies side by side but to explain why they arrived at different conclusions.',
+    articles: {
+      proposal: {
+        titleZh: '一开始就看到文献打架怎么办：开题时先学会写“分歧解释”',
+        titleEn:
+          'What if the literature is already fighting at the start? Learn to write a disagreement explanation during the proposal stage',
+        introZh:
+          '很多人刚做选题时就发现同一问题下的文献结论并不一致，于是要么怀疑题目有问题，要么急着挑一派站队。其实这类分歧往往不是坏事，而是研究入口。',
+        introEn:
+          'Many writers discover at the topic-selection stage that studies on the same issue do not agree with one another. They either start doubting the topic itself or rush to choose one side. Yet this kind of disagreement is often not a problem but a research entry point.',
+        zhihuAngleZh:
+          '知乎里关于“文献结论互相打架怎么办”的问题，经常会提醒一个视角：不要急着判谁对谁错，先看结论分歧背后是不是条件不同。',
+        zhihuAngleEn:
+          'Zhihu questions about studies that contradict one another often point to one perspective first: do not rush to decide who is right or wrong before checking whether the conflicting conclusions were produced under different conditions.',
+        strategyZh:
+          '更稳的开题判断，是把分歧文献先放进同一张表里，看对象、时间、样本、方法和情境是否真的相同。只要你能找出分歧来自哪里，选题就从“混乱”变成了“有问题可问”。',
+        strategyEn:
+          'A steadier proposal-stage judgment is to place conflicting studies in one shared table and compare object, period, sample, method, and context. Once you can identify where the disagreement comes from, the topic changes from confusion into a question worth asking.',
+        stepsZh: [
+          '先收集两到三组结论相反的代表性文献。',
+          '再比较它们的对象、条件和方法差异。',
+          '最后写一句解释分歧可能来自哪里的判断句。',
+        ],
+        stepsEn: [
+          'Collect two or three representative clusters of studies with opposing conclusions first.',
+          'Compare their object, conditions, and methodological differences.',
+          'Finish with one sentence explaining where the disagreement may be coming from.',
+        ],
+        submissionZh:
+          '如果后面想发展成更成熟的论文，这一步很重要，因为真正有说服力的研究通常不是重复某一派，而是解释为什么不同结论会并存。',
+        submissionEn:
+          'If the work later develops into a stronger paper, this step matters greatly because persuasive research often does not merely repeat one side. It explains why different conclusions can coexist.',
+        riskZh:
+          '如果一开始面对冲突文献只做站队，最常见的后果就是题目看似明确，后面却很难回应“为什么其他研究不是这个结果”。',
+        riskEn:
+          'If conflicting literature triggers only a quick choice of sides, the common result is a topic that appears clear but later struggles to answer why other studies did not find the same thing.',
+        checklistZh: [
+          '1. 是否已经收集到有代表性的分歧文献组。',
+          '2. 是否比较了对象、条件和方法差异。',
+          '3. 是否写出一句初步的分歧解释。',
+        ],
+        checklistEn: [
+          '1. Have representative clusters of conflicting studies been collected?',
+          '2. Have object, condition, and method differences been compared?',
+          '3. Has one preliminary disagreement explanation been written?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一张分歧文献比较表和一句能支撑开题的问题判断，而不是只剩下困惑。',
+        deliverableEn:
+          'After this round, you should have a comparison table of conflicting studies and one question-defining sentence rather than confusion alone.',
+        closeZh:
+          '文献出现分歧时，真正该抓住的不是混乱感，而是里面藏着的研究入口。',
+        closeEn:
+          'When the literature disagrees, the real opportunity is not the confusion itself but the research entry hidden inside it.',
+      },
+      'literature-review': {
+        titleZh: '综述最怕“各说各话”：把冲突研究写成条件差异，而不是结论拼盘',
+        titleEn:
+          'The review suffers most when every study speaks alone: rewrite conflicting evidence as condition differences rather than a conclusion collage',
+        introZh:
+          '很多综述把冲突文献写成“有人认为 A，也有人认为 B”，看起来客观，实际上没有提供任何解释。这样的综述很容易显得只是搬运争议，而不是组织判断。',
+        introEn:
+          'Many reviews handle conflicting literature with lines such as some studies find A while others find B. It looks objective on the surface but offers no explanation at all. The review then reads like a transport of disagreement rather than an organized judgment.',
+        zhihuAngleZh:
+          '知乎里关于“综述怎么写才不只是罗列不同观点”的经验，经常会强调：冲突不是靠列出来解决，而是靠解释条件差异来收束。',
+        zhihuAngleEn:
+          'Zhihu advice on writing reviews that move beyond listing views often emphasizes the same point: disagreement is not solved by enumeration but by showing the conditions under which each conclusion appears.',
+        strategyZh:
+          '更稳的综述写法，是把冲突研究按条件分组，例如样本不同、时期不同、指标不同、情境不同。只要条件线被写出来，读者就能看到这些结论为什么不必被粗暴地二选一。',
+        strategyEn:
+          'A steadier review practice is to regroup conflicting studies by conditions, such as different samples, periods, indicators, or contexts. Once the condition line is written out, readers can see why the conclusions do not need to be forced into a simple either-or choice.',
+        stepsZh: [
+          '先把冲突文献按最重要的条件差异重新分组。',
+          '再为每一组写一句说明该组为何会得出这类结论。',
+          '最后写一段总括，说明这些差异如何塑造你的研究问题。',
+        ],
+        stepsEn: [
+          'Regroup conflicting studies around the most important condition differences first.',
+          'Write one sentence for each group explaining why that group tends to produce this type of conclusion.',
+          'End with one synthetic paragraph showing how those differences shape your own research question.',
+        ],
+        submissionZh:
+          '如果后面要写投稿型引言，这种分歧整合法会非常加分，因为它能向审稿人显示你不是简单知道争议，而是真正看懂了争议的结构。',
+        submissionEn:
+          'If the material later becomes a submission-style introduction, this disagreement-integration move is highly valuable because it shows reviewers that you did not merely notice the dispute. You understood its structure.',
+        riskZh:
+          '如果综述一直停留在“有人这样说、有人那样说”，最常见的问题就是争议越写越多，研究问题却越来越不清楚。',
+        riskEn:
+          'If the review remains trapped in some say this while others say that, the common problem is that the dispute grows larger while the research question becomes less and less clear.',
+        checklistZh: [
+          '1. 冲突文献是否已按条件差异而不是作者顺序组织。',
+          '2. 每组是否都有一句解释结论来源的判断句。',
+          '3. 总括段是否已把分歧收回到你的问题线上。',
+        ],
+        checklistEn: [
+          '1. Are conflicting studies organized by condition differences rather than author order?',
+          '2. Does each group have a judgment sentence explaining where its conclusion comes from?',
+          '3. Does the synthetic paragraph bring the disagreement back to your research line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更像“解释争议”的综述结构，而不是继续堆积互相矛盾的摘要。',
+        deliverableEn:
+          'After this round, you should have a review structure that explains disagreement instead of continuing to pile up contradictory summaries.',
+        closeZh:
+          '综述处理分歧最有力量的时候，不是把争议摆出来，而是说明争议为什么会发生。',
+        closeEn:
+          'A review handles disagreement most powerfully not by displaying the conflict but by explaining why it arises.',
+      },
+      'methods-analysis': {
+        titleZh: '分析阶段怎么面对“和前人不一样”的结果：先回到条件差异，不急着否定自己',
+        titleEn:
+          'How do you handle results that differ from prior studies during analysis? Return to condition differences before doubting the project',
+        introZh:
+          '很多人一看到自己的结果和前人不一致，就本能地觉得是不是做错了。但研究结果不同并不自动等于错误，更常见的情况是条件、样本或测量方式本来就不同。',
+        introEn:
+          'Many writers see results that differ from earlier studies and immediately assume something has gone wrong. Yet a different result does not automatically mean an error. More often, the conditions, samples, or measurements were never the same to begin with.',
+        zhihuAngleZh:
+          '知乎里关于“结果和文献不一致怎么办”的讨论，常会提醒：先查条件是否可比，再决定是异常、错误还是有意义的新发现。',
+        zhihuAngleEn:
+          'Zhihu discussions on results that do not match earlier literature often give one reminder first: check whether the conditions are genuinely comparable before deciding whether the difference is an anomaly, an error, or a meaningful new finding.',
+        strategyZh:
+          '更稳的分析动作，是先做一轮可比性排查：你的对象、样本、时段、指标和模型设定，与被比较的研究是否真在同一层面。很多看似冲突的结果，其实只是比较维度没有对齐。',
+        strategyEn:
+          'A steadier analytical move is to run one round of comparability checking first: are your object, sample, period, indicators, and model settings really operating on the same level as the study you are comparing against? Many apparently conflicting findings are simply produced by misaligned comparison dimensions.',
+        stepsZh: [
+          '先列出与你结果最不一致的两三篇对照研究。',
+          '再逐项检查对象、时间、指标和方法是否可比。',
+          '最后再判断差异是来自错误、边界不同，还是确有新发现。',
+        ],
+        stepsEn: [
+          'List the two or three comparison studies whose results differ most from yours first.',
+          'Check comparability item by item across object, time, indicators, and methods.',
+          'Only then decide whether the difference reflects error, a different boundary, or a meaningful new finding.',
+        ],
+        submissionZh:
+          '如果后面要写结果讨论或回复审稿意见，这一步会非常关键，因为你需要给出“为什么不一致”而不是只说“我的结果不同”。',
+        submissionEn:
+          'If later writing includes a discussion section or reviewer responses, this step becomes crucial because you need to explain why the findings differ rather than merely stating that they do.',
+        riskZh:
+          '如果分析阶段一遇到分歧结果就自我否定，最常见的后果就是本来值得讨论的边界差异被提前抹掉，最后只能写出保守又发虚的结论。',
+        riskEn:
+          'If analytical differences trigger immediate self-doubt, the common result is that meaningful boundary differences are erased too early, leaving only a cautious but weak conclusion.',
+        checklistZh: [
+          '1. 是否已经完成一轮结果可比性排查。',
+          '2. 是否区分了错误来源与边界差异。',
+          '3. 结果差异是否已转化成可讨论的解释而不是恐慌。',
+        ],
+        checklistEn: [
+          '1. Has one full comparability check already been completed?',
+          '2. Have error sources been separated from boundary differences?',
+          '3. Has the result difference been converted into an explanation rather than panic?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一份更稳的结果差异说明，为讨论部分和后续回复留下空间。',
+        deliverableEn:
+          'After this round, you should have a steadier explanation of result differences that can support the discussion section and later responses.',
+        closeZh:
+          '结果和前人不一样时，先做比较，不要先做自我否定。',
+        closeEn:
+          'When your findings differ from prior work, compare first instead of doubting yourself first.',
+      },
+      'revision-defense': {
+        titleZh: '答辩被问“为什么和文献不一致”时怎么答：把冲突解释成条件差异链',
+        titleEn:
+          'How do you answer when asked why your findings differ from the literature during defense? Turn the conflict into a condition-difference chain',
+        introZh:
+          '很多答辩时最难接的问题，不是你有没有读文献，而是“为什么你的结果和这些文献不一样”。如果没有提前准备一条解释链，这个问题很容易把整场节奏打乱。',
+        introEn:
+          'One of the hardest defense questions is not whether you read the literature but why your findings differ from these earlier studies. Without a prepared explanation chain, that question can derail the entire rhythm of the session.',
+        zhihuAngleZh:
+          '知乎上关于“答辩老师抓住结果分歧怎么办”的经验，常会建议：不要硬说自己对、别人错，而要把差异落回条件、情境与边界。',
+        zhihuAngleEn:
+          'Zhihu advice on examiners focusing on conflicting findings often recommends the same move: do not insist that you are right and others are wrong. Return the difference to conditions, context, and boundary.',
+        strategyZh:
+          '更稳的答法，是把冲突拆成一条三段链：前人研究是在什么条件下得到那个结论、你的研究在什么条件下得到现在这个结论、这两者为什么并不必然互相否定。这样回应会比情绪化辩解更有说服力。',
+        strategyEn:
+          'A steadier answer breaks the conflict into a three-part chain: under which conditions prior studies obtained their conclusion, under which conditions your study produced the current finding, and why the two do not necessarily invalidate each other. That response is far more persuasive than emotional self-defense.',
+        stepsZh: [
+          '先准备对照文献的条件说明，不只记结论。',
+          '再准备你自己结果对应的条件与边界说明。',
+          '最后练习把两者接成一条“不矛盾而是条件不同”的回答链。',
+        ],
+        stepsEn: [
+          'Prepare the conditions behind the comparison literature first instead of memorizing conclusions alone.',
+          'Prepare the condition and boundary explanation behind your own finding next.',
+          'Practice connecting both into one answer chain showing not contradiction but differing conditions.',
+        ],
+        submissionZh:
+          '如果后面还要修改成期刊稿，这套回答几乎可以直接转成讨论段和 response letter 中的关键解释。',
+        submissionEn:
+          'If the work later moves toward a journal manuscript, this answer can almost be transferred directly into the discussion section and the key explanation in the response letter.',
+        riskZh:
+          '如果后期只会重复“我的数据就是这样”，最常见的后果就是答辩和返修都显得被动，因为你没有把结果差异解释成学术判断。',
+        riskEn:
+          'If the late-stage answer never moves beyond my data just came out this way, the common result is a passive defense and passive revision because the result difference was never elevated into an academic judgment.',
+        checklistZh: [
+          '1. 是否准备了对照文献的条件说明。',
+          '2. 是否能清楚说出自己结果的条件与边界。',
+          '3. 是否能把分歧转述为“条件不同”而不是“谁对谁错”。',
+        ],
+        checklistEn: [
+          '1. Have the conditions behind the comparison literature been prepared?',
+          '2. Can you clearly state the conditions and boundary of your own finding?',
+          '3. Can the disagreement be rephrased as differing conditions rather than a right-versus-wrong fight?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更像学术解释的分歧回答，而不是临场辩解。',
+        deliverableEn:
+          'After this round, you should have a disagreement response that sounds like academic explanation rather than improvised defense.',
+        closeZh:
+          '真正稳的回答，不是急着赢过前人，而是解释为什么不同结果可以并存。',
+        closeEn:
+          'A truly steady answer does not rush to defeat prior work. It explains why different findings can coexist.',
+      },
+    },
+  },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'abstract-introduction-distinction',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '结构与摘要写作',
+    labelEn: 'Structure and Abstract',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '摘要、引言、结论分工和重复控制',
+    focusEn: 'division of labor among abstract, introduction, and conclusion with repetition control',
+    evidenceZh: '摘要版本、引言首段和结论收束句',
+    evidenceEn: 'abstract drafts, introduction openings, and concluding synthesis lines',
+    standardZh: '重点不是三处都写得完整，而是让每个位置承担不同功能而不互相重复。',
+    standardEn:
+      'The goal is not to make all three sections equally complete but to give each one a distinct function without repetitive overlap.',
+    articles: {
+      proposal: {
+        titleZh: '别把摘要、引言、结论当成三次重复：开题时就先分工',
+        titleEn:
+          'Do not treat the abstract, introduction, and conclusion as three repetitions: assign their roles during the proposal stage',
+        introZh:
+          '很多人从一开始就把摘要、引言和结论写成同一套内容换个位置重复，导致整篇论文看起来字很多，但真正推进判断的信息并不多。',
+        introEn:
+          'Many writers begin by turning the abstract, introduction, and conclusion into the same content repeated in different places. The manuscript then becomes long in words but thin in informational movement.',
+        zhihuAngleZh:
+          '知乎里关于“摘要和引言到底有什么区别”的问题一直很多，背后暴露的是一个更基础的问题：大家没有把不同段落当成功能不同的写作位置。',
+        zhihuAngleEn:
+          'Zhihu is full of questions about the difference between an abstract and an introduction, revealing a more basic issue underneath: many writers do not treat these sections as distinct writing positions with distinct jobs.',
+        strategyZh:
+          '更稳的前期做法，是在开题阶段就先给三处定分工。摘要负责最短路径交代对象、问题、方法和发现预期；引言负责展开为什么值得做；结论负责回收整篇文章做成了什么、留下了什么边界。',
+        strategyEn:
+          'A steadier early move is to assign roles to these three sections during the proposal stage itself. The abstract handles the shortest possible route through object, question, method, and expected finding; the introduction expands why the study matters; the conclusion gathers what the manuscript accomplished and which boundaries remain.',
+        stepsZh: [
+          '先分别写下摘要、引言、结论各自只做的一件事。',
+          '再检查哪部分内容被你重复放进了三处。',
+          '最后把重复内容拆回各自最该出现的位置。',
+        ],
+        stepsEn: [
+          'Write down the one job that belongs only to the abstract, the introduction, and the conclusion respectively.',
+          'Check which content has been repeated across all three places.',
+          'Move repeated material back to the section where it most properly belongs.',
+        ],
+        submissionZh:
+          '如果以后要投期刊，这一步会直接提升可读性，因为编辑和审稿人对重复最敏感，而对分工清楚的结构通常会更快进入状态。',
+        submissionEn:
+          'If journal submission comes later, this step directly improves readability because editors and reviewers are highly sensitive to repetition and usually enter a manuscript more smoothly when section roles are clear.',
+        riskZh:
+          '如果三处一直不分工，最常见的后果就是摘要说得太满、引言推进太慢、结论又没有真正完成回收。',
+        riskEn:
+          'If the three sections never receive separate roles, the common result is an overloaded abstract, a slow introduction, and a conclusion that never truly gathers the paper back together.',
+        checklistZh: [
+          '1. 是否已为摘要、引言、结论明确分工。',
+          '2. 重复内容是否已被识别出来。',
+          '3. 每处是否都回到了自己最核心的功能。',
+        ],
+        checklistEn: [
+          '1. Have distinct roles been assigned to the abstract, introduction, and conclusion?',
+          '2. Has repeated content been identified?',
+          '3. Has each section returned to its own core function?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一套更清楚的三段分工图，后面写作时不再靠重复撑篇幅。',
+        deliverableEn:
+          'After this round, you should have a clearer three-part role map so later drafting no longer relies on repetition for length.',
+        closeZh:
+          '结构变清楚的第一步，往往不是写更多，而是先让不同位置别再做同一件事。',
+        closeEn:
+          'The first step toward a clearer structure is often not writing more but stopping different sections from doing the same job.',
+      },
+      'literature-review': {
+        titleZh: '引言为什么总像长摘要：先把“展开理由”和“压缩信息”分开',
+        titleEn:
+          'Why does the introduction keep sounding like a long abstract? Separate expanded reasoning from compressed information first',
+        introZh:
+          '很多人写引言时其实是在把摘要加长，于是引言读起来像“摘要重复版”，既没有真正展开问题，也没有完成研究定位。',
+        introEn:
+          'Many writers draft the introduction as if they were merely extending the abstract. The result is an introduction that reads like an expanded abstract rather than a section that genuinely opens the problem and positions the study.',
+        zhihuAngleZh:
+          '知乎里关于“引言写着写着就和摘要差不多”的讨论，常会点出一个盲区：作者知道要写什么，却没想清在不同位置应该怎么写。',
+        zhihuAngleEn:
+          'Zhihu discussions on introductions that end up resembling the abstract often highlight one blind spot: the writer knows what to say but has not decided how it should be said differently in different locations.',
+        strategyZh:
+          '更稳的引言组织法，是把摘要保留为“压缩信息入口”，而让引言承担三件展开工作：为什么这个问题值得关心、前人做到哪里、你的研究准备从哪里进入。这样两处就不会再彼此抢功能。',
+        strategyEn:
+          'A steadier introduction structure keeps the abstract as a compressed information entry while making the introduction responsible for three expanded tasks: why the problem matters, how far prior work has gone, and where your study will enter. This prevents the two sections from competing for the same function.',
+        stepsZh: [
+          '先把摘要里最压缩的四项信息单独列出来。',
+          '再检查引言是否真的展开了意义、文献位置和研究入口。',
+          '最后删掉那些只是把摘要换词重说的句子。',
+        ],
+        stepsEn: [
+          'Extract the four most compressed pieces of information from the abstract first.',
+          'Check whether the introduction truly expands significance, literature position, and research entry.',
+          'Delete the sentences that merely restate the abstract with different wording.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这一步会非常关键，因为编辑通常能很快判断出一篇稿件的引言到底是在推进论证，还是只是在拖长摘要。',
+        submissionEn:
+          'If the manuscript later goes to submission, this step is crucial because editors can quickly tell whether the introduction is advancing the argument or simply stretching the abstract.',
+        riskZh:
+          '如果引言一直只是长摘要，最常见的后果就是文献位置没有展开、研究入口不够快、读者读完前几段仍不知道正文会怎么推进。',
+        riskEn:
+          'If the introduction remains only a long abstract, the common result is an undeveloped literature position, a slow research entry, and a reader who still does not know how the body will move after the first pages.',
+        checklistZh: [
+          '1. 摘要中的压缩信息是否已与引言展开任务分开。',
+          '2. 引言是否真正完成了意义、文献和入口三项展开。',
+          '3. 是否删掉了换词重复摘要的句子。',
+        ],
+        checklistEn: [
+          '1. Has the abstract’s compressed information been separated from the introduction’s expansion tasks?',
+          '2. Does the introduction truly complete significance, literature, and entry expansion?',
+          '3. Have the abstract-like restatement sentences been deleted?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更像“真正引言”的前部结构，而不是摘要的加长版。',
+        deliverableEn:
+          'After this round, you should have a front section that behaves like a real introduction rather than an extended abstract.',
+        closeZh:
+          '引言真正开始工作的时候，摘要就不需要再被放大重播。',
+        closeEn:
+          'Once the introduction begins doing its real job, the abstract no longer needs to be replayed at larger size.',
+      },
+      'methods-analysis': {
+        titleZh: '结果出来后摘要和结论最容易撞车：让“发现概括”和“判断回收”分开',
+        titleEn:
+          'Once results arrive, the abstract and conclusion are most likely to collide: separate finding summary from judgment synthesis',
+        introZh:
+          '很多稿件在结果出来以后，会把摘要和结论都写成“再讲一遍主要发现”，于是摘要失去压缩效率，结论也失去回收和提升的作用。',
+        introEn:
+          'Once results are available, many manuscripts turn both the abstract and the conclusion into another telling of the main findings. The abstract loses compression efficiency and the conclusion loses its ability to gather and elevate the paper.',
+        zhihuAngleZh:
+          '知乎里关于“结论到底要不要重复结果”的讨论，常会提醒一个边界：结论可以回收结果，但不能只重复结果。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether conclusions should repeat results often return to one boundary: a conclusion may gather the results back, but it should not exist only to repeat them.',
+        strategyZh:
+          '更稳的写法，是让摘要承担“最快让读者知道你发现了什么”，而让结论承担“这些发现合起来意味着什么、适用到哪里、边界在哪里”。这样两处虽然相关，却不再互相替代。',
+        strategyEn:
+          'A steadier practice is to let the abstract handle the fastest path to what you found, while the conclusion handles what those findings mean together, where they apply, and where the boundaries lie. The two sections remain connected without replacing one another.',
+        stepsZh: [
+          '先把摘要中的发现句压缩到最短可懂。',
+          '再把结论改写成意义、适用范围和边界三部分。',
+          '最后检查两处是否还在重复同一层信息。',
+        ],
+        stepsEn: [
+          'Compress the finding sentence in the abstract down to the shortest understandable form first.',
+          'Rewrite the conclusion into three parts: meaning, scope of application, and boundary.',
+          'Check whether the two sections are still repeating the same informational layer.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这一步很关键，因为期刊稿件常常要求摘要极其紧，而结论则更看重你是否能把结果转成判断。',
+        submissionEn:
+          'If the work later moves toward journal submission, this step becomes critical because journals often expect an extremely tight abstract and a conclusion that turns findings into judgment.',
+        riskZh:
+          '如果摘要和结论一直撞车，最常见的后果就是读者读完全文后没有感觉到任何新的收束，只是在最后再看了一遍前面的内容。',
+        riskEn:
+          'If the abstract and conclusion continue colliding, the common result is that readers feel no new gathering movement at the end of the manuscript and merely read the earlier content once again.',
+        checklistZh: [
+          '1. 摘要是否已经只保留最核心的发现信息。',
+          '2. 结论是否包含意义、适用范围和边界。',
+          '3. 两处是否已分开“概括发现”和“回收判断”。',
+        ],
+        checklistEn: [
+          '1. Has the abstract been reduced to only the most central finding information?',
+          '2. Does the conclusion contain meaning, scope, and boundary?',
+          '3. Have finding summary and judgment synthesis been separated across the two sections?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更轻的摘要和一版更有判断力的结论。',
+        deliverableEn:
+          'After this round, you should have a lighter abstract and a more judgment-driven conclusion.',
+        closeZh:
+          '摘要负责告诉读者你发现了什么，结论负责告诉读者这些发现到底意味着什么。',
+        closeEn:
+          'The abstract tells readers what you found. The conclusion tells them what those findings finally mean.',
+      },
+      'revision-defense': {
+        titleZh: '老师总说前后重复？返修时按“摘要、引言、结论分工表”逐段清理',
+        titleEn:
+          'Does feedback keep saying the paper repeats itself? Clean it section by section with an abstract-introduction-conclusion division table',
+        introZh:
+          '很多返修意见里都会出现“重复”“前后差不多”“摘要和结论太像”这类评价，但如果没有一张分工表，作者很容易只是删几句表面重复，真正的结构重叠并没有被处理。',
+        introEn:
+          'Many revision comments include words like repetitive, similar across sections, or the abstract and conclusion feel too alike. Without a role-division table, writers often delete a few obvious duplicates while leaving the deeper structural overlap untouched.',
+        zhihuAngleZh:
+          '知乎里关于“老师总说重复但我不知道删哪”的问题，常会提到一个简单但有效的方法：先给每个段落位置定功能，再判断哪些内容多余。',
+        zhihuAngleEn:
+          'Zhihu questions about repeated feedback on repetition often point to one simple but effective method: define the role of each textual position first and only then judge what is redundant.',
+        strategyZh:
+          '更稳的返修动作，是列一张三栏表：摘要要保留什么、引言必须展开什么、结论只回收什么。然后逐段对照，凡是跨栏重复的内容都重新归位，而不是机械删字数。',
+        strategyEn:
+          'A steadier revision move is to build a three-column table: what the abstract should retain, what the introduction must expand, and what the conclusion alone should gather. Then compare the manuscript paragraph by paragraph and relocate cross-column repetition instead of mechanically cutting words.',
+        stepsZh: [
+          '先列出三处各自的核心任务。',
+          '再把重复句子标到错误的栏位里。',
+          '最后按分工重新归位，而不是直接整段删除。',
+        ],
+        stepsEn: [
+          'List the core task of each section first.',
+          'Mark repeated sentences under the wrong column next.',
+          'Relocate them according to section role instead of deleting whole paragraphs by reflex.',
+        ],
+        submissionZh:
+          '如果后面要进投稿或答辩，这种返修会很有帮助，因为结构分工一旦稳定，摘要、口头陈述和终稿也更容易保持一致。',
+        submissionEn:
+          'If submission or defense still lies ahead, this revision style is very helpful because once the section roles stabilize, the abstract, oral presentation, and final manuscript become much easier to keep aligned.',
+        riskZh:
+          '如果只是表面删重，最常见的后果就是某段看起来短了，但功能重叠仍在，读者还是会觉得前后在绕圈。',
+        riskEn:
+          'If revision treats repetition only at the surface level, the common result is a shorter paragraph with the same functional overlap, leaving readers with the same sense of circling.',
+        checklistZh: [
+          '1. 是否已经列出摘要、引言、结论三栏分工表。',
+          '2. 重复句子是否被定位到了错误功能栏。',
+          '3. 是否完成了“重新归位”而不是仅做删字。',
+        ],
+        checklistEn: [
+          '1. Has a three-column role table for abstract, introduction, and conclusion been created?',
+          '2. Have repeated sentences been located under the wrong functional column?',
+          '3. Has the revision completed relocation rather than mere word cutting?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版明显更清爽的前后结构，重复感会比单纯删句子下降得更明显。',
+        deliverableEn:
+          'After this round, you should have a noticeably cleaner front-to-back structure, with repetition reduced more deeply than simple sentence trimming could achieve.',
+        closeZh:
+          '去重真正有效的时候，删掉的不是字数，而是功能重叠。',
+        closeEn:
+          'Deduplication truly works not when it removes words alone but when it removes overlapping functions.',
+      },
+    },
+  },
+  {
+    slug: 'methods-data',
+    topicSlug: 'method-justification',
+    categorySlug: 'methods-data-presentation',
+    labelZh: '方法与数据呈现',
+    labelEn: 'Methods and Data',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '方法选择理由、样本规则和分析透明度',
+    focusEn: 'method-choice rationale, sample rules, and analytical transparency',
+    evidenceZh: '方法选择说明、样本筛选规则和变量定义记录',
+    evidenceEn: 'method choice notes, sample screening rules, and variable definition records',
+    standardZh: '重点不是把方法名字写得更专业，而是解释为什么这套方法适合这个问题和这批材料。',
+    standardEn:
+      'The goal is not to make the method name sound more professional but to explain why this method fits this problem and this material set.',
+    articles: {
+      proposal: {
+        titleZh: '方法不是越高级越好：开题时先讲清为什么是这套方法',
+        titleEn:
+          'A method is not better just because it sounds more advanced: explain why this one fits during the proposal stage',
+        introZh:
+          '很多开题材料里方法部分看起来很“专业”，但一被追问为什么一定要用这套方法、换一种行不行、这套方法和你的问题之间是什么关系时，回答就会松掉。',
+        introEn:
+          'Many proposal documents make the methods section sound highly professional. Yet once someone asks why this method is necessary, whether another could work, and how the method connects to the question itself, the answer often weakens quickly.',
+        zhihuAngleZh:
+          '知乎里关于“方法怎么选才不显得硬套”的提问很多，反复暴露的就是一个问题：方法常被当成学术门面，而不是问题驱动的选择。',
+        zhihuAngleEn:
+          'Zhihu is full of questions on choosing a method without making it look forced, repeatedly exposing the same issue: methods are often treated as academic decoration rather than problem-driven choices.',
+        strategyZh:
+          '更稳的开题写法，是把方法选择写成三步因果：我要回答什么问题、手头能拿到什么材料、因此什么方法最能处理这类材料并支持这类判断。只要这个因果链写顺，方法就不再像硬套。',
+        strategyEn:
+          'A steadier proposal-stage practice is to write method choice as a three-step logic chain: what question must be answered, what material can actually be obtained, and therefore which method best processes that material and supports that type of judgment. Once the chain reads smoothly, the method no longer feels forced.',
+        stepsZh: [
+          '先写清问题需要哪一种判断类型。',
+          '再写清你实际能拿到的材料类型。',
+          '最后解释为什么这套方法最适配这类判断与材料。',
+        ],
+        stepsEn: [
+          'Write down the type of judgment your question requires first.',
+          'State the type of material you can realistically obtain next.',
+          'Explain why this method best fits that judgment and material combination.',
+        ],
+        submissionZh:
+          '如果未来要投稿，这样的方法说明会更有说服力，因为审稿人通常先问的不是你懂不懂这个方法，而是它是否真的适合这个问题。',
+        submissionEn:
+          'If the work later moves toward submission, this type of method explanation is more persuasive because reviewers usually ask not whether you know the method but whether it truly fits the problem.',
+        riskZh:
+          '如果方法选择一直停留在“这个方法很常用”或“这个模型很高级”，最常见的后果就是开题能过术语，后面却过不了逻辑。',
+        riskEn:
+          'If method choice remains at the level of this method is common or this model is advanced, the common result is that the proposal passes on terminology but fails on logic later.',
+        checklistZh: [
+          '1. 是否已写清问题对应的判断类型。',
+          '2. 是否已写清可获得材料类型。',
+          '3. 方法选择是否已形成问题到材料再到方法的因果链。',
+        ],
+        checklistEn: [
+          '1. Has the judgment type required by the question been stated clearly?',
+          '2. Has the obtainable material type been stated clearly?',
+          '3. Does the method choice now form a problem-to-material-to-method logic chain?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该有一版更能自圆其说的方法说明，而不是只会列方法名。',
+        deliverableEn:
+          'After this round, you should have a method explanation that can truly justify itself rather than merely listing method names.',
+        closeZh:
+          '方法真正站住的时候，不是名字更高级，而是理由更清楚。',
+        closeEn:
+          'A method truly stands not when its name sounds more advanced but when its reason becomes clearer.',
+      },
+      'literature-review': {
+        titleZh: '读方法文献别只记“用了什么”：把“为什么适合”一列补上',
+        titleEn:
+          'Do not record only what method was used when reading methodology papers: add one column for why it fit',
+        introZh:
+          '很多人做方法综述时只记录别人用了什么方法，却不记录这种方法为什么适合那个问题和样本。结果自己写方法部分时，只能照搬名词，难以形成判断。',
+        introEn:
+          'Many writers record only which method other papers used when reading methodology literature, without recording why the method fit that particular question and sample. Later, when drafting their own method section, they can only borrow labels instead of making judgments.',
+        zhihuAngleZh:
+          '知乎里关于“看了很多方法论文还是不会选”的问题，常会点出一个盲点：你记住了工具，却没记住工具和问题之间的适配逻辑。',
+        zhihuAngleEn:
+          'Zhihu questions about reading many methodology papers yet still not knowing how to choose often expose one blind spot: the tool was remembered, but the fit between the tool and the problem was not.',
+        strategyZh:
+          '更稳的阅读法，是在方法笔记里加一列“为什么适合”。这列要写清问题类型、材料特征和作者为什么认为这套方法最能处理这些特征。只有这样，你以后才能比较方法，而不是只会罗列方法名。',
+        strategyEn:
+          'A steadier reading practice is to add one why-it-fits column to your method notes. That column should state the problem type, material features, and why the author believed the method was best suited to handle those features. Only then can you compare methods later instead of merely listing them.',
+        stepsZh: [
+          '先回读代表性方法文献，补写“为什么适合”一列。',
+          '再比较不同方法适配的对象和材料条件。',
+          '最后为自己的项目初步标出最匹配的适配逻辑。',
+        ],
+        stepsEn: [
+          'Revisit representative methodology papers first and add the why-it-fits column.',
+          'Compare the object and material conditions each method fits next.',
+          'Mark the best-matching fit logic for your own project as a preliminary judgment.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这类方法笔记会非常好用，因为它能帮助你在方法部分解释“为什么不是另一个方法”，这通常比单纯介绍流程更重要。',
+        submissionEn:
+          'If submission lies ahead, this kind of method note becomes extremely useful because it helps explain why another method was not chosen, which is often more important than merely describing procedure.',
+        riskZh:
+          '如果阅读时只记工具不记适配逻辑，最常见的后果就是自己写方法时总像在套模板，难以回答“为什么是它”。',
+        riskEn:
+          'If reading records tools without fit logic, the common result is a self-written methods section that feels templated and cannot answer why this method.',
+        checklistZh: [
+          '1. 方法笔记里是否已加入“为什么适合”一列。',
+          '2. 是否比较了不同方法适配的对象与材料条件。',
+          '3. 是否已能初步说明自己项目的方法适配逻辑。',
+        ],
+        checklistEn: [
+          '1. Has a why-it-fits column been added to your method notes?',
+          '2. Have the object and material conditions matched by different methods been compared?',
+          '3. Can you now give a preliminary explanation of the fit logic for your own project?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一份更会“比较方法”的阅读笔记，而不是只会收集术语。',
+        deliverableEn:
+          'After this round, you should have reading notes that can compare methods rather than merely collect terminology.',
+        closeZh:
+          '方法阅读真正有用的时候，记住的不只是名称，而是它为什么适合。',
+        closeEn:
+          'Method reading becomes truly useful when it remembers not only the name of the tool but why it fits.',
+      },
+      'methods-analysis': {
+        titleZh: '方法部分怎么写得让人信服：把样本规则、变量定义和分析步骤讲透明',
+        titleEn:
+          'How do you make the methods section believable? Make sample rules, variable definitions, and analysis steps transparent',
+        introZh:
+          '很多方法部分之所以让人读着发虚，不是因为用了错的方法，而是因为关键规则写得太省略。样本怎么筛、变量怎么定义、分析顺序怎么走，一旦不透明，整段就会显得靠作者个人意志运转。',
+        introEn:
+          'Many methods sections feel unstable not because the chosen method is wrong but because key rules are underexplained. Once sample screening, variable definitions, and analytical sequence become opaque, the whole section begins to feel dependent on author preference rather than procedure.',
+        zhihuAngleZh:
+          '知乎里关于“方法部分为什么总被说不清楚”的讨论，常会回到一个核心：不是术语不够多，而是规则没有讲透。',
+        zhihuAngleEn:
+          'Zhihu discussions on why methods sections are often criticized as unclear frequently return to one core issue: the problem is not too little terminology but insufficiently explained rules.',
+        strategyZh:
+          '更稳的写法，是把方法透明度拆成三块：样本筛选规则、关键概念或变量定义、实际分析步骤。只要这三块能被别人复述出来，方法部分就会比单纯堆模型名更可信。',
+        strategyEn:
+          'A steadier practice is to divide methodological transparency into three parts: sample screening rules, definitions of core concepts or variables, and the actual analytical sequence. Once these three parts can be retold by someone else, the method section becomes more trustworthy than one built only from model names.',
+        stepsZh: [
+          '先写一版样本或材料进入研究的明确规则。',
+          '再把关键变量、编码或概念定义补齐。',
+          '最后按真实执行顺序重写分析步骤。',
+        ],
+        stepsEn: [
+          'Write an explicit rule set showing how samples or materials entered the study first.',
+          'Complete the definitions of key variables, coding items, or concepts next.',
+          'Rewrite the analytical steps in the real order they were actually executed.',
+        ],
+        submissionZh:
+          '如果以后要应对审稿或答辩，这一步尤其重要，因为大多数质疑并不是针对方法名，而是针对规则是否透明、过程是否可追踪。',
+        submissionEn:
+          'If reviewer or defense questions are still ahead, this step is especially important because most challenges are directed not at the method label but at whether the rules are transparent and the process traceable.',
+        riskZh:
+          '如果方法部分持续省略关键规则，最常见的后果就是读者不一定说得出哪里错，但会明显感觉不放心。',
+        riskEn:
+          'If the methods section keeps omitting key rules, the common result is that readers may not identify a precise error but still feel a strong lack of confidence.',
+        checklistZh: [
+          '1. 是否已写明样本或材料进入研究的规则。',
+          '2. 关键变量或概念定义是否已经补齐。',
+          '3. 分析步骤是否按真实执行顺序写出。',
+        ],
+        checklistEn: [
+          '1. Have the rules for including samples or materials been written clearly?',
+          '2. Have key variable or concept definitions been completed?',
+          '3. Are the analytical steps written in the real execution order?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更透明、更能经得住追问的方法部分。',
+        deliverableEn:
+          'After this round, you should have a methods section that is more transparent and much better able to withstand scrutiny.',
+        closeZh:
+          '方法部分让人信服，靠的往往不是术语密度，而是规则透明度。',
+        closeEn:
+          'A methods section earns trust less through terminology density than through rule transparency.',
+      },
+      'revision-defense': {
+        titleZh: '老师说方法写得不让人信？返修时先补“为什么这样选、规则是什么、怎么执行”',
+        titleEn:
+          'Does feedback say the methods section is unconvincing? During revision, fill in why this was chosen, what the rules are, and how it was executed',
+        introZh:
+          '很多返修中关于方法的批评，看似很多条，实际上都指向同一个问题：读者不知道你为什么这样选、按什么规则做、具体怎么执行，所以只能用“不够清楚”来概括。',
+        introEn:
+          'Many revision comments on methods seem to list many separate issues, yet they often point to one shared problem: readers do not know why this approach was chosen, according to which rules it operated, or how it was executed in detail, so they summarize the concern as unclear.',
+        zhihuAngleZh:
+          '知乎里关于“方法部分总被导师说不够扎实”的讨论，常会建议不要急着堆更多术语，而是回去把选择理由和执行规则补完整。',
+        zhihuAngleEn:
+          'Zhihu discussions on methods sections repeatedly criticized as not rigorous often recommend not rushing to add more terminology but going back to complete the choice rationale and execution rules.',
+        strategyZh:
+          '更稳的返修方式，是按三问补写：为什么这样选、规则是什么、怎么执行。这样改出来的方法部分会比单纯扩段落更有效，因为它直接补到了别人不信的地方。',
+        strategyEn:
+          'A steadier revision method is to rewrite the section through three questions: why was this chosen, what are the governing rules, and how was it executed? This produces a far stronger revision than simply expanding the paragraph length because it directly fills the place where trust was missing.',
+        stepsZh: [
+          '先把现有方法部分按“三问”拆开标记空缺。',
+          '再补写最缺的选择理由、规则说明和执行细节。',
+          '最后用一次外部视角检查是否已经可追踪。',
+        ],
+        stepsEn: [
+          'Break the current methods section into the three-question frame and mark the gaps first.',
+          'Fill the most missing choice rationale, rule explanation, and execution detail next.',
+          'Use one outside-reader pass at the end to test whether the process now feels traceable.',
+        ],
+        submissionZh:
+          '如果后面还要走投稿，这种返修能直接减少后续 response letter 的压力，因为很多方法质疑会在正文里先被化解。',
+        submissionEn:
+          'If submission still lies ahead, this type of revision directly reduces pressure on the later response letter because many methodological doubts are resolved in the manuscript body itself.',
+        riskZh:
+          '如果返修只是把原段落拉长，最常见的后果就是页数变多了，但别人还是不知道为什么这么做。',
+        riskEn:
+          'If revision only lengthens the original paragraph, the common result is more pages without any clearer answer to why the work was done this way.',
+        checklistZh: [
+          '1. 方法部分是否已按“为什么这样选、规则是什么、怎么执行”三问重审。',
+          '2. 关键空缺是否已补写完成。',
+          '3. 外部视角下是否已经能够追踪整套方法逻辑。',
+        ],
+        checklistEn: [
+          '1. Has the methods section been rechecked through the three questions of why chosen, what rules, and how executed?',
+          '2. Have the key gaps been filled?',
+          '3. From an outside-reader perspective, can the full method logic now be traced?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更有说服力的方法返修稿，而不是只变长的旧版本。',
+        deliverableEn:
+          'After this round, you should have a more convincing revised methods section rather than simply a longer old version.',
+        closeZh:
+          '方法返修最有效的地方，不是加字，而是补齐读者最不放心的那三件事。',
+        closeEn:
+          'The most effective methods revision does not merely add words. It completes the three things readers worry about most.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'cover-letter-journal-fit',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'Cover Letter、期刊匹配和投稿入口表达',
+    focusEn: 'cover letters, journal fit, and submission-entry framing',
+    evidenceZh: '期刊 aims and scope、cover letter 版本和摘要入口对照',
+    evidenceEn: 'journal aims and scope, cover-letter drafts, and abstract-entry comparisons',
+    standardZh: '重点不是把 Cover Letter 写得更礼貌，而是让期刊匹配和稿件价值在最短入口里说清。',
+    standardEn:
+      'The goal is not merely to make the cover letter more polite but to state journal fit and manuscript value clearly in the shortest entry point.',
+    articles: {
+      proposal: {
+        titleZh: '如果以后想投稿，开题时就别只想着导师：提前练“期刊入口句”',
+        titleEn:
+          'If submission may come later, do not think only about the advisor during the proposal stage: practice a journal-entry sentence early',
+        introZh:
+          '很多人开题时默认唯一读者是导师，所以整个项目从一开始就写成“给熟人解释背景”的口气。等到后面真要投稿时，才发现自己根本没有一条能快速告诉陌生编辑这篇稿件价值的入口句。',
+        introEn:
+          'Many writers assume during the proposal stage that the advisor is the only reader, so the entire project begins in a tone meant for explaining background to a familiar person. When submission finally becomes real, they discover they do not possess a single sentence that can quickly tell an unfamiliar editor why the manuscript matters.',
+        zhihuAngleZh:
+          '知乎里关于“Cover Letter 到底该写什么”的讨论，常会暴露一个更早的问题：很多稿件从最初就没有练过面向陌生读者的价值入口。',
+        zhihuAngleEn:
+          'Zhihu discussions on what a cover letter should actually contain often reveal an earlier problem: many manuscripts never practiced a value entry line aimed at an unfamiliar reader from the beginning.',
+        strategyZh:
+          '更稳的前期动作，是在开题阶段就试写一句“期刊入口句”：这篇研究回答什么问题、对哪类读者有用、比现有讨论多推进了哪一步。它不需要正式像 Cover Letter，但要提前训练这种外部表达。',
+        strategyEn:
+          'A steadier early move is to draft one journal-entry sentence during the proposal stage: what question the study answers, which readers it helps, and what step beyond the current discussion it advances. It does not need to look like a formal cover letter yet, but it should begin training that external-facing expression.',
+        stepsZh: [
+          '先写一句给陌生编辑看的问题与价值入口。',
+          '再检查这句话是否比导师式背景说明更直接。',
+          '最后保留这句，作为后续摘要和 Cover Letter 的母句。',
+        ],
+        stepsEn: [
+          'Write one question-and-value entry line aimed at an unfamiliar editor first.',
+          'Check whether it is more direct than an advisor-style background explanation.',
+          'Preserve it as the parent sentence for the later abstract and cover letter.',
+        ],
+        submissionZh:
+          '如果以后真要走投稿，这个入口句会非常值钱，因为你不需要等到最后一刻才临时学会如何对陌生读者说话。',
+        submissionEn:
+          'If submission later becomes real, this entry sentence is highly valuable because you do not need to learn external-facing communication at the last possible moment.',
+        riskZh:
+          '如果整个项目始终只在导师语境里表达，最常见的后果就是一到投稿场景就显得慢、绕、背景过多。',
+        riskEn:
+          'If the entire project remains expressed only inside an advisor-facing context, the common result is a submission package that feels slow, indirect, and overloaded with background.',
+        checklistZh: [
+          '1. 是否已经写出一句面向陌生读者的入口句。',
+          '2. 这句话是否比熟人语境更直接。',
+          '3. 是否已经把它保留下来作为后续投稿入口母句。',
+        ],
+        checklistEn: [
+          '1. Has one entry sentence for an unfamiliar reader been written?',
+          '2. Is it more direct than the familiar advisor-facing version?',
+          '3. Has it been preserved as the parent line for later submission entry materials?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一条更像投稿入口的价值句，为摘要和 Cover Letter 提前打底。',
+        deliverableEn:
+          'After this round, you should have a value sentence that already behaves like a submission entry line and can support the abstract and cover letter later.',
+        closeZh:
+          '越早学会对陌生读者说清价值，越不容易在投稿前临时慌乱。',
+        closeEn:
+          'The earlier you learn to state value to unfamiliar readers, the less likely submission preparation is to turn panicked later.',
+      },
+      'literature-review': {
+        titleZh: 'Cover Letter 不是摘要翻写：先用期刊 aims and scope 校准你的入口',
+        titleEn:
+          'A cover letter is not a rewritten abstract: calibrate the entry through the journal aims and scope first',
+        introZh:
+          '很多人写 Cover Letter 时会把摘要改写一遍就交，但 Cover Letter 真正要解决的问题不是“再介绍一次研究”，而是“为什么这篇稿件适合这个期刊，而且值得被快速判断”。',
+        introEn:
+          'Many writers treat the cover letter as a rewritten abstract. Yet the real task of the cover letter is not to introduce the study once more but to explain why this manuscript fits this journal and deserves a quick positive judgment.',
+        zhihuAngleZh:
+          '知乎里关于“Cover Letter 和摘要有什么区别”的问题非常多，常见误区就是把二者都写成研究简介，而忽略了期刊匹配。',
+        zhihuAngleEn:
+          'Zhihu contains many questions about the difference between a cover letter and an abstract, and the common mistake is to turn both into research summaries while ignoring journal fit.',
+        strategyZh:
+          '更稳的做法，是先把期刊 aims and scope 摘出两到三条核心关注点，再反过来检查你的稿件入口句是否真的能接上这些关注点。只有入口先对齐，Cover Letter 才不会只是摘要翻版。',
+        strategyEn:
+          'A steadier move is to extract two or three core concerns from the journal aims and scope and then test whether your manuscript entry line genuinely connects to those concerns. Only once the entry is aligned does the cover letter stop becoming a replica of the abstract.',
+        stepsZh: [
+          '先摘出目标期刊最核心的关注点。',
+          '再对照你的稿件入口句，看是否真正对上。',
+          '最后只保留能说明 fit 与价值的句子进 Cover Letter。',
+        ],
+        stepsEn: [
+          'Extract the journal’s most central concerns first.',
+          'Compare them with your manuscript entry sentence to see whether they truly align.',
+          'Keep only the lines that explain fit and value when drafting the cover letter.',
+        ],
+        submissionZh:
+          '如果这一轮做得细，投稿前你会明显感到入口更稳，因为 Cover Letter、标题和摘要开始对准同一个期刊读者，而不是各说各话。',
+        submissionEn:
+          'If this round is done carefully, submission preparation feels far steadier because the cover letter, title, and abstract begin aiming at the same journal readership instead of speaking separately.',
+        riskZh:
+          '如果 Cover Letter 一直只是摘要翻写，最常见的后果就是编辑看完以后仍然不知道为什么这篇稿件适合本刊。',
+        riskEn:
+          'If the cover letter remains only a rewritten abstract, the common result is that the editor still does not know why the manuscript belongs in that journal.',
+        checklistZh: [
+          '1. 是否已经摘出目标期刊的核心关注点。',
+          '2. 你的入口句是否真正接上这些关注点。',
+          '3. Cover Letter 是否已只保留 fit 与价值判断。',
+        ],
+        checklistEn: [
+          '1. Have the target journal’s core concerns been extracted?',
+          '2. Does your entry sentence truly connect to those concerns?',
+          '3. Has the cover letter been reduced to fit and value judgment rather than abstract repetition?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更像投稿入口说明的 Cover Letter 草稿，而不是摘要改写稿。',
+        deliverableEn:
+          'After this round, you should have a cover-letter draft that behaves like a submission-entry explanation rather than an abstract rewrite.',
+        closeZh:
+          'Cover Letter 真正有用的时候，说服的不是“我做了什么”，而是“为什么这篇稿件属于这里”。',
+        closeEn:
+          'A cover letter becomes truly useful when it persuades not only on what was done but on why the manuscript belongs here.',
+      },
+      'methods-analysis': {
+        titleZh: '投稿前怎么把摘要、Cover Letter、关键词说成一套话：先统一首轮判断入口',
+        titleEn:
+          'How do you make the abstract, cover letter, and keywords speak as one before submission? Unify the first-round judgment entry first',
+        introZh:
+          '很多投稿包件的问题不是单个文件写得差，而是不同入口说的不是一套话。摘要强调结果，Cover Letter 强调背景，关键词又偏到另一个方向，编辑第一轮就会感到定位不稳。',
+        introEn:
+          'Many submission packages fail not because any single document is badly written but because the entry points do not say the same thing. The abstract stresses one angle, the cover letter another, and the keywords drift elsewhere, leaving the editor with an unstable first-round position.',
+        zhihuAngleZh:
+          '知乎里关于“投稿材料怎么准备更像一整套”的讨论，常会提到一个关键：别把摘要、Cover Letter、关键词当成三个独立任务。',
+        zhihuAngleEn:
+          'Zhihu discussions on making submission materials feel like one package often mention one key idea: do not treat the abstract, cover letter, and keywords as three unrelated tasks.',
+        strategyZh:
+          '更稳的投稿前整理，是先写出一条“首轮判断主线”：问题是什么、贡献是什么、给谁看、为什么适合这本刊。然后让摘要、Cover Letter、关键词都从这条主线派生，只在细节层面分工。',
+        strategyEn:
+          'A steadier pre-submission preparation is to write one first-round judgment line stating the question, contribution, target readers, and reason for journal fit. Then let the abstract, cover letter, and keywords all derive from that line while dividing their work only at the detail level.',
+        stepsZh: [
+          '先写出一条四点式首轮判断主线。',
+          '再检查摘要、Cover Letter、关键词是否都从这条主线延伸。',
+          '最后修正那些把定位拉偏的词句。',
+        ],
+        stepsEn: [
+          'Write one four-point first-round judgment line first.',
+          'Check whether the abstract, cover letter, and keywords all extend from that line next.',
+          'Correct the words or phrases that pull the positioning off-course at the end.',
+        ],
+        submissionZh:
+          '如果这一步做好，投稿入口会明显稳很多，因为编辑在不同材料里看到的是同一条价值线，而不是三种不同版本的你。',
+        submissionEn:
+          'If this step is done well, the submission entry becomes much steadier because the editor sees one shared value line across the package instead of three different versions of the manuscript.',
+        riskZh:
+          '如果不同入口一直各说各话，最常见的后果就是稿件本身未必差，但第一轮判断会觉得方向不够稳、不够像一个成熟包件。',
+        riskEn:
+          'If the different entry points keep speaking separately, the common result is a manuscript that may not be weak in itself but still feels directionally unstable and insufficiently mature in the first round.',
+        checklistZh: [
+          '1. 是否已经写出一条四点式首轮判断主线。',
+          '2. 摘要、Cover Letter、关键词是否都从这条主线延伸。',
+          '3. 是否修正了会拉偏定位的词句。',
+        ],
+        checklistEn: [
+          '1. Has one four-point first-round judgment line been written?',
+          '2. Do the abstract, cover letter, and keywords all extend from that line?',
+          '3. Have the words that distort the positioning been corrected?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拥有一套更像成熟投稿包件的入口表达，不再是三个彼此松散的文本。',
+        deliverableEn:
+          'After this round, you should have an entry package that feels much more like one mature submission set rather than three loosely connected texts.',
+        closeZh:
+          '投稿入口最怕的不是字少，而是同一个稿件被你自己说成三种样子。',
+        closeEn:
+          'What hurts a submission entry most is not brevity but turning the same manuscript into three different stories.',
+      },
+      'revision-defense': {
+        titleZh: '编辑第一轮最看重什么：返修或重投前先把 Cover Letter 练到能独立成立',
+        titleEn:
+          'What matters most in the editor’s first round? Before revision or resubmission, make the cover letter able to stand on its own',
+        introZh:
+          '很多人返修或重投时，会把精力都放在正文，却忽略了 Cover Letter 仍然是首轮判断的重要入口。如果 Cover Letter 不能独立说明 fit、价值和这轮改动，编辑很难在最短时间内形成积极预期。',
+        introEn:
+          'Many writers place all their energy on the manuscript body during revision or resubmission and overlook the fact that the cover letter remains a key first-round entry. If it cannot independently explain fit, value, and the nature of the current revision, the editor struggles to form a positive expectation quickly.',
+        zhihuAngleZh:
+          '知乎里关于“重投时 Cover Letter 要不要重写”的经验，通常都会建议：要，而且不能只礼貌更新日期，因为它承担的是重新建立第一印象。',
+        zhihuAngleEn:
+          'Zhihu advice on whether a cover letter should be rewritten during resubmission usually says yes, and not just by politely updating the date, because it carries the job of rebuilding the first impression.',
+        strategyZh:
+          '更稳的返修或重投动作，是把 Cover Letter 当成一份可独立成立的首轮文件来重写：为什么这篇稿件适合本刊、这轮核心改动是什么、现在的判断价值比上个版本更清楚在哪里。这样它才真正帮正文开路。',
+        strategyEn:
+          'A steadier revision or resubmission move is to rewrite the cover letter as a first-round document that can stand independently: why the manuscript fits this journal, what the core changes of this round are, and where the present value judgment is clearer than in the previous version. Only then does it genuinely clear the way for the manuscript body.',
+        stepsZh: [
+          '先判断 Cover Letter 是否能独立说清 fit、价值和改动。',
+          '再重写那些仍依赖正文才看得懂的句子。',
+          '最后检查它是否足以单独建立积极第一印象。',
+        ],
+        stepsEn: [
+          'Judge first whether the cover letter can independently explain fit, value, and revision.',
+          'Rewrite the sentences that still depend on the manuscript body to make sense next.',
+          'Check at the end whether it is strong enough to create a positive first impression on its own.',
+        ],
+        submissionZh:
+          '如果后面还要继续送审，这一步会直接提高整套材料的成熟度，因为编辑会先在 Cover Letter 里看到方向，而不是靠自己去猜。',
+        submissionEn:
+          'If further review still lies ahead, this step directly increases the maturity of the entire package because the editor can see the direction in the cover letter instead of having to infer it alone.',
+        riskZh:
+          '如果返修或重投时忽略 Cover Letter，最常见的后果就是正文可能已经更好了，但首轮入口仍然没有同步升级。',
+        riskEn:
+          'If the cover letter is neglected during revision or resubmission, the common result is a better manuscript body paired with a first-round entry that never improved alongside it.',
+        checklistZh: [
+          '1. Cover Letter 是否能独立说清 fit、价值和改动。',
+          '2. 是否删掉了依赖正文才能理解的句子。',
+          '3. 它是否足以单独建立积极第一印象。',
+        ],
+        checklistEn: [
+          '1. Can the cover letter independently explain fit, value, and revision?',
+          '2. Have the sentences requiring the body for interpretation been removed or rewritten?',
+          '3. Is it strong enough to create a positive first impression on its own?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更能扛首轮判断的 Cover Letter，为返修或重投真正打开入口。',
+        deliverableEn:
+          'After this round, you should have a cover letter much more capable of carrying the first-round judgment and opening the path for revision or resubmission.',
+        closeZh:
+          '正文可以越来越好，但如果入口没升级，编辑第一眼看到的仍是旧问题。',
+        closeEn:
+          'The manuscript body may keep improving, but if the entry never upgrades, the editor still meets the old problem first.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {
