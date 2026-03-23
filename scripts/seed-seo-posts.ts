@@ -770,6 +770,68 @@ const proposalThemes: ContentTheme[] = [
     closeEn: () =>
       'Once the reader is defined clearly, the title, summary, outline, and value statement are far easier to align around one line.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}别把未来稿件写成类型不明：先判断更像 original article 还是 review`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: decide early whether the project is closer to an original article or a review`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}从开题开始就把${discipline.titleZh}论文写成“什么都想装进去”的大容器，等到后面想投稿时才发现这篇研究到底更像原始研究、综述，还是方法短文，始终没有被想清楚。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} turn a ${discipline.titleEn} project into a container for everything and only much later realize that the work never clarified whether it is closer to an original study, a review, or a shorter methods-oriented paper.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在开题阶段先判断输出类型：如果核心价值在于新结果和${discipline.evidenceZh}，那就按 original article 的逻辑收束；如果价值更偏整合与比较，就别硬把它写成结果过重的论文。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier approach is to identify the likely output type during the proposal stage. If the value lies in new results and ${discipline.evidenceEn}, shape the work like an original article. If the value lies more in synthesis and comparison, do not force it into an overbuilt results-heavy paper.`,
+    stepsZh: () => [
+      '先判断你的核心贡献来自新结果、系统整合，还是方法路径本身。',
+      '再比较不同文章类型对结构、证据和篇幅的要求，看看哪一种最贴近你的项目。',
+      '最后让目录和研究问题服务这种输出类型，而不是一开始就把所有可能性都混在一起。',
+    ],
+    stepsEn: () => [
+      'Decide whether the core contribution comes from new findings, structured synthesis, or the method path itself.',
+      'Compare how different article types handle structure, evidence, and length, then choose the one that fits the project best.',
+      'Let the outline and research question serve that output type instead of mixing every possible format together from the start.',
+    ],
+    riskZh: () =>
+      '如果稿件类型始终不清，最容易出现的就是目录越来越长、材料越来越杂，但没有一种读者会觉得这篇文章是为自己写的。',
+    riskEn: () =>
+      'If the manuscript type remains unclear, the outline grows longer, the materials grow messier, and no reader feels that the paper was really shaped for them.',
+    closeZh: () => '越早判断未来稿件更像哪一种，后面越容易把论文收成一个真正能成立的学术产品。',
+    closeEn: () =>
+      'The earlier you identify the likely manuscript type, the easier it becomes to turn the thesis into an academic product that actually holds together.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}标题和关键词别留到最后：开题就要按可检索性来写`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: make the title and keywords searchable during the proposal stage`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}在${discipline.titleZh}开题时喜欢写“大、稳、好看”的题目，但真正进入数据库检索和后续投稿环节后，才发现标题太虚，关键词也不能准确把论文送到对的读者面前。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} prefer large and polished titles in a ${discipline.titleEn} proposal, only to discover later that the title is too vague for search visibility and the keywords do not reach the right readers.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的题目写法，通常会同时照顾三个层面：研究对象、核心问题和场景边界。关键词也不该只是概念堆积，而要能和${discipline.evidenceZh}、方法路径以及潜在期刊读者的检索习惯接起来。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier title usually balances three layers at once: the research object, the central problem, and the boundary of the setting. Keywords should not be a pile of concepts but should connect to ${discipline.evidenceEn}, the method path, and the search habits of likely journal readers.`,
+    stepsZh: () => [
+      '先把标题拆成对象词、问题词和边界词，检查有没有哪一层缺位。',
+      '再为每一层准备可替换关键词，判断哪些更适合数据库检索和摘要呈现。',
+      '最后让题目和关键词一起回扣研究问题，而不是各自说各自的话。',
+    ],
+    stepsEn: () => [
+      'Break the title into an object term, a problem term, and a boundary term, then see which layer is missing.',
+      'Prepare alternative keywords for each layer and test which ones work better for databases and abstract framing.',
+      'Make the title and keyword set point back to the same research question instead of functioning separately.',
+    ],
+    riskZh: () =>
+      '如果标题和关键词一直停留在“大词”层面，后面最常见的问题就是综述搜不准、摘要写不紧、投稿定位也总是偏。',
+    riskEn: () =>
+      'If the title and keywords stay at the broad-term level, the common downstream problems are imprecise searching, loose abstracts, and unstable submission positioning.',
+    closeZh: () => '题目和关键词越早按可检索性校准，后面的综述、摘要和投稿材料就越容易互相咬合。',
+    closeEn: () =>
+      'The earlier the title and keyword set are calibrated for searchability, the easier it becomes for the review, abstract, and submission materials to reinforce one another.',
+  },
 ]
 
 const literatureReviewThemes: ContentTheme[] = [
@@ -1107,6 +1169,68 @@ const literatureReviewThemes: ContentTheme[] = [
     closeEn: () =>
       'When the review builds the coordinates of contribution first, the later abstract, cover letter, and submission positioning become much easier to justify.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}高被引综述怎么借：借框架，不借结论`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: use influential reviews for structure, not as borrowed conclusions`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}读到${discipline.titleZh}领域里那几篇高被引综述后，会下意识地沿用它们的判断，结果自己的综述看上去很完整，真正的研究位置却被前人框死了。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} read a few highly cited reviews in ${discipline.titleEn} and then inherit not only the structure but also the earlier conclusions, which can leave the new review polished but intellectually boxed in.`,
+    strategyZh: ({ discipline }) =>
+      `高被引综述最值得借的，不是它替你做好的结论，而是它组织问题、梳理争议和连接${discipline.evidenceZh}的方式。框架可以学，判断必须重做。`,
+    strategyEn: ({ discipline }) =>
+      `What influential reviews offer most usefully is not a ready-made conclusion but a way of organizing questions, disputes, and links to ${discipline.evidenceEn}. The structure can be learned; the judgment still has to be rebuilt.`,
+    stepsZh: () => [
+      '先拆出高被引综述的组织方式，看它按什么逻辑分组而不是只看它得出了什么。',
+      '再对照近年的研究进展，判断哪些结论已经老化、哪些争议已经移动。',
+      '最后只保留对自己综述真正有帮助的结构骨架，把判断句重新写成你的版本。',
+    ],
+    stepsEn: () => [
+      'Separate the organizational logic of the influential review from its conclusions and note how it groups the field.',
+      'Compare that map with more recent studies to see which judgments have aged and which disputes have moved.',
+      'Keep only the structural skeleton that still helps and rewrite the judgment sentences in your own voice.',
+    ],
+    riskZh: () =>
+      '如果高被引综述被整段照搬，你的文献综述会很像“翻译和复述”，却很难体现当前研究位置和自己的判断力度。',
+    riskEn: () =>
+      'If the influential review is borrowed too directly, the literature review starts to look like translation and repetition rather than a current map with your own analytical force.',
+    closeZh: () => '借综述最好的方式，是让它帮你省掉重搭框架的时间，而不是替你做出判断。',
+    closeEn: () =>
+      'The best use of a major review is to save time on frame-building, not to outsource your judgment to it.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}参考文献别等定稿再救：综述阶段先做可追溯清单`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: build a traceable citation list during the review instead of fixing references at the end`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}写${discipline.titleZh}综述时，先把文献内容抄进笔记，等到定稿阶段才想起补全页码、DOI、出版信息和引用对应关系，结果后面越修越乱。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} extract ideas from ${discipline.titleEn} sources first and leave page numbers, DOIs, publication details, and citation matching for the final stage, which later turns cleanup into chaos.`,
+    strategyZh: ({ discipline }) =>
+      `可追溯清单的核心，不只是方便排版，而是确保每一个判断句背后都能迅速回到原出处。尤其当你横跨${discipline.evidenceZh}和多语种来源时，这种可追溯性会直接影响综述质量。`,
+    strategyEn: ({ discipline }) =>
+      `The point of a traceable citation list is not only formatting convenience. It ensures that every judgment sentence can quickly return to its original source. When the review spans ${discipline.evidenceEn} and multilingual sources, that traceability directly affects quality.`,
+    stepsZh: () => [
+      '先给每条文献记录完整的来源信息，而不是只保留标题和作者。',
+      '再把每条引用和你准备使用它的段落、判断或图表位置对应起来。',
+      '最后定期检查是否存在“笔记里有结论、清单里找不到原文”的断链情况。',
+    ],
+    stepsEn: () => [
+      'Record the full source details for each item instead of saving only the title and author.',
+      'Map each reference to the paragraph, judgment, or figure where you expect to use it.',
+      'Check regularly for broken links where the note contains a claim but the original source can no longer be traced cleanly.',
+    ],
+    riskZh: () =>
+      '如果引用关系在综述阶段没有先收稳，最后最容易出现的问题不是格式小错，而是关键判断找不到可靠出处。',
+    riskEn: () =>
+      'If citation control is not stabilized during the review stage, the biggest final problem is often not small formatting errors but key claims with no reliable trace back to the source.',
+    closeZh: () => '参考文献越早变成可追溯系统，后面的改稿、投稿和答辩准备就越省力。',
+    closeEn: () =>
+      'The earlier the references become a traceable system, the easier later revision, submission, and defense preparation become.',
+  },
 ]
 
 const methodsThemes: ContentTheme[] = [
@@ -1442,6 +1566,68 @@ const methodsThemes: ContentTheme[] = [
     closeZh: () => '能被压缩清楚的论文，通常也更容易被编辑、审稿人和答辩老师迅速读懂。',
     closeEn: () =>
       'A thesis that can be compressed clearly is usually much easier for editors, reviewers, and examiners to understand quickly.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}补充材料和数据附件怎么准备：别等投稿系统逼你才找`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: prepare supplements and data appendices before the submission system forces you to`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}做${discipline.titleZh}研究时，会把补充材料、原始表格、附录说明和数据附件散落在各处，等到真正准备投稿或答辩材料时才发现文件不全、命名混乱、版本也对不上。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} in ${discipline.titleEn} keep supplements, raw tables, appendix notes, and data attachments scattered across folders until submission or defense preparation reveals that the files are incomplete, mislabeled, or version-mismatched.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在方法阶段就把主文结果、补充表格、代码或计算说明，以及与${discipline.evidenceZh}相关的附件路线分开整理，让每份文件都知道自己将来服务哪一种问题。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier approach is to organize the main findings, supplementary tables, code or calculation notes, and attachments tied to ${discipline.evidenceEn} during the methods stage, so each file already knows what future question it is supposed to answer.`,
+    stepsZh: () => [
+      '先列出哪些材料必须进正文，哪些更适合留在附录或补充文件里。',
+      '再统一文件命名、版本说明和引用关系，避免一个结果对应多个模糊版本。',
+      '最后检查读者离开正文后，是否还能通过附件看懂你的方法、结果和边界条件。',
+    ],
+    stepsEn: () => [
+      'List which materials belong in the main text and which are better placed in appendices or supplementary files.',
+      'Standardize file names, version notes, and cross-references so one result does not point to multiple ambiguous versions.',
+      'Check whether a reader leaving the main text can still understand your method, findings, and boundary conditions through the attachments.',
+    ],
+    riskZh: () =>
+      '如果附件系统一直是临时拼凑，最常见的问题不是文件多，而是关键材料真正需要时反而找不到最可信的版本。',
+    riskEn: () =>
+      'If the supplement system remains improvised, the common problem is not having too many files but being unable to find the most trustworthy version when it is finally needed.',
+    closeZh: () => '附件和补充材料先整理好，后面的投稿包件、审稿回复和答辩追问都会轻松很多。',
+    closeEn: () =>
+      'Once the supplements and appendices are organized early, submission packaging, reviewer responses, and defense follow-up all become much easier.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}报告规范别等投稿前才查：方法章节先跑一遍 checklist`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: run a reporting checklist during methods drafting instead of waiting until submission`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}把${discipline.titleZh}论文里的报告规范当成投稿前的“最后对照表”，结果经常到最后才发现样本说明、流程细节或图表信息缺了关键一块。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} treat reporting guidelines in ${discipline.titleEn} as a last-minute submission checklist and only then discover that key sample details, process steps, or figure information were never written down properly.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的做法，是在方法章节成形时就先跑一遍 checklist。无论你所在领域用的是哪类规范，它的价值都不是应付格式，而是帮助你检查${discipline.evidenceZh}、步骤说明和限制条件有没有被真正写清。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier move is to run a reporting checklist when the methods chapter first takes shape. Whatever guideline your field uses, its value is not formatting compliance alone but checking whether ${discipline.evidenceEn}, procedural details, and limitations have actually been described.`,
+    stepsZh: () => [
+      '先找出本领域最接近你研究设计的报告规范或方法清单。',
+      '再逐条核对哪些信息已经写进正文，哪些还停留在脑子里或笔记里。',
+      '最后把补上的细节真正放回方法和图表说明中，而不是只在清单上打勾。',
+    ],
+    stepsEn: () => [
+      'Identify the reporting guide or method checklist that is closest to your study design.',
+      'Check line by line which details are already in the draft and which still exist only in your head or notes.',
+      'Return the missing details to the methods and figure notes rather than merely ticking the checklist.',
+    ],
+    riskZh: () =>
+      '如果 checklist 只在最后出场，最容易出现的情况就是你知道缺什么，却已经没有足够时间把这些缺口补进论文主线里。',
+    riskEn: () =>
+      'If the checklist appears only at the end, the common outcome is knowing what is missing but no longer having enough time to integrate those gaps into the main manuscript cleanly.',
+    closeZh: () => '报告规范越早进入方法写作，后面的投稿和审稿阶段就越少出现“本来做了，却没写出来”的遗憾。',
+    closeEn: () =>
+      'The earlier reporting guidance enters the methods draft, the fewer “we did it but failed to write it” regrets appear later in submission and review.',
   },
 ]
 
@@ -1812,6 +1998,130 @@ const revisionThemes: ContentTheme[] = [
     closeEn: () =>
       'Strong conference material is judged less by how many words were cut than by whether the research was rebuilt into something audible, visible, and memorable.',
   },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}为什么会被 desk reject：投稿前先查范围、贡献和包件`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: reduce desk-rejection risk by checking scope, contribution, and package fit`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}以为 desk reject 只和期刊档次有关，但不少${discipline.titleZh}稿件在送审前就被退回，真正原因往往是范围不匹配、贡献不够清楚，或投稿包件看起来不完整。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} assume desk rejection is mainly about journal prestige, yet many ${discipline.titleEn} manuscripts are returned before review because the scope is off, the contribution is unclear, or the submission package looks incomplete.`,
+    strategyZh: ({ discipline }) =>
+      `desk reject 的自查重点，通常不是“我是不是不够好”，而是三个更具体的问题：题目和摘要是否真的贴合期刊范围，核心结果是否足够明确，以及${discipline.evidenceZh}与附件文件是否已准备到编辑能快速判断的程度。`,
+    strategyEn: ({ discipline }) =>
+      `The useful desk-rejection self-check is usually not “am I good enough?” but three sharper questions: does the title and abstract genuinely fit the journal scope, is the core result sufficiently clear, and are ${discipline.evidenceEn} plus supporting files prepared enough for an editor to judge quickly?`,
+    stepsZh: () => [
+      '先把期刊 aims and scope 与你的标题、摘要并排对照，看是否存在明显错位。',
+      '再检查编辑读完第一页后，能否一句话说出你的核心贡献。',
+      '最后确认标题页、图表、补充材料和必要声明是否已经齐套，避免内容成熟却包件失分。',
+    ],
+    stepsEn: () => [
+      'Place the journal aims and scope next to your title and abstract and test whether there is a visible mismatch.',
+      'Check whether an editor could summarize your core contribution in one sentence after reading the first page.',
+      'Confirm that the title page, visuals, supplements, and required declarations are complete so the package does not weaken a mature manuscript.',
+    ],
+    riskZh: () =>
+      '如果投稿前没有做这轮 desk-reject 自查，最让人沮丧的情况就是研究并非没有价值，却因为定位和包件问题连外审都进不去。',
+    riskEn: () =>
+      'Without this desk-rejection check, the most frustrating outcome is a study with real value failing to reach external review because of positioning and packaging problems.',
+    closeZh: () => '先把 scope、贡献和包件查稳，通常比盲目多投几本期刊更能提升首轮送审概率。',
+    closeEn: () =>
+      'Stabilizing scope, contribution, and submission packaging usually helps more than simply trying more journals blindly.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}推荐审稿人怎么想：不是找熟人，而是找真正懂问题的人`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: choose suggested reviewers for problem fit, not familiarity`,
+    introZh: ({ degree, discipline }) =>
+      `不少${degree.readerZh}第一次投稿时，一遇到“是否推荐审稿人”就发怵，要么随手不填，要么只想到和自己研究方向大致相关的人，却没有认真判断他们是否真正懂这篇稿子的核心问题。`,
+    introEn: ({ degree }) =>
+      `Many ${degree.readerEn} freeze the first time a submission system asks for suggested reviewers, either leaving the field empty or listing vaguely related names without asking whether those scholars actually understand the core problem of the manuscript.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的推荐思路，不是找“看起来厉害的人”，而是找那些近年持续处理类似问题、方法或${discipline.evidenceZh}的人，并同时避开明显存在利益冲突或判断偏差风险的对象。`,
+    strategyEn: ({ discipline }) =>
+      `A stronger reviewer-suggestion strategy is not to find people who merely look prestigious but to identify scholars who have recently worked on similar questions, methods, or ${discipline.evidenceEn}, while avoiding obvious conflict-of-interest or bias risks.`,
+    stepsZh: () => [
+      '先从近几年与你论文最接近的参考文献和目标期刊文章里筛选候选人。',
+      '再判断这些人是更懂你的问题、方法，还是更可能因为立场过近或过远而影响判断。',
+      '最后准备一份简洁名单，并给自己留一份回避名单以防投稿系统需要。',
+    ],
+    stepsEn: () => [
+      'Start from the references and target-journal papers closest to your manuscript in the last few years.',
+      'Judge whether each person truly understands your question and method, or whether they are too close or too distant in stance to be ideal.',
+      'Prepare a concise candidate list and keep a separate avoid-list ready in case the submission system asks for it.',
+    ],
+    riskZh: () =>
+      '推荐审稿人最容易出错的地方，不是名单不够长，而是根本没有从“谁最可能公正理解这篇稿子”出发来想。',
+    riskEn: () =>
+      'The common error in suggesting reviewers is not a short list but failing to begin from the question of who is most likely to understand the manuscript fairly.',
+    closeZh: () => '审稿人推荐不是人情操作，而是投稿定位的一部分。',
+    closeEn: () =>
+      'Reviewer suggestion is not social maneuvering. It is part of positioning the submission intelligently.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}作者贡献、利益冲突和数据声明怎么写：别让行政项拖累投稿`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: write contribution, conflict, and data statements before admin details slow submission`,
+    introZh: ({ degree, discipline }) =>
+      `很多${degree.readerZh}准备${discipline.titleZh}投稿时，最容易忽视的不是正文，而是作者贡献、利益冲突、致谢、数据可用性这类看似行政化的声明项。等到系统逐项索要时，整个流程常常突然卡住。`,
+    introEn: ({ degree, discipline }) =>
+      `Many ${degree.readerEn} preparing a ${discipline.titleEn} submission overlook not the manuscript itself but the apparently administrative statements on author contribution, conflicts of interest, acknowledgments, and data availability. The workflow often stalls when the system asks for them all at once.`,
+    strategyZh: ({ discipline }) =>
+      `这些声明最稳的处理方式，是把它们当成研究完整性的一部分，而不是投稿前临时拼接的附件。尤其当论文涉及${discipline.evidenceZh}、多人协作或数据共享时，它们会直接影响编辑对稿件专业度的判断。`,
+    strategyEn: ({ discipline }) =>
+      `The steadiest way to handle these statements is to treat them as part of research integrity rather than last-minute submission add-ons. When the paper involves ${discipline.evidenceEn}, collaboration, or data sharing, they directly shape an editor’s sense of professionalism.`,
+    stepsZh: () => [
+      '先在投稿前把作者分工、致谢对象和潜在利益冲突梳理成简表。',
+      '再准备一版可直接进入系统的标准化声明文本，避免现场临时拼写。',
+      '最后检查这些声明与正文方法、数据来源和附件说明是否彼此一致。',
+    ],
+    stepsEn: () => [
+      'Prepare a short table of author roles, acknowledgment targets, and possible conflicts before submission starts.',
+      'Draft standardized statement text that can be pasted into the system directly instead of being improvised live.',
+      'Check that these statements remain consistent with the methods, data source description, and supplemental files.',
+    ],
+    riskZh: () =>
+      '如果这些声明一直拖到最后，最常见的问题不是写不出来，而是写出来后和正文互相矛盾，或者临时追认信息导致节奏全乱。',
+    riskEn: () =>
+      'If these statements are delayed until the end, the common problem is not failing to write them but producing text that conflicts with the manuscript or disrupts the whole workflow through last-minute confirmation.',
+    closeZh: () => '把这些声明提前写顺，投稿流程会明显更稳，编辑对稿件的第一印象也会更专业。',
+    closeEn: () =>
+      'Writing these statements early usually makes submission much smoother and creates a more professional first impression on the editorial side.',
+  },
+  {
+    titleZh: ({ degree, discipline }) =>
+      `${degree.labelZh}${discipline.titleZh}AI 工具使用说明怎么处理：先查期刊政策，再区分润色和生成`,
+    titleEn: ({ degree, discipline }) =>
+      `${degree.labelEn} ${discipline.titleEn}: handle AI-use disclosure by checking journal policy before submission`,
+    introZh: ({ degree, discipline }) =>
+      `越来越多${degree.readerZh}会在${discipline.titleZh}写作、润色、图示整理或语言检查中用到 AI 工具，但真正到投稿阶段时，大家最容易慌的不是“用没用”，而是“哪些使用需要声明，怎么声明才不失真”。`,
+    introEn: ({ degree, discipline }) =>
+      `More and more ${degree.readerEn} use AI tools in ${discipline.titleEn} drafting, polishing, figure organization, or language checking, yet the point of anxiety at submission is often not whether AI was used but what needs to be disclosed and how to state it accurately.`,
+    strategyZh: ({ discipline }) =>
+      `更稳的处理方式，是先查目标期刊或出版社的最新政策，再区分语言润色、格式辅助、图示整理与内容生成这些不同层级的使用。只要这一步不先做清，涉及${discipline.evidenceZh}和原创判断的边界就容易变模糊。`,
+    strategyEn: ({ discipline }) =>
+      `A steadier approach is to check the latest journal or publisher policy first and then distinguish among language polishing, formatting assistance, figure organization, and actual content generation. Without that separation, the boundary around originality and ${discipline.evidenceEn} becomes hard to state clearly.`,
+    stepsZh: () => [
+      '先记录你在论文准备过程中实际使用过哪些 AI 工具、用在什么环节、是否经过人工复核。',
+      '再核对目标期刊对 AI 辅助写作、图示制作和声明格式的具体要求。',
+      '最后只按事实写说明，不夸大也不掩盖，并保证正文中的研究判断和责任归属仍然清楚。',
+    ],
+    stepsEn: () => [
+      'Document which AI tools were actually used, at what stage, and whether the output was reviewed manually.',
+      'Check the target journal’s specific requirements on AI-assisted writing, figure preparation, and disclosure format.',
+      'State only the facts, without exaggeration or concealment, and make sure responsibility for the manuscript’s judgments remains clear.',
+    ],
+    riskZh: () =>
+      '如果 AI 使用说明完全靠临场发挥，最容易出现的问题不是格式不美观，而是说明和真实使用不匹配，或与期刊政策发生冲突。',
+    riskEn: () =>
+      'If AI-use disclosure is improvised on the spot, the main risk is not awkward wording but a mismatch between the statement, the actual workflow, and the journal policy.',
+    closeZh: () => '先查政策、再写说明，通常比等投稿系统弹窗后临时补一句要稳得多。',
+    closeEn: () =>
+      'Checking policy first and writing the disclosure deliberately is far steadier than improvising a sentence when the submission system suddenly asks for it.',
+  },
 ]
 
 // Themes are original syntheses inspired by academic writing guidance from university writing centers,
@@ -2117,9 +2427,9 @@ function buildChinesePost(
   degree: DegreeConfig,
   discipline: DisciplineConfig,
   stage: StageConfig,
-  disciplineIndex: number,
+  themeSeed: number,
 ) {
-  const theme = stageThemes[stage.slug][disciplineIndex % stageThemes[stage.slug].length]
+  const theme = stageThemes[stage.slug][themeSeed % stageThemes[stage.slug].length]
   const args = { degree, discipline }
   const postArgs = { degree, discipline, stage }
   const narrative = stageNarratives[stage.slug]
@@ -2180,9 +2490,9 @@ function buildEnglishPost(
   degree: DegreeConfig,
   discipline: DisciplineConfig,
   stage: StageConfig,
-  disciplineIndex: number,
+  themeSeed: number,
 ) {
-  const theme = stageThemes[stage.slug][disciplineIndex % stageThemes[stage.slug].length]
+  const theme = stageThemes[stage.slug][themeSeed % stageThemes[stage.slug].length]
   const args = { degree, discipline }
   const postArgs = { degree, discipline, stage }
   const narrative = stageNarratives[stage.slug]
@@ -2246,9 +2556,10 @@ function buildCatalog(): GeneratedPost[] {
 
   for (const stage of stages) {
     for (const [disciplineIndex, discipline] of disciplines.entries()) {
-      for (const degree of degrees) {
-        const zh = buildChinesePost(degree, discipline, stage, disciplineIndex)
-        const en = buildEnglishPost(degree, discipline, stage, disciplineIndex)
+      for (const [degreeIndex, degree] of degrees.entries()) {
+        const themeSeed = disciplineIndex * degrees.length + degreeIndex
+        const zh = buildChinesePost(degree, discipline, stage, themeSeed)
+        const en = buildEnglishPost(degree, discipline, stage, themeSeed)
         const publishedAt = new Date(
           startDate.getTime() + index * 24 * 60 * 60 * 1000,
         ).toISOString()
