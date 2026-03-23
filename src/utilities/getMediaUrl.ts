@@ -20,8 +20,8 @@ export const getMediaUrl = (url: string | null | undefined, cacheTag?: string | 
     return appendCacheTag(url)
   }
 
-  // Payload may return local uploads through the API file endpoint, but on Vercel these files
-  // are reliably available from Next's public directory instead.
+  // Legacy local fallback: when uploads live in Next's public/media directory, convert
+  // Payload's API file path into the matching public asset path.
   const localUploadMatch = url.match(/^\/api\/media\/file\/(.+)$/)
   if (localUploadMatch) {
     return appendCacheTag(`/media/${localUploadMatch[1]}`)
