@@ -11241,6 +11241,7 @@ async function loadExistingPostsBySlug(
 }
 
 async function main() {
+  let payloadToDestroy: Awaited<ReturnType<typeof getPayload>> | null = null
   const shouldSeed = process.env.SEO_SEED_FORCE === '1' || process.env.VERCEL_ENV === 'production'
   const hasDatabaseUrl = Boolean(process.env.DATABASE_URL || process.env.POSTGRES_URL)
   const hasPayloadSecret = Boolean(process.env.PAYLOAD_SECRET)
@@ -11255,8 +11256,10 @@ async function main() {
     return
   }
 
+  try {
   const config = await configPromise
   const payload = await getPayload({ config })
+  payloadToDestroy = payload
   const catalog = buildCatalog()
 
   console.log(
@@ -11476,10 +11479,22 @@ async function main() {
   console.log(
     `[seed:seo] Completed. Created ${createdCount} new SEO articles and updated ${updatedCount} existing ones.`,
   )
+  } finally {
+    if (payloadToDestroy) {
+      await payloadToDestroy.destroy().catch((destroyError) => {
+        console.warn('[seed:seo] Failed to destroy Payload after seeding.')
+        console.warn(destroyError)
+      })
+    }
+  }
 }
 
-main().catch((error) => {
-  console.error('[seed:seo] Failed to seed SEO articles.')
-  console.error(error)
-  process.exit(1)
-})
+main()
+  .then(() => {
+    process.exit(0)
+  })
+  .catch((error) => {
+    console.error('[seed:seo] Failed to seed SEO articles.')
+    console.error(error)
+    process.exit(1)
+  })
