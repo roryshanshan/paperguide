@@ -2693,6 +2693,1156 @@ const writingHubs: WritingHubConfig[] = [
       },
     },
   },
+  {
+    slug: 'research-topic',
+    topicSlug: 'keyword-positioning',
+    categorySlug: 'research-topic-planning',
+    labelZh: '选题与问题定义',
+    labelEn: 'Topic Selection',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '关键词定位、题目命名和检索可见性',
+    focusEn: 'keyword positioning, title naming, and search visibility',
+    evidenceZh: '关键词树、数据库检索结果和题目版本记录',
+    evidenceEn: 'keyword trees, database search results, and title version notes',
+    standardZh: '重点不是把题目写得更好看，而是让题目、关键词和读者入口真正对齐。',
+    standardEn:
+      'The goal is not to make the title sound prettier but to align the title, the keywords, and the reader entry points.',
+    articles: {
+      proposal: {
+        titleZh: '题目和关键词别分开想：开题时就把检索入口一起定',
+        titleEn:
+          'Do not treat the title and keywords separately: define the search entry points during the proposal stage',
+        introZh:
+          '很多人写题目时只考虑表达好不好听，写关键词时又随手补几个大词，结果题目和检索入口像两套系统，后面不管是综述、摘要还是投稿定位都容易跑偏。',
+        introEn:
+          'Many writers choose a title mainly by how polished it sounds and add a few broad keywords later as an afterthought. The result is that the title and the search entry points behave like two different systems, which later destabilizes the review, the abstract, and the submission positioning.',
+        zhihuAngleZh:
+          '知乎里关于“题目和关键词怎么定”的高频问题，反复暴露的是一个习惯：大家会把题目当门面、把关键词当填空题，却很少把它们当成同一条检索链来设计。',
+        zhihuAngleEn:
+          'Across recurring Zhihu questions on choosing titles and keywords, one habit shows up again and again: titles are treated as presentation while keywords are treated as blanks to fill, instead of both being designed as one search chain.',
+        strategyZh:
+          '更稳的开题做法，是先把题目拆成对象词、问题词和边界词，再给每一层准备可替代关键词。只要三层能同时回到同一个研究问题，题目和关键词就不会各说各话。',
+        strategyEn:
+          'A steadier proposal-stage move is to split the title into an object term, a problem term, and a boundary term, then prepare alternative keywords for each layer. As long as all three layers point back to the same research question, the title and the keywords will not drift apart.',
+        stepsZh: [
+          '先把题目拆成对象、问题和边界三个词组。',
+          '再为每个词组准备两到三个数据库里常见的替代说法。',
+          '最后检查题目和关键词是否都能把读者带回同一个问题。',
+        ],
+        stepsEn: [
+          'Break the title into an object phrase, a problem phrase, and a boundary phrase.',
+          'Prepare two or three database-friendly alternatives for each phrase.',
+          'Check whether both the title and the keyword set lead readers back to the same problem.',
+        ],
+        submissionZh:
+          '如果以后还要投稿，这一步很值钱，因为很多后期的大改其实只是前期没有把题目、关键词和读者入口一起设计好。',
+        submissionEn:
+          'If submission may come later, this step is highly valuable because many late major revisions are simply the cost of never designing the title, keywords, and reader entry together at the start.',
+        riskZh:
+          '如果题目和关键词一直分开想，最常见的后果就是题目看起来很稳，数据库检索却抓不到真正相关文献，后面写作会越来越吃力。',
+        riskEn:
+          'If the title and keywords keep being designed separately, the common result is a title that looks stable while database searching misses the most relevant literature, making later writing progressively harder.',
+        checklistZh: [
+          '1. 题目是否已经拆成对象、问题和边界三层。',
+          '2. 每一层是否都有可替代关键词。',
+          '3. 题目和关键词是否都指向同一个研究问题。',
+        ],
+        checklistEn: [
+          '1. Has the title already been split into object, problem, and boundary layers?',
+          '2. Does each layer have alternative keyword options?',
+          '3. Do the title and keywords both point to the same research question?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更稳定的题目、一套可检索关键词和一张能继续扩写的入口词表。',
+        deliverableEn:
+          'After this round, you should have a steadier title, a searchable keyword set, and an entry-term sheet that can keep expanding later.',
+        closeZh:
+          '题目和关键词一旦在开题时就对齐，后面的综述、摘要和投稿定位都会顺很多。',
+        closeEn:
+          'Once the title and keywords align during the proposal stage, the review, the abstract, and the submission positioning all become much smoother later.',
+      },
+      'literature-review': {
+        titleZh: '检索越搜越散？先用关键词分层把文献入口重新收紧',
+        titleEn:
+          'Does the search keep scattering? Re-tighten the literature entry by layering your keywords',
+        introZh:
+          '很多人写综述时会发现同一个方向搜出来的东西越来越杂，最后不是文献太少，而是入口太乱，检索词彼此并不服务同一条问题线。',
+        introEn:
+          'Many writers discover during the review stage that search results become more and more heterogeneous. The problem is often not too little literature but an entry system that has become too messy, with search terms no longer serving the same question line.',
+        zhihuAngleZh:
+          '知乎里关于“检索词越改越乱怎么办”的讨论，经常会提到一个简单但有效的做法：把关键词分层，而不是一股脑往检索式里堆。',
+        zhihuAngleEn:
+          'Zhihu discussions on search terms getting more chaotic often point to one simple but effective move: layer the keywords instead of stuffing every possible term into one search expression.',
+        strategyZh:
+          '更稳的综述检索法，是把关键词分成核心词、限定词和补充词。核心词决定你在找什么，限定词决定你找哪一类，补充词则帮助你调细结果，而不是从一开始就把所有词平铺使用。',
+        strategyEn:
+          'A steadier review-stage search practice is to divide keywords into core terms, limiting terms, and support terms. Core terms determine what you are looking for, limiting terms define which subset you want, and support terms help refine the results instead of throwing every term in flatly from the start.',
+        stepsZh: [
+          '先找出不能动的核心词，别让它跟着每次检索一起漂。',
+          '再把地区、时间、对象或方法放进限定词层。',
+          '最后只在需要时才加入补充词收窄结果。',
+        ],
+        stepsEn: [
+          'Identify the non-negotiable core terms first so they do not drift every time the search changes.',
+          'Place region, time, object, or method items into the limiting layer.',
+          'Add support terms only when you need to narrow the result set further.',
+        ],
+        submissionZh:
+          '如果以后要写成更成熟的引言或 review，这种分层检索会非常有用，因为你可以更清楚地解释“为什么是这一批文献，而不是另一批”。',
+        submissionEn:
+          'If the material later becomes a stronger introduction or a review article, this layered search strategy is extremely useful because it lets you explain much more clearly why this literature set was chosen instead of another one.',
+        riskZh:
+          '如果检索词一直不分层，最容易出现的就是结果看起来很多，真正可用于综述骨架的却很少。',
+        riskEn:
+          'If the search terms never gain layers, the common result is a large result set with very few papers that can actually support the review structure.',
+        checklistZh: [
+          '1. 核心词是否已经固定下来。',
+          '2. 限定词和补充词是否已分开。',
+          '3. 这套检索词是否还能稳定回到同一条问题线。',
+        ],
+        checklistEn: [
+          '1. Have the core terms been stabilized?',
+          '2. Are the limiting and support terms now separated?',
+          '3. Does the search set still return to one coherent question line?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更稳定的分层检索式和一批更适合进入综述骨架的文献入口。',
+        deliverableEn:
+          'After this round, you should have a more stable layered search system and a literature entry set that better fits the review skeleton.',
+        closeZh:
+          '关键词一旦分层，综述入口就不再靠运气，而是开始由你主动控制。',
+        closeEn:
+          'Once the keywords are layered, the review entry stops depending on luck and starts being actively controlled by the writer.',
+      },
+      'methods-analysis': {
+        titleZh: '关键词要不要和变量口径一致：先看你到底在测什么',
+        titleEn:
+          'Should keywords match the variable definitions? Decide first what the study is actually measuring',
+        introZh:
+          '很多题目和摘要里写的是一个概念，到了方法和变量定义时却换成了另一套口径。读者未必立刻指出来，但这种错位会让整个研究看起来很不稳。',
+        introEn:
+          'Many projects name one concept in the title and abstract and then shift into a different vocabulary when defining variables or coding rules. Readers may not point it out immediately, but this mismatch makes the whole study feel unstable.',
+        zhihuAngleZh:
+          '知乎里关于“题目、变量和摘要是不是要统一”的讨论，反复出现的核心提醒就是：至少要知道你是在改表达，还是在改研究对象本身。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether the title, variables, and abstract should stay unified repeatedly return to the same reminder: the writer must know whether they are only changing wording or changing the actual object of study.',
+        strategyZh:
+          '更稳的做法，是先把题目关键词和方法口径逐个对照。哪些是同义改写，哪些其实已经换了测量对象或分析边界，要在这里一次看清。',
+        strategyEn:
+          'A steadier move is to compare the title keywords and the methodological definitions one by one. Some differences are harmless paraphrases, while others quietly replace the measured object or the analytical boundary. That distinction needs to be made clearly here.',
+        stepsZh: [
+          '先把题目和摘要里的核心词抄出来。',
+          '再对照变量、编码或样本口径，看哪些词已经变形。',
+          '最后决定是回改题目表达，还是回改方法定义。',
+        ],
+        stepsEn: [
+          'List the core terms used in the title and abstract first.',
+          'Compare them to the variable, coding, or sample definitions and mark which ones have shifted.',
+          'Then decide whether the title wording must be revised or the method definition itself needs correction.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这一步非常关键，因为编辑和审稿人很容易对“题目说的是 A，方法测的是 B”这种错位产生第一眼不信任。',
+        submissionEn:
+          'If the work may later be submitted, this step is crucial because editors and reviewers quickly lose trust when the title appears to promise A while the method is clearly measuring B.',
+        riskZh:
+          '如果关键词和方法口径一直错位，最常见的后果就是题目吸引了一类读者，正文却在回答另一类问题。',
+        riskEn:
+          'If the keywords and method definitions remain misaligned, the common outcome is that the title attracts one kind of reader while the body answers a different kind of question.',
+        checklistZh: [
+          '1. 题目和摘要里的核心词是否已经列清。',
+          '2. 变量或编码口径是否和这些词真正对应。',
+          '3. 是否已经区分表达变化和对象变化。',
+        ],
+        checklistEn: [
+          '1. Have the core terms from the title and abstract been listed clearly?',
+          '2. Do the variable or coding definitions genuinely correspond to them?',
+          '3. Have you separated wording shifts from actual object shifts?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版题目、摘要和方法口径更一致的研究表达。',
+        deliverableEn:
+          'After this round, you should have a research expression in which the title, abstract, and methodological definitions are much more aligned.',
+        closeZh:
+          '题目和方法一旦说同一种语言，整篇论文的可信度会立刻抬起来。',
+        closeEn:
+          'Once the title and the method begin speaking the same language, the credibility of the whole paper rises immediately.',
+      },
+      'revision-defense': {
+        titleZh: '定稿前题目和关键词要不要重写：先看现在这版到底吸引了谁',
+        titleEn:
+          'Should the title and keywords be rewritten before final submission? Check who the current version is actually attracting',
+        introZh:
+          '很多人到定稿前才发现，现在这版题目吸引来的读者，和正文真正适合的读者并不是同一群。这个问题如果不处理，答辩和投稿定位都会变得很别扭。',
+        introEn:
+          'Many writers only realize near the final stage that the current title is attracting readers who are not the same group the body is actually written for. If that mismatch is left unresolved, both defense framing and submission positioning become awkward.',
+        zhihuAngleZh:
+          '知乎里关于“标题要不要临门一脚再改”的经验，常会提醒别只看好不好听，而要看现在这版到底把哪类读者带进来了。',
+        zhihuAngleEn:
+          'Zhihu advice on whether a title should be revised right before submission often warns against judging only by sound or elegance. The real question is which readers the current version is inviting in.',
+        strategyZh:
+          '更稳的收口方式，是回看标题、关键词、摘要和正文第一段，判断它们吸引的读者是不是同一类。如果不是，就要在这一步统一入口口径。',
+        strategyEn:
+          'A steadier final-stage move is to review the title, keywords, abstract, and first paragraph together and ask whether they are inviting the same kind of reader. If they are not, the entry language needs to be unified now.',
+        stepsZh: [
+          '先判断当前标题和关键词最像在吸引哪类读者。',
+          '再对照正文第一段，看内容真正对谁有用。',
+          '最后决定是重写标题关键词，还是微调正文开场。',
+        ],
+        stepsEn: [
+          'Judge first which reader group the current title and keywords appear to attract most strongly.',
+          'Compare that with the first paragraph of the body and ask who the content is actually useful for.',
+          'Then decide whether the title and keywords must be rewritten or the opening of the body should be adjusted slightly.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这一步会直接影响 editor first impression；如果要答辩，也会影响老师们第一眼理解你在做什么。',
+        submissionEn:
+          'If submission is next, this step directly shapes the editor’s first impression; if defense is next, it shapes how examiners understand the project at first glance.',
+        riskZh:
+          '如果收尾时不处理入口错位，最容易出现的就是标题越看越亮眼，正文却越显得不对应。',
+        riskEn:
+          'If this entry mismatch is not repaired at the final stage, the title often grows more eye-catching while the body looks less and less aligned with it.',
+        checklistZh: [
+          '1. 当前标题和关键词吸引的读者是否已判断清楚。',
+          '2. 正文第一段真正服务的读者是否一致。',
+          '3. 是否已经统一了入口口径。',
+        ],
+        checklistEn: [
+          '1. Has the reader attracted by the current title and keywords been identified clearly?',
+          '2. Is that the same reader served by the first paragraph of the body?',
+          '3. Has the entry language now been unified?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版对外入口更统一的题目、关键词和摘要组合。',
+        deliverableEn:
+          'After this round, you should have a more unified outward-facing combination of title, keywords, and abstract.',
+        closeZh:
+          '定稿时重写题目和关键词，不是为了更花哨，而是为了让正确的读者被正确地带进来。',
+        closeEn:
+          'Rewriting the title and keywords at the final stage is not about decoration but about letting the right readers enter through the right door.',
+      },
+    },
+  },
+  {
+    slug: 'literature-reading',
+    topicSlug: 'gap-writing',
+    categorySlug: 'literature-reading-review',
+    labelZh: '文献阅读与综述',
+    labelEn: 'Literature Review',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '研究缺口、比较句和切入点表达',
+    focusEn: 'research gaps, comparison sentences, and entry-point framing',
+    evidenceZh: '比较句、争议线和 gap statement 草稿',
+    evidenceEn: 'comparison sentences, dispute lines, and gap-statement drafts',
+    standardZh: '重点不是把“研究不足”写得更大，而是把你的切入点说得更准。',
+    standardEn:
+      'The goal is not to make the insufficiency sound larger but to make your point of entry more precise.',
+    articles: {
+      proposal: {
+        titleZh: '别先写研究意义：先练一句真正成立的 gap sentence',
+        titleEn:
+          'Do not begin with significance first: practice one gap sentence that actually stands',
+        introZh:
+          '很多人写开题时会很快进入“这个问题很重要”，但如果还没有一句真正成立的研究缺口，后面的意义写得再热闹也很容易飘。',
+        introEn:
+          'Many writers move quickly into explaining why a problem matters during the proposal stage, but if there is not yet one gap sentence that actually stands, even a lively significance section remains unstable.',
+        zhihuAngleZh:
+          '知乎里关于“研究缺口怎么找”的讨论，常会提醒一个简单事实：重要性和缺口不是一回事，前者告诉你值不值得做，后者才说明你准备从哪里切进去。',
+        zhihuAngleEn:
+          'Zhihu discussions on finding a research gap often return to one simple fact: importance and gap are not the same thing. The first tells you whether a topic is worth doing, while the second shows where you intend to enter it.',
+        strategyZh:
+          '更稳的开题动作，是先练一句 gap sentence：前人做到哪里、还差哪一小步、你为什么刚好适合补这一步。只要这句话站住，后面的意义、创新和目录都会更容易收束。',
+        strategyEn:
+          'A steadier proposal-stage move is to practice one gap sentence: how far prior work has gone, what small step is still missing, and why your project is particularly suited to fill it. Once that sentence stands, the significance, novelty, and outline all become easier to tighten.',
+        stepsZh: [
+          '先写出前人已经做到哪一步。',
+          '再指出仍然缺的那一小步，不要一上来就说整个领域都不够。',
+          '最后补一句为什么你的题目能正好接这一步。',
+        ],
+        stepsEn: [
+          'Write how far prior work has already gone first.',
+          'Point to the small missing step that remains instead of saying the whole field is insufficient.',
+          'Add one sentence explaining why your topic can take exactly that next step.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这句 gap sentence 几乎会贯穿摘要、引言和 Cover Letter，所以越早写稳越值钱。',
+        submissionEn:
+          'If submission may come later, this gap sentence will likely run through the abstract, the introduction, and the cover letter, so stabilizing it early is highly valuable.',
+        riskZh:
+          '如果研究意义先行、缺口后补，最常见的后果就是题目看起来很重要，真正切口却一直不清楚。',
+        riskEn:
+          'If significance comes first and the gap is patched in later, the common result is a topic that looks important while the real entry point remains unclear.',
+        checklistZh: [
+          '1. 前人做到哪里是否已经写清。',
+          '2. 缺的那一小步是否具体。',
+          '3. 你的题目为什么适合接这一步是否已说明。',
+        ],
+        checklistEn: [
+          '1. Is the current reach of prior work clearly stated?',
+          '2. Is the missing next step concrete?',
+          '3. Is it already explained why your project fits that step?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一句能真正支撑开题的 gap sentence，而不是只有一段泛泛的研究意义。',
+        deliverableEn:
+          'After this round, you should have one gap sentence that can truly support the proposal instead of only a broad significance paragraph.',
+        closeZh:
+          '真正能撑起一个题目的，不是重要性喊得多大，而是缺口说得多准。',
+        closeEn:
+          'What truly holds up a topic is not how loudly importance is claimed but how precisely the gap is named.',
+      },
+      'literature-review': {
+        titleZh: '研究缺口怎么写不空：用比较句把“还差哪一步”说出来',
+        titleEn:
+          'How do you write a research gap without sounding empty? Use comparison sentences to state what step is still missing',
+        introZh:
+          '很多综述里都会出现“现有研究还存在不足”，但这种写法最容易让读者觉得只是模板。真正有力的缺口，通常是通过比较句自然长出来的。',
+        introEn:
+          'Many reviews contain a line saying that existing research still has limitations, but this phrasing often feels template-driven. A convincing gap usually grows naturally out of comparison sentences instead.',
+        zhihuAngleZh:
+          '知乎里关于“研究不足总写得很空怎么办”的讨论，常会提到一个关键点：不要先写结论，再去找理由；要先通过比较把理由写出来，缺口才会显得真实。',
+        zhihuAngleEn:
+          'Zhihu discussions on empty-sounding limitation statements often stress one key point: do not write the conclusion first and search for reasons later; let the reasons emerge through comparison so the gap feels real.',
+        strategyZh:
+          '更稳的综述写法，是先比较不同研究做到了什么、没做到什么、为什么没做到，然后再把你的 gap sentence 写出来。这样缺口就不是凭空宣布，而是从比较里被推出来。',
+        strategyEn:
+          'A steadier review practice is to compare what different studies achieved, what they did not achieve, and why they did not, before writing the gap sentence. Then the gap is not declared out of nowhere but pushed out of the comparison itself.',
+        stepsZh: [
+          '先写两三句真正的比较句。',
+          '再从这些比较中归纳还差的一步。',
+          '最后把 gap sentence 缩成一句能放进引言里的话。',
+        ],
+        stepsEn: [
+          'Write two or three real comparison sentences first.',
+          'Extract the still-missing step from those comparisons.',
+          'Compress the gap sentence into one line that can live inside the introduction later.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种通过比较长出来的缺口会更有说服力，因为编辑和审稿人能看到你不是在硬说“前人都不够”。',
+        submissionEn:
+          'If submission is ahead, a gap that grows out of comparison is more persuasive because editors and reviewers can see that you are not simply forcing the claim that prior work was insufficient.',
+        riskZh:
+          '如果综述里的缺口只是模板句，最常见的后果就是引言和综述都很热闹，真正的新意却一直悬空。',
+        riskEn:
+          'If the review relies on template gap statements, the common result is a lively introduction and review with novelty still hanging in the air.',
+        checklistZh: [
+          '1. 是否已经写出真正的比较句。',
+          '2. 缺口是否是从比较里归纳出来的。',
+          '3. 最后的 gap sentence 是否足够短而有力。',
+        ],
+        checklistEn: [
+          '1. Have real comparison sentences already been written?',
+          '2. Was the gap derived from those comparisons?',
+          '3. Is the final gap sentence short and strong enough?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套可复用的比较句和一句更真实的 gap sentence。',
+        deliverableEn:
+          'After this round, you should have a reusable set of comparison sentences and a more credible gap sentence.',
+        closeZh:
+          '缺口写得稳，往往不是因为你说得更大，而是因为比较句终于写出来了。',
+        closeEn:
+          'A gap usually becomes steady not because it sounds larger but because the comparison sentences were finally written clearly.',
+      },
+      'methods-analysis': {
+        titleZh: '分析结果出来后，怎么回扣最初那个研究缺口',
+        titleEn:
+          'Once the analysis is done, how do you return to the original research gap',
+        introZh:
+          '很多论文在分析阶段会出现一个常见问题：结果写出来了，但和前面铺过的研究缺口没有重新接上，导致前文和后文像两套系统。',
+        introEn:
+          'A common problem in the analysis stage is that the results are finally written, but they never reconnect to the research gap laid out in the earlier sections, leaving the front and back of the paper feeling like separate systems.',
+        zhihuAngleZh:
+          '知乎里关于“为什么结果写完还是像没闭环”的讨论，经常会提到一点：分析结束后没有主动回扣前面的 gap sentence。',
+        zhihuAngleEn:
+          'Zhihu discussions on why the paper still feels open-ended after the analysis often point to one issue: the writer never actively returns to the earlier gap sentence after the findings appear.',
+        strategyZh:
+          '更稳的分析收法，是在关键结果段之后加一句回扣：这组结果到底补了前人哪一块、修正了哪一块，还是暴露了原来缺口判断需要重写。只要这一步不做，闭环感很难出来。',
+        strategyEn:
+          'A steadier way to close the analysis is to add one return sentence after the key result sections: which part of prior work this finding fills, revises, or reveals must be rewritten. Without that move, closure is hard to achieve.',
+        stepsZh: [
+          '先把最初的 gap sentence 再拿出来。',
+          '再判断这组结果是填补、修正还是动摇了它。',
+          '最后用一两句明确把结果和缺口重新接上。',
+        ],
+        stepsEn: [
+          'Bring the original gap sentence back into view first.',
+          'Decide whether the findings fill it, revise it, or destabilize it.',
+          'Reconnect the findings to that gap in one or two explicit sentences.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这一步会非常影响读者是否觉得稿件闭环。很多看起来“结果不少”的稿件，其实只是没有把结果重新拉回到最初的问题上。',
+        submissionEn:
+          'If the manuscript may later be submitted, this step strongly shapes whether readers experience the paper as closed and coherent. Many drafts that seem full of results are simply failing to pull those results back to the initial question.',
+        riskZh:
+          '如果结果不回扣缺口，最常见的后果就是综述和分析各自成立，但整篇论文还是显得没有闭环。',
+        riskEn:
+          'If the findings never return to the gap, the review and the analysis may each stand alone while the whole paper still feels unclosed.',
+        checklistZh: [
+          '1. 最初的 gap sentence 是否已重新拿出来核对。',
+          '2. 是否判断清楚结果对缺口的关系。',
+          '3. 是否已写出明确回扣句。',
+        ],
+        checklistEn: [
+          '1. Has the original gap sentence been brought back for comparison?',
+          '2. Is the relationship between the findings and that gap clearly judged?',
+          '3. Has an explicit return sentence been written?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版真正能让前文和后文接上的分析收束句。',
+        deliverableEn:
+          'After this round, you should have an analytical closing sentence that genuinely reconnects the front and back of the paper.',
+        closeZh:
+          '结果真正让论文闭环的时候，不是它们写出来了，而是它们重新回到了最初那个缺口上。',
+        closeEn:
+          'Results truly close a paper not when they merely appear but when they return to the original gap that launched the study.',
+      },
+      'revision-defense': {
+        titleZh: '导师说研究缺口不成立时，怎么改而不是整段推翻',
+        titleEn:
+          'How do you revise when the advisor says the research gap does not hold, without demolishing the whole section',
+        introZh:
+          '很多人一听到“这个缺口不成立”，就会想把整段综述推翻重写。但真正更有效的做法，往往是先判断到底是比较句不够、对象不对，还是 gap sentence 写得过满。',
+        introEn:
+          'When writers hear that the research gap does not hold, many immediately want to rewrite the whole review section from scratch. Yet the more effective move is often to decide whether the problem lies in weak comparison sentences, a mismatched object, or a gap sentence that claimed too much.',
+        zhihuAngleZh:
+          '知乎里关于“研究缺口被导师质疑怎么办”的经验，经常会提醒：先修支撑逻辑，再决定要不要推翻结论，不要一上来就大面积返工。',
+        zhihuAngleEn:
+          'Zhihu advice on handling criticism of the research gap often reminds writers to repair the support logic first and decide later whether the conclusion itself must change, rather than beginning with total rework.',
+        strategyZh:
+          '更稳的返修思路，是把 gap sentence 拆回三部分：前人做到哪里、还差什么、你为什么能补。先看哪一段最弱，再只补那一段，而不是整段全砍。',
+        strategyEn:
+          'A steadier revision path is to split the gap sentence back into its three parts: how far prior work has gone, what remains missing, and why your project can fill it. Check which part is weakest and strengthen only that part instead of deleting the whole section.',
+        stepsZh: [
+          '先把原来的 gap sentence 拆回三段逻辑。',
+          '再定位最薄弱的是哪一段。',
+          '最后只补比较句、改对象或收缩表达，而不是全段重写。',
+        ],
+        stepsEn: [
+          'Split the original gap sentence back into its three logical parts first.',
+          'Locate which part is weakest.',
+          'Then strengthen the comparison, adjust the object, or shrink the claim rather than rewriting the whole section.',
+        ],
+        submissionZh:
+          '如果后面还要投稿，这种拆解式返修很有用，因为编辑和审稿人质疑“gap 不成立”时，你也需要知道到底该修哪一层。',
+        submissionEn:
+          'If submission still lies ahead, this decomposed revision style is very useful because when editors or reviewers challenge the gap, you also need to know exactly which layer must be repaired.',
+        riskZh:
+          '如果一被质疑就整段推翻，最容易把本来还成立的比较和定位也一起拆掉，返工成本会非常高。',
+        riskEn:
+          'If the whole section is demolished at the first challenge, the comparison work and positioning that were still valid often get destroyed too, which makes the revision cost much higher.',
+        checklistZh: [
+          '1. gap sentence 是否已拆回三段逻辑。',
+          '2. 最薄弱的一段是否已定位出来。',
+          '3. 返修是否只针对薄弱层而不是全盘推翻。',
+        ],
+        checklistEn: [
+          '1. Has the gap sentence been decomposed into three parts again?',
+          '2. Is the weakest part already identified?',
+          '3. Does the revision target that weak layer rather than rewriting everything?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版被重新校准过的 gap sentence，而不是一段被彻底推倒的旧稿。',
+        deliverableEn:
+          'After this round, you should have a recalibrated gap sentence instead of a discarded old section with nothing stable left.',
+        closeZh:
+          '研究缺口被质疑时，最重要的不是推翻自己，而是看清到底是哪一层还没站稳。',
+        closeEn:
+          'When a research gap is challenged, the most important move is not to overturn yourself but to see clearly which layer has not yet stood firmly.',
+      },
+    },
+  },
+  {
+    slug: 'paper-structure',
+    topicSlug: 'results-discussion-boundary',
+    categorySlug: 'structure-abstract-writing',
+    labelZh: '摘要引言与结构写作',
+    labelEn: 'Structure Writing',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '结果、讨论、结论的边界和前后衔接',
+    focusEn: 'the boundaries among results, discussion, and conclusion',
+    evidenceZh: '结果句、解释句、结论句和章节过渡',
+    evidenceEn: 'result lines, interpretation lines, conclusion lines, and section transitions',
+    standardZh: '重点不是让每部分都写得很多，而是让不同部分别再重复做同一件事。',
+    standardEn:
+      'The goal is not to make every section longer but to stop different sections from performing the same job repeatedly.',
+    articles: {
+      proposal: {
+        titleZh: '开写前先分清结果、讨论、结论各自做什么',
+        titleEn:
+          'Before drafting, separate clearly what the results, discussion, and conclusion each need to do',
+        introZh:
+          '很多论文到了后期才发现结果、讨论和结论几乎写成三遍同样的话。这个问题往往不是后期才出现，而是前期就没有把三者任务分清。',
+        introEn:
+          'Many papers realize only late that the results, discussion, and conclusion have become three repetitions of almost the same language. The problem usually starts earlier, when the jobs of those sections were never separated in advance.',
+        zhihuAngleZh:
+          '知乎里关于“结果和讨论到底怎么分”的提问非常多，背后暴露的是一个共同问题：很多人从一开始就没有给这三部分设不同任务。',
+        zhihuAngleEn:
+          'Zhihu contains many questions about separating results and discussion, and behind them sits one shared problem: many writers never assigned different jobs to these three sections in the first place.',
+        strategyZh:
+          '更稳的前期规划，是先写三句任务定义：结果负责呈现看到什么，讨论负责解释这意味着什么，结论负责收束整篇论文最终站住了什么。只要三句任务定义先写好，后面重复会大幅减少。',
+        strategyEn:
+          'A steadier early plan is to write three task definitions first: results show what was found, discussion explains what those findings mean, and conclusion states what the whole paper finally establishes. Once these task sentences exist, repetition later drops sharply.',
+        stepsZh: [
+          '先给结果、讨论、结论各写一句任务句。',
+          '再检查三句里是否有职责重叠。',
+          '最后让目录和段落安排围绕这三句分工。',
+        ],
+        stepsEn: [
+          'Write one task sentence for the results, discussion, and conclusion respectively.',
+          'Check whether any of those sentences overlap in function.',
+          'Let the outline and paragraph arrangement follow that division of labor.',
+        ],
+        submissionZh:
+          '如果以后会投稿，这种分工越早明确越有帮助，因为很多编辑和审稿人的第一印象问题，其实都来自结果、讨论和结论边界混乱。',
+        submissionEn:
+          'If submission may come later, the earlier this division is clarified the better, because many first-impression problems for editors and reviewers come from blurred boundaries among results, discussion, and conclusion.',
+        riskZh:
+          '如果前期不做这一步，最常见的后果就是分析越来越长，结论越来越空，讨论又像第二遍结果。',
+        riskEn:
+          'If this step is skipped early, the common result is an ever-longer analysis, an increasingly empty conclusion, and a discussion that reads like a second version of the results.',
+        checklistZh: [
+          '1. 三部分是否已有独立任务句。',
+          '2. 任务之间是否没有明显重叠。',
+          '3. 目录安排是否已经跟着分工走。',
+        ],
+        checklistEn: [
+          '1. Do the three sections already have separate task sentences?',
+          '2. Are the tasks no longer visibly overlapping?',
+          '3. Does the outline arrangement already follow that division?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更清楚的章节分工说明，而不是靠后期补救重复。',
+        deliverableEn:
+          'After this round, you should have a much clearer section-division plan instead of relying on late-stage repair of repetition.',
+        closeZh:
+          '结果、讨论、结论一旦任务先分清，后面的结构压力会轻很多。',
+        closeEn:
+          'Once the tasks of results, discussion, and conclusion are separated early, the later structural pressure becomes much lighter.',
+      },
+      'literature-review': {
+        titleZh: '引言别把讨论提前写完：先给“解释”留到后面',
+        titleEn:
+          'Do not finish the discussion inside the introduction: leave explanation for later on purpose',
+        introZh:
+          '很多引言会在前几段就把作者想说的话都解释完，到了真正讨论时只能换种措辞再说一遍，结果全文看起来既重复又失去推进感。',
+        introEn:
+          'Many introductions explain almost everything the writer wants to say in the opening paragraphs, leaving the later discussion to repeat the same ideas in a different tone. The whole paper then feels repetitive and loses momentum.',
+        zhihuAngleZh:
+          '知乎里关于“引言为什么总写得太满”的经验，经常会提醒一个问题：不是信息太多，而是解释来得太早。',
+        zhihuAngleEn:
+          'Zhihu advice on overfilled introductions often returns to one problem: the issue is not too much information but explanation arriving too early.',
+        strategyZh:
+          '更稳的引言写法，是只把问题立起来，把争议和切口交代清楚，先不要急着把全部解释讲完。讨论真正值钱，是因为它能在结果出来之后再接着推进解释。',
+        strategyEn:
+          'A steadier introduction establishes the problem, the dispute, and the entry point without rushing to explain everything at once. Discussion becomes valuable precisely because it advances interpretation after the findings have appeared.',
+        stepsZh: [
+          '先删掉引言里那些已经像讨论段的解释句。',
+          '再保留问题、争议和切口所需的最少信息。',
+          '最后让引言在“为什么重要”和“为什么现在要做”处停住。',
+        ],
+        stepsEn: [
+          'Cut the explanation sentences in the introduction that already read like discussion paragraphs.',
+          'Keep only the minimum material needed for the problem, the dispute, and the point of entry.',
+          'Let the introduction stop at why the issue matters and why it should be studied now.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种控制很关键，因为编辑通常希望前文快而清楚，而不是一开头就进入过量解释。',
+        submissionEn:
+          'If the manuscript may later be submitted, this control is crucial because editors usually want the front matter to be fast and clear rather than overloaded with early interpretation.',
+        riskZh:
+          '如果引言提前做完了讨论的活，后面最常见的后果就是讨论区写不出新东西，只能重复。',
+        riskEn:
+          'If the introduction finishes the work of the discussion too early, the common result is that the later discussion has nothing new to do except repeat.',
+        checklistZh: [
+          '1. 引言里的解释句是否已被识别并收回。',
+          '2. 问题、争议和切口是否仍然清楚。',
+          '3. 是否已经给讨论部分留出真正的任务空间。',
+        ],
+        checklistEn: [
+          '1. Have the explanation-heavy sentences in the introduction been identified and pulled back?',
+          '2. Are the problem, dispute, and entry point still clear?',
+          '3. Has real task space been preserved for the discussion section?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更轻、更快、又不失方向感的引言。',
+        deliverableEn:
+          'After this round, you should have an introduction that is lighter, faster, and still directionally clear.',
+        closeZh:
+          '引言真正写得稳的时候，不是说得更多，而是知道哪些解释要先忍住。',
+        closeEn:
+          'An introduction becomes steady not by saying more but by knowing which explanations to hold back for later.',
+      },
+      'methods-analysis': {
+        titleZh: '结果和讨论怎么拆：先写发现，再写意义，最后收束边界',
+        titleEn:
+          'How should results and discussion be separated? State the finding first, then the meaning, and then the boundary',
+        introZh:
+          '很多分析部分的难点，不是没有结果，而是一个段落里同时出现发现、解释和结论，最后谁都没站稳。',
+        introEn:
+          'The difficulty in many analysis sections is not a lack of findings but the fact that one paragraph tries to carry the finding, the interpretation, and the conclusion all at once, leaving none of them stable.',
+        zhihuAngleZh:
+          '知乎里关于“结果和讨论总写在一起”的讨论，最常见的建议就是先拆动作：看到什么、意味着什么、边界在哪，别在同一句里全做完。',
+        zhihuAngleEn:
+          'In Zhihu discussions on results and discussion collapsing together, the most common advice is to split the moves: what was seen, what it means, and where the boundary lies, rather than doing all three in one sentence.',
+        strategyZh:
+          '更稳的分析段结构，是发现句、证据句、解释句、边界句。顺序一旦固定，结果和讨论就会自然分开，而不是永远打架。',
+        strategyEn:
+          'A steadier analytical paragraph follows a sequence of finding sentence, evidence sentence, interpretation sentence, and boundary sentence. Once the order is fixed, results and discussion begin to separate naturally instead of fighting constantly.',
+        stepsZh: [
+          '先把第一句改成明确发现。',
+          '再把证据放到紧跟其后的位置。',
+          '最后单独写解释和边界，不让它们挤进发现句里。',
+        ],
+        stepsEn: [
+          'Turn the first sentence into a clear finding.',
+          'Place the evidence immediately after it.',
+          'Write the interpretation and the boundary separately rather than pushing them into the finding sentence.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种拆法会非常提升可读性，因为评审更容易先看懂发现，再判断自己是否同意解释。',
+        submissionEn:
+          'If the work may later be submitted, this separation greatly improves readability because reviewers can understand the finding first and then decide whether they accept the interpretation.',
+        riskZh:
+          '如果发现、意义和边界一直混在一起，最常见的后果就是分析像在打结，读者抓不住哪一句最重要。',
+        riskEn:
+          'If finding, meaning, and boundary remain mixed together, the common result is an analysis that feels knotted, with readers unable to tell which sentence matters most.',
+        checklistZh: [
+          '1. 第一读句是否已经明确是发现句。',
+          '2. 证据是否紧跟在发现后面。',
+          '3. 解释和边界是否已被单独写出。',
+        ],
+        checklistEn: [
+          '1. Is the opening sentence now clearly a finding sentence?',
+          '2. Does the evidence follow that finding closely?',
+          '3. Have interpretation and boundary been written separately?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套更稳定的结果/讨论段落模板。',
+        deliverableEn:
+          'After this round, you should have a far more stable paragraph template for separating results and discussion.',
+        closeZh:
+          '结果和讨论真正拆开之后，分析会变得更清楚，讨论也会更有力。',
+        closeEn:
+          'Once results and discussion are truly separated, the analysis becomes clearer and the discussion becomes stronger.',
+      },
+      'revision-defense': {
+        titleZh: '结论别再重复前文：定稿前只保留最终真正站住的那几句',
+        titleEn:
+          'Do not let the conclusion repeat the whole draft: keep only the sentences that truly stand at the end',
+        introZh:
+          '很多结论部分写到最后会像一份缩写版全文：前文说过的话再压一遍，看起来很完整，却没有真正收住全篇最值钱的判断。',
+        introEn:
+          'Many conclusions end up reading like an abbreviated version of the whole paper: everything said earlier is compressed once more, which looks complete while still failing to close on the most valuable judgments of the study.',
+        zhihuAngleZh:
+          '知乎里关于“结论怎么写不重复”的经验，经常会提醒一个动作：结论不是重新讲一遍过程，而是只留下最后真正站住的判断。',
+        zhihuAngleEn:
+          'Zhihu advice on writing conclusions without repetition often returns to one move: the conclusion is not a second telling of the process but a place to keep only the judgments that finally stand.',
+        strategyZh:
+          '更稳的定稿动作，是把结论当成筛选，不是当成缩写。哪些判断已经站住、哪些边界必须保留、哪些启示值得最后留给读者，只保留这些内容即可。',
+        strategyEn:
+          'A steadier final-stage move is to treat the conclusion as selection rather than summary. Keep only the judgments that now stand, the boundaries that must remain visible, and the implications worth leaving with the reader.',
+        stepsZh: [
+          '先把结论里的过程性句子划掉。',
+          '再筛出真正站住的判断和边界句。',
+          '最后让结论只保留最值钱的几句话。',
+        ],
+        stepsEn: [
+          'Cross out the process-heavy sentences in the conclusion first.',
+          'Select the judgments and boundary sentences that truly stand.',
+          'Let the conclusion keep only the few lines that matter most.',
+        ],
+        submissionZh:
+          '如果后面要答辩或投稿，这种收束会很重要，因为结论往往直接影响别人最后记住的是什么。',
+        submissionEn:
+          'If defense or submission is next, this tightening matters greatly because the conclusion often determines what others remember last.',
+        riskZh:
+          '如果结论继续把全篇重复一遍，最常见的后果就是看起来完整，真正的主张却不够突出。',
+        riskEn:
+          'If the conclusion keeps repeating the whole paper, the common result is a draft that looks complete while the central claim still does not stand out enough.',
+        checklistZh: [
+          '1. 过程性句子是否已经删掉。',
+          '2. 真正站住的判断是否已筛出。',
+          '3. 结论是否只保留最关键的几句。',
+        ],
+        checklistEn: [
+          '1. Have the process-heavy sentences been removed?',
+          '2. Have the judgments that truly stand been selected?',
+          '3. Does the conclusion now keep only the most important lines?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版不再泛泛重复、而是更像真正收束的结论。',
+        deliverableEn:
+          'After this round, you should have a conclusion that no longer repeats broadly and instead feels like a real closing move.',
+        closeZh:
+          '结论真正有力的时候，不是说得更多，而是终于只剩最该留下的那几句。',
+        closeEn:
+          'A conclusion becomes truly strong not by saying more but by finally keeping only the few lines that deserve to remain.',
+      },
+    },
+  },
+  {
+    slug: 'methods-data',
+    topicSlug: 'figure-storytelling',
+    categorySlug: 'methods-data-presentation',
+    labelZh: '方法设计与结果表达',
+    labelEn: 'Methods and Data',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: '图表叙事、可视化顺序和图注说明',
+    focusEn: 'figure storytelling, visualization order, and caption writing',
+    evidenceZh: '图表草稿、表格顺序、图注和结果主线',
+    evidenceEn: 'figure drafts, table order, captions, and the main result line',
+    standardZh: '重点不是做更多图，而是让每张图都知道自己为什么在这里。',
+    standardEn:
+      'The goal is not to produce more visuals but to make each one know why it appears where it does.',
+    articles: {
+      proposal: {
+        titleZh: '图表不是最后才想：开题时就先画一版结果路线图',
+        titleEn:
+          'Do not leave visuals until the end: sketch a result route map already at the proposal stage',
+        introZh:
+          '很多人把图表完全当成后期包装，等结果出来才临时决定用什么图、什么表。这样做当然快，但也容易让结果表达一直缺少方向感。',
+        introEn:
+          'Many writers treat figures and tables as late-stage packaging and decide only after the results arrive what kind of visuals to use. That can feel efficient, but it also leaves the presentation of results without clear direction.',
+        zhihuAngleZh:
+          '知乎里关于“图表怎么准备”的讨论，经常会提到一个容易被忽略的动作：即使前期没有结果，也可以先画一版你希望读者未来怎么读结果的路线图。',
+        zhihuAngleEn:
+          'Zhihu discussions on preparing figures often mention one overlooked move: even before the results exist, you can sketch how you want readers to travel through them later.',
+        strategyZh:
+          '更稳的前期设计，是先画一版结果路线图：哪类发现可能需要图、哪类更适合表、顺序大概怎么排。这样后面结果一出来，表达就不会从零开始。',
+        strategyEn:
+          'A steadier early design is to sketch a result route map: which kinds of findings will likely need figures, which are better suited to tables, and what the rough order may be. Then when the results arrive, the presentation no longer starts from zero.',
+        stepsZh: [
+          '先列出你最可能想呈现的几类结果。',
+          '再为每类结果初步判断更适合图还是表。',
+          '最后画一版读者未来浏览这些结果的顺序草图。',
+        ],
+        stepsEn: [
+          'List the main kinds of results you are most likely to present.',
+          'Make a first judgment on whether each result type is better shown as a figure or a table.',
+          'Sketch the order in which future readers will move through those results.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种结果路线图会很有帮助，因为很多稿件的图表问题并不是美观，而是顺序和叙事完全后补。',
+        submissionEn:
+          'If submission may come later, this result route map is very useful because many figure problems in manuscripts are not aesthetic but narrative and sequencing problems that were patched in too late.',
+        riskZh:
+          '如果图表思路完全留到最后，最常见的后果就是结果已经有了，但图表叙事还没开始，后期压力会非常大。',
+        riskEn:
+          'If all visual planning is postponed to the end, the common result is that the findings exist while the visual narrative has not yet begun, which creates heavy late-stage pressure.',
+        checklistZh: [
+          '1. 最可能的结果类型是否已列出。',
+          '2. 每类结果是否已初步判断图/表形式。',
+          '3. 是否已画出浏览顺序草图。',
+        ],
+        checklistEn: [
+          '1. Have the likely result types been listed?',
+          '2. Has each type received an initial figure/table judgment?',
+          '3. Has a reading-order sketch already been made?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版结果路线图，而不是把图表留成后期纯包装任务。',
+        deliverableEn:
+          'After this round, you should have a result route map rather than leaving visuals as pure late-stage packaging work.',
+        closeZh:
+          '图表越早被纳入思考，结果表达就越不容易在最后一刻失控。',
+        closeEn:
+          'The earlier visuals enter the thinking process, the less likely the presentation of results is to lose control at the last moment.',
+      },
+      'literature-review': {
+        titleZh: '看文献时顺手记图表套路：别等做图时才从零模仿',
+        titleEn:
+          'Capture figure patterns while reading literature: do not imitate from scratch only when visualizing later',
+        introZh:
+          '很多人做图表时才开始大量翻文献，看别人怎么画。这种临时模仿当然常见，但也容易只学到外观，没学到图表真正承担的叙事任务。',
+        introEn:
+          'Many writers begin browsing the literature intensively for visual ideas only when it is finally time to make figures and tables. That emergency imitation is common, but it often copies appearance without learning the narrative role those visuals actually serve.',
+        zhihuAngleZh:
+          '知乎里关于“图表不会做怎么办”的讨论，经常会提到一个很实用的习惯：读文献时就顺手记下图表是怎么讲故事的，而不是只看排版好不好看。',
+        zhihuAngleEn:
+          'Zhihu discussions on not knowing how to build figures often recommend one very practical habit: while reading papers, record how the visuals tell the story rather than judging only whether the layout looks nice.',
+        strategyZh:
+          '更高效的阅读法，是在笔记里加一栏“图表承担了什么任务”。只要你知道某张图是在展示趋势、比较差异还是支撑关键结论，后面做自己的图时就不会只剩模仿样式。',
+        strategyEn:
+          'A more efficient reading practice is to add one note column: what job does this visual perform? Once you know whether a figure is showing a trend, comparing differences, or carrying a key conclusion, your own later visuals stop being mere style imitation.',
+        stepsZh: [
+          '先在阅读笔记里增加一列图表任务。',
+          '再为典型图表标注它在叙事中负责什么。',
+          '最后整理出几种可复用的视觉任务类型。',
+        ],
+        stepsEn: [
+          'Add one figure-role column to the reading notes.',
+          'Label what each representative visual is doing inside the narrative.',
+          'Organize the recurring visual roles into a small reusable set.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种图表任务库很有帮助，因为它让你做图时更关注“这张图要完成什么”，而不是只关注形式。',
+        submissionEn:
+          'If submission is a later goal, this visual-role library is highly useful because it makes figure design focus on what the visual must accomplish rather than on format alone.',
+        riskZh:
+          '如果只在做图时临时模仿，最常见的后果就是图很像，叙事却和自己的论文不匹配。',
+        riskEn:
+          'If visual imitation happens only at the moment of creation, the common result is figures that look similar to published ones while failing to match the narrative of your own paper.',
+        checklistZh: [
+          '1. 阅读笔记里是否已有图表任务这一列。',
+          '2. 是否已经标注典型图表承担的叙事功能。',
+          '3. 是否整理出可复用的视觉任务类型。',
+        ],
+        checklistEn: [
+          '1. Does the reading note now contain a figure-role column?',
+          '2. Have the narrative functions of representative visuals been labeled?',
+          '3. Has a reusable set of visual task types been organized?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一套图表任务库，而不是只有零散的视觉印象。',
+        deliverableEn:
+          'After this round, you should have a visual-role library rather than only scattered visual impressions.',
+        closeZh:
+          '图表真正能借鉴的时候，不是外观像，而是你知道它在替论文完成什么任务。',
+        closeEn:
+          'A visual becomes truly borrowable not when it looks similar but when you know what task it is performing for the paper.',
+      },
+      'methods-analysis': {
+        titleZh: '这张结果该做成图还是表：先看它要让读者一眼看到什么',
+        titleEn:
+          'Should this result become a figure or a table? Decide by what the reader needs to see at a glance',
+        introZh:
+          '很多图表选择困难，并不在于软件不会用，而在于作者没有先判断这组结果最想让读者“立刻看到”的是什么。',
+        introEn:
+          'Many figure-versus-table dilemmas are not caused by a lack of software skill but by the absence of a prior decision on what the reader needs to see immediately in that result set.',
+        zhihuAngleZh:
+          '知乎里关于“图和表怎么选”的讨论，最常见的提醒就是别先问哪种更高级，而要先问你想让读者一眼抓住趋势、比较还是精确信息。',
+        zhihuAngleEn:
+          'Zhihu discussions on choosing between a figure and a table repeatedly stress that the first question is not which format looks more advanced but whether the reader must catch a trend, a comparison, or precise values at a glance.',
+        strategyZh:
+          '更稳的选择逻辑，是把结果先分成三类：要看趋势、要看比较、要看精确值。趋势更适合图，比对也常适合图，精确值往往更适合表。只要任务先分清，选择就不会一直犹豫。',
+        strategyEn:
+          'A steadier selection logic is to divide results into three needs first: seeing a trend, seeing a comparison, or seeing precise values. Trends often fit figures, comparisons often also fit figures, and precise values usually belong in tables. Once the task is clear, the choice stops wavering.',
+        stepsZh: [
+          '先判断这组结果最想让读者一眼看到什么。',
+          '再把任务归到趋势、比较或精确值之一。',
+          '最后据此决定图表形式，并写一句理由。',
+        ],
+        stepsEn: [
+          'Decide what the reader most needs to see at a glance in this result set.',
+          'Classify that need as trend, comparison, or precise value.',
+          'Choose the format accordingly and write one sentence explaining why.',
+        ],
+        submissionZh:
+          '如果以后要投稿，这种判断会很值钱，因为很多“图表太多”或“表格过重”的意见，根本原因都是格式没有和阅读任务对齐。',
+        submissionEn:
+          'If submission may come later, this judgment is very valuable because many comments that figures are excessive or tables are too heavy stem from a mismatch between format and reading task.',
+        riskZh:
+          '如果图表形式只是凭习惯选，最常见的后果就是读者花了很多时间，还是没能一眼抓住你最想强调的东西。',
+        riskEn:
+          'If the figure/table choice is made only by habit, the common result is that readers spend a long time looking without immediately seeing what you wanted to emphasize most.',
+        checklistZh: [
+          '1. 这组结果的一眼任务是否已判断清楚。',
+          '2. 是否已归类为趋势、比较或精确值。',
+          '3. 图/表形式是否有明确理由支持。',
+        ],
+        checklistEn: [
+          '1. Has the at-a-glance task of the result set been judged clearly?',
+          '2. Has it been classified as trend, comparison, or precise value?',
+          '3. Is the figure/table choice supported by an explicit reason?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一套更稳定的图表选择规则，而不是靠习惯临场决定。',
+        deliverableEn:
+          'After this round, you should have a more stable rule set for choosing between figures and tables instead of deciding by habit in the moment.',
+        closeZh:
+          '图表选得对，读者会先看到你最重要的发现；选错了，再好的结果也容易被埋掉。',
+        closeEn:
+          'When the figure/table choice is right, readers see the key finding first; when it is wrong, even strong results are easily buried.',
+      },
+      'revision-defense': {
+        titleZh: '图注和表注怎么改得能答辩也能投稿',
+        titleEn:
+          'How should figure and table captions be revised so they work for both defense and submission',
+        introZh:
+          '很多图表本身没太大问题，真正让答辩和投稿阶段变吃力的，反而是图注和表注太弱。读者知道有结果，却不知道该怎么看、该信什么。',
+        introEn:
+          'Many visuals themselves are not the main problem. What often makes both defense and submission harder are captions that remain too weak. Readers know there is a result but do not know how to read it or what to trust in it.',
+        zhihuAngleZh:
+          '知乎里关于“图表被说看不懂怎么办”的经验，常会提醒一个细节：很多时候不是图坏，而是图注没有承担解释任务。',
+        zhihuAngleEn:
+          'Zhihu advice on figures being called unclear often points to one detail: the figure may not be bad; the caption simply failed to perform its explanatory job.',
+        strategyZh:
+          '更稳的返修方式，是把图注和表注分成三层：这张图表展示什么、关键看点在哪里、读者阅读时要注意什么边界。这样图注就不再只是名字，而是阅读说明。',
+        strategyEn:
+          'A steadier revision method divides figure and table captions into three layers: what this visual shows, where the key reading point lies, and what boundary the reader should keep in mind. Then the caption stops being a label and becomes reading guidance.',
+        stepsZh: [
+          '先检查当前图注是否只剩标题式命名。',
+          '再补上关键看点和阅读提示。',
+          '最后加一句必要的边界说明，避免过度解读。',
+        ],
+        stepsEn: [
+          'Check first whether the current caption is doing nothing beyond naming the visual.',
+          'Add the key reading point and a reading cue.',
+          'Finish with a necessary boundary note to prevent over-reading.',
+        ],
+        submissionZh:
+          '如果后面要投稿，这种图注升级很重要，因为编辑和审稿人经常通过图表和图注判断稿件是否已经足够清楚成熟。',
+        submissionEn:
+          'If the work may later be submitted, this caption upgrade matters a great deal because editors and reviewers often judge the clarity and maturity of a manuscript through the visuals and their captions.',
+        riskZh:
+          '如果图注一直只是命名，最常见的后果就是图表明明有信息，读者却不知道该往哪里看。',
+        riskEn:
+          'If captions remain names only, the common result is that the visuals contain information while readers still do not know where to look.',
+        checklistZh: [
+          '1. 图注是否已不再只是命名。',
+          '2. 关键看点和阅读提示是否已补上。',
+          '3. 必要的边界说明是否已加入。',
+        ],
+        checklistEn: [
+          '1. Has the caption moved beyond simple naming?',
+          '2. Have the key reading point and cue been added?',
+          '3. Has a necessary boundary note been included?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一批更能支撑答辩和投稿的图注表注，而不是只有形式完整。',
+        deliverableEn:
+          'After this round, you should have captions that can better support both defense and submission rather than visuals that are only formally complete.',
+        closeZh:
+          '图表真正变清楚的时候，不只是图画得更好，而是图注终于开始替读者导航。',
+        closeEn:
+          'A visual becomes truly clearer not only when it is drawn better but when the caption finally begins guiding the reader through it.',
+      },
+    },
+  },
+  {
+    slug: 'submission-workflow',
+    topicSlug: 'desk-reject-resubmission',
+    categorySlug: 'submission-defense-workflow',
+    labelZh: '返修投稿与答辩',
+    labelEn: 'Revision and Submission',
+    readerZh: '论文写作者',
+    readerEn: 'thesis and paper writers',
+    focusZh: 'desk reject、首轮判断和重投路线',
+    focusEn: 'desk rejection, first-round judgment, and resubmission routes',
+    evidenceZh: '编辑信、摘要首屏、期刊匹配和重投策略说明',
+    evidenceEn: 'editor letters, first-screen abstract lines, journal fit, and resubmission strategy notes',
+    standardZh: '重点不是把所有拒稿都当成失败，而是判断第一轮到底在哪个地方失分。',
+    standardEn:
+      'The goal is not to treat every rejection as failure but to decide where the first round actually lost points.',
+    articles: {
+      proposal: {
+        titleZh: '如果以后怕 desk reject，开题时就别把首屏写成背景堆积',
+        titleEn:
+          'If you want to reduce later desk-reject risk, do not let the first screen become a pile of background during the proposal stage',
+        introZh:
+          '很多稿件的 desk reject 并不是因为研究完全不成立，而是前两屏看不到对象、贡献和读者入口。这个问题其实在开题阶段就能提前暴露出来。',
+        introEn:
+          'Many desk rejections do not happen because the study fails entirely but because the first two screens do not show the object, the contribution, or the reader entry clearly enough. That problem can often be exposed as early as the proposal stage.',
+        zhihuAngleZh:
+          '知乎里关于“为什么总被 desk reject”的讨论，经常会提到一个非常基础的原因：前面铺背景太多，真正有用的信息出场太晚。',
+        zhihuAngleEn:
+          'Zhihu discussions on repeated desk rejection often point to one very basic reason: too much background arrives too early and the useful information enters too late.',
+        strategyZh:
+          '更稳的前期训练，是把题目、迷你摘要和引言首段当成同一个“首屏组件”来写：对象是谁、问题是什么、你准备补哪一步，越快出现越好。',
+        strategyEn:
+          'A steadier early practice is to treat the title, mini abstract, and opening paragraph of the introduction as one shared first-screen component: who the object is, what the question is, and which step you plan to add should appear as early as possible.',
+        stepsZh: [
+          '先检查首段里有没有对象、问题和贡献三项。',
+          '再删掉会把这三项往后推的背景句。',
+          '最后让首屏信息优先于铺陈信息。',
+        ],
+        stepsEn: [
+          'Check whether the opening already contains the object, the question, and the contribution.',
+          'Remove background sentences that push those three items later.',
+          'Let first-screen information come before scene-setting information.',
+        ],
+        submissionZh:
+          '如果以后真要投稿，这一步会直接减少首轮误伤，因为编辑在最短时间里就能看到这篇稿件到底属于什么问题和什么读者。',
+        submissionEn:
+          'If the manuscript later goes out for submission, this step directly reduces first-round losses because the editor can quickly see what problem and reader the paper belongs to.',
+        riskZh:
+          '如果首屏一直是背景堆积，最常见的后果就是真正有价值的内容还没出场，编辑已经失去兴趣。',
+        riskEn:
+          'If the first screen remains a background pile, the common result is that the valuable content has not yet appeared before the editor has already lost interest.',
+        checklistZh: [
+          '1. 首屏是否已出现对象、问题和贡献。',
+          '2. 背景句是否已被压缩。',
+          '3. 重要信息是否足够早出现。',
+        ],
+        checklistEn: [
+          '1. Do the first lines already show the object, the question, and the contribution?',
+          '2. Have background sentences been compressed?',
+          '3. Is the important information appearing early enough?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更像“首轮可读”的题目、摘要和引言开头。',
+        deliverableEn:
+          'After this round, you should have a title, abstract, and opening paragraph that feel much more first-round readable.',
+        closeZh:
+          '越早练首屏表达，后面越不容易在最短的一轮里被误伤。',
+        closeEn:
+          'The earlier you practice first-screen expression, the less likely the manuscript is to be lost in the shortest round later on.',
+      },
+      'literature-review': {
+        titleZh: '投稿前先做 editor scan：让摘要和引言能扛住 60 秒判断',
+        titleEn:
+          'Run an editor scan before submission: make the abstract and introduction survive a 60-second judgment',
+        introZh:
+          '很多人投稿前会检查格式、参考文献和语法，却很少用“编辑只看 60 秒”的标准重新扫一遍摘要和引言。结果该出现的信息还是出得太慢。',
+        introEn:
+          'Many writers check formatting, references, and grammar before submission, yet rarely rescan the abstract and introduction under the assumption that an editor may look for only sixty seconds. As a result, the right information still arrives too late.',
+        zhihuAngleZh:
+          '知乎里关于“编辑第一眼看什么”的讨论，常会提醒：不要用作者视角读自己的稿，而要用只给一分钟的外部视角去扫。',
+        zhihuAngleEn:
+          'Zhihu discussions on what editors notice first often remind writers not to read from an author’s perspective but from the perspective of an outside reader who gives the manuscript only one minute.',
+        strategyZh:
+          '更稳的投稿前动作，是做一次 editor scan：题目、摘要、引言开头、关键词四处一起看，问自己如果只给一分钟，别人能不能判断这篇稿件值不值得继续读。',
+        strategyEn:
+          'A steadier pre-submission move is to run an editor scan: read the title, abstract, opening introduction, and keywords together and ask whether someone given only a minute could decide whether the manuscript is worth continuing.',
+        stepsZh: [
+          '先只读题目、关键词和摘要，不看正文。',
+          '再补读引言前两段，判断重要信息是否仍然太晚。',
+          '最后把延迟贡献判断的句子继续压缩。',
+        ],
+        stepsEn: [
+          'Read only the title, keywords, and abstract first without touching the body.',
+          'Add the first two introduction paragraphs and ask whether the important information is still too delayed.',
+          'Compress the sentences that postpone the contribution judgment.',
+        ],
+        submissionZh:
+          '如果这一步做得细，很多可能的 desk reject 风险会在正式投稿前就暴露出来，而不是等编辑替你指出。',
+        submissionEn:
+          'When this step is done carefully, many potential desk-reject risks are exposed before formal submission instead of being pointed out by the editor later.',
+        riskZh:
+          '如果投稿前没有 editor scan，最常见的后果就是作者觉得稿件已经很完整，但第一轮判断仍然抓不到重点。',
+        riskEn:
+          'If no editor scan is performed before submission, the common result is that the author feels the manuscript is complete while the first-round judgment still fails to catch the point.',
+        checklistZh: [
+          '1. 是否已做过只看首屏的扫描。',
+          '2. 引言前两段是否足够快进入问题。',
+          '3. 贡献判断是否没有被继续拖后。',
+        ],
+        checklistEn: [
+          '1. Has a first-screen-only scan already been done?',
+          '2. Do the first two introduction paragraphs enter the problem quickly enough?',
+          '3. Is the contribution judgment no longer delayed too far?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一版更扛得住 editor scan 的投稿前文本入口。',
+        deliverableEn:
+          'After this round, you should have a pre-submission entry package that can survive an editor scan much better.',
+        closeZh:
+          '投稿前真正要扛住的，不只是排版，而是那一分钟里别人能不能抓住你的价值。',
+        closeEn:
+          'What the manuscript really needs to survive before submission is not only formatting but that first minute in which someone must grasp its value.',
+      },
+      'methods-analysis': {
+        titleZh: '重投前别只换刊：先做一次 resubmission triage',
+        titleEn:
+          'Do not just change journals before resubmitting: run a resubmission triage first',
+        introZh:
+          '很多人被 desk reject 后会第一时间换刊重投，看起来动作很快，但如果没有先分清是范围不合、首屏不够强，还是方法说明太弱，下一轮很容易重复同样的问题。',
+        introEn:
+          'Many writers respond to a desk rejection by changing journals immediately and resubmitting fast. The motion looks energetic, but without separating scope mismatch, weak first-screen framing, and thin method explanation, the next round often repeats the same problem.',
+        zhihuAngleZh:
+          '知乎里关于“desk reject 后怎么办”的经验，常会提醒一个动作：先做 triage，而不是直接把稿件扔进下一个系统。',
+        zhihuAngleEn:
+          'Zhihu advice on what to do after a desk rejection often recommends one move above all: perform a triage before dropping the manuscript straight into the next system.',
+        strategyZh:
+          '更稳的重投思路，是把 desk reject 先拆成三类原因：期刊 fit、首轮表达、方法与证据说明。只有先知道问题属于哪一类，换刊和改稿的优先级才不会乱。',
+        strategyEn:
+          'A steadier resubmission logic is to split desk rejection into three possible causes first: journal fit, first-round framing, and method/evidence explanation. Only then do the priorities of changing journals and revising the manuscript stop becoming chaotic.',
+        stepsZh: [
+          '先从编辑信里提取最可能的拒稿类型。',
+          '再决定哪些问题要靠换刊，哪些必须靠改稿。',
+          '最后写一页 resubmission note，再开始新一轮操作。',
+        ],
+        stepsEn: [
+          'Extract the most likely rejection type from the editor letter first.',
+          'Decide which problems require a different journal and which demand manuscript revision.',
+          'Write a one-page resubmission note before beginning the next round.',
+        ],
+        submissionZh:
+          '如果这一步做得好，重投效率会高很多，因为你不会一边换刊一边把原来真正该修的问题继续带着走。',
+        submissionEn:
+          'If this step is done well, resubmission becomes much more efficient because you stop carrying the real unresolved problem from one journal to the next.',
+        riskZh:
+          '如果被 desk reject 后只做“换刊动作”，最常见的后果就是第二轮继续卡在同一个地方。',
+        riskEn:
+          'If a desk rejection triggers only the motion of changing journals, the common result is getting stuck again at the same place in the next round.',
+        checklistZh: [
+          '1. desk reject 类型是否已判断清楚。',
+          '2. 换刊问题和改稿问题是否已分开。',
+          '3. 是否已经写出 resubmission note。',
+        ],
+        checklistEn: [
+          '1. Has the desk-rejection type been judged clearly?',
+          '2. Have change-journal problems and revise-manuscript problems been separated?',
+          '3. Has a resubmission note already been written?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该得到一版更清楚的重投路线，而不是只是一份准备重新上传的旧稿。',
+        deliverableEn:
+          'After this round, you should have a much clearer resubmission route rather than only an old draft prepared for re-upload.',
+        closeZh:
+          '重投真正拉开差距的，不是动作快，而是先把失败类型看准。',
+        closeEn:
+          'What truly improves resubmission is not speed alone but correctly reading the failure type first.',
+      },
+      'revision-defense': {
+        titleZh: 'desk reject 后怎么判断是改摘要、改引言，还是整稿重排',
+        titleEn:
+          'After a desk rejection, how do you decide whether to revise the abstract, the introduction, or the whole structure',
+        introZh:
+          '很多作者在 desk reject 后容易陷入两种极端：要么只换几句摘要，要么整篇稿件推倒重来。真正更有效的判断，往往是先看失分究竟发生在首屏、结构还是证据链。',
+        introEn:
+          'After a desk rejection, writers often fall into two extremes: changing only a few lines in the abstract or rebuilding the whole manuscript from scratch. The more effective judgment usually begins by locating whether the loss happened on the first screen, in the structure, or in the evidence chain.',
+        zhihuAngleZh:
+          '知乎里关于“desk reject 后要不要大改”的讨论，经常会提醒：不是所有拒稿都需要整稿重写，关键是看编辑在哪一层失去兴趣。',
+        zhihuAngleEn:
+          'Zhihu discussions on whether a desk-rejected paper needs a major rewrite often remind writers that not every rejection demands a total reconstruction. The key is locating the layer at which the editor lost interest.',
+        strategyZh:
+          '更稳的后拒稿判断，是先用三层排查：摘要与标题有没有失手、引言和结构有没有拖慢、方法和证据链有没有让稿件显得不够稳。不同层的问题，对应完全不同的返工强度。',
+        strategyEn:
+          'A steadier post-rejection judgment works through three layers first: did the abstract and title fail, did the introduction and structure slow the paper down, or did the method and evidence chain make the manuscript feel unstable? Different layers demand very different revision intensity.',
+        stepsZh: [
+          '先判断问题更像首屏问题、结构问题还是证据问题。',
+          '再只对应该层做最小必要的大改。',
+          '最后重新检查新版本是否还保留原来已成立的部分。',
+        ],
+        stepsEn: [
+          'Judge first whether the problem is primarily a first-screen issue, a structure issue, or an evidence issue.',
+          'Apply the minimum necessary major revision only to that layer.',
+          'Then check whether the new version still preserves the parts that already worked.',
+        ],
+        submissionZh:
+          '如果后面要重投，这种层次判断非常有用，因为它能避免“明明只该重写前两页，却把整篇结构一起推翻”的过度返工。',
+        submissionEn:
+          'If resubmission follows, this layered judgment is extremely useful because it prevents over-revision, such as rewriting the whole structure when the real problem was only in the first two pages.',
+        riskZh:
+          '如果不分层判断就直接重写，最常见的后果就是返工很多，但真正让编辑失去兴趣的地方还没有被准确击中。',
+        riskEn:
+          'If rewriting begins without layered diagnosis, the common result is a large amount of revision while the place that actually lost the editor’s interest still remains unaddressed.',
+        checklistZh: [
+          '1. 问题层级是否已经判断清楚。',
+          '2. 返工是否只针对对应层展开。',
+          '3. 原来已经成立的部分是否被保住。',
+        ],
+        checklistEn: [
+          '1. Has the problem layer been diagnosed clearly?',
+          '2. Is the rework targeted only at that layer?',
+          '3. Have the parts that already worked been preserved?',
+        ],
+        deliverableZh:
+          '这一轮之后，你应该拿到一份更精确的 desk reject 后返工策略，而不是情绪化大修。',
+        deliverableEn:
+          'After this round, you should have a more precise post-desk-rejection revision strategy rather than an emotional full rewrite.',
+        closeZh:
+          'desk reject 后最值钱的，不是立刻大改，而是先判断该改哪一层。',
+        closeEn:
+          'The most valuable move after a desk rejection is not immediate major rewriting but deciding first which layer truly needs to change.',
+      },
+    },
+  },
 ]
 
 const mediaAltText: Record<string, string> = {
