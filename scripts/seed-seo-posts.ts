@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import type { Payload } from 'payload'
+import { getSourceInspiredSubjectPosts } from './source-inspired-subject-posts'
 
 type DegreeConfig = {
   categorySlug: string
@@ -462,8 +463,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮写完，你最好能拿到一个收紧后的题目、一句主问题、一张关键词入口表，以及一份说明“为什么现在这题能做”的简短备忘录。',
         deliverableEn:
           'By the end of this round, you should have a tightened title, one clear main question, a keyword-entry sheet, and a short memo explaining why the project is actually feasible now.',
-        closeZh:
-          '把兴趣压成问题，不是在削弱选题，而是在给整篇论文建立真正能往前推的抓手。',
+        closeZh: '把兴趣压成问题，不是在削弱选题，而是在给整篇论文建立真正能往前推的抓手。',
         closeEn:
           'Compressing interest into a question does not weaken the topic. It gives the whole paper a handle that can actually move forward.',
       },
@@ -568,8 +568,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一张问题-证据-方法对照表、一版可执行的方法说明，以及一条被现实条件压实后的研究主线。',
         deliverableEn:
           'After this round, you should have a question-evidence-method alignment sheet, an executable method note, and a research line that has been tightened by real constraints rather than wishful framing.',
-        closeZh:
-          '方法真正解决的，不是“让论文像论文”，而是让你的判断有了可以站住的证据底盘。',
+        closeZh: '方法真正解决的，不是“让论文像论文”，而是让你的判断有了可以站住的证据底盘。',
         closeEn:
           'The real job of method is not to make the paper look academic. It is to give the judgment a defensible evidence base.',
       },
@@ -621,8 +620,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版收紧后的题目与摘要、一张版本调整说明，以及一套能向导师或评审解释“为什么这样改”的口径。',
         deliverableEn:
           'By the end of this round, you should have a tightened title and abstract, a version-adjustment note, and one stable explanation for why the project was revised in this particular direction.',
-        closeZh:
-          '题目跑偏并不等于前面都白写了，关键是你能不能把还能成立的核心命题保下来。',
+        closeZh: '题目跑偏并不等于前面都白写了，关键是你能不能把还能成立的核心命题保下来。',
         closeEn:
           'Topic drift does not mean the previous work was wasted. The real task is to preserve the core claim that still stands.',
       },
@@ -692,8 +690,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一张关键词树、一份检索记录、一个高价值入口文献表和一条更可控的阅读路径。',
         deliverableEn:
           'After this round, you should have a keyword tree, a search log, a high-value entry-paper sheet, and a more controllable reading path.',
-        closeZh:
-          '检索做得越清楚，后面的综述越不靠运气，越靠你自己已经搭好的入口系统。',
+        closeZh: '检索做得越清楚，后面的综述越不靠运气，越靠你自己已经搭好的入口系统。',
         closeEn:
           'The clearer the search design becomes, the less the later review depends on luck and the more it depends on an entry system you deliberately built.',
       },
@@ -745,8 +742,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮结束后，你应该得到一版按争议和方法组织的综述骨架、几句真正能用的比较句，以及一条更清楚的研究切入线。',
         deliverableEn:
           'By the end of this round, you should have a review skeleton organized by dispute and method, several reusable comparison sentences, and a clearer line of entry for your own study.',
-        closeZh:
-          '综述一旦按问题而不是按作者组织，作者自己的研究位置就开始真正显形。',
+        closeZh: '综述一旦按问题而不是按作者组织，作者自己的研究位置就开始真正显形。',
         closeEn:
           'Once the review is organized by problem rather than by author, the writer’s own position begins to appear for real.',
       },
@@ -798,8 +794,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一份更像“方法判断表”的阅读笔记，而不是只有术语和流程摘录。',
         deliverableEn:
           'After this round, your reading notes should look more like a method-judgment sheet than a list of terms and copied procedures.',
-        closeZh:
-          '方法文献最值得学的，往往不是它表面上的招式，而是它为什么在那个条件下成立。',
+        closeZh: '方法文献最值得学的，往往不是它表面上的招式，而是它为什么在那个条件下成立。',
         closeEn:
           'The most valuable lesson in a methods paper is often not the visible technique but why it works under those conditions.',
       },
@@ -851,8 +846,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮后，你应该得到一版被核心研究重新校准过的综述，而不是一篇页数增加但结构没变的旧稿。',
         deliverableEn:
           'After this round, you should have a review recalibrated by core scholarship rather than an older draft that merely gained more pages.',
-        closeZh:
-          '综述的深度不是靠数量堆出来的，而是靠你终于补到了真正决定判断的位置。',
+        closeZh: '综述的深度不是靠数量堆出来的，而是靠你终于补到了真正决定判断的位置。',
         closeEn:
           'Depth in a review is not built by quantity alone but by finally reinforcing the places where judgment is actually decided.',
       },
@@ -918,12 +912,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Can the mini abstract be understood on its own instead of depending on later background?',
           '3. If it does not read clearly, did you revise the topic and question instead of blaming the abstract alone?',
         ],
-        deliverableZh:
-          '这一轮后，你应该拿到一版可复用的迷你摘要，以及一条更紧的题目和问题线。',
+        deliverableZh: '这一轮后，你应该拿到一版可复用的迷你摘要，以及一条更紧的题目和问题线。',
         deliverableEn:
           'By the end of this round, you should have a reusable mini abstract and a tighter line connecting the topic and the question.',
-        closeZh:
-          '摘要越早写，不是为了提前交差，而是为了尽早看见整篇论文最核心的表达有没有站住。',
+        closeZh: '摘要越早写，不是为了提前交差，而是为了尽早看见整篇论文最核心的表达有没有站住。',
         closeEn:
           'Writing the abstract early is not about finishing ahead of time. It is about seeing as soon as possible whether the core expression of the whole paper actually stands.',
       },
@@ -971,12 +963,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the introduction focus on the problem and point of entry instead of repeating review content?',
           '3. Does the review truly explain the relationships among prior studies and your own point of entry?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一套分工更清楚的前文结构，而不是三个相互重叠的开头。',
+        deliverableZh: '这一轮之后，你应该得到一套分工更清楚的前文结构，而不是三个相互重叠的开头。',
         deliverableEn:
           'After this round, you should have a front-end structure with clear division of labor instead of three overlapping openings.',
-        closeZh:
-          '当前文各部分都做回自己该做的事，读者对论文主线的把握会立刻清楚很多。',
+        closeZh: '当前文各部分都做回自己该做的事，读者对论文主线的把握会立刻清楚很多。',
         closeEn:
           'When each front section returns to its own job, the reader’s grasp of the paper’s main line becomes dramatically clearer.',
       },
@@ -1024,12 +1014,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the evidence follow the finding closely instead of appearing after layers of explanation?',
           '3. Does the interpretation sentence carry the judgment separately rather than mixing evidence and meaning together?',
         ],
-        deliverableZh:
-          '这一轮结束后，你应该拿到一版更清楚的分析段落模板，让结果和讨论都各自站住。',
+        deliverableZh: '这一轮结束后，你应该拿到一版更清楚的分析段落模板，让结果和讨论都各自站住。',
         deliverableEn:
           'By the end of this round, you should have a cleaner paragraph template that allows both the results and the discussion to stand on their own.',
-        closeZh:
-          '把“看到什么”和“如何理解”拆开，不会削弱论证，反而会让论证更容易被读懂和接受。',
+        closeZh: '把“看到什么”和“如何理解”拆开，不会削弱论证，反而会让论证更容易被读懂和接受。',
         closeEn:
           'Separating what you found from how you interpret it does not weaken the argument. It makes the argument easier to read and easier to trust.',
       },
@@ -1081,8 +1069,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版统一口径的摘要、结论和答辩开场，而不是三个各自成稿的小文本。',
         deliverableEn:
           'After this round, you should have an abstract, conclusion, and defense opening that speak with one voice rather than three disconnected mini-texts.',
-        closeZh:
-          '论文越接近完成，越需要一句真正稳定的主张来把所有对外表达重新拧紧。',
+        closeZh: '论文越接近完成，越需要一句真正稳定的主张来把所有对外表达重新拧紧。',
         closeEn:
           'The closer the paper gets to completion, the more it needs one stable claim sentence to tighten every outward-facing expression again.',
       },
@@ -1205,8 +1192,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮后，你应该拿到一套真正落地的理论框架说明，让前文概念和后文方法不再断开。',
         deliverableEn:
           'After this round, you should have an operational framework note that reconnects the concepts in the front matter with the later method.',
-        closeZh:
-          '理论框架只有真的进入变量、案例和解释，才算从“写了”变成了“用了”。',
+        closeZh: '理论框架只有真的进入变量、案例和解释，才算从“写了”变成了“用了”。',
         closeEn:
           'A theoretical framework only moves from being written to being used once it reaches variables, cases, and interpretation.',
       },
@@ -1254,12 +1240,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Is each judgment matched to a concrete figure, table, or text-based piece of evidence?',
           '3. Has the figure order been rearranged to match the argument rather than the order in which the outputs were generated?',
         ],
-        deliverableZh:
-          '这一轮后，你应该拿到一张证据地图、一版图表脚本，以及更容易落笔的分析主线。',
+        deliverableZh: '这一轮后，你应该拿到一张证据地图、一版图表脚本，以及更容易落笔的分析主线。',
         deliverableEn:
           'After this round, you should have an evidence map, a figure script, and an analytical line that is much easier to draft.',
-        closeZh:
-          '数据多不等于分析深，只有当证据真正被排成一条线，分析才会开始成形。',
+        closeZh: '数据多不等于分析深，只有当证据真正被排成一条线，分析才会开始成形。',
         closeEn:
           'Having a lot of data is not the same as having a deep analysis. The analysis begins to exist only when the evidence is arranged into a line.',
       },
@@ -1382,8 +1366,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮后，你应该得到一张目标读者画像和一版更面向外部阅读的结构判断，而不是只面向当前交稿场景。',
         deliverableEn:
           'After this round, you should have a target-reader profile and a structure judged more by outside reading needs than by the immediate course requirement.',
-        closeZh:
-          '越早把未来读者想清楚，后面从论文走向投稿时就越不需要推倒重来。',
+        closeZh: '越早把未来读者想清楚，后面从论文走向投稿时就越不需要推倒重来。',
         closeEn:
           'The earlier the future reader becomes clear, the less the project needs to be rebuilt when it moves from thesis to submission.',
       },
@@ -1435,8 +1418,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一句真正能放进引言、摘要和 Cover Letter 的 novelty statement。',
         deliverableEn:
           'After this round, you should have one novelty statement that can genuinely live in the introduction, the abstract, and the cover letter.',
-        closeZh:
-          '新意不是把题目说大，而是把你推进的那一步说准。',
+        closeZh: '新意不是把题目说大，而是把你推进的那一步说准。',
         closeEn:
           'Novelty is not making the topic sound larger. It is naming precisely the step your paper advances.',
       },
@@ -1488,8 +1470,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一套更像 submission-ready evidence pack 的材料清单，而不只是“正文完成”的错觉。',
         deliverableEn:
           'After this round, you should have something closer to a submission-ready evidence pack instead of the illusion that finishing the main text is enough.',
-        closeZh:
-          '真正准备投稿的人，整理的不只是正文，而是一整套能支撑正文的文件系统。',
+        closeZh: '真正准备投稿的人，整理的不只是正文，而是一整套能支撑正文的文件系统。',
         closeEn:
           'Writers who are truly preparing for submission organize not only the manuscript but the file system that supports it.',
       },
@@ -1541,8 +1522,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一套统一口径的提交与答辩材料，而不是四份彼此松散的独立文件。',
         deliverableEn:
           'By the end of this round, you should have a coordinated package for submission and defense instead of four loosely connected documents.',
-        closeZh:
-          '最后阶段真正节省时间的，不是分别写得更快，而是让所有文件都建立在同一条主线上。',
+        closeZh: '最后阶段真正节省时间的，不是分别写得更快，而是让所有文件都建立在同一条主线上。',
         closeEn:
           'What really saves time in the final stage is not writing each file faster but letting every file grow from the same main line.',
       },
@@ -1612,8 +1592,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一张可行性说明表、一版更实的时间任务拆解，以及一个被现实条件校准过的题目。',
         deliverableEn:
           'After this round, you should have a feasibility note, a more realistic task timeline, and a topic recalibrated by actual constraints.',
-        closeZh:
-          '可行性不是给导师看的客套话，而是整篇论文后面会不会崩的第一道预警。',
+        closeZh: '可行性不是给导师看的客套话，而是整篇论文后面会不会崩的第一道预警。',
         closeEn:
           'Feasibility is not polite language for the advisor. It is the first warning system for whether the whole project will later collapse.',
       },
@@ -1665,8 +1644,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份“高价值但不一定当前可做”的区分表，而不是把所有好题都混在同一层优先级里。',
         deliverableEn:
           'After this round, you should have a sheet distinguishing high-value topics from topics that are actually workable now instead of treating every good topic as equally urgent.',
-        closeZh:
-          '真正高效的定题，不只是知道什么值得写，还知道什么现在先不要写。',
+        closeZh: '真正高效的定题，不只是知道什么值得写，还知道什么现在先不要写。',
         closeEn:
           'Efficient topic selection means not only knowing what is worth writing but also knowing what should not be written yet.',
       },
@@ -1718,8 +1696,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一张能提前暴露风险的可行性压力测试表，以及一版更稳的执行方案。',
         deliverableEn:
           'After this round, you should have a feasibility stress-test sheet that exposes risk early and a steadier execution plan.',
-        closeZh:
-          '方法越早经过压力测试，后面的大改就越少来自意外，越多来自主动选择。',
+        closeZh: '方法越早经过压力测试，后面的大改就越少来自意外，越多来自主动选择。',
         closeEn:
           'The earlier the method goes through stress testing, the less later revision comes from surprise and the more it comes from deliberate choice.',
       },
@@ -1767,12 +1744,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Is the exact layer tightened by the new topic already stated?',
           '3. Can you now explain why the current version is steadier?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版收紧后的题目和一页“为什么这样改”的可行性说明。',
+        deliverableZh: '这一轮之后，你应该有一版收紧后的题目和一页“为什么这样改”的可行性说明。',
         deliverableEn:
           'After this round, you should have a tightened topic and a one-page feasibility explanation of why it was revised this way.',
-        closeZh:
-          '题目变稳的标志，不只是更具体，而是你终于能把“为什么这样改”讲清楚。',
+        closeZh: '题目变稳的标志，不只是更具体，而是你终于能把“为什么这样改”讲清楚。',
         closeEn:
           'The sign that a topic has become steadier is not only that it sounds more concrete but that you can now explain clearly why it was revised in this way.',
       },
@@ -1842,8 +1817,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一个可持续扩展的文献矩阵，而不是一堆彼此独立的阅读摘要。',
         deliverableEn:
           'After this round, you should have an expandable literature matrix rather than a pile of isolated reading summaries.',
-        closeZh:
-          '文献矩阵最重要的价值，不是整理得好看，而是让你以后还能把读过的东西重新调用出来。',
+        closeZh: '文献矩阵最重要的价值，不是整理得好看，而是让你以后还能把读过的东西重新调用出来。',
         closeEn:
           'The main value of a literature matrix is not aesthetic order but the ability to call earlier reading back into use later.',
       },
@@ -1891,12 +1865,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are the major judgment paragraphs now supported by core literature?',
           '3. Have the background and methods citations been removed from jobs they should not carry?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版层级更清楚的综述引用结构，而不是只增加了数量。',
+        deliverableZh: '这一轮之后，你应该拿到一版层级更清楚的综述引用结构，而不是只增加了数量。',
         deliverableEn:
           'After this round, you should have a review with a clearer citation hierarchy instead of simply more references.',
-        closeZh:
-          '引用真正增加深度的时候，不是数量上来，而是层级开始清楚。',
+        closeZh: '引用真正增加深度的时候，不是数量上来，而是层级开始清楚。',
         closeEn:
           'Citations begin to add depth not when the count rises but when the hierarchy becomes clear.',
       },
@@ -1948,8 +1920,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一套“分析中何时回引、回引谁、回引来做什么”的清晰规则。',
         deliverableEn:
           'After this round, you should have a clear rule set for when the analysis should cite again, whom it should cite, and what that citation is meant to do.',
-        closeZh:
-          '分析阶段回引前人，不是为了看起来更满，而是为了让你的解释继续留在学术对话里。',
+        closeZh: '分析阶段回引前人，不是为了看起来更满，而是为了让你的解释继续留在学术对话里。',
         closeEn:
           'Citing earlier work again in the analysis is not about filling space but about keeping your interpretation inside the academic conversation.',
       },
@@ -1997,12 +1968,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does every judgment have a clearly identified core support source?',
           '3. Have ineffective citation stacks been removed?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版引用关系更清楚的正文，而不是只完成了表面规范化。',
+        deliverableZh: '这一轮之后，你应该有一版引用关系更清楚的正文，而不是只完成了表面规范化。',
         deliverableEn:
           'After this round, you should have a body text with much clearer citation relationships instead of a merely normalized bibliography.',
-        closeZh:
-          '引用返修真正要修的，是判断和支持之间的关系，而不是文献表的美观程度。',
+        closeZh: '引用返修真正要修的，是判断和支持之间的关系，而不是文献表的美观程度。',
         closeEn:
           'The real target of citation revision is the relationship between judgment and support, not the appearance of the reference list.',
       },
@@ -2068,12 +2037,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are obvious overlaps between adjacent chapters gone?',
           '3. Have the materials inside each chapter been rearranged around the task?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版能直接带动正文推进的任务型目录。',
+        deliverableZh: '这一轮之后，你应该拿到一版能直接带动正文推进的任务型目录。',
         deliverableEn:
           'After this round, you should have a task-driven outline that can directly pull the body forward.',
-        closeZh:
-          '目录能不能真正带动写作，关键不在标题好不好看，而在每章有没有明确任务。',
+        closeZh: '目录能不能真正带动写作，关键不在标题好不好看，而在每章有没有明确任务。',
         closeEn:
           'Whether an outline can truly drive writing depends less on how elegant the titles sound and more on whether each chapter has a clear task.',
       },
@@ -2121,12 +2088,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the material in the paragraph all serve that claim?',
           '3. Does the paragraph ending truly close that unit?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一套更稳定的段落模板，而不是靠临场拼句子。',
+        deliverableZh: '这一轮之后，你应该拿到一套更稳定的段落模板，而不是靠临场拼句子。',
         deliverableEn:
           'After this round, you should have a more stable paragraph template instead of building each unit by improvisation.',
-        closeZh:
-          '段落一旦只推进一个判断，结构就会自然变得更清楚。',
+        closeZh: '段落一旦只推进一个判断，结构就会自然变得更清楚。',
         closeEn:
           'Once a paragraph advances only one judgment, the structure naturally becomes clearer.',
       },
@@ -2160,8 +2125,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果以后要投稿，这些过渡会显著影响可读性。很多稿件不是没有内容，而是内容之间没有被写出“为什么这样排”。',
         submissionEn:
           'If the manuscript later goes out for submission, these transitions strongly affect readability. Many drafts do not lack content; they lack an explicit explanation of why the content is arranged in this order.',
-        riskZh:
-          '如果过渡一直缺位，最容易出现的就是章节像并列堆放，读者只能自己猜结构逻辑。',
+        riskZh: '如果过渡一直缺位，最容易出现的就是章节像并列堆放，读者只能自己猜结构逻辑。',
         riskEn:
           'If transitions remain absent, chapters start feeling like parallel piles and the reader is forced to guess the structural logic alone.',
         checklistZh: [
@@ -2178,8 +2142,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套能让全文顺着读下去的过渡句，而不是靠标题硬切章节。',
         deliverableEn:
           'After this round, you should have a set of transition lines that allows the whole draft to read forward instead of cutting chapters apart by title alone.',
-        closeZh:
-          '结构真正顺的时候，不是目录排得漂亮，而是读者始终知道为什么下一段会出现。',
+        closeZh: '结构真正顺的时候，不是目录排得漂亮，而是读者始终知道为什么下一段会出现。',
         closeEn:
           'A structure truly feels smooth not when the outline looks elegant but when the reader always knows why the next section appears.',
       },
@@ -2227,12 +2190,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the jumps been repaired with transitions?',
           '3. Have the empty-spinning paragraphs been rewritten or deleted?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版结构更紧的终稿，而不是只做了表面润色。',
+        deliverableZh: '这一轮之后，你应该拿到一版结构更紧的终稿，而不是只做了表面润色。',
         deliverableEn:
           'After this round, you should have a final draft with a tighter structure rather than one that only received surface polishing.',
-        closeZh:
-          '终稿真正变稳，往往不是因为句子更漂亮，而是结构病症终于被处理掉了。',
+        closeZh: '终稿真正变稳，往往不是因为句子更漂亮，而是结构病症终于被处理掉了。',
         closeEn:
           'A final draft often becomes truly steadier not because the sentences are prettier but because the structural symptoms were finally treated.',
       },
@@ -2302,8 +2263,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一套有优先级的稳健性方案，而不是一个无限扩张的检验清单。',
         deliverableEn:
           'After this round, you should have a prioritized robustness plan rather than an endlessly expanding test checklist.',
-        closeZh:
-          '稳健性做得成熟的标志，不是检验数量多，而是关键怀疑点被真正命中。',
+        closeZh: '稳健性做得成熟的标志，不是检验数量多，而是关键怀疑点被真正命中。',
         closeEn:
           'The sign of mature robustness work is not a large number of tests but that the key doubts are genuinely targeted.',
       },
@@ -2351,12 +2311,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the tests been classified by the concern they respond to?',
           '3. Have you already accumulated a reusable high-frequency set of patterns?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一个能在方法阶段直接调用的稳健性口径库。',
+        deliverableZh: '这一轮之后，你应该拿到一个能在方法阶段直接调用的稳健性口径库。',
         deliverableEn:
           'After this round, you should have a robustness pattern library that can be used directly in the methods stage.',
-        closeZh:
-          '最省时间的稳健性准备，不是最后补，而是前面读的时候就顺手记。',
+        closeZh: '最省时间的稳健性准备，不是最后补，而是前面读的时候就顺手记。',
         closeEn:
           'The most time-saving way to prepare robustness checks is not to patch them in at the end but to capture them while reading early.',
       },
@@ -2404,12 +2362,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has the strength of evidence been judged separately?',
           '3. Does the interpretation distinguish between no effect and no evidence?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一套能稳住不显著结果写法的解释框架。',
+        deliverableZh: '这一轮之后，你应该拿到一套能稳住不显著结果写法的解释框架。',
         deliverableEn:
           'After this round, you should have an interpretation framework that can handle non-significant results without panic.',
-        closeZh:
-          '不显著结果真正考验的，不是运气，而是作者对证据边界的判断力。',
+        closeZh: '不显著结果真正考验的，不是运气，而是作者对证据边界的判断力。',
         closeEn:
           'What non-significant results really test is not luck but the writer’s judgment about evidentiary boundaries.',
       },
@@ -2461,8 +2417,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更聚焦的稳健性返修方案和一段更能说服人的回复说明。',
         deliverableEn:
           'After this round, you should have a more focused robustness revision plan and a more persuasive explanation in the response file.',
-        closeZh:
-          '返修里的稳健性真正比拼的，不是数量，而是判断是否打中了评论背后的担忧。',
+        closeZh: '返修里的稳健性真正比拼的，不是数量，而是判断是否打中了评论背后的担忧。',
         closeEn:
           'What robustness revision really tests is not quantity but whether the judgment hits the concern behind the comment.',
       },
@@ -2532,15 +2487,13 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一套初步 response mindset 清单，而不是只会正向介绍自己的题目。',
         deliverableEn:
           'After this round, you should have an initial response-mindset checklist instead of only a forward-facing description of your topic.',
-        closeZh:
-          '越早练会从别人的问题倒看自己的论文，后面真正被问到时就越不会慌。',
+        closeZh: '越早练会从别人的问题倒看自己的论文，后面真正被问到时就越不会慌。',
         closeEn:
           'The earlier you learn to look back at your paper through other people’s questions, the steadier you become when those questions actually arrive.',
       },
       'literature-review': {
         titleZh: 'Cover Letter 不是摘要复述：先写 journal fit 的逻辑',
-        titleEn:
-          'A cover letter is not a repeated abstract: write the journal-fit logic first',
+        titleEn: 'A cover letter is not a repeated abstract: write the journal-fit logic first',
         introZh:
           '很多 Cover Letter 看起来很工整，却只是把摘要换个口气再写一遍。真正缺失的，往往是“为什么这篇稿件适合这个刊物和它的读者”。',
         introEn:
@@ -2581,12 +2534,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Is the fit point between the manuscript and the journal scope explicit?',
           '3. Has the cover letter moved beyond repeating the abstract?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版真正围绕 journal fit 展开的 Cover Letter 底稿。',
+        deliverableZh: '这一轮之后，你应该拿到一版真正围绕 journal fit 展开的 Cover Letter 底稿。',
         deliverableEn:
           'After this round, you should have a cover-letter draft genuinely built around journal fit.',
-        closeZh:
-          'Cover Letter 真正打动编辑的时候，不是摘要写得更顺，而是 fit 逻辑写得更准。',
+        closeZh: 'Cover Letter 真正打动编辑的时候，不是摘要写得更顺，而是 fit 逻辑写得更准。',
         closeEn:
           'A cover letter persuades an editor not when it sounds like a smoother abstract but when its fit logic is sharper.',
       },
@@ -2634,12 +2585,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are the revision action and location stated clearly?',
           '3. Does the response explain what the change means for the main line?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一份既逐条回应、又能看见整体修复逻辑的回复信。',
+        deliverableZh: '这一轮之后，你应该拿到一份既逐条回应、又能看见整体修复逻辑的回复信。',
         deliverableEn:
           'After this round, you should have a response file that is both point-by-point and visibly guided by an overall repair logic.',
-        closeZh:
-          '回复信真正成熟的时候，不是每条都回了，而是每条都还能回到同一条主线。',
+        closeZh: '回复信真正成熟的时候，不是每条都回了，而是每条都还能回到同一条主线。',
         closeEn:
           'A response file becomes truly mature not when every point is answered but when every answer can still return to the same main line.',
       },
@@ -2687,12 +2636,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has the proof been read through completely in order?',
           '3. Have the issues been organized according to the allowed correction range?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一份真正能撑住最后版本的 QA 清单和修正表。',
+        deliverableZh: '这一轮之后，你应该拿到一份真正能撑住最后版本的 QA 清单和修正表。',
         deliverableEn:
           'After this round, you should have a QA list and correction sheet that can genuinely protect the final version.',
-        closeZh:
-          'proof 阶段真正值钱的，不是再润色一句，而是把最后可能掉链子的细节全部收住。',
+        closeZh: 'proof 阶段真正值钱的，不是再润色一句，而是把最后可能掉链子的细节全部收住。',
         closeEn:
           'What makes the proof stage valuable is not polishing one more sentence but closing every detail that could still break at the very end.',
       },
@@ -2762,8 +2709,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更稳定的题目、一套可检索关键词和一张能继续扩写的入口词表。',
         deliverableEn:
           'After this round, you should have a steadier title, a searchable keyword set, and an entry-term sheet that can keep expanding later.',
-        closeZh:
-          '题目和关键词一旦在开题时就对齐，后面的综述、摘要和投稿定位都会顺很多。',
+        closeZh: '题目和关键词一旦在开题时就对齐，后面的综述、摘要和投稿定位都会顺很多。',
         closeEn:
           'Once the title and keywords align during the proposal stage, the review, the abstract, and the submission positioning all become much smoother later.',
       },
@@ -2815,8 +2761,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更稳定的分层检索式和一批更适合进入综述骨架的文献入口。',
         deliverableEn:
           'After this round, you should have a more stable layered search system and a literature entry set that better fits the review skeleton.',
-        closeZh:
-          '关键词一旦分层，综述入口就不再靠运气，而是开始由你主动控制。',
+        closeZh: '关键词一旦分层，综述入口就不再靠运气，而是开始由你主动控制。',
         closeEn:
           'Once the keywords are layered, the review entry stops depending on luck and starts being actively controlled by the writer.',
       },
@@ -2864,12 +2809,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Do the variable or coding definitions genuinely correspond to them?',
           '3. Have you separated wording shifts from actual object shifts?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版题目、摘要和方法口径更一致的研究表达。',
+        deliverableZh: '这一轮之后，你应该得到一版题目、摘要和方法口径更一致的研究表达。',
         deliverableEn:
           'After this round, you should have a research expression in which the title, abstract, and methodological definitions are much more aligned.',
-        closeZh:
-          '题目和方法一旦说同一种语言，整篇论文的可信度会立刻抬起来。',
+        closeZh: '题目和方法一旦说同一种语言，整篇论文的可信度会立刻抬起来。',
         closeEn:
           'Once the title and the method begin speaking the same language, the credibility of the whole paper rises immediately.',
       },
@@ -2903,8 +2846,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果后面要投稿，这一步会直接影响 editor first impression；如果要答辩，也会影响老师们第一眼理解你在做什么。',
         submissionEn:
           'If submission is next, this step directly shapes the editor’s first impression; if defense is next, it shapes how examiners understand the project at first glance.',
-        riskZh:
-          '如果收尾时不处理入口错位，最容易出现的就是标题越看越亮眼，正文却越显得不对应。',
+        riskZh: '如果收尾时不处理入口错位，最容易出现的就是标题越看越亮眼，正文却越显得不对应。',
         riskEn:
           'If this entry mismatch is not repaired at the final stage, the title often grows more eye-catching while the body looks less and less aligned with it.',
         checklistZh: [
@@ -2917,12 +2859,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Is that the same reader served by the first paragraph of the body?',
           '3. Has the entry language now been unified?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版对外入口更统一的题目、关键词和摘要组合。',
+        deliverableZh: '这一轮之后，你应该拿到一版对外入口更统一的题目、关键词和摘要组合。',
         deliverableEn:
           'After this round, you should have a more unified outward-facing combination of title, keywords, and abstract.',
-        closeZh:
-          '定稿时重写题目和关键词，不是为了更花哨，而是为了让正确的读者被正确地带进来。',
+        closeZh: '定稿时重写题目和关键词，不是为了更花哨，而是为了让正确的读者被正确地带进来。',
         closeEn:
           'Rewriting the title and keywords at the final stage is not about decoration but about letting the right readers enter through the right door.',
       },
@@ -2992,8 +2932,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一句能真正支撑开题的 gap sentence，而不是只有一段泛泛的研究意义。',
         deliverableEn:
           'After this round, you should have one gap sentence that can truly support the proposal instead of only a broad significance paragraph.',
-        closeZh:
-          '真正能撑起一个题目的，不是重要性喊得多大，而是缺口说得多准。',
+        closeZh: '真正能撑起一个题目的，不是重要性喊得多大，而是缺口说得多准。',
         closeEn:
           'What truly holds up a topic is not how loudly importance is claimed but how precisely the gap is named.',
       },
@@ -3041,19 +2980,16 @@ const writingHubs: WritingHubConfig[] = [
           '2. Was the gap derived from those comparisons?',
           '3. Is the final gap sentence short and strong enough?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一套可复用的比较句和一句更真实的 gap sentence。',
+        deliverableZh: '这一轮之后，你应该拿到一套可复用的比较句和一句更真实的 gap sentence。',
         deliverableEn:
           'After this round, you should have a reusable set of comparison sentences and a more credible gap sentence.',
-        closeZh:
-          '缺口写得稳，往往不是因为你说得更大，而是因为比较句终于写出来了。',
+        closeZh: '缺口写得稳，往往不是因为你说得更大，而是因为比较句终于写出来了。',
         closeEn:
           'A gap usually becomes steady not because it sounds larger but because the comparison sentences were finally written clearly.',
       },
       'methods-analysis': {
         titleZh: '分析结果出来后，怎么回扣最初那个研究缺口',
-        titleEn:
-          'Once the analysis is done, how do you return to the original research gap',
+        titleEn: 'Once the analysis is done, how do you return to the original research gap',
         introZh:
           '很多论文在分析阶段会出现一个常见问题：结果写出来了，但和前面铺过的研究缺口没有重新接上，导致前文和后文像两套系统。',
         introEn:
@@ -3094,12 +3030,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Is the relationship between the findings and that gap clearly judged?',
           '3. Has an explicit return sentence been written?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版真正能让前文和后文接上的分析收束句。',
+        deliverableZh: '这一轮之后，你应该拿到一版真正能让前文和后文接上的分析收束句。',
         deliverableEn:
           'After this round, you should have an analytical closing sentence that genuinely reconnects the front and back of the paper.',
-        closeZh:
-          '结果真正让论文闭环的时候，不是它们写出来了，而是它们重新回到了最初那个缺口上。',
+        closeZh: '结果真正让论文闭环的时候，不是它们写出来了，而是它们重新回到了最初那个缺口上。',
         closeEn:
           'Results truly close a paper not when they merely appear but when they return to the original gap that launched the study.',
       },
@@ -3151,8 +3085,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版被重新校准过的 gap sentence，而不是一段被彻底推倒的旧稿。',
         deliverableEn:
           'After this round, you should have a recalibrated gap sentence instead of a discarded old section with nothing stable left.',
-        closeZh:
-          '研究缺口被质疑时，最重要的不是推翻自己，而是看清到底是哪一层还没站稳。',
+        closeZh: '研究缺口被质疑时，最重要的不是推翻自己，而是看清到底是哪一层还没站稳。',
         closeEn:
           'When a research gap is challenged, the most important move is not to overturn yourself but to see clearly which layer has not yet stood firmly.',
       },
@@ -3218,12 +3151,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are the tasks no longer visibly overlapping?',
           '3. Does the outline arrangement already follow that division?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更清楚的章节分工说明，而不是靠后期补救重复。',
+        deliverableZh: '这一轮之后，你应该拿到一版更清楚的章节分工说明，而不是靠后期补救重复。',
         deliverableEn:
           'After this round, you should have a much clearer section-division plan instead of relying on late-stage repair of repetition.',
-        closeZh:
-          '结果、讨论、结论一旦任务先分清，后面的结构压力会轻很多。',
+        closeZh: '结果、讨论、结论一旦任务先分清，后面的结构压力会轻很多。',
         closeEn:
           'Once the tasks of results, discussion, and conclusion are separated early, the later structural pressure becomes much lighter.',
       },
@@ -3257,8 +3188,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果后面要投稿，这种控制很关键，因为编辑通常希望前文快而清楚，而不是一开头就进入过量解释。',
         submissionEn:
           'If the manuscript may later be submitted, this control is crucial because editors usually want the front matter to be fast and clear rather than overloaded with early interpretation.',
-        riskZh:
-          '如果引言提前做完了讨论的活，后面最常见的后果就是讨论区写不出新东西，只能重复。',
+        riskZh: '如果引言提前做完了讨论的活，后面最常见的后果就是讨论区写不出新东西，只能重复。',
         riskEn:
           'If the introduction finishes the work of the discussion too early, the common result is that the later discussion has nothing new to do except repeat.',
         checklistZh: [
@@ -3271,12 +3201,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are the problem, dispute, and entry point still clear?',
           '3. Has real task space been preserved for the discussion section?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更轻、更快、又不失方向感的引言。',
+        deliverableZh: '这一轮之后，你应该得到一版更轻、更快、又不失方向感的引言。',
         deliverableEn:
           'After this round, you should have an introduction that is lighter, faster, and still directionally clear.',
-        closeZh:
-          '引言真正写得稳的时候，不是说得更多，而是知道哪些解释要先忍住。',
+        closeZh: '引言真正写得稳的时候，不是说得更多，而是知道哪些解释要先忍住。',
         closeEn:
           'An introduction becomes steady not by saying more but by knowing which explanations to hold back for later.',
       },
@@ -3324,12 +3252,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the evidence follow that finding closely?',
           '3. Have interpretation and boundary been written separately?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一套更稳定的结果/讨论段落模板。',
+        deliverableZh: '这一轮之后，你应该拿到一套更稳定的结果/讨论段落模板。',
         deliverableEn:
           'After this round, you should have a far more stable paragraph template for separating results and discussion.',
-        closeZh:
-          '结果和讨论真正拆开之后，分析会变得更清楚，讨论也会更有力。',
+        closeZh: '结果和讨论真正拆开之后，分析会变得更清楚，讨论也会更有力。',
         closeEn:
           'Once results and discussion are truly separated, the analysis becomes clearer and the discussion becomes stronger.',
       },
@@ -3363,8 +3289,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果后面要答辩或投稿，这种收束会很重要，因为结论往往直接影响别人最后记住的是什么。',
         submissionEn:
           'If defense or submission is next, this tightening matters greatly because the conclusion often determines what others remember last.',
-        riskZh:
-          '如果结论继续把全篇重复一遍，最常见的后果就是看起来完整，真正的主张却不够突出。',
+        riskZh: '如果结论继续把全篇重复一遍，最常见的后果就是看起来完整，真正的主张却不够突出。',
         riskEn:
           'If the conclusion keeps repeating the whole paper, the common result is a draft that looks complete while the central claim still does not stand out enough.',
         checklistZh: [
@@ -3377,12 +3302,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the judgments that truly stand been selected?',
           '3. Does the conclusion now keep only the most important lines?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版不再泛泛重复、而是更像真正收束的结论。',
+        deliverableZh: '这一轮之后，你应该拿到一版不再泛泛重复、而是更像真正收束的结论。',
         deliverableEn:
           'After this round, you should have a conclusion that no longer repeats broadly and instead feels like a real closing move.',
-        closeZh:
-          '结论真正有力的时候，不是说得更多，而是终于只剩最该留下的那几句。',
+        closeZh: '结论真正有力的时候，不是说得更多，而是终于只剩最该留下的那几句。',
         closeEn:
           'A conclusion becomes truly strong not by saying more but by finally keeping only the few lines that deserve to remain.',
       },
@@ -3448,12 +3371,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has each type received an initial figure/table judgment?',
           '3. Has a reading-order sketch already been made?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版结果路线图，而不是把图表留成后期纯包装任务。',
+        deliverableZh: '这一轮之后，你应该拿到一版结果路线图，而不是把图表留成后期纯包装任务。',
         deliverableEn:
           'After this round, you should have a result route map rather than leaving visuals as pure late-stage packaging work.',
-        closeZh:
-          '图表越早被纳入思考，结果表达就越不容易在最后一刻失控。',
+        closeZh: '图表越早被纳入思考，结果表达就越不容易在最后一刻失控。',
         closeEn:
           'The earlier visuals enter the thinking process, the less likely the presentation of results is to lose control at the last moment.',
       },
@@ -3487,8 +3408,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果以后要投稿，这种图表任务库很有帮助，因为它让你做图时更关注“这张图要完成什么”，而不是只关注形式。',
         submissionEn:
           'If submission is a later goal, this visual-role library is highly useful because it makes figure design focus on what the visual must accomplish rather than on format alone.',
-        riskZh:
-          '如果只在做图时临时模仿，最常见的后果就是图很像，叙事却和自己的论文不匹配。',
+        riskZh: '如果只在做图时临时模仿，最常见的后果就是图很像，叙事却和自己的论文不匹配。',
         riskEn:
           'If visual imitation happens only at the moment of creation, the common result is figures that look similar to published ones while failing to match the narrative of your own paper.',
         checklistZh: [
@@ -3501,12 +3421,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the narrative functions of representative visuals been labeled?',
           '3. Has a reusable set of visual task types been organized?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一套图表任务库，而不是只有零散的视觉印象。',
+        deliverableZh: '这一轮之后，你应该拿到一套图表任务库，而不是只有零散的视觉印象。',
         deliverableEn:
           'After this round, you should have a visual-role library rather than only scattered visual impressions.',
-        closeZh:
-          '图表真正能借鉴的时候，不是外观像，而是你知道它在替论文完成什么任务。',
+        closeZh: '图表真正能借鉴的时候，不是外观像，而是你知道它在替论文完成什么任务。',
         closeEn:
           'A visual becomes truly borrowable not when it looks similar but when you know what task it is performing for the paper.',
       },
@@ -3554,12 +3472,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has it been classified as trend, comparison, or precise value?',
           '3. Is the figure/table choice supported by an explicit reason?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一套更稳定的图表选择规则，而不是靠习惯临场决定。',
+        deliverableZh: '这一轮之后，你应该得到一套更稳定的图表选择规则，而不是靠习惯临场决定。',
         deliverableEn:
           'After this round, you should have a more stable rule set for choosing between figures and tables instead of deciding by habit in the moment.',
-        closeZh:
-          '图表选得对，读者会先看到你最重要的发现；选错了，再好的结果也容易被埋掉。',
+        closeZh: '图表选得对，读者会先看到你最重要的发现；选错了，再好的结果也容易被埋掉。',
         closeEn:
           'When the figure/table choice is right, readers see the key finding first; when it is wrong, even strong results are easily buried.',
       },
@@ -3593,8 +3509,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果后面要投稿，这种图注升级很重要，因为编辑和审稿人经常通过图表和图注判断稿件是否已经足够清楚成熟。',
         submissionEn:
           'If the work may later be submitted, this caption upgrade matters a great deal because editors and reviewers often judge the clarity and maturity of a manuscript through the visuals and their captions.',
-        riskZh:
-          '如果图注一直只是命名，最常见的后果就是图表明明有信息，读者却不知道该往哪里看。',
+        riskZh: '如果图注一直只是命名，最常见的后果就是图表明明有信息，读者却不知道该往哪里看。',
         riskEn:
           'If captions remain names only, the common result is that the visuals contain information while readers still do not know where to look.',
         checklistZh: [
@@ -3611,8 +3526,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一批更能支撑答辩和投稿的图注表注，而不是只有形式完整。',
         deliverableEn:
           'After this round, you should have captions that can better support both defense and submission rather than visuals that are only formally complete.',
-        closeZh:
-          '图表真正变清楚的时候，不只是图画得更好，而是图注终于开始替读者导航。',
+        closeZh: '图表真正变清楚的时候，不只是图画得更好，而是图注终于开始替读者导航。',
         closeEn:
           'A visual becomes truly clearer not only when it is drawn better but when the caption finally begins guiding the reader through it.',
       },
@@ -3629,7 +3543,8 @@ const writingHubs: WritingHubConfig[] = [
     focusZh: 'desk reject、首轮判断和重投路线',
     focusEn: 'desk rejection, first-round judgment, and resubmission routes',
     evidenceZh: '编辑信、摘要首屏、期刊匹配和重投策略说明',
-    evidenceEn: 'editor letters, first-screen abstract lines, journal fit, and resubmission strategy notes',
+    evidenceEn:
+      'editor letters, first-screen abstract lines, journal fit, and resubmission strategy notes',
     standardZh: '重点不是把所有拒稿都当成失败，而是判断第一轮到底在哪个地方失分。',
     standardEn:
       'The goal is not to treat every rejection as failure but to decide where the first round actually lost points.',
@@ -3678,12 +3593,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have background sentences been compressed?',
           '3. Is the important information appearing early enough?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更像“首轮可读”的题目、摘要和引言开头。',
+        deliverableZh: '这一轮之后，你应该拿到一版更像“首轮可读”的题目、摘要和引言开头。',
         deliverableEn:
           'After this round, you should have a title, abstract, and opening paragraph that feel much more first-round readable.',
-        closeZh:
-          '越早练首屏表达，后面越不容易在最短的一轮里被误伤。',
+        closeZh: '越早练首屏表达，后面越不容易在最短的一轮里被误伤。',
         closeEn:
           'The earlier you practice first-screen expression, the less likely the manuscript is to be lost in the shortest round later on.',
       },
@@ -3731,19 +3644,16 @@ const writingHubs: WritingHubConfig[] = [
           '2. Do the first two introduction paragraphs enter the problem quickly enough?',
           '3. Is the contribution judgment no longer delayed too far?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更扛得住 editor scan 的投稿前文本入口。',
+        deliverableZh: '这一轮之后，你应该拿到一版更扛得住 editor scan 的投稿前文本入口。',
         deliverableEn:
           'After this round, you should have a pre-submission entry package that can survive an editor scan much better.',
-        closeZh:
-          '投稿前真正要扛住的，不只是排版，而是那一分钟里别人能不能抓住你的价值。',
+        closeZh: '投稿前真正要扛住的，不只是排版，而是那一分钟里别人能不能抓住你的价值。',
         closeEn:
           'What the manuscript really needs to survive before submission is not only formatting but that first minute in which someone must grasp its value.',
       },
       'methods-analysis': {
         titleZh: '重投前别只换刊：先做一次 resubmission triage',
-        titleEn:
-          'Do not just change journals before resubmitting: run a resubmission triage first',
+        titleEn: 'Do not just change journals before resubmitting: run a resubmission triage first',
         introZh:
           '很多人被 desk reject 后会第一时间换刊重投，看起来动作很快，但如果没有先分清是范围不合、首屏不够强，还是方法说明太弱，下一轮很容易重复同样的问题。',
         introEn:
@@ -3770,8 +3680,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果这一步做得好，重投效率会高很多，因为你不会一边换刊一边把原来真正该修的问题继续带着走。',
         submissionEn:
           'If this step is done well, resubmission becomes much more efficient because you stop carrying the real unresolved problem from one journal to the next.',
-        riskZh:
-          '如果被 desk reject 后只做“换刊动作”，最常见的后果就是第二轮继续卡在同一个地方。',
+        riskZh: '如果被 desk reject 后只做“换刊动作”，最常见的后果就是第二轮继续卡在同一个地方。',
         riskEn:
           'If a desk rejection triggers only the motion of changing journals, the common result is getting stuck again at the same place in the next round.',
         checklistZh: [
@@ -3788,8 +3697,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更清楚的重投路线，而不是只是一份准备重新上传的旧稿。',
         deliverableEn:
           'After this round, you should have a much clearer resubmission route rather than only an old draft prepared for re-upload.',
-        closeZh:
-          '重投真正拉开差距的，不是动作快，而是先把失败类型看准。',
+        closeZh: '重投真正拉开差距的，不是动作快，而是先把失败类型看准。',
         closeEn:
           'What truly improves resubmission is not speed alone but correctly reading the failure type first.',
       },
@@ -3841,8 +3749,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一份更精确的 desk reject 后返工策略，而不是情绪化大修。',
         deliverableEn:
           'After this round, you should have a more precise post-desk-rejection revision strategy rather than an emotional full rewrite.',
-        closeZh:
-          'desk reject 后最值钱的，不是立刻大改，而是先判断该改哪一层。',
+        closeZh: 'desk reject 后最值钱的，不是立刻大改，而是先判断该改哪一层。',
         closeEn:
           'The most valuable move after a desk rejection is not immediate major rewriting but deciding first which layer truly needs to change.',
       },
@@ -3912,8 +3819,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更稳的贡献句、一个更收束的题目说明，以及一条能贯穿后文的研究承诺。',
         deliverableEn:
           'After this round, you should have a steadier contribution sentence, a more focused topic explanation, and a research commitment that can hold through later sections.',
-        closeZh:
-          '真正站得住的创新点，往往不是喊得最大，而是边界最清楚。',
+        closeZh: '真正站得住的创新点，往往不是喊得最大，而是边界最清楚。',
         closeEn:
           'The novelty claim that truly stands is usually not the loudest one but the one with the clearest boundary.',
       },
@@ -3965,8 +3871,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一份更像“研究位置图”的综述提纲，而不是一份不断变厚的背景材料。',
         deliverableEn:
           'After this round, you should have a review outline that behaves more like a research position map than a continuously thickening background file.',
-        closeZh:
-          '综述真正让位置清楚的，不是全写进去，而是知道哪些要留下、哪些先放下。',
+        closeZh: '综述真正让位置清楚的，不是全写进去，而是知道哪些要留下、哪些先放下。',
         closeEn:
           'What truly clarifies your position in a review is not writing everything in but knowing what to keep and what to set aside.',
       },
@@ -4018,8 +3923,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更一致的贡献句、方法说明和结果预期，不再让方法被迫替大承诺兜底。',
         deliverableEn:
           'After this round, you should have a more consistent contribution line, method explanation, and result expectation instead of forcing the method to rescue an oversized promise.',
-        closeZh:
-          '方法真正显得可靠的时候，往往不是更复杂，而是终于和承诺同一尺度。',
+        closeZh: '方法真正显得可靠的时候，往往不是更复杂，而是终于和承诺同一尺度。',
         closeEn:
           'A method truly feels reliable not when it becomes more complicated but when it finally operates on the same scale as the promise.',
       },
@@ -4071,8 +3975,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更稳的答辩与返修口径，让整篇研究在后期仍然保持同一条贡献边界。',
         deliverableEn:
           'After this round, you should have a steadier defense and revision script that keeps the research on one consistent contribution boundary.',
-        closeZh:
-          '后期最成熟的表达，不是越答越大，而是越答越清楚自己到底完成了什么。',
+        closeZh: '后期最成熟的表达，不是越答越大，而是越答越清楚自己到底完成了什么。',
         closeEn:
           'The most mature late-stage expression is not answering bigger and bigger claims but becoming clearer and clearer about what the study actually accomplished.',
       },
@@ -4089,7 +3992,8 @@ const writingHubs: WritingHubConfig[] = [
     focusZh: '冲突文献处理、分歧解释和综述判断句',
     focusEn: 'conflicting evidence, disagreement handling, and review judgment lines',
     evidenceZh: '对立结论文献、条件差异和判断句草稿',
-    evidenceEn: 'studies with opposing results, condition differences, and judgment sentence drafts',
+    evidenceEn:
+      'studies with opposing results, condition differences, and judgment sentence drafts',
     standardZh: '重点不是把冲突研究都排成列表，而是说明它们为什么会得出不同结论。',
     standardEn:
       'The goal is not to list conflicting studies side by side but to explain why they arrived at different conclusions.',
@@ -4142,8 +4046,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一张分歧文献比较表和一句能支撑开题的问题判断，而不是只剩下困惑。',
         deliverableEn:
           'After this round, you should have a comparison table of conflicting studies and one question-defining sentence rather than confusion alone.',
-        closeZh:
-          '文献出现分歧时，真正该抓住的不是混乱感，而是里面藏着的研究入口。',
+        closeZh: '文献出现分歧时，真正该抓住的不是混乱感，而是里面藏着的研究入口。',
         closeEn:
           'When the literature disagrees, the real opportunity is not the confusion itself but the research entry hidden inside it.',
       },
@@ -4195,8 +4098,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更像“解释争议”的综述结构，而不是继续堆积互相矛盾的摘要。',
         deliverableEn:
           'After this round, you should have a review structure that explains disagreement instead of continuing to pile up contradictory summaries.',
-        closeZh:
-          '综述处理分歧最有力量的时候，不是把争议摆出来，而是说明争议为什么会发生。',
+        closeZh: '综述处理分歧最有力量的时候，不是把争议摆出来，而是说明争议为什么会发生。',
         closeEn:
           'A review handles disagreement most powerfully not by displaying the conflict but by explaining why it arises.',
       },
@@ -4248,8 +4150,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份更稳的结果差异说明，为讨论部分和后续回复留下空间。',
         deliverableEn:
           'After this round, you should have a steadier explanation of result differences that can support the discussion section and later responses.',
-        closeZh:
-          '结果和前人不一样时，先做比较，不要先做自我否定。',
+        closeZh: '结果和前人不一样时，先做比较，不要先做自我否定。',
         closeEn:
           'When your findings differ from prior work, compare first instead of doubting yourself first.',
       },
@@ -4297,12 +4198,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Can you clearly state the conditions and boundary of your own finding?',
           '3. Can the disagreement be rephrased as differing conditions rather than a right-versus-wrong fight?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一套更像学术解释的分歧回答，而不是临场辩解。',
+        deliverableZh: '这一轮之后，你应该得到一套更像学术解释的分歧回答，而不是临场辩解。',
         deliverableEn:
           'After this round, you should have a disagreement response that sounds like academic explanation rather than improvised defense.',
-        closeZh:
-          '真正稳的回答，不是急着赢过前人，而是解释为什么不同结果可以并存。',
+        closeZh: '真正稳的回答，不是急着赢过前人，而是解释为什么不同结果可以并存。',
         closeEn:
           'A truly steady answer does not rush to defeat prior work. It explains why different findings can coexist.',
       },
@@ -4317,7 +4216,8 @@ const writingHubs: WritingHubConfig[] = [
     readerZh: '论文写作者',
     readerEn: 'thesis and paper writers',
     focusZh: '摘要、引言、结论分工和重复控制',
-    focusEn: 'division of labor among abstract, introduction, and conclusion with repetition control',
+    focusEn:
+      'division of labor among abstract, introduction, and conclusion with repetition control',
     evidenceZh: '摘要版本、引言首段和结论收束句',
     evidenceEn: 'abstract drafts, introduction openings, and concluding synthesis lines',
     standardZh: '重点不是三处都写得完整，而是让每个位置承担不同功能而不互相重复。',
@@ -4368,12 +4268,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has repeated content been identified?',
           '3. Has each section returned to its own core function?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一套更清楚的三段分工图，后面写作时不再靠重复撑篇幅。',
+        deliverableZh: '这一轮之后，你应该有一套更清楚的三段分工图，后面写作时不再靠重复撑篇幅。',
         deliverableEn:
           'After this round, you should have a clearer three-part role map so later drafting no longer relies on repetition for length.',
-        closeZh:
-          '结构变清楚的第一步，往往不是写更多，而是先让不同位置别再做同一件事。',
+        closeZh: '结构变清楚的第一步，往往不是写更多，而是先让不同位置别再做同一件事。',
         closeEn:
           'The first step toward a clearer structure is often not writing more but stopping different sections from doing the same job.',
       },
@@ -4421,12 +4319,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the introduction truly complete significance, literature, and entry expansion?',
           '3. Have the abstract-like restatement sentences been deleted?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版更像“真正引言”的前部结构，而不是摘要的加长版。',
+        deliverableZh: '这一轮之后，你应该有一版更像“真正引言”的前部结构，而不是摘要的加长版。',
         deliverableEn:
           'After this round, you should have a front section that behaves like a real introduction rather than an extended abstract.',
-        closeZh:
-          '引言真正开始工作的时候，摘要就不需要再被放大重播。',
+        closeZh: '引言真正开始工作的时候，摘要就不需要再被放大重播。',
         closeEn:
           'Once the introduction begins doing its real job, the abstract no longer needs to be replayed at larger size.',
       },
@@ -4474,12 +4370,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does the conclusion contain meaning, scope, and boundary?',
           '3. Have finding summary and judgment synthesis been separated across the two sections?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更轻的摘要和一版更有判断力的结论。',
+        deliverableZh: '这一轮之后，你应该拿到一版更轻的摘要和一版更有判断力的结论。',
         deliverableEn:
           'After this round, you should have a lighter abstract and a more judgment-driven conclusion.',
-        closeZh:
-          '摘要负责告诉读者你发现了什么，结论负责告诉读者这些发现到底意味着什么。',
+        closeZh: '摘要负责告诉读者你发现了什么，结论负责告诉读者这些发现到底意味着什么。',
         closeEn:
           'The abstract tells readers what you found. The conclusion tells them what those findings finally mean.',
       },
@@ -4531,8 +4425,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版明显更清爽的前后结构，重复感会比单纯删句子下降得更明显。',
         deliverableEn:
           'After this round, you should have a noticeably cleaner front-to-back structure, with repetition reduced more deeply than simple sentence trimming could achieve.',
-        closeZh:
-          '去重真正有效的时候，删掉的不是字数，而是功能重叠。',
+        closeZh: '去重真正有效的时候，删掉的不是字数，而是功能重叠。',
         closeEn:
           'Deduplication truly works not when it removes words alone but when it removes overlapping functions.',
       },
@@ -4598,12 +4491,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has the obtainable material type been stated clearly?',
           '3. Does the method choice now form a problem-to-material-to-method logic chain?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版更能自圆其说的方法说明，而不是只会列方法名。',
+        deliverableZh: '这一轮之后，你应该有一版更能自圆其说的方法说明，而不是只会列方法名。',
         deliverableEn:
           'After this round, you should have a method explanation that can truly justify itself rather than merely listing method names.',
-        closeZh:
-          '方法真正站住的时候，不是名字更高级，而是理由更清楚。',
+        closeZh: '方法真正站住的时候，不是名字更高级，而是理由更清楚。',
         closeEn:
           'A method truly stands not when its name sounds more advanced but when its reason becomes clearer.',
       },
@@ -4651,12 +4542,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the object and material conditions matched by different methods been compared?',
           '3. Can you now give a preliminary explanation of the fit logic for your own project?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拥有一份更会“比较方法”的阅读笔记，而不是只会收集术语。',
+        deliverableZh: '这一轮之后，你应该拥有一份更会“比较方法”的阅读笔记，而不是只会收集术语。',
         deliverableEn:
           'After this round, you should have reading notes that can compare methods rather than merely collect terminology.',
-        closeZh:
-          '方法阅读真正有用的时候，记住的不只是名称，而是它为什么适合。',
+        closeZh: '方法阅读真正有用的时候，记住的不只是名称，而是它为什么适合。',
         closeEn:
           'Method reading becomes truly useful when it remembers not only the name of the tool but why it fits.',
       },
@@ -4704,12 +4593,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have key variable or concept definitions been completed?',
           '3. Are the analytical steps written in the real execution order?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更透明、更能经得住追问的方法部分。',
+        deliverableZh: '这一轮之后，你应该拿到一版更透明、更能经得住追问的方法部分。',
         deliverableEn:
           'After this round, you should have a methods section that is more transparent and much better able to withstand scrutiny.',
-        closeZh:
-          '方法部分让人信服，靠的往往不是术语密度，而是规则透明度。',
+        closeZh: '方法部分让人信服，靠的往往不是术语密度，而是规则透明度。',
         closeEn:
           'A methods section earns trust less through terminology density than through rule transparency.',
       },
@@ -4757,12 +4644,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the key gaps been filled?',
           '3. From an outside-reader perspective, can the full method logic now be traced?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更有说服力的方法返修稿，而不是只变长的旧版本。',
+        deliverableZh: '这一轮之后，你应该得到一版更有说服力的方法返修稿，而不是只变长的旧版本。',
         deliverableEn:
           'After this round, you should have a more convincing revised methods section rather than simply a longer old version.',
-        closeZh:
-          '方法返修最有效的地方，不是加字，而是补齐读者最不放心的那三件事。',
+        closeZh: '方法返修最有效的地方，不是加字，而是补齐读者最不放心的那三件事。',
         closeEn:
           'The most effective methods revision does not merely add words. It completes the three things readers worry about most.',
       },
@@ -4832,8 +4717,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一条更像投稿入口的价值句，为摘要和 Cover Letter 提前打底。',
         deliverableEn:
           'After this round, you should have a value sentence that already behaves like a submission entry line and can support the abstract and cover letter later.',
-        closeZh:
-          '越早学会对陌生读者说清价值，越不容易在投稿前临时慌乱。',
+        closeZh: '越早学会对陌生读者说清价值，越不容易在投稿前临时慌乱。',
         closeEn:
           'The earlier you learn to state value to unfamiliar readers, the less likely submission preparation is to turn panicked later.',
       },
@@ -4938,8 +4822,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拥有一套更像成熟投稿包件的入口表达，不再是三个彼此松散的文本。',
         deliverableEn:
           'After this round, you should have an entry package that feels much more like one mature submission set rather than three loosely connected texts.',
-        closeZh:
-          '投稿入口最怕的不是字少，而是同一个稿件被你自己说成三种样子。',
+        closeZh: '投稿入口最怕的不是字少，而是同一个稿件被你自己说成三种样子。',
         closeEn:
           'What hurts a submission entry most is not brevity but turning the same manuscript into three different stories.',
       },
@@ -4991,8 +4874,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更能扛首轮判断的 Cover Letter，为返修或重投真正打开入口。',
         deliverableEn:
           'After this round, you should have a cover letter much more capable of carrying the first-round judgment and opening the path for revision or resubmission.',
-        closeZh:
-          '正文可以越来越好，但如果入口没升级，编辑第一眼看到的仍是旧问题。',
+        closeZh: '正文可以越来越好，但如果入口没升级，编辑第一眼看到的仍是旧问题。',
         closeEn:
           'The manuscript body may keep improving, but if the entry never upgrades, the editor still meets the old problem first.',
       },
@@ -5062,8 +4944,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更可完成的题目、一条更稳的问题线和一份明确的边界说明。',
         deliverableEn:
           'After this round, you should have a more manageable title, a steadier question line, and a clear boundary statement.',
-        closeZh:
-          '缩题不是把研究做小，而是把真正能做成的部分先做实。',
+        closeZh: '缩题不是把研究做小，而是把真正能做成的部分先做实。',
         closeEn:
           'Narrowing a topic does not make the research smaller in value. It makes the part that can truly be completed more solid.',
       },
@@ -5115,8 +4996,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更收束的综述框架和一份能解释“为什么现在只做这一块”的理由。',
         deliverableEn:
           'After this round, you should have a more focused review framework and a rationale explaining why the study now covers only this part.',
-        closeZh:
-          '真正让综述变强的，不是把所有线都留住，而是知道哪条线现在最值得被留下。',
+        closeZh: '真正让综述变强的，不是把所有线都留住，而是知道哪条线现在最值得被留下。',
         closeEn:
           'What truly strengthens a review is not retaining every line but knowing which one deserves to remain now.',
       },
@@ -5168,8 +5048,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更协调的题目、问题和方法说明，而不是继续让方法替题目兜底。',
         deliverableEn:
           'After this round, you should have a more coordinated title, question, and methods explanation rather than forcing the method to rescue the topic.',
-        closeZh:
-          '很多时候让方法变稳的最快办法，不是升级技术，而是先把题目收回来。',
+        closeZh: '很多时候让方法变稳的最快办法，不是升级技术，而是先把题目收回来。',
         closeEn:
           'Very often, the fastest way to stabilize a methods section is not upgrading the technique but bringing the topic back into range first.',
       },
@@ -5221,8 +5100,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一版更容易让老师接受的缩题方案和一份解释修改逻辑的 note。',
         deliverableEn:
           'After this round, you should have a narrowing plan that is easier for an advisor to accept and a note explaining the logic of the revision.',
-        closeZh:
-          '缩题真正有说服力的时候，改掉的不只是字面，而是整套范围逻辑。',
+        closeZh: '缩题真正有说服力的时候，改掉的不只是字面，而是整套范围逻辑。',
         closeEn:
           'Topic narrowing becomes persuasive when it changes not only the wording but the full logic of the scope.',
       },
@@ -5288,12 +5166,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Do the two literature types now carry different jobs?',
           '3. Does the proposal explanation already reflect that division?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有两张更清楚的文献清单和一套不再打架的阅读顺序。',
+        deliverableZh: '这一轮之后，你应该有两张更清楚的文献清单和一套不再打架的阅读顺序。',
         deliverableEn:
           'After this round, you should have two clearer reading lists and a reading sequence that no longer pulls in opposite directions.',
-        closeZh:
-          '经典和近作真正搭配起来时，不是谁压过谁，而是各自把该做的事做好。',
+        closeZh: '经典和近作真正搭配起来时，不是谁压过谁，而是各自把该做的事做好。',
         closeEn:
           'When classics and recent work are truly balanced, neither overpowers the other. Each simply does its own job well.',
       },
@@ -5341,12 +5217,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Are recent studies grouped as extensions, revisions, or challenges?',
           '3. Have you written a judgment sentence connecting the two layers?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版更有层次的综述结构，让深度和当下位置同时可见。',
+        deliverableZh: '这一轮之后，你应该有一版更有层次的综述结构，让深度和当下位置同时可见。',
         deliverableEn:
           'After this round, you should have a more layered review structure that makes both depth and current positioning visible.',
-        closeZh:
-          '综述有层次时，经典负责打地基，近作负责告诉读者你现在站在哪。',
+        closeZh: '综述有层次时，经典负责打地基，近作负责告诉读者你现在站在哪。',
         closeEn:
           'A layered review lets classics build the foundation while recent work shows readers where you stand now.',
       },
@@ -5394,12 +5268,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have light additions been separated from revisions requiring structural change?',
           '3. Have only the key new studies been integrated deeply?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一版更新过但不凌乱的正文位置说明和文献整合方案。',
+        deliverableZh: '这一轮之后，你应该有一版更新过但不凌乱的正文位置说明和文献整合方案。',
         deliverableEn:
           'After this round, you should have an updated yet still coherent body-positioning section and literature-integration plan.',
-        closeZh:
-          '补近年文献最有效的时候，不是加得最多，而是加得最会改变判断。',
+        closeZh: '补近年文献最有效的时候，不是加得最多，而是加得最会改变判断。',
         closeEn:
           'Updating recent literature is most effective not when you add the most papers but when you add the ones that most alter the judgment.',
       },
@@ -5451,8 +5323,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更有结构的答辩回应，不再只是泛泛解释文献新旧问题。',
         deliverableEn:
           'After this round, you should have a more structured defense response rather than a vague explanation of literature age balance.',
-        closeZh:
-          '文献新旧搭配最有说服力的时候，不是数量平衡，而是功能清楚。',
+        closeZh: '文献新旧搭配最有说服力的时候，不是数量平衡，而是功能清楚。',
         closeEn:
           'The most persuasive balance between classic and recent literature is not numerical symmetry but clarity of function.',
       },
@@ -5518,12 +5389,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have you explained how the study enters that point?',
           '3. Have you stated the route by which the body unfolds?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版真正能把前言送进正文的引言结尾段。',
+        deliverableZh: '这一轮之后，你应该得到一版真正能把前言送进正文的引言结尾段。',
         deliverableEn:
           'After this round, you should have an introduction-ending paragraph that genuinely carries the reader into the body.',
-        closeZh:
-          '引言结尾真正写好时，正文不是另起一页，而是顺势开始。',
+        closeZh: '引言结尾真正写好时，正文不是另起一页，而是顺势开始。',
         closeEn:
           'When the final paragraph of the introduction is written well, the body does not begin as a separate page. It begins as the natural next step.',
       },
@@ -5575,8 +5444,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一版更像研究入口的引言结尾，而不是形式正确但推进很弱的目录段。',
         deliverableEn:
           'After this round, you should have an introduction ending that behaves more like a research entry than a formally correct but weak outline paragraph.',
-        closeZh:
-          '引言结尾最有力量的时候，目录只是结果，转轴才是核心。',
+        closeZh: '引言结尾最有力量的时候，目录只是结果，转轴才是核心。',
         closeEn:
           'The ending of an introduction is strongest when the outline is only the result and the pivot is the core.',
       },
@@ -5624,8 +5492,7 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has a transition sentence from the question to the evidence type been added?',
           '3. Does the methods section now move directly into rules and execution?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更顺滑的前言到方法过渡，不再让正文像突然切段。',
+        deliverableZh: '这一轮之后，你应该得到一版更顺滑的前言到方法过渡，不再让正文像突然切段。',
         deliverableEn:
           'After this round, you should have a smoother transition from introduction to method, without the body feeling like an abrupt cut.',
         closeZh:
@@ -5677,12 +5544,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the corresponding key sentences been added?',
           '3. When reread together, do the introduction and body opening now genuinely connect?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更收得住、也更能把正文带出来的前言结构。',
+        deliverableZh: '这一轮之后，你应该得到一版更收得住、也更能把正文带出来的前言结构。',
         deliverableEn:
           'After this round, you should have an introduction structure that closes more firmly and carries the body out more smoothly.',
-        closeZh:
-          '前言真正收住的时候，最后一段通常不是尾巴，而是整篇的转轴。',
+        closeZh: '前言真正收住的时候，最后一段通常不是尾巴，而是整篇的转轴。',
         closeEn:
           'When an introduction truly lands, its final paragraph is usually not a tail but the pivot of the entire manuscript.',
       },
@@ -5752,8 +5617,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版基础的数据清洗规则和一条能继续扩展的处理留痕路径。',
         deliverableEn:
           'After this round, you should have a basic data-cleaning rule set and a processing-trace path that can continue to develop later.',
-        closeZh:
-          '数据处理越早留痕，后面越不需要靠回忆补逻辑。',
+        closeZh: '数据处理越早留痕，后面越不需要靠回忆补逻辑。',
         closeEn:
           'The earlier data handling leaves a trace, the less later writing depends on memory to rebuild logic.',
       },
@@ -5801,12 +5665,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the sample-screening and outlier-handling practices of representative studies been recorded?',
           '3. Have you summarized which steps most need early traceability in your own project?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拥有一份更适合转成附录和方法说明的阅读笔记结构。',
+        deliverableZh: '这一轮之后，你应该拥有一份更适合转成附录和方法说明的阅读笔记结构。',
         deliverableEn:
           'After this round, you should have a reading-note structure that can much more easily turn into appendices and methods explanation later.',
-        closeZh:
-          '方法阅读真正帮到后文的时候，学到的不只是结果，而是结果背后的处理路径。',
+        closeZh: '方法阅读真正帮到后文的时候，学到的不只是结果，而是结果背后的处理路径。',
         closeEn:
           'Method reading helps later writing most when it teaches not only the result but the processing path behind it.',
       },
@@ -5854,12 +5716,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Does each node have a clear rule explanation?',
           '3. Have version records or appendix references been added?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拿到一版更透明的数据处理说明，让结果部分更能站住。',
+        deliverableZh: '这一轮之后，你应该拿到一版更透明的数据处理说明，让结果部分更能站住。',
         deliverableEn:
           'After this round, you should have a more transparent data-processing explanation that gives the results section much stronger footing.',
-        closeZh:
-          '数据清洗越看得见，结果越不需要靠读者自行相信。',
+        closeZh: '数据清洗越看得见，结果越不需要靠读者自行相信。',
         closeEn:
           'The more visible data cleaning becomes, the less the results rely on readers simply trusting you.',
       },
@@ -5911,8 +5771,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份可直接用于答辩、返修和投稿补充说明的 cleaning log。',
         deliverableEn:
           'After this round, you should have a cleaning log that can be used directly for defense, revision, and submission supplements.',
-        closeZh:
-          '处理过程一旦写成 log，后期就不再需要靠记忆拼答案。',
+        closeZh: '处理过程一旦写成 log，后期就不再需要靠记忆拼答案。',
         closeEn:
           'Once the process is written into a log, late-stage explanations no longer have to be assembled from memory.',
       },
@@ -5982,8 +5841,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份更清楚的反馈优先级表，而不是一张看起来什么都要改的清单。',
         deliverableEn:
           'After this round, you should have a much clearer feedback-priority table instead of a list where everything looks equally urgent.',
-        closeZh:
-          '反馈一旦分层，修改就不再只是忙，而会开始变得有效。',
+        closeZh: '反馈一旦分层，修改就不再只是忙，而会开始变得有效。',
         closeEn:
           'Once feedback is layered, revision stops being only busy and starts becoming effective.',
       },
@@ -6035,8 +5893,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一张能指导返修顺序的 priority matrix，而不是继续被反馈数量压着走。',
         deliverableEn:
           'After this round, you should have a priority matrix that can guide revision order instead of continuing to be pushed around by the sheer amount of feedback.',
-        closeZh:
-          '反馈矩阵最有价值的时候，不是看起来专业，而是真的帮你先改对最重要的地方。',
+        closeZh: '反馈矩阵最有价值的时候，不是看起来专业，而是真的帮你先改对最重要的地方。',
         closeEn:
           'A feedback matrix becomes most valuable not when it looks professional but when it truly helps you revise the most important places first.',
       },
@@ -6084,12 +5941,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have structure and figure issues been placed in the second layer of revision?',
           '3. Have formatting and language adjustments been left until the end?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该有一条更稳的大修路线，不再被大量细节反馈牵着跑。',
+        deliverableZh: '这一轮之后，你应该有一条更稳的大修路线，不再被大量细节反馈牵着跑。',
         deliverableEn:
           'After this round, you should have a much steadier major-revision route instead of being pulled around by a large number of detailed comments.',
-        closeZh:
-          '大修最怕的不是事情多，而是顺序错。顺序一对，很多难度会自己降下来。',
+        closeZh: '大修最怕的不是事情多，而是顺序错。顺序一对，很多难度会自己降下来。',
         closeEn:
           'The real danger in major revision is often not the amount of work but the wrong order. Once the order is right, much of the difficulty begins to drop on its own.',
       },
@@ -6141,8 +5996,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更像有策略返修的 response 路线，而不是机械逐条回应。',
         deliverableEn:
           'After this round, you should have a response route that behaves like strategic revision rather than mechanical item-by-item reply.',
-        closeZh:
-          '返修回复最有说服力的时候，不是回得最快，而是先回对最关键的那几条。',
+        closeZh: '返修回复最有说服力的时候，不是回得最快，而是先回对最关键的那几条。',
         closeEn:
           'A revision response becomes most persuasive not when it answers the fastest but when it answers the most critical issues first.',
       },
@@ -6212,8 +6066,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份更稳的边界说明，为后面的 limitations、答辩和投稿都提前打底。',
         deliverableEn:
           'After this round, you should have a steadier boundary explanation that lays groundwork for the later limitations section, defense, and submission.',
-        closeZh:
-          'limitations 真正写得稳的时候，边界从来不是最后才想起来的。',
+        closeZh: 'limitations 真正写得稳的时候，边界从来不是最后才想起来的。',
         closeEn:
           'When limitations are written steadily, the boundary was never something remembered only at the very end.',
       },
@@ -6265,8 +6118,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更干净的综述问题线，也为后面的 limitations 段留出了更稳定的位置。',
         deliverableEn:
           'After this round, you should have a cleaner review problem line and a far steadier place from which to write the later limitations section.',
-        closeZh:
-          'limitations 不再发虚，往往是因为综述阶段已经把 gap 和边界分开了。',
+        closeZh: 'limitations 不再发虚，往往是因为综述阶段已经把 gap 和边界分开了。',
         closeEn:
           'Limitations often stop sounding vague once the review stage has separated the gap from the study boundary.',
       },
@@ -6318,8 +6170,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更像分析说明的 limitations 段，而不是一段礼貌性自我否定。',
         deliverableEn:
           'After this round, you should have a limitations section that reads like analysis rather than a polite act of self-negation.',
-        closeZh:
-          'limitations 一旦被挂回证据链，读者看到的就不只是问题，而是你对问题的判断力。',
+        closeZh: 'limitations 一旦被挂回证据链，读者看到的就不只是问题，而是你对问题的判断力。',
         closeEn:
           'Once limitations are reattached to the evidence chain, readers see not only the problem but your judgment about the problem.',
       },
@@ -6371,8 +6222,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更稳的局限性答辩口径，不再把 limitations 说成整篇研究的失败证明。',
         deliverableEn:
           'After this round, you should have a steadier defense script for limitations instead of making them sound like proof that the whole study failed.',
-        closeZh:
-          '局限性答得稳的时候，老师听到的不是你在自保，而是你真的知道研究能走到哪里。',
+        closeZh: '局限性答得稳的时候，老师听到的不是你在自保，而是你真的知道研究能走到哪里。',
         closeEn:
           'When limitations are answered steadily, examiners hear not self-protection but real awareness of how far the study can go.',
       },
@@ -6442,8 +6292,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份更可执行的 ethics/data note，不用等到定稿时才发现声明写不出来。',
         deliverableEn:
           'After this round, you should have a more executable ethics/data note rather than discovering at the final draft stage that no statement can be written honestly.',
-        closeZh:
-          '伦理声明真正稳的时候，支撑它的不是一句话，而是前期已经做对的路径。',
+        closeZh: '伦理声明真正稳的时候，支撑它的不是一句话，而是前期已经做对的路径。',
         closeEn:
           'An ethics statement becomes steady not because of one sentence but because the underlying path was handled correctly from the start.',
       },
@@ -6495,8 +6344,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拥有一份更适合支撑 ethics/data statement 的方法阅读笔记。',
         deliverableEn:
           'After this round, you should have method reading notes that are much more useful for supporting a later ethics/data statement.',
-        closeZh:
-          '方法阅读真正完整的时候，学到的不只是怎么做，还包括怎么合规地说明自己怎么做。',
+        closeZh: '方法阅读真正完整的时候，学到的不只是怎么做，还包括怎么合规地说明自己怎么做。',
         closeEn:
           'Method reading becomes truly complete when it teaches not only how the work was done but how it was explained compliantly.',
       },
@@ -6548,8 +6396,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拿到一版更像真实过程说明的 ethics/data statement，而不是格式型套话。',
         deliverableEn:
           'After this round, you should have an ethics/data statement that reads like a real process explanation rather than formal boilerplate.',
-        closeZh:
-          'ethics statement 真正让人安心的时候，靠的不是措辞严肃，而是路径清楚。',
+        closeZh: 'ethics statement 真正让人安心的时候，靠的不是措辞严肃，而是路径清楚。',
         closeEn:
           'An ethics statement truly reassures readers not through solemn wording but through a clear pathway.',
       },
@@ -6601,8 +6448,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一套更能经得住答辩和返修追问的 ethics/data 回应方案。',
         deliverableEn:
           'After this round, you should have an ethics/data response framework better able to withstand defense and revision questions.',
-        closeZh:
-          '伦理问题答得稳的时候，对方听到的不是态度表态，而是你真的知道整条处理路径。',
+        closeZh: '伦理问题答得稳的时候，对方听到的不是态度表态，而是你真的知道整条处理路径。',
         closeEn:
           'When ethics questions are answered steadily, the audience hears not a statement of attitude but real knowledge of the full handling pathway.',
       },
@@ -6672,8 +6518,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拥有一份更像答辩底稿的高频问题清单，而不是只在心里大概想过。',
         deliverableEn:
           'After this round, you should have a high-frequency question list that behaves more like a defense base draft than a set of vague mental reminders.',
-        closeZh:
-          '答辩最稳的人，通常不是最后背得最多的人，而是最早开始整理问题结构的人。',
+        closeZh: '答辩最稳的人，通常不是最后背得最多的人，而是最早开始整理问题结构的人。',
         closeEn:
           'The people who look steadiest in a defense are usually not those who memorize the most at the end but those who began structuring the questions earliest.',
       },
@@ -6725,8 +6570,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该有一版更像答辩地图的综述追问清单，而不是只知道哪些地方自己也心虚。',
         deliverableEn:
           'After this round, you should have a review challenge map that behaves more like a defense roadmap than a vague sense of where you feel uncertain.',
-        closeZh:
-          '答辩追问最容易爆发的地方，往往不是结果本身，而是前面立场没站稳的地方。',
+        closeZh: '答辩追问最容易爆发的地方，往往不是结果本身，而是前面立场没站稳的地方。',
         closeEn:
           'Defense follow-up questions most often erupt not where the results are weak alone but where the earlier positioning never fully stood firm.',
       },
@@ -6774,12 +6618,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have common method follow-up questions been attached to that chain?',
           '3. Have you practiced returning to the full chain from any node?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该拥有一条更稳的答辩方法主线，而不是零散的单题答案。',
+        deliverableZh: '这一轮之后，你应该拥有一条更稳的答辩方法主线，而不是零散的单题答案。',
         deliverableEn:
           'After this round, you should have a steadier methodological defense line rather than scattered answers to isolated questions.',
-        closeZh:
-          '连续追问最怕的不是题多，而是你的答案之间没有链。',
+        closeZh: '连续追问最怕的不是题多，而是你的答案之间没有链。',
         closeEn:
           'What makes consecutive follow-up questions difficult is not their number alone but the absence of a chain connecting your answers.',
       },
@@ -6831,8 +6673,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一张真正能在答辩前快速复习的 question bank，而不是只靠整稿记忆。',
         deliverableEn:
           'After this round, you should have a question bank that can truly be reviewed quickly before the defense instead of relying only on memory of the full manuscript.',
-        closeZh:
-          '答辩准备最有效的压缩，不是删内容，而是把最常问的东西先做成可调用的答案库。',
+        closeZh: '答辩准备最有效的压缩，不是删内容，而是把最常问的东西先做成可调用的答案库。',
         closeEn:
           'The most effective compression in defense preparation does not remove content. It turns the most frequently asked material into an answer bank you can call on quickly.',
       },
@@ -6902,8 +6743,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更像压测工具的短摘要，而不是只能在最后硬凑的摘要雏形。',
         deliverableEn:
           'After this round, you should have a short abstract functioning as a pressure-test tool rather than a draft that can only be assembled late by force.',
-        closeZh:
-          '短摘要最有价值的时候，不是最后省字，而是最早暴露问题。',
+        closeZh: '短摘要最有价值的时候，不是最后省字，而是最早暴露问题。',
         closeEn:
           'A short abstract is most valuable not when it saves words at the end but when it exposes problems early.',
       },
@@ -6955,8 +6795,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版信息排序更稳的短摘要，而不是越压越碎的浓缩版引言。',
         deliverableEn:
           'After this round, you should have a short abstract with a much steadier information order rather than a chopped-up mini introduction.',
-        closeZh:
-          '150 字摘要写得稳，靠的往往不是删得狠，而是先把哪些信息最先该出现排清楚。',
+        closeZh: '150 字摘要写得稳，靠的往往不是删得狠，而是先把哪些信息最先该出现排清楚。',
         closeEn:
           'A 150-word abstract is usually stabilized not by aggressive cutting alone but by deciding clearly which information must appear first.',
       },
@@ -7004,12 +6843,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have unnecessary modifiers inside each sentence been compressed?',
           '3. Can readers now follow the main line through those three sentences?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更适合首屏判断的 150 字摘要结构。',
+        deliverableZh: '这一轮之后，你应该得到一版更适合首屏判断的 150 字摘要结构。',
         deliverableEn:
           'After this round, you should have a 150-word abstract structure far better suited to first-screen judgment.',
-        closeZh:
-          '短摘要真正清楚的时候，读者不是看完才懂，而是第一眼就能顺着顺序走下来。',
+        closeZh: '短摘要真正清楚的时候，读者不是看完才懂，而是第一眼就能顺着顺序走下来。',
         closeEn:
           'A short abstract becomes truly clear when readers do not understand only after finishing it but can follow the order from the first glance.',
       },
@@ -7057,12 +6894,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have the repetition and setup lines that should not remain in the original abstract been identified?',
           '3. Has the formal abstract been rewritten from the information skeleton?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更紧、更清楚、更适合首轮判断的正式摘要。',
+        deliverableZh: '这一轮之后，你应该得到一版更紧、更清楚、更适合首轮判断的正式摘要。',
         deliverableEn:
           'After this round, you should have a formal abstract that is tighter, clearer, and much better suited to first-round judgment.',
-        closeZh:
-          '摘要返修最有效的一步，往往不是细修，而是先逼自己看到它真正的骨架。',
+        closeZh: '摘要返修最有效的一步，往往不是细修，而是先逼自己看到它真正的骨架。',
         closeEn:
           'The most effective step in abstract revision is often not fine-tuning but forcing yourself to see the true skeleton first.',
       },
@@ -7132,8 +6967,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一份更像判断工具的拒稿语言对照表，而不是只把拒稿理解成成败结果。',
         deliverableEn:
           'After this round, you should have a rejection-language reference that behaves more like a diagnostic tool than a simple success-or-failure label.',
-        closeZh:
-          '拒稿信最有价值的地方，往往不在“拒”本身，而在它泄露了哪种判断。',
+        closeZh: '拒稿信最有价值的地方，往往不在“拒”本身，而在它泄露了哪种判断。',
         closeEn:
           'The most valuable part of a rejection letter often lies not in the rejection itself but in the kind of judgment it reveals.',
       },
@@ -7167,8 +7001,7 @@ const writingHubs: WritingHubConfig[] = [
           '如果后面还要重投，这一步很关键，因为它能帮你决定是换刊优先、改摘要优先，还是需要重写引言和方法。',
         submissionEn:
           'If resubmission follows later, this step is crucial because it helps decide whether changing journals comes first, whether the abstract should be revised first, or whether the introduction and method need deeper rewriting.',
-        riskZh:
-          '如果拒稿信拆不出判断类别，最常见的后果就是重投动作很多，但改动总在表面打转。',
+        riskZh: '如果拒稿信拆不出判断类别，最常见的后果就是重投动作很多，但改动总在表面打转。',
         riskEn:
           'If the rejection letter cannot be broken into judgment categories, the common result is a lot of motion around resubmission with revisions that remain superficial.',
         checklistZh: [
@@ -7185,8 +7018,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更像诊断报告的拒稿信拆解，而不是只剩一句“不合适”。',
         deliverableEn:
           'After this round, you should have a rejection-letter diagnosis that reads more like a report than a vague feeling of not being suitable.',
-        closeZh:
-          '拒稿信拆得准的时候，客套话也会开始变成具体线索。',
+        closeZh: '拒稿信拆得准的时候，客套话也会开始变成具体线索。',
         closeEn:
           'When a rejection letter is diagnosed accurately, even polite generic language starts becoming a specific signal.',
       },
@@ -7238,8 +7070,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一条更清楚的拒稿后修改路线，而不是情绪推动下的大范围返工。',
         deliverableEn:
           'After this round, you should have a much clearer post-rejection revision route instead of an emotion-driven broad rewrite.',
-        closeZh:
-          '拒稿后改得稳，关键不在改得多，而在先改对最早让编辑掉线的地方。',
+        closeZh: '拒稿后改得稳，关键不在改得多，而在先改对最早让编辑掉线的地方。',
         closeEn:
           'Stable post-rejection revision depends less on how much you revise than on fixing first the point where the editor disengaged earliest.',
       },
@@ -7291,8 +7122,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该拥有一份更能指导下一轮动作的拒稿后行动表，而不是只剩下情绪和猜测。',
         deliverableEn:
           'After this round, you should have a post-rejection action sheet that can truly guide the next round instead of leaving only emotion and guesswork.',
-        closeZh:
-          '拒稿最容易把人带乱，但诊断一旦做清，下一步就会重新变得可执行。',
+        closeZh: '拒稿最容易把人带乱，但诊断一旦做清，下一步就会重新变得可执行。',
         closeEn:
           'Rejection can easily create chaos, but once the diagnosis is clear, the next step becomes actionable again.',
       },
@@ -7362,8 +7192,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更稳的开题表达，让老师看到的是判断控制，而不是口号式夸张。',
         deliverableEn:
           'After this round, you should have a steadier proposal voice that shows control of judgment rather than slogan-like inflation.',
-        closeZh:
-          '学术表达真正显得成熟的时候，往往不是话更大，而是边界更清楚。',
+        closeZh: '学术表达真正显得成熟的时候，往往不是话更大，而是边界更清楚。',
         closeEn:
           'Academic expression often starts to feel mature not when the wording becomes bigger but when the boundaries become clearer.',
       },
@@ -7415,8 +7244,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更像 synthesis 的综述段落，而不是文献串烧式段落。',
         deliverableEn:
           'After this round, you should have literature-review paragraphs that behave more like synthesis than stitched-together summaries.',
-        closeZh:
-          '综述真正开始像论证的时候，signposting 不是装饰，而是把判断带到台前。',
+        closeZh: '综述真正开始像论证的时候，signposting 不是装饰，而是把判断带到台前。',
         closeEn:
           'A literature review begins to feel argumentative when signposting stops being decoration and starts bringing the judgment to the front.',
       },
@@ -7464,12 +7292,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Have they been split into observation, interpretation, and generalization layers?',
           '3. Has hedging been used to recalibrate claims beyond the evidence strength?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更有判断感、同时也更可信的结果表达。',
+        deliverableZh: '这一轮之后，你应该得到一版更有判断感、同时也更可信的结果表达。',
         deliverableEn:
           'After this round, you should have a results section that feels more interpretive while remaining more credible.',
-        closeZh:
-          'hedging 用得好的时候，读者感受到的不是你不敢说，而是你知道自己该说到哪里。',
+        closeZh: 'hedging 用得好的时候，读者感受到的不是你不敢说，而是你知道自己该说到哪里。',
         closeEn:
           'When hedging is used well, readers do not hear hesitation. They hear that you know exactly how far the claim should go.',
       },
@@ -7517,12 +7343,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Do transitions explain paragraph relationships rather than merely filling space?',
           '3. Has sentence-level polishing been left until the end?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更紧、更清楚、更像真正学术论证的返修稿。',
+        deliverableZh: '这一轮之后，你应该得到一版更紧、更清楚、更像真正学术论证的返修稿。',
         deliverableEn:
           'After this round, you should have a revised draft that is tighter, clearer, and much closer to real academic argument.',
-        closeZh:
-          '学术表达返修最有效的地方，往往不是词更“高级”，而是段落终于真正开始推进判断。',
+        closeZh: '学术表达返修最有效的地方，往往不是词更“高级”，而是段落终于真正开始推进判断。',
         closeEn:
           'The most effective part of academic-style revision is often not more elevated vocabulary but the moment paragraphs finally begin advancing real judgments.',
       },
@@ -7592,8 +7416,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一张更像研究记录底稿的 transparency checklist，而不是只停留在原则层的“要规范”。',
         deliverableEn:
           'After this round, you should have a transparency checklist that behaves like a real research record draft rather than a principle-level wish to be rigorous.',
-        closeZh:
-          '研究规范真正开始起作用的时候，往往不是提醒你别犯错，而是提醒你把决策留下来。',
+        closeZh: '研究规范真正开始起作用的时候，往往不是提醒你别犯错，而是提醒你把决策留下来。',
         closeEn:
           'Research integrity begins to work most effectively not by warning you against mistakes alone but by helping you leave a trace of decisions.',
       },
@@ -7645,8 +7468,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更能经得起追问的综述引用结构，而不是只有数量上的充实感。',
         deliverableEn:
           'After this round, you should have a review citation structure that can withstand closer scrutiny instead of offering only the appearance of density.',
-        closeZh:
-          '引用真正显得规范的时候，不是参考文献更长，而是关键判断更能追得回去。',
+        closeZh: '引用真正显得规范的时候，不是参考文献更长，而是关键判断更能追得回去。',
         closeEn:
           'Citation begins to look truly rigorous not when the reference list grows longer but when the key claims become easier to trace back.',
       },
@@ -7694,12 +7516,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has the rule basis been added for each type of exclusion?',
           '3. Has an exclusion log or appendix note been organized?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一版更透明、更能经得起 integrity 追问的方法说明。',
+        deliverableZh: '这一轮之后，你应该得到一版更透明、更能经得起 integrity 追问的方法说明。',
         deliverableEn:
           'After this round, you should have a methods explanation that is more transparent and much better able to withstand integrity questions.',
-        closeZh:
-          '研究透明度真正上来的时候，读者看到的不是“结果更整洁”，而是“路径更看得见”。',
+        closeZh: '研究透明度真正上来的时候，读者看到的不是“结果更整洁”，而是“路径更看得见”。',
         closeEn:
           'Research transparency rises not when the results merely look cleaner but when the path behind them becomes more visible.',
       },
@@ -7747,12 +7567,10 @@ const writingHubs: WritingHubConfig[] = [
           '2. Has the four-step answer been prepared for high-frequency questions?',
           '3. Has the record path already been rehearsed into one consistent line?',
         ],
-        deliverableZh:
-          '这一轮之后，你应该得到一套更能经得住规范追问的 integrity 回应框架。',
+        deliverableZh: '这一轮之后，你应该得到一套更能经得住规范追问的 integrity 回应框架。',
         deliverableEn:
           'After this round, you should have an integrity-response framework better able to withstand detailed questions.',
-        closeZh:
-          '研究规范答得稳的时候，对方听到的不是你在保证自己没问题，而是你真的拿得出路径。',
+        closeZh: '研究规范答得稳的时候，对方听到的不是你在保证自己没问题，而是你真的拿得出路径。',
         closeEn:
           'Research integrity sounds steady when the audience hears not that you insist nothing is wrong, but that you can actually show the path.',
       },
@@ -7770,7 +7588,8 @@ const writingHubs: WritingHubConfig[] = [
     focusEn: 'author guidelines, peer-review expectations, and editorial communication',
     evidenceZh: '期刊说明、审稿回应和投稿包件版本',
     evidenceEn: 'journal instructions, reviewer responses, and submission-package drafts',
-    standardZh: '重点不是学会几句投稿套话，而是理解国际期刊在 framing、packaging 和 response 上的真实预期。',
+    standardZh:
+      '重点不是学会几句投稿套话，而是理解国际期刊在 framing、packaging 和 response 上的真实预期。',
     standardEn:
       'The goal is not to memorize a few submission phrases but to understand what international journals actually expect in framing, packaging, and response.',
     articles: {
@@ -7822,8 +7641,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更接近国际投稿读者的项目入口，而不是只适合导师阅读的开题表达。',
         deliverableEn:
           'After this round, you should have a project entry much closer to international journal readers rather than one readable only in the advisor context.',
-        closeZh:
-          '越早把读者从导师扩到 journal reader，后面的国际投稿就越不会像另写一篇。',
+        closeZh: '越早把读者从导师扩到 journal reader，后面的国际投稿就越不会像另写一篇。',
         closeEn:
           'The earlier the reader expands from advisor to journal reader, the less international submission later feels like writing an entirely different paper.',
       },
@@ -7928,8 +7746,7 @@ const writingHubs: WritingHubConfig[] = [
           '这一轮之后，你应该得到一版更像 reviewer package 的方法与结果组合，而不是材料各自为战的稿件。',
         deliverableEn:
           'After this round, you should have a methods-and-results combination that behaves more like a reviewer package than a manuscript whose materials work separately.',
-        closeZh:
-          '国际投稿里很多“看不懂”的问题，根源不是材料不够，而是 package 没搭起来。',
+        closeZh: '国际投稿里很多“看不懂”的问题，根源不是材料不够，而是 package 没搭起来。',
         closeEn:
           'Many problems described as unclear in international submission do not stem from insufficient material, but from a package that never came together.',
       },
@@ -8347,7 +8164,8 @@ const proposalThemes: ContentTheme[] = [
       '如果完全不看目标期刊，最常见的后果不是“投稿晚一点”，而是整篇论文从问题设置到表达方式都更像课程作业，不像面向学术读者的研究。',
     riskEn: () =>
       'If target journals are ignored completely, the usual result is not just a later submission but a thesis that reads like course work rather than research written for a scholarly audience.',
-    closeZh: () => '选刊不一定在开题时就定死，但期刊匹配的思路越早进入，后面改文章时越不容易大拆大改。',
+    closeZh: () =>
+      '选刊不一定在开题时就定死，但期刊匹配的思路越早进入，后面改文章时越不容易大拆大改。',
     closeEn: () =>
       'You do not need a final journal decision in the proposal, but the earlier journal-fit thinking enters the project, the less drastic the later article revision becomes.',
   },
@@ -8378,7 +8196,8 @@ const proposalThemes: ContentTheme[] = [
       '如果前期没有预留投稿主线，后面改文章时就会发现每一章都重要，但没有哪一章足够集中，删什么都伤筋动骨。',
     riskEn: () =>
       'Without an early publication line, later article conversion often fails because every chapter feels important while none of them is concentrated enough to submit on its own.',
-    closeZh: () => '论文和文章当然不是一回事，但开题时先预留一条投稿主线，能显著降低后续二次改写的成本。',
+    closeZh: () =>
+      '论文和文章当然不是一回事，但开题时先预留一条投稿主线，能显著降低后续二次改写的成本。',
     closeEn: () =>
       'A thesis and an article are not the same form, but reserving one submission line in the proposal can sharply reduce the later cost of rewriting.',
   },
@@ -8409,7 +8228,8 @@ const proposalThemes: ContentTheme[] = [
       '如果读者定位始终模糊，论文就很容易写成“什么都照顾到一点”，最后却没有一个判断真正打得准。',
     riskEn: () =>
       'If the reader target remains vague, the thesis often tries to satisfy everyone a little and ends up landing no central judgment sharply.',
-    closeZh: () => '读者一旦被想清楚，开题里的题目、摘要、目录和研究价值都会更容易收束到同一条线上。',
+    closeZh: () =>
+      '读者一旦被想清楚，开题里的题目、摘要、目录和研究价值都会更容易收束到同一条线上。',
     closeEn: () =>
       'Once the reader is defined clearly, the title, summary, outline, and value statement are far easier to align around one line.',
   },
@@ -8990,8 +8810,7 @@ const literatureReviewThemes: ContentTheme[] = [
       'Remove low-value citations that add quantity without changing the argumentative direction.',
       'Check whether the paragraph becomes easier to read and whether the judgment structure grows more visible after pruning.',
     ],
-    riskZh: () =>
-      '如果综述总想靠引用数量建立权威感，最容易牺牲的就是可读性和判断强度。',
+    riskZh: () => '如果综述总想靠引用数量建立权威感，最容易牺牲的就是可读性和判断强度。',
     riskEn: () =>
       'If the review tries to build authority mainly through citation volume, readability and judgment strength are often the first casualties.',
     closeZh: () => '删掉低价值引用，不会让综述变薄，通常只会让它更有判断力。',
@@ -9392,7 +9211,8 @@ const methodsThemes: ContentTheme[] = [
       '如果 checklist 只在最后出场，最容易出现的情况就是你知道缺什么，却已经没有足够时间把这些缺口补进论文主线里。',
     riskEn: () =>
       'If the checklist appears only at the end, the common outcome is knowing what is missing but no longer having enough time to integrate those gaps into the main manuscript cleanly.',
-    closeZh: () => '报告规范越早进入方法写作，后面的投稿和审稿阶段就越少出现“本来做了，却没写出来”的遗憾。',
+    closeZh: () =>
+      '报告规范越早进入方法写作，后面的投稿和审稿阶段就越少出现“本来做了，却没写出来”的遗憾。',
     closeEn: () =>
       'The earlier reporting guidance enters the methods draft, the fewer “we did it but failed to write it” regrets appear later in submission and review.',
   },
@@ -9730,7 +9550,8 @@ const revisionThemes: ContentTheme[] = [
       '如果 Cover Letter 只会说“文章很重要”，却说不出为什么适合这本期刊，编辑很难从第一页就判断这份投稿值不值得继续送审。',
     riskEn: () =>
       'If the cover letter only says the manuscript is important without explaining journal fit, the editor has little reason to feel confident about sending it out for review.',
-    closeZh: () => '一封好的 Cover Letter 不是替论文加戏，而是帮编辑更快看懂这篇稿件为什么应该出现在这里。',
+    closeZh: () =>
+      '一封好的 Cover Letter 不是替论文加戏，而是帮编辑更快看懂这篇稿件为什么应该出现在这里。',
     closeEn: () =>
       'A good cover letter does not dramatize the paper. It helps the editor see quickly why the manuscript belongs here.',
   },
@@ -9823,7 +9644,8 @@ const revisionThemes: ContentTheme[] = [
       '如果只是机械缩短全文，最容易发生的就是信息量很大但层级很乱，观众听完仍然抓不住你最想强调的发现。',
     riskEn: () =>
       'If the full thesis is only shortened mechanically, the common outcome is heavy information with weak hierarchy, leaving the audience unsure what finding mattered most.',
-    closeZh: () => '会议材料做得好，考验的不是删了多少字，而是你有没有重新组织研究的可听、可看、可记忆版本。',
+    closeZh: () =>
+      '会议材料做得好，考验的不是删了多少字，而是你有没有重新组织研究的可听、可看、可记忆版本。',
     closeEn: () =>
       'Strong conference material is judged less by how many words were cut than by whether the research was rebuilt into something audible, visible, and memorable.',
   },
@@ -10254,10 +10076,7 @@ const stageNarratives: Record<StageConfig['slug'], StageNarrative> = {
   },
 }
 
-const stageStepSupportZh: Record<
-  StageConfig['slug'],
-  Array<(args: PostBuildArgs) => string>
-> = {
+const stageStepSupportZh: Record<StageConfig['slug'], Array<(args: PostBuildArgs) => string>> = {
   proposal: [
     ({ discipline }) =>
       `这一步的目标不是把题目写得漂亮，而是让选题对象、比较维度和研究边界在第一页就能被看懂。只要边界收稳，${discipline.evidenceZh}的入口也会跟着变清楚。`,
@@ -10292,10 +10111,7 @@ const stageStepSupportZh: Record<
   ],
 }
 
-const stageStepSupportEn: Record<
-  StageConfig['slug'],
-  Array<(args: PostBuildArgs) => string>
-> = {
+const stageStepSupportEn: Record<StageConfig['slug'], Array<(args: PostBuildArgs) => string>> = {
   proposal: [
     ({ discipline }) =>
       `The aim of the first move is not a prettier title but a title whose object, comparison dimension, and boundary are immediately visible. Once the scope is controlled, the path to ${discipline.evidenceEn} becomes much clearer.`,
@@ -10553,7 +10369,10 @@ function buildSubmissionReadyPackEn({ degree, discipline, stage }: PostBuildArgs
 function buildChineseMetaDescription(args: PostBuildArgs, theme: ContentTheme) {
   return `适合${args.degree.readerZh}的${args.discipline.titleZh}${args.stage.titleZh}指南，重点讲清${theme
     .titleZh(args)
-    .replace(`${args.degree.labelZh}${args.discipline.titleZh}`, '')}，以及导师最关心的边界、证据与写作质量标准。`
+    .replace(
+      `${args.degree.labelZh}${args.discipline.titleZh}`,
+      '',
+    )}，以及导师最关心的边界、证据与写作质量标准。`
 }
 
 function buildEnglishMetaDescription(args: PostBuildArgs) {
@@ -11068,6 +10887,17 @@ export function buildCatalog(): GeneratedPost[] {
     }
   }
 
+  for (const article of getSourceInspiredSubjectPosts()) {
+    const publishedAt = new Date(startDate.getTime() + index * 24 * 60 * 60 * 1000).toISOString()
+
+    posts.push({
+      ...article,
+      publishedAt,
+    })
+
+    index += 1
+  }
+
   return posts
 }
 
@@ -11109,10 +10939,7 @@ async function ensureEditorialAuthor(payload: Payload) {
   })
 }
 
-async function ensureMedia(
-  payload: Payload,
-  filenameToEnsure: string,
-) {
+async function ensureMedia(payload: Payload, filenameToEnsure: string) {
   const existing = await payload.find({
     collection: 'media',
     depth: 0,
@@ -11147,12 +10974,7 @@ async function ensureMedia(
   })
 }
 
-async function ensureCategory(
-  payload: Payload,
-  slug: string,
-  titleZh: string,
-  titleEn: string,
-) {
+async function ensureCategory(payload: Payload, slug: string, titleZh: string, titleEn: string) {
   const existing = await payload.find({
     collection: 'categories',
     depth: 0,
@@ -11201,10 +11023,7 @@ type ExistingPostSnapshot = {
   title: string
 }
 
-async function loadExistingPostsBySlug(
-  payload: Payload,
-  slugs: string[],
-) {
+async function loadExistingPostsBySlug(payload: Payload, slugs: string[]) {
   const existingPosts = new Map<string, ExistingPostSnapshot>()
 
   for (const slugChunk of chunk(slugs, 50)) {
@@ -11256,232 +11075,233 @@ async function main() {
   }
 
   try {
-  const [{ default: configPromise }, { getPayload }] = await Promise.all([
-    import('../src/payload.config'),
-    import('payload'),
-  ])
-  const config = await configPromise
-  const payload = await getPayload({ config })
-  payloadToDestroy = payload
-  const catalog = buildCatalog()
+    const [{ default: configPromise }, { getPayload }] = await Promise.all([
+      import('../src/payload.config'),
+      import('payload'),
+    ])
+    const config = await configPromise
+    const payload = await getPayload({ config })
+    payloadToDestroy = payload
+    const catalog = buildCatalog()
 
-  console.log(
-    `[seed:seo] Preparing ${catalog.length} SEO articles across ${Object.keys(categoryLocaleLabels).length} content categories.`,
-  )
+    console.log(
+      `[seed:seo] Preparing ${catalog.length} SEO articles across ${Object.keys(categoryLocaleLabels).length} content categories.`,
+    )
 
-  const uniqueFilenames = Array.from(new Set(catalog.map((post) => post.imageFilename)))
-  const mediaEntries = await Promise.all(
-    uniqueFilenames.map(async (name) => [name, await ensureMedia(payload, name)] as const),
-  )
-  const mediaByFilename = new Map(mediaEntries)
+    const uniqueFilenames = Array.from(new Set(catalog.map((post) => post.imageFilename)))
+    const mediaEntries = await Promise.all(
+      uniqueFilenames.map(async (name) => [name, await ensureMedia(payload, name)] as const),
+    )
+    const mediaByFilename = new Map(mediaEntries)
 
-  const categoryEntries = await Promise.all(
-    Object.entries(categoryLocaleLabels).map(
-      async ([slug, titles]) => [slug, await ensureCategory(payload, slug, titles.zh, titles.en)] as const,
-    ),
-  )
-  const categoriesBySlug = new Map(categoryEntries)
+    const categoryEntries = await Promise.all(
+      Object.entries(categoryLocaleLabels).map(
+        async ([slug, titles]) =>
+          [slug, await ensureCategory(payload, slug, titles.zh, titles.en)] as const,
+      ),
+    )
+    const categoriesBySlug = new Map(categoryEntries)
 
-  const existingPosts = await loadExistingPostsBySlug(
-    payload,
-    catalog.map((post) => post.slug),
-  )
+    const existingPosts = await loadExistingPostsBySlug(
+      payload,
+      catalog.map((post) => post.slug),
+    )
 
-  let createdCount = 0
-  let updatedCount = 0
-  const editorialAuthor = await ensureEditorialAuthor(payload)
-  const relationSyncSlugs = new Set<string>()
+    let createdCount = 0
+    let updatedCount = 0
+    const editorialAuthor = await ensureEditorialAuthor(payload)
+    const relationSyncSlugs = new Set<string>()
 
-  for (const post of catalog) {
-    const category = categoriesBySlug.get(post.categorySlug)
-    const heroImage = mediaByFilename.get(post.imageFilename)
-    const existing = existingPosts.get(post.slug)
+    for (const post of catalog) {
+      const category = categoriesBySlug.get(post.categorySlug)
+      const heroImage = mediaByFilename.get(post.imageFilename)
+      const existing = existingPosts.get(post.slug)
 
-    if (!category || !heroImage) {
-      const missingParts = [
-        !category ? `category:${post.categorySlug}` : null,
-        !heroImage ? `media:${post.imageFilename}` : null,
-      ].filter(Boolean)
+      if (!category || !heroImage) {
+        const missingParts = [
+          !category ? `category:${post.categorySlug}` : null,
+          !heroImage ? `media:${post.imageFilename}` : null,
+        ].filter(Boolean)
 
-      throw new Error(`Missing ${missingParts.join(' and ')} for post ${post.slug}`)
-    }
+        throw new Error(`Missing ${missingParts.join(' and ')} for post ${post.slug}`)
+      }
 
-    if (!existing) {
-      const created = await payload.create({
-        collection: 'posts',
-        depth: 0,
-        locale: 'zh',
-        context: {
-          disableRevalidate: true,
-        },
-        data: {
+      if (!existing) {
+        const created = await payload.create({
+          collection: 'posts',
+          depth: 0,
+          locale: 'zh',
+          context: {
+            disableRevalidate: true,
+          },
+          data: {
+            slug: post.slug,
+            _status: 'published',
+            title: post.titleZh,
+            content: post.contentZh,
+            authors: [editorialAuthor.id],
+            heroImage: heroImage.id,
+            categories: [category.id],
+            meta: {
+              title: post.metaTitleZh,
+              description: post.metaDescriptionZh,
+              image: heroImage.id,
+            },
+            publishedAt: post.publishedAt,
+            relatedPosts: [],
+          },
+        })
+
+        existingPosts.set(post.slug, {
+          content: post.contentZh,
+          id: created.id,
+          meta: {
+            description: post.metaDescriptionZh,
+            title: post.metaTitleZh,
+          },
+          publishedAt: post.publishedAt,
           slug: post.slug,
-          _status: 'published',
           title: post.titleZh,
+        })
+        relationSyncSlugs.add(post.slug)
+
+        await payload.update({
+          collection: 'posts',
+          id: created.id,
+          depth: 0,
+          locale: 'en',
+          context: {
+            disableRevalidate: true,
+          },
+          data: {
+            title: post.titleEn,
+            content: post.contentEn,
+            meta: {
+              title: post.metaTitleEn,
+              description: post.metaDescriptionEn,
+              image: heroImage.id,
+            },
+          },
+        })
+
+        createdCount += 1
+      } else if (
+        existing.title !== post.titleZh ||
+        existing.meta?.title !== post.metaTitleZh ||
+        existing.meta?.description !== post.metaDescriptionZh ||
+        existing.publishedAt !== post.publishedAt ||
+        serializeRichText(existing.content) !== serializeRichText(post.contentZh)
+      ) {
+        await payload.update({
+          collection: 'posts',
+          id: existing.id,
+          depth: 0,
+          locale: 'zh',
+          context: {
+            disableRevalidate: true,
+          },
+          data: {
+            title: post.titleZh,
+            content: post.contentZh,
+            authors: [editorialAuthor.id],
+            heroImage: heroImage.id,
+            categories: [category.id],
+            meta: {
+              title: post.metaTitleZh,
+              description: post.metaDescriptionZh,
+              image: heroImage.id,
+            },
+            publishedAt: post.publishedAt,
+            relatedPosts: [],
+          },
+        })
+
+        await payload.update({
+          collection: 'posts',
+          id: existing.id,
+          depth: 0,
+          locale: 'en',
+          context: {
+            disableRevalidate: true,
+          },
+          data: {
+            title: post.titleEn,
+            content: post.contentEn,
+            meta: {
+              title: post.metaTitleEn,
+              description: post.metaDescriptionEn,
+              image: heroImage.id,
+            },
+          },
+        })
+
+        updatedCount += 1
+
+        existingPosts.set(post.slug, {
           content: post.contentZh,
-          authors: [editorialAuthor.id],
-          heroImage: heroImage.id,
-          categories: [category.id],
+          id: existing.id,
           meta: {
-            title: post.metaTitleZh,
             description: post.metaDescriptionZh,
-            image: heroImage.id,
+            title: post.metaTitleZh,
           },
           publishedAt: post.publishedAt,
-          relatedPosts: [],
-        },
-      })
+          slug: post.slug,
+          title: post.titleZh,
+        })
+        relationSyncSlugs.add(post.slug)
+      }
 
-      existingPosts.set(post.slug, {
-        content: post.contentZh,
-        id: created.id,
-        meta: {
-          description: post.metaDescriptionZh,
-          title: post.metaTitleZh,
-        },
-        publishedAt: post.publishedAt,
-        slug: post.slug,
-        title: post.titleZh,
-      })
-      relationSyncSlugs.add(post.slug)
+      const processedCount = createdCount + updatedCount
+
+      if (processedCount > 0 && processedCount % 25 === 0) {
+        console.log(
+          `[seed:seo] Processed ${processedCount} / ${catalog.length} articles (created ${createdCount}, updated ${updatedCount})...`,
+        )
+      }
+    }
+
+    const postIdBySlug = new Map(
+      Array.from(existingPosts.entries()).map(([slug, snapshot]) => [slug, snapshot.id]),
+    )
+
+    for (const post of catalog) {
+      if (!relationSyncSlugs.has(post.slug)) continue
+
+      const currentId = postIdBySlug.get(post.slug)
+
+      if (!currentId) continue
+
+      const relatedIds = catalog
+        .filter((candidate) => candidate.slug !== post.slug)
+        .filter(
+          (candidate) =>
+            (candidate.disciplineSlug === post.disciplineSlug &&
+              candidate.degreeSlug === post.degreeSlug) ||
+            (candidate.disciplineSlug === post.disciplineSlug &&
+              candidate.stageSlug === post.stageSlug),
+        )
+        .slice(0, 3)
+        .map((candidate) => postIdBySlug.get(candidate.slug))
+        .filter((value): value is number => typeof value === 'number')
 
       await payload.update({
         collection: 'posts',
-        id: created.id,
-        depth: 0,
-        locale: 'en',
-        context: {
-          disableRevalidate: true,
-        },
-        data: {
-          title: post.titleEn,
-          content: post.contentEn,
-          meta: {
-            title: post.metaTitleEn,
-            description: post.metaDescriptionEn,
-            image: heroImage.id,
-          },
-        },
-      })
-
-      createdCount += 1
-    } else if (
-      existing.title !== post.titleZh ||
-      existing.meta?.title !== post.metaTitleZh ||
-      existing.meta?.description !== post.metaDescriptionZh ||
-      existing.publishedAt !== post.publishedAt ||
-      serializeRichText(existing.content) !== serializeRichText(post.contentZh)
-    ) {
-      await payload.update({
-        collection: 'posts',
-        id: existing.id,
+        id: currentId,
         depth: 0,
         locale: 'zh',
         context: {
           disableRevalidate: true,
         },
         data: {
-          title: post.titleZh,
-          content: post.contentZh,
           authors: [editorialAuthor.id],
-          heroImage: heroImage.id,
-          categories: [category.id],
-          meta: {
-            title: post.metaTitleZh,
-            description: post.metaDescriptionZh,
-            image: heroImage.id,
-          },
-          publishedAt: post.publishedAt,
-          relatedPosts: [],
+          relatedPosts: relatedIds,
         },
       })
-
-      await payload.update({
-        collection: 'posts',
-        id: existing.id,
-        depth: 0,
-        locale: 'en',
-        context: {
-          disableRevalidate: true,
-        },
-        data: {
-          title: post.titleEn,
-          content: post.contentEn,
-          meta: {
-            title: post.metaTitleEn,
-            description: post.metaDescriptionEn,
-            image: heroImage.id,
-          },
-        },
-      })
-
-      updatedCount += 1
-
-      existingPosts.set(post.slug, {
-        content: post.contentZh,
-        id: existing.id,
-        meta: {
-          description: post.metaDescriptionZh,
-          title: post.metaTitleZh,
-        },
-        publishedAt: post.publishedAt,
-        slug: post.slug,
-        title: post.titleZh,
-      })
-      relationSyncSlugs.add(post.slug)
     }
 
-    const processedCount = createdCount + updatedCount
-
-    if (processedCount > 0 && processedCount % 25 === 0) {
-      console.log(
-        `[seed:seo] Processed ${processedCount} / ${catalog.length} articles (created ${createdCount}, updated ${updatedCount})...`,
-      )
-    }
-  }
-
-  const postIdBySlug = new Map(
-    Array.from(existingPosts.entries()).map(([slug, snapshot]) => [slug, snapshot.id]),
-  )
-
-  for (const post of catalog) {
-    if (!relationSyncSlugs.has(post.slug)) continue
-
-    const currentId = postIdBySlug.get(post.slug)
-
-    if (!currentId) continue
-
-    const relatedIds = catalog
-      .filter((candidate) => candidate.slug !== post.slug)
-      .filter(
-        (candidate) =>
-          (candidate.disciplineSlug === post.disciplineSlug &&
-            candidate.degreeSlug === post.degreeSlug) ||
-          (candidate.disciplineSlug === post.disciplineSlug &&
-            candidate.stageSlug === post.stageSlug),
-      )
-      .slice(0, 3)
-      .map((candidate) => postIdBySlug.get(candidate.slug))
-      .filter((value): value is number => typeof value === 'number')
-
-    await payload.update({
-      collection: 'posts',
-      id: currentId,
-      depth: 0,
-      locale: 'zh',
-      context: {
-        disableRevalidate: true,
-      },
-      data: {
-        authors: [editorialAuthor.id],
-        relatedPosts: relatedIds,
-      },
-    })
-  }
-
-  console.log(
-    `[seed:seo] Completed. Created ${createdCount} new SEO articles and updated ${updatedCount} existing ones.`,
-  )
+    console.log(
+      `[seed:seo] Completed. Created ${createdCount} new SEO articles and updated ${updatedCount} existing ones.`,
+    )
   } finally {
     if (payloadToDestroy) {
       await payloadToDestroy.destroy().catch((destroyError) => {
@@ -11500,8 +11320,7 @@ const shouldSkipSeedFailure = (error: unknown): boolean => {
   return /cannot connect to Postgres|data transfer quota/i.test(error.message)
 }
 
-const isDirectExecution =
-  Boolean(process.argv[1]) && path.resolve(process.argv[1]) === filename
+const isDirectExecution = Boolean(process.argv[1]) && path.resolve(process.argv[1]) === filename
 
 if (isDirectExecution) {
   main()

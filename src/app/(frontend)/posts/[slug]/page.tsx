@@ -16,9 +16,13 @@ import type { Post } from '@/payload-types'
 
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
-import { getCachedFallbackRelatedPosts, getCachedPostBySlug } from '@/utilities/getCachedPostQueries'
+import {
+  getCachedFallbackRelatedPosts,
+  getCachedPostBySlug,
+} from '@/utilities/getCachedPostQueries'
 import { getAudienceCategoryHrefBySlug, parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import { getSiteLocale } from '@/utilities/siteLocale'
+import { getCanonicalSubjectDisciplineSlug } from '@/utilities/subjectNavigation'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
@@ -76,7 +80,9 @@ export default async function Post({ params: paramsPromise }: Args) {
       ? relatedDocsFromPost.map((candidate) => toCardPostData(candidate))
       : await queryFallbackRelatedPosts({ locale, slug: decodedSlug })
   const primaryCategory = post.categories?.find(
-    (category): category is NonNullable<Post['categories']>[number] & { title?: string; slug?: string } =>
+    (
+      category,
+    ): category is NonNullable<Post['categories']>[number] & { title?: string; slug?: string } =>
       typeof category === 'object' && category !== null,
   )
   const primaryCategoryHref =
@@ -185,6 +191,9 @@ const queryFallbackRelatedPosts = cache(
 
     if (!seoPost) return []
 
+    const disciplineSlug =
+      getCanonicalSubjectDisciplineSlug(seoPost.disciplineSlug) ?? seoPost.disciplineSlug
+
     const payload = await getPayload({ config: configPromise })
 
     const sameDiscipline = await payload
@@ -213,7 +222,7 @@ const queryFallbackRelatedPosts = cache(
             },
             {
               slug: {
-                contains: `${seoPost.degreeSlug}-${seoPost.disciplineSlug}-`,
+                contains: `${seoPost.degreeSlug}-${disciplineSlug}-`,
               },
             },
           ],
@@ -283,7 +292,9 @@ const queryFallbackRelatedPosts = cache(
   },
 )
 
-const toCardPostData = (post: Pick<Post, 'categories' | 'heroImage' | 'meta' | 'slug' | 'title'>) => {
+const toCardPostData = (
+  post: Pick<Post, 'categories' | 'heroImage' | 'meta' | 'slug' | 'title'>,
+) => {
   return {
     categories: post.categories,
     heroImage: post.heroImage,

@@ -6,6 +6,10 @@ import type { CardPostData } from '@/components/Card'
 import type { Post } from '@/payload-types'
 import { getAudienceCategory, parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import type { SiteLocale } from '@/utilities/siteLocale'
+import {
+  getCanonicalSubjectDisciplineSlug,
+  isSubjectDisciplineMatch,
+} from '@/utilities/subjectNavigation'
 import { buildCatalog, type GeneratedPost } from '../../scripts/seed-seo-posts'
 
 type ArchivePostsResult = {
@@ -103,6 +107,9 @@ const getRelatedCatalogEntries = (slug: string) => {
 
   if (!parsedTarget) return []
 
+  const targetDisciplineSlug =
+    getCanonicalSubjectDisciplineSlug(parsedTarget.disciplineSlug) ?? parsedTarget.disciplineSlug
+
   const catalog = getFallbackCatalog()
   const sameDiscipline = catalog.filter((candidate) => {
     const parsedCandidate = parseSeoPostSlug(candidate.slug)
@@ -111,7 +118,7 @@ const getRelatedCatalogEntries = (slug: string) => {
 
     return (
       parsedCandidate.degreeSlug === parsedTarget.degreeSlug &&
-      parsedCandidate.disciplineSlug === parsedTarget.disciplineSlug
+      isSubjectDisciplineMatch(parsedCandidate.disciplineSlug, targetDisciplineSlug)
     )
   })
 
@@ -185,7 +192,9 @@ export const getFallbackDisciplinePosts = (
   limit: number,
 ): CardPostData[] => {
   return getFallbackCatalog()
-    .filter((post) => parseSeoPostSlug(post.slug)?.disciplineSlug === disciplineSlug)
+    .filter((post) =>
+      isSubjectDisciplineMatch(parseSeoPostSlug(post.slug)?.disciplineSlug, disciplineSlug),
+    )
     .slice(0, limit)
     .map((post) => buildCardPostData(locale, post))
 }

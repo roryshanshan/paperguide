@@ -558,10 +558,36 @@ export const featuredSubjectDisciplines = subjectDisciplines.filter(
   (discipline) => discipline.featured,
 )
 
+const subjectDisciplineSlugs = subjectDisciplines
+  .map((discipline) => discipline.slug)
+  .sort((left, right) => right.length - left.length)
+
 export const getSubjectPath = (slug: string) => `/posts/subject/${slug}`
 
+export const getCanonicalSubjectDisciplineSlug = (slug: string | null | undefined) => {
+  if (!slug) return null
+
+  return (
+    subjectDisciplineSlugs.find(
+      (disciplineSlug) => slug === disciplineSlug || slug.startsWith(`${disciplineSlug}-`),
+    ) ?? slug
+  )
+}
+
+export const isSubjectDisciplineMatch = (
+  candidateSlug: string | null | undefined,
+  subjectSlug: string | null | undefined,
+) => {
+  const canonicalCandidate = getCanonicalSubjectDisciplineSlug(candidateSlug)
+  const canonicalSubject = getCanonicalSubjectDisciplineSlug(subjectSlug)
+
+  return Boolean(canonicalCandidate && canonicalSubject && canonicalCandidate === canonicalSubject)
+}
+
 export const getSubjectDiscipline = (slug: string | null | undefined) => {
-  return subjectDisciplines.find((discipline) => discipline.slug === slug)
+  const canonicalSlug = getCanonicalSubjectDisciplineSlug(slug)
+
+  return subjectDisciplines.find((discipline) => discipline.slug === canonicalSlug)
 }
 
 export const getSubjectGroup = (slug: SubjectGroupSlug | string | null | undefined) => {

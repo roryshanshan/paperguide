@@ -12,6 +12,7 @@ import {
 } from '@/utilities/fallbackSeoPosts'
 import { parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import type { SiteLocale } from '@/utilities/siteLocale'
+import { getCanonicalSubjectDisciplineSlug } from '@/utilities/subjectNavigation'
 import { unstable_cache } from 'next/cache'
 import { getPayload } from 'payload'
 
@@ -242,6 +243,9 @@ const getFallbackRelatedPosts = async (
 
       if (!seoPost) return []
 
+      const disciplineSlug =
+        getCanonicalSubjectDisciplineSlug(seoPost.disciplineSlug) ?? seoPost.disciplineSlug
+
       const payload = await getPayload({ config: configPromise })
       const sameDiscipline = await payload.find({
         collection: 'posts',
@@ -262,7 +266,7 @@ const getFallbackRelatedPosts = async (
             },
             {
               slug: {
-                contains: `${seoPost.degreeSlug}-${seoPost.disciplineSlug}-`,
+                contains: `${seoPost.degreeSlug}-${disciplineSlug}-`,
               },
             },
           ],
