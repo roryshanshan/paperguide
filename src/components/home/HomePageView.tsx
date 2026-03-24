@@ -1,10 +1,19 @@
-import { ArrowRight, BadgeCheck, BookOpenText, GraduationCap, Handshake, ShieldCheck, Sparkles } from 'lucide-react'
+import {
+  ArrowRight,
+  BadgeCheck,
+  BookOpenText,
+  GraduationCap,
+  Handshake,
+  ShieldCheck,
+  Sparkles,
+} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 import { ConsultationForm } from '@/components/ConsultationForm'
 import { Card, type CardPostData } from '@/components/Card'
+import { PostSubjectHubGrid } from '@/components/PostSubjectHubGrid'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
 import type { HomepageFallback } from '@/utilities/homepageFallback'
 import type { SiteLocale } from '@/utilities/siteLocale'
@@ -49,6 +58,7 @@ export const HomePageView: React.FC<{
           process: 'Work Process',
           services: 'Academic Support',
           stories: 'Student Outcomes',
+          subjects: 'Subject Navigation',
           topics: 'Writing Topic Hubs',
           paths: 'Starter Routes',
         }
@@ -60,6 +70,7 @@ export const HomePageView: React.FC<{
           process: '服务流程',
           services: '论文辅导',
           stories: '学员结果',
+          subjects: '学科导航',
           topics: '写作专题',
           paths: '起步路线',
         }
@@ -150,7 +161,10 @@ export const HomePageView: React.FC<{
       <section className="container -mt-6">
         <div className="grid gap-5 rounded-[2rem] border border-slate-100 bg-slate-950 p-6 text-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] md:grid-cols-3 md:p-8">
           {content.hero.metrics.map((metric) => (
-            <div className="border-b border-white/10 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-5 last:border-0 last:pr-0" key={metric.label}>
+            <div
+              className="border-b border-white/10 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-5 last:border-0 last:pr-0"
+              key={metric.label}
+            >
               <p className="text-sm uppercase tracking-[0.24em] text-white/45">{metric.label}</p>
               <p className="mt-3 text-3xl font-semibold tracking-[-0.04em]">{metric.value}</p>
             </div>
@@ -161,7 +175,9 @@ export const HomePageView: React.FC<{
       <section className="container mt-24" id="services">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">{sectionCopy.services}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
+              {sectionCopy.services}
+            </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.services.title}
             </h2>
@@ -201,7 +217,9 @@ export const HomePageView: React.FC<{
       <section className="container mt-24" id="mentors">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">{sectionCopy.mentors}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">
+              {sectionCopy.mentors}
+            </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.mentors.title}
             </h2>
@@ -246,7 +264,9 @@ export const HomePageView: React.FC<{
       <section className="mt-24 bg-[linear-gradient(180deg,#fffaf5_0%,#ffffff_100%)] py-20">
         <div className="container">
           <div className="mb-10">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#be123c]">{sectionCopy.stories}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#be123c]">
+              {sectionCopy.stories}
+            </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {content.stories.title}
             </h2>
@@ -276,7 +296,9 @@ export const HomePageView: React.FC<{
 
       <section className="container mt-24">
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">{sectionCopy.process}</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+            {sectionCopy.process}
+          </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
             {content.process.title}
           </h2>
@@ -296,9 +318,42 @@ export const HomePageView: React.FC<{
       <section className="container mt-24">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">{sectionCopy.topics}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+              {sectionCopy.subjects}
+            </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-              {locale === 'en' ? 'Browse high-intent thesis writing channels' : '按真实写作问题进入专题频道'}
+              {locale === 'en'
+                ? 'Browse thesis guidance by subject before diving into articles'
+                : '先按学科进入，再深入到对应文章和专题'}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'Management, law, education, psychology, computer science, nursing, and more now have dedicated entry pages that gather the most relevant degree-based guides.'
+                : '管理学、法学、教育学、心理学、计算机、护理学等方向现在都有独立入口页，会把更相关的本科、研究生和博士文章先聚起来。'}
+            </p>
+          </div>
+          <Link
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-slate-950"
+            href="/posts#subject-navigation"
+          >
+            {locale === 'en' ? 'Open subject navigation' : '打开学科导航'}
+            <ArrowRight className="size-4" />
+          </Link>
+        </div>
+
+        <PostSubjectHubGrid locale={locale} variant="featured" />
+      </section>
+
+      <section className="container mt-24">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
+              {sectionCopy.topics}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              {locale === 'en'
+                ? 'Browse high-intent thesis writing channels'
+                : '按真实写作问题进入专题频道'}
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
               {locale === 'en'
@@ -322,7 +377,9 @@ export const HomePageView: React.FC<{
         <section className="container mt-24">
           <div className="mb-10 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">{sectionCopy.paths}</p>
+              <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">
+                {sectionCopy.paths}
+              </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
                 {locale === 'en'
                   ? 'Start from a route, not from a random article'
@@ -359,7 +416,9 @@ export const HomePageView: React.FC<{
                   </span>
                 </div>
 
-                <p className="mt-5 text-xs uppercase tracking-[0.24em] text-slate-500">{path.categoryLabel}</p>
+                <p className="mt-5 text-xs uppercase tracking-[0.24em] text-slate-500">
+                  {path.categoryLabel}
+                </p>
                 <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-slate-950">
                   {path.articleTitle}
                 </h3>
@@ -377,7 +436,9 @@ export const HomePageView: React.FC<{
       <section className="container mt-24">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-[#7c3aed]">{sectionCopy.articles}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#7c3aed]">
+              {sectionCopy.articles}
+            </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
               {articleCopy.title}
             </h2>
@@ -394,7 +455,12 @@ export const HomePageView: React.FC<{
         {articles.length > 0 ? (
           <div className="grid gap-6 lg:grid-cols-3">
             {articles.map((article) => (
-              <Card className="h-full rounded-[2rem]" doc={article} key={article.slug} relationTo="posts" />
+              <Card
+                className="h-full rounded-[2rem]"
+                doc={article}
+                key={article.slug}
+                relationTo="posts"
+              />
             ))}
           </div>
         ) : (
@@ -432,7 +498,9 @@ export const HomePageView: React.FC<{
           <ConsultationForm copy={content.consultation} locale={locale} />
 
           <aside className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] lg:sticky lg:top-28">
-            <p className="text-xs uppercase tracking-[0.32em] text-[#16a34a]">{consultationCopy.caption}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#16a34a]">
+              {consultationCopy.caption}
+            </p>
             <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
               {consultationCopy.title}
             </h3>

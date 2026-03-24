@@ -4,6 +4,7 @@ import type { Post } from '@/payload-types'
 import {
   getFallbackArchivePosts as getBundledArchivePosts,
   getFallbackCategoryPosts as getBundledCategoryPosts,
+  getFallbackDisciplinePosts as getBundledDisciplinePosts,
   getFallbackHomepagePosts as getBundledHomepagePosts,
   getFallbackPostBySlug as getBundledPostBySlug,
   getFallbackPostSitemapEntries as getBundledPostSitemapEntries,
@@ -171,6 +172,38 @@ const getCategoryPosts = async (
   )
 }
 
+const getDisciplinePosts = async (
+  locale: SiteLocale,
+  disciplineSlug: string,
+  limit: number,
+): Promise<CategoryPostData[]> => {
+  return withFallbackCatalog(
+    `discipline posts (${locale}, ${disciplineSlug})`,
+    async () => {
+      const payload = await getPayload({ config: configPromise })
+      const posts = await payload.find({
+        collection: 'posts',
+        depth: 1,
+        draft: false,
+        limit,
+        locale,
+        overrideAccess: false,
+        pagination: false,
+        sort: '-publishedAt',
+        select: categoryArchiveSelect,
+        where: {
+          slug: {
+            contains: `-${disciplineSlug}-`,
+          },
+        },
+      })
+
+      return posts.docs as CategoryPostData[]
+    },
+    () => getBundledDisciplinePosts(locale, disciplineSlug, limit) as CategoryPostData[],
+  )
+}
+
 const getPostBySlug = async (locale: SiteLocale, slug: string): Promise<Post | null> => {
   return withFallbackCatalog(
     `post detail (${locale}, ${slug})`,
@@ -198,7 +231,10 @@ const getPostBySlug = async (locale: SiteLocale, slug: string): Promise<Post | n
   )
 }
 
-const getFallbackRelatedPosts = async (locale: SiteLocale, slug: string): Promise<CardPostData[]> => {
+const getFallbackRelatedPosts = async (
+  locale: SiteLocale,
+  slug: string,
+): Promise<CardPostData[]> => {
   return withFallbackCatalog(
     `related posts (${locale}, ${slug})`,
     async () => {
@@ -328,22 +364,48 @@ const getPostSitemapEntries = async (siteURL: string): Promise<SitemapEntry[]> =
 }
 
 export const getCachedHomepagePosts = (locale: SiteLocale, limit: number) =>
-  unstable_cache(async () => getHomepagePosts(locale, limit), ['homepage-posts', locale, String(limit)], {
-    revalidate: ARCHIVE_REVALIDATE_SECONDS,
-    tags: ['posts-archive'],
-  })()
+  unstable_cache(
+    async () => getHomepagePosts(locale, limit),
+    ['homepage-posts', locale, String(limit)],
+    {
+      revalidate: ARCHIVE_REVALIDATE_SECONDS,
+      tags: ['posts-archive'],
+    },
+  )()
 
 export const getCachedArchivePosts = (locale: SiteLocale, page: number, limit: number) =>
-  unstable_cache(async () => getArchivePosts(locale, page, limit), ['archive-posts', locale, String(page), String(limit)], {
-    revalidate: ARCHIVE_REVALIDATE_SECONDS,
-    tags: ['posts-archive'],
-  })()
+  unstable_cache(
+    async () => getArchivePosts(locale, page, limit),
+    ['archive-posts', locale, String(page), String(limit)],
+    {
+      revalidate: ARCHIVE_REVALIDATE_SECONDS,
+      tags: ['posts-archive'],
+    },
+  )()
 
 export const getCachedCategoryPosts = (locale: SiteLocale, categorySlug: string, limit: number) =>
-  unstable_cache(async () => getCategoryPosts(locale, categorySlug, limit), ['category-posts', locale, categorySlug, String(limit)], {
-    revalidate: ARCHIVE_REVALIDATE_SECONDS,
-    tags: ['posts-archive'],
-  })()
+  unstable_cache(
+    async () => getCategoryPosts(locale, categorySlug, limit),
+    ['category-posts', locale, categorySlug, String(limit)],
+    {
+      revalidate: ARCHIVE_REVALIDATE_SECONDS,
+      tags: ['posts-archive'],
+    },
+  )()
+
+export const getCachedDisciplinePosts = (
+  locale: SiteLocale,
+  disciplineSlug: string,
+  limit: number,
+) =>
+  unstable_cache(
+    async () => getDisciplinePosts(locale, disciplineSlug, limit),
+    ['discipline-posts', locale, disciplineSlug, String(limit)],
+    {
+      revalidate: ARCHIVE_REVALIDATE_SECONDS,
+      tags: ['posts-archive'],
+    },
+  )()
 
 export const getCachedPostBySlug = (locale: SiteLocale, slug: string) =>
   unstable_cache(async () => getPostBySlug(locale, slug), ['post-by-slug', locale, slug], {
@@ -352,10 +414,14 @@ export const getCachedPostBySlug = (locale: SiteLocale, slug: string) =>
   })()
 
 export const getCachedFallbackRelatedPosts = (locale: SiteLocale, slug: string) =>
-  unstable_cache(async () => getFallbackRelatedPosts(locale, slug), ['related-posts', locale, slug], {
-    revalidate: DETAIL_REVALIDATE_SECONDS,
-    tags: ['posts-archive', `post-${slug}`],
-  })()
+  unstable_cache(
+    async () => getFallbackRelatedPosts(locale, slug),
+    ['related-posts', locale, slug],
+    {
+      revalidate: DETAIL_REVALIDATE_SECONDS,
+      tags: ['posts-archive', `post-${slug}`],
+    },
+  )()
 
 export const getCachedPostSitemapEntries = (siteURL: string) =>
   unstable_cache(async () => getPostSitemapEntries(siteURL), ['posts-sitemap', siteURL], {

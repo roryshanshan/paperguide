@@ -4,10 +4,7 @@ import { cache } from 'react'
 
 import type { CardPostData } from '@/components/Card'
 import type { Post } from '@/payload-types'
-import {
-  getAudienceCategory,
-  parseSeoPostSlug,
-} from '@/utilities/postTaxonomy'
+import { getAudienceCategory, parseSeoPostSlug } from '@/utilities/postTaxonomy'
 import type { SiteLocale } from '@/utilities/siteLocale'
 import { buildCatalog, type GeneratedPost } from '../../scripts/seed-seo-posts'
 
@@ -143,7 +140,9 @@ const getRelatedCatalogEntries = (slug: string) => {
 }
 
 export const getFallbackHomepagePosts = (locale: SiteLocale, limit: number): CardPostData[] => {
-  return getFallbackCatalog().slice(0, limit).map((post) => buildCardPostData(locale, post))
+  return getFallbackCatalog()
+    .slice(0, limit)
+    .map((post) => buildCardPostData(locale, post))
 }
 
 export const getFallbackArchivePosts = (
@@ -157,7 +156,9 @@ export const getFallbackArchivePosts = (
   const totalDocs = catalog.length
   const totalPages = Math.max(Math.ceil(totalDocs / safeLimit), 1)
   const start = (safePage - 1) * safeLimit
-  const docs = catalog.slice(start, start + safeLimit).map((post) => buildCardPostData(locale, post))
+  const docs = catalog
+    .slice(start, start + safeLimit)
+    .map((post) => buildCardPostData(locale, post))
 
   return {
     docs,
@@ -174,6 +175,17 @@ export const getFallbackCategoryPosts = (
 ): CardPostData[] => {
   return getFallbackCatalog()
     .filter((post) => post.categorySlug === categorySlug)
+    .slice(0, limit)
+    .map((post) => buildCardPostData(locale, post))
+}
+
+export const getFallbackDisciplinePosts = (
+  locale: SiteLocale,
+  disciplineSlug: string,
+  limit: number,
+): CardPostData[] => {
+  return getFallbackCatalog()
+    .filter((post) => parseSeoPostSlug(post.slug)?.disciplineSlug === disciplineSlug)
     .slice(0, limit)
     .map((post) => buildCardPostData(locale, post))
 }
