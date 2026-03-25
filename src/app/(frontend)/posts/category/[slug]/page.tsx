@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
+import { JsonLd } from '@/components/JsonLd'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
 import { getCachedCategoryPosts } from '@/utilities/getCachedPostQueries'
 import Link from 'next/link'
@@ -19,6 +20,13 @@ import {
   parseSeoPostSlug,
   postStages,
 } from '@/utilities/postTaxonomy'
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildPostItemListSchema,
+  getSchemaBreadcrumbId,
+  getSchemaItemListId,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 type Args = {
@@ -30,6 +38,7 @@ type Args = {
 export const revalidate = 600
 
 const CATEGORY_PAGE_SIZE = 400
+const CATEGORY_SCHEMA_ITEM_LIMIT = 24
 const RECOMMENDED_PATH_STEPS = 3
 
 type CategoryPostData = CardPostData & {
@@ -48,6 +57,12 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
   const matchingPosts = Array.isArray(posts) ? posts : []
   const hubEnhancement = categoryHubEnhancements[category.categorySlug]
   const latestPosts = matchingPosts.slice(0, 3)
+  const schemaPosts = matchingPosts.slice(0, CATEGORY_SCHEMA_ITEM_LIMIT)
+  const pagePath = getAudienceCategoryPath(category.categorySlug)
+  const pageTitle = category.hubTitles[locale]
+  const pageDescription = category.hubDescriptions[locale]
+  const breadcrumbId = getSchemaBreadcrumbId(pagePath)
+  const itemListId = schemaPosts.length > 0 ? getSchemaItemListId(pagePath) : undefined
 
   const stageSections = postStages
     .map((stage) => ({
@@ -135,6 +150,33 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
 
   return (
     <div className="pt-24 pb-24">
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema({
+            items: [
+              { name: locale === 'en' ? 'Home' : '首页', path: '/' },
+              { name: locale === 'en' ? 'Articles' : '文章中心', path: '/posts' },
+              { name: category.labels[locale], path: pagePath },
+            ],
+            path: pagePath,
+          }),
+          buildCollectionPageSchema({
+            breadcrumbId,
+            description: pageDescription,
+            locale,
+            mainEntityId: itemListId,
+            path: pagePath,
+            title: pageTitle,
+          }),
+          schemaPosts.length > 0
+            ? buildPostItemListSchema({
+                locale,
+                path: pagePath,
+                posts: schemaPosts,
+              })
+            : null,
+        ]}
+      />
       <div className="container">
         <nav className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.22em] text-slate-500">
           <Link className="transition hover:text-[#c2410c]" href="/">
@@ -158,10 +200,10 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
               : '学位分类'}
         </p>
         <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-          {category.hubTitles[locale]}
+          {pageTitle}
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
-          {category.hubDescriptions[locale]}
+          {pageDescription}
         </p>
         <PostAudiencePills activeCategorySlug={category.categorySlug} locale={locale} />
       </div>

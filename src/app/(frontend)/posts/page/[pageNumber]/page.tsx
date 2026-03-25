@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
+import { JsonLd } from '@/components/JsonLd'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
@@ -9,6 +10,13 @@ import { getCachedArchivePosts } from '@/utilities/getCachedPostQueries'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildPostItemListSchema,
+  getSchemaBreadcrumbId,
+  getSchemaItemListId,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 export const revalidate = 600
@@ -36,10 +44,48 @@ export default async function Page({ params: paramsPromise }: Args) {
       totalDocs: 0,
       totalPages: 1,
     }))
+  const pagePath = `/posts/page/${sanitizedPageNumber}`
+  const pageTitle =
+    locale === 'en'
+      ? `Articles page ${sanitizedPageNumber}`
+      : `文章列表第 ${sanitizedPageNumber} 页`
+  const pageDescription =
+    locale === 'en'
+      ? 'Browse long-form writing guidance, thesis workflow articles, and problem-based academic support content.'
+      : '浏览长文写作指南、论文流程文章和按真实卡点组织的辅导内容。'
+  const breadcrumbId = getSchemaBreadcrumbId(pagePath)
+  const itemListId = posts.docs.length > 0 ? getSchemaItemListId(pagePath) : undefined
 
   return (
     <div className="pt-24 pb-24">
       <PageClient />
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema({
+            items: [
+              { name: locale === 'en' ? 'Home' : '首页', path: '/' },
+              { name: locale === 'en' ? 'Articles' : '文章中心', path: '/posts' },
+              { name: pageTitle, path: pagePath },
+            ],
+            path: pagePath,
+          }),
+          buildCollectionPageSchema({
+            breadcrumbId,
+            description: pageDescription,
+            locale,
+            mainEntityId: itemListId,
+            path: pagePath,
+            title: pageTitle,
+          }),
+          posts.docs.length > 0
+            ? buildPostItemListSchema({
+                locale,
+                path: pagePath,
+                posts: posts.docs,
+              })
+            : null,
+        ]}
+      />
       <div className="container mb-16">
         <p className="text-xs uppercase tracking-[0.32em] text-[#c2410c]">
           {locale === 'en' ? 'Article Library' : '文章中心'}
@@ -47,11 +93,7 @@ export default async function Page({ params: paramsPromise }: Args) {
         <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
           {locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'}
         </h1>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
-          {locale === 'en'
-            ? 'Browse long-form writing guidance, thesis workflow articles, and problem-based academic support content.'
-            : '浏览长文写作指南、论文流程文章和按真实卡点组织的辅导内容。'}
-        </p>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">{pageDescription}</p>
         <PostAudiencePills locale={locale} />
       </div>
 

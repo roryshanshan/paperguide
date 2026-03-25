@@ -11,21 +11,25 @@ services:
     working_dir: /home/node/app/
     command: sh -c "yarn install && yarn dev"
     depends_on:
-      - mongo
-    env_file:
-      - .env
+      - postgres
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/paperbridge}
+      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:-change-me}
 
-  mongo:
-    image: mongo:latest
+  postgres:
+    image: postgres:16-alpine
     ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: paperbridge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - data:/data/db
+      - postgres_data:/var/lib/postgresql/data
     logging:
       driver: none
 
 volumes:
-  data:
+  postgres_data:
   node_modules:

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { JsonLd } from '@/components/JsonLd'
 import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
@@ -11,6 +12,12 @@ import { homeStatic } from '@/endpoints/seed/home-static'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  getSchemaBreadcrumbId,
+  getSchemaPageImageUrl,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -48,18 +55,46 @@ export default async function Page({ params: paramsPromise }: Args) {
   }
 
   const { hero, layout } = page
+  const pagePath = decodedSlug === 'home' ? '/' : `/${decodedSlug}`
+  const pageTitle = page.meta?.title || page.title
+  const breadcrumbId = pagePath === '/' ? undefined : getSchemaBreadcrumbId(pagePath)
 
   return (
-    <article className="pt-16 pb-24">
-      <PageClient />
-      {/* Allows redirects for valid pages too */}
-      <PayloadRedirects disableNotFound url={url} />
+    <>
+      <JsonLd
+        data={[
+          pagePath !== '/'
+            ? buildBreadcrumbSchema({
+                items: [
+                  { name: locale === 'en' ? 'Home' : '首页', path: '/' },
+                  { name: pageTitle, path: pagePath },
+                ],
+                path: pagePath,
+              })
+            : null,
+          buildWebPageSchema({
+            breadcrumbId,
+            dateModified: page.updatedAt,
+            datePublished: page.publishedAt || page.createdAt,
+            description: page.meta?.description,
+            imageUrl: getSchemaPageImageUrl(page),
+            locale,
+            path: pagePath,
+            title: pageTitle,
+          }),
+        ]}
+      />
+      <article className="pt-16 pb-24">
+        <PageClient />
+        {/* Allows redirects for valid pages too */}
+        <PayloadRedirects disableNotFound url={url} />
 
-      {draft && <LivePreviewListener />}
+        {draft && <LivePreviewListener />}
 
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
-    </article>
+        <RenderHero {...hero} />
+        <RenderBlocks blocks={layout} />
+      </article>
+    </>
   )
 }
 

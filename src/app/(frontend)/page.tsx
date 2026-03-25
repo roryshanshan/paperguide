@@ -7,9 +7,16 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import React from 'react'
 
+import { JsonLd } from '@/components/JsonLd'
 import { HomePageView, type HomepageStarterPath } from '@/components/home/HomePageView'
 import { getHomepageFallback } from '@/utilities/homepageFallback'
 import { getAudienceCategory, getPostStage, parseSeoPostSlug } from '@/utilities/postTaxonomy'
+import {
+  buildPostItemListSchema,
+  buildWebPageSchema,
+  getSchemaDefaultImageUrl,
+  getSchemaItemListId,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 import deepMerge from '@/utilities/deepMerge'
 
@@ -103,6 +110,15 @@ export default async function HomePage() {
 
   const content = deepMerge(getHomepageFallback(locale), homepageResult || {})
   const latestArticles = posts.slice(0, 3)
+  const pageTitle =
+    locale === 'en'
+      ? 'PaperBridge | Thesis Coaching & Academic Support'
+      : 'PaperBridge | 论文辅导与学术支持'
+  const pageDescription =
+    locale === 'en'
+      ? 'One-to-one thesis coaching and academic support for proposal, writing, revision, and defense preparation.'
+      : '提供开题、写作、返修与答辩准备的一对一论文辅导与学术支持服务。'
+  const itemListId = latestArticles.length > 0 ? getSchemaItemListId('/') : undefined
   const stagePriority = ['proposal', 'literature-review', 'methods-analysis', 'revision-defense']
   const starterPaths = homepageStarterRouteSpecs
     .map((spec) => {
@@ -140,12 +156,33 @@ export default async function HomePage() {
     .filter((value): value is HomepageStarterPath => Boolean(value))
 
   return (
-    <HomePageView
-      articles={latestArticles}
-      content={content}
-      locale={locale}
-      starterPaths={starterPaths}
-    />
+    <>
+      <JsonLd
+        data={[
+          buildWebPageSchema({
+            description: pageDescription,
+            imageUrl: getSchemaDefaultImageUrl(),
+            locale,
+            mainEntityId: itemListId,
+            path: '/',
+            title: pageTitle,
+          }),
+          latestArticles.length > 0
+            ? buildPostItemListSchema({
+                locale,
+                path: '/',
+                posts: latestArticles,
+              })
+            : null,
+        ]}
+      />
+      <HomePageView
+        articles={latestArticles}
+        content={content}
+        locale={locale}
+        starterPaths={starterPaths}
+      />
+    </>
   )
 }
 

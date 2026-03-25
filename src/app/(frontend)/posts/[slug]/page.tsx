@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
 import { ArticleJsonLd } from '@/components/ArticleJsonLd'
 import type { CardPostData } from '@/components/Card'
+import { JsonLd } from '@/components/JsonLd'
 import { PayloadRedirects, handleRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -21,6 +22,12 @@ import {
   getCachedPostBySlug,
 } from '@/utilities/getCachedPostQueries'
 import { getAudienceCategoryHrefBySlug, parseSeoPostSlug } from '@/utilities/postTaxonomy'
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  getSchemaBreadcrumbId,
+  getSchemaPostImageUrl,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 import { getCanonicalSubjectDisciplineSlug } from '@/utilities/subjectNavigation'
 import PageClient from './page.client'
@@ -89,6 +96,16 @@ export default async function Post({ params: paramsPromise }: Args) {
     primaryCategory && typeof primaryCategory === 'object'
       ? getAudienceCategoryHrefBySlug(primaryCategory.slug)
       : null
+  const pagePath = `/posts/${post.slug}`
+  const pageTitle = post.meta?.title || post.title
+  const breadcrumbItems = [
+    { name: locale === 'en' ? 'Home' : '首页', path: '/' },
+    { name: locale === 'en' ? 'Articles' : '文章中心', path: '/posts' },
+    ...(primaryCategory && primaryCategory.title && primaryCategoryHref
+      ? [{ name: primaryCategory.title, path: primaryCategoryHref }]
+      : []),
+    { name: pageTitle, path: pagePath },
+  ]
 
   return (
     <article className="pt-16 pb-16">
@@ -99,6 +116,24 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema({
+            items: breadcrumbItems,
+            path: pagePath,
+          }),
+          buildWebPageSchema({
+            breadcrumbId: getSchemaBreadcrumbId(pagePath),
+            dateModified: post.updatedAt,
+            datePublished: post.publishedAt || post.createdAt,
+            description: post.meta?.description,
+            imageUrl: getSchemaPostImageUrl(post),
+            locale,
+            path: pagePath,
+            title: pageTitle,
+          }),
+        ]}
+      />
       <ArticleJsonLd locale={locale} post={post} />
 
       <PostHero locale={locale} post={post} />

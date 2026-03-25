@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
+import { JsonLd } from '@/components/JsonLd'
 import { generateMeta } from '@/utilities/generateMeta'
 import { getCachedDisciplinePosts, type CategoryPostData } from '@/utilities/getCachedPostQueries'
 import {
@@ -23,6 +24,13 @@ import {
   getSubjectStageDescription,
   subjectDisciplines,
 } from '@/utilities/subjectNavigation'
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildPostItemListSchema,
+  getSchemaBreadcrumbId,
+  getSchemaItemListId,
+} from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
 
 type Args = {
@@ -34,6 +42,7 @@ type Args = {
 export const revalidate = 600
 
 const DISCIPLINE_PAGE_LIMIT = 24
+const SUBJECT_SCHEMA_ITEM_LIMIT = 24
 
 const degreeCategorySlugs = ['undergraduate-thesis', 'masters-thesis', 'doctoral-thesis'] as const
 
@@ -79,9 +88,18 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
     DISCIPLINE_PAGE_LIMIT,
   ).catch(() => [] as CategoryPostData[])
   const matchingPosts = Array.isArray(posts) ? posts : []
+  const schemaPosts = matchingPosts.slice(0, SUBJECT_SCHEMA_ITEM_LIMIT)
   const group = getSubjectGroup(discipline.groupSlug)
   const topicRecommendations = getSubjectGroupRecommendations(discipline)
   const hotQuestions = getSubjectHotQuestions(discipline, locale)
+  const pagePath = getSubjectPath(discipline.slug)
+  const pageTitle =
+    locale === 'en'
+      ? `${discipline.title.en} thesis writing hub`
+      : `${discipline.title.zh}论文写作导航`
+  const pageDescription = getSubjectOverview(discipline, locale)
+  const breadcrumbId = getSchemaBreadcrumbId(pagePath)
+  const itemListId = schemaPosts.length > 0 ? getSchemaItemListId(pagePath) : undefined
 
   const degreeStarters: DegreeStarter[] = degreeCategorySlugs.flatMap((categorySlug) => {
     const category = getAudienceCategory(categorySlug)
@@ -136,6 +154,33 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
 
   return (
     <div className="pt-24 pb-24">
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema({
+            items: [
+              { name: locale === 'en' ? 'Home' : '首页', path: '/' },
+              { name: locale === 'en' ? 'Articles' : '文章中心', path: '/posts' },
+              { name: discipline.title[locale], path: pagePath },
+            ],
+            path: pagePath,
+          }),
+          buildCollectionPageSchema({
+            breadcrumbId,
+            description: pageDescription,
+            locale,
+            mainEntityId: itemListId,
+            path: pagePath,
+            title: pageTitle,
+          }),
+          schemaPosts.length > 0
+            ? buildPostItemListSchema({
+                locale,
+                path: pagePath,
+                posts: schemaPosts,
+              })
+            : null,
+        ]}
+      />
       <div className="container">
         <nav className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.22em] text-slate-500">
           <Link className="transition hover:text-[#c2410c]" href="/">
@@ -155,12 +200,10 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
               {locale === 'en' ? 'Subject Navigation' : '学科导航'}
             </p>
             <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              {locale === 'en'
-                ? `${discipline.title.en} thesis writing hub`
-                : `${discipline.title.zh}论文写作导航`}
+              {pageTitle}
             </h1>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
-              {getSubjectOverview(discipline, locale)}
+              {pageDescription}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
