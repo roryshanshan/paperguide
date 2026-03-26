@@ -129,6 +129,10 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getSiteLocale()
   return {
+    robots: {
+      follow: false,
+      index: false,
+    },
     title: locale === 'en' ? 'Search | PaperBridge' : '搜索 | PaperBridge',
   }
 }

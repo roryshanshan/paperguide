@@ -89,7 +89,7 @@ const zhHomepage: HomepageFallback = {
     buttonLabel: '提交咨询',
     description: '留下基础信息后，我们会根据学历、研究方向和当前进度，为你匹配更合适的辅导老师。',
     disclaimer: '我们只做论文辅导与学术支持，不代写、不出售论文。',
-    title: '免费获取一对一论文辅导方案',
+    title: '免费获取论文辅导与论文指导方案',
   },
   cta: {
     description: '告诉我们专业、截止时间和当前难点，我们会先帮你判断最值得优先处理的下一步。',
@@ -126,7 +126,7 @@ const zhHomepage: HomepageFallback = {
   },
   hero: {
     description:
-      '面向本科、硕士、博士阶段的论文辅导服务，覆盖选题、结构、方法、返修与答辩准备。',
+      '面向本科、硕士、博士阶段的一对一论文辅导与论文指导服务，覆盖选题、文献综述、结构、方法、返修与答辩准备。',
     links: [
       {
         label: '立即咨询',
@@ -137,8 +137,8 @@ const zhHomepage: HomepageFallback = {
         url: '#services',
       },
     ],
-    metricCaption: '从开题到答辩，一站式梳理论文推进路径',
-    metricTitle: '论文辅导与学术支持',
+    metricCaption: '从开题到答辩，系统梳理论文辅导与论文指导路径',
+    metricTitle: '论文辅导 · 论文指导 · 学术支持',
     metrics: [
       {
         label: '研究阶段拆解',
@@ -153,8 +153,8 @@ const zhHomepage: HomepageFallback = {
         value: '中英辅导',
       },
     ],
-    pills: ['论文开题', '框架搭建', '研究方法', '返修打磨', '模拟答辩'],
-    title: '帮毕业生把论文难题拆成可以执行的步骤',
+    pills: ['论文辅导', '论文指导', '论文开题', '研究方法', '答辩准备'],
+    title: '论文辅导与论文指导，把毕业论文拆成能执行的步骤',
   },
   mentors: {
     items: [
@@ -255,7 +255,7 @@ const enHomepage: HomepageFallback = {
     description:
       'Share your degree level, discipline, timeline, and current bottleneck. We will suggest a more suitable mentoring path.',
     disclaimer: 'This website focuses on academic coaching and thesis guidance. It does not provide ghostwriting.',
-    title: 'Get a tailored thesis coaching plan',
+    title: 'Get a tailored thesis coaching and guidance plan',
   },
   cta: {
     description:
@@ -293,7 +293,7 @@ const enHomepage: HomepageFallback = {
   },
   hero: {
     description:
-      'One-to-one thesis coaching for bachelor, master, and PhD students, covering proposal, structure, methods, revision, and defense prep.',
+      'One-to-one thesis coaching and thesis guidance for bachelor, master, and PhD students, covering proposal, literature review, structure, methods, revision, and defense prep.',
     links: [
       {
         label: 'Free consultation',
@@ -304,8 +304,8 @@ const enHomepage: HomepageFallback = {
         url: '#services',
       },
     ],
-    metricCaption: 'A practical service site for thesis guidance and academic support',
-    metricTitle: 'Thesis coaching for bachelor, master, and PhD students',
+    metricCaption: 'A practical thesis coaching and guidance path from proposal to defense',
+    metricTitle: 'Thesis coaching, guidance, and academic support',
     metrics: [
       {
         label: 'research workflow stages',
@@ -320,8 +320,8 @@ const enHomepage: HomepageFallback = {
         value: 'Chinese + English',
       },
     ],
-    pills: ['proposal', 'outline', 'methods', 'revision', 'defense prep'],
-    title: 'Turn thesis pressure into a guided step-by-step process',
+    pills: ['thesis coaching', 'thesis guidance', 'proposal', 'methods', 'defense prep'],
+    title: 'Thesis coaching and guidance that turn thesis pressure into clear next steps',
   },
   mentors: {
     items: [
@@ -427,7 +427,7 @@ export const getDefaultHeaderNavigation = (locale: SiteLocale): LinkItem[] => {
   if (locale === 'en') {
     return [
       { label: 'Home', url: '/' },
-      { label: 'Services', url: '/#services' },
+      { label: 'Thesis Coaching', url: '/lunwen-fudao' },
       { label: 'Mentors', url: '/#mentors' },
       { label: 'Articles', url: '/posts' },
       { label: 'FAQ', url: '/#faq' },
@@ -436,7 +436,7 @@ export const getDefaultHeaderNavigation = (locale: SiteLocale): LinkItem[] => {
 
   return [
     { label: '首页', url: '/' },
-    { label: '服务内容', url: '/#services' },
+    { label: '论文辅导', url: '/lunwen-fudao' },
     { label: '导师展示', url: '/#mentors' },
     { label: '学术文章', url: '/posts' },
     { label: '常见问题', url: '/#faq' },
@@ -446,14 +446,14 @@ export const getDefaultHeaderNavigation = (locale: SiteLocale): LinkItem[] => {
 export const getDefaultFooterLinks = (locale: SiteLocale): LinkItem[] => {
   if (locale === 'en') {
     return [
-      { label: 'Services', url: '/#services' },
+      { label: 'Thesis Coaching', url: '/lunwen-fudao' },
       { label: 'Consultation', url: '/#consultation' },
       { label: 'Articles', url: '/posts' },
     ]
   }
 
   return [
-    { label: '服务内容', url: '/#services' },
+    { label: '论文辅导', url: '/lunwen-fudao' },
     { label: '免费咨询', url: '/#consultation' },
     { label: '学术文章', url: '/posts' },
   ]

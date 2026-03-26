@@ -123,6 +123,17 @@ export const HomePageView: React.FC<{
                 ))}
               </div>
 
+              <div className="mt-4">
+                <Link
+                  className="text-sm font-semibold text-slate-800 underline decoration-[#f97316]/45 underline-offset-4 transition hover:text-[#c2410c]"
+                  href="/lunwen-fudao"
+                >
+                  {locale === 'en'
+                    ? 'Open the thesis coaching service page'
+                    : '查看论文辅导与论文指导服务页'}
+                </Link>
+              </div>
+
               <div className="mt-8 flex flex-wrap gap-3">
                 {content.hero.pills.map((pill) => (
                   <span

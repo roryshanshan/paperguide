@@ -10819,9 +10819,7 @@ function buildWritingHubEnglishPost(hub: WritingHubConfig, stage: StageConfig) {
 }
 
 export function buildCatalog(): GeneratedPost[] {
-  const posts: GeneratedPost[] = []
-  const startDate = new Date('2025-05-01T08:00:00.000Z')
-  let index = 0
+  const posts: Omit<GeneratedPost, 'publishedAt'>[] = []
 
   for (const stage of stages) {
     for (const [disciplineIndex, discipline] of disciplines.entries()) {
@@ -10829,9 +10827,6 @@ export function buildCatalog(): GeneratedPost[] {
         const themeSeed = disciplineIndex * degrees.length + degreeIndex
         const zh = buildChinesePost(degree, discipline, stage, themeSeed)
         const en = buildEnglishPost(degree, discipline, stage, themeSeed)
-        const publishedAt = new Date(
-          startDate.getTime() + index * 24 * 60 * 60 * 1000,
-        ).toISOString()
 
         posts.push({
           slug: `${degree.slug}-${discipline.slug}-${stage.slug}-guide`,
@@ -10839,7 +10834,6 @@ export function buildCatalog(): GeneratedPost[] {
           degreeSlug: degree.slug,
           disciplineSlug: discipline.slug,
           imageFilename: resolveImageFilename(degree, stage),
-          publishedAt,
           stageSlug: stage.slug,
           titleZh: zh.titleZh,
           titleEn: en.titleEn,
@@ -10850,8 +10844,6 @@ export function buildCatalog(): GeneratedPost[] {
           contentZh: zh.contentZh,
           contentEn: en.contentEn,
         })
-
-        index += 1
       }
     }
   }
@@ -10863,15 +10855,12 @@ export function buildCatalog(): GeneratedPost[] {
 
       if (!zh || !en) continue
 
-      const publishedAt = new Date(startDate.getTime() + index * 24 * 60 * 60 * 1000).toISOString()
-
       posts.push({
         slug: `${hub.slug}-${hub.topicSlug}-${stage.slug}-guide`,
         categorySlug: hub.categorySlug,
         degreeSlug: hub.slug,
         disciplineSlug: hub.topicSlug,
         imageFilename: resolveWritingHubImageFilename(stage),
-        publishedAt,
         stageSlug: stage.slug,
         titleZh: zh.titleZh,
         titleEn: en.titleEn,
@@ -10882,23 +10871,24 @@ export function buildCatalog(): GeneratedPost[] {
         contentZh: zh.contentZh,
         contentEn: en.contentEn,
       })
-
-      index += 1
     }
   }
 
   for (const article of getSourceInspiredSubjectPosts()) {
-    const publishedAt = new Date(startDate.getTime() + index * 24 * 60 * 60 * 1000).toISOString()
-
     posts.push({
       ...article,
-      publishedAt,
     })
-
-    index += 1
   }
 
-  return posts
+  const millisPerDay = 24 * 60 * 60 * 1000
+  const latestDate = new Date()
+  latestDate.setUTCHours(8, 0, 0, 0)
+  const startDate = new Date(latestDate.getTime() - Math.max(posts.length - 1, 0) * millisPerDay)
+
+  return posts.map((post, index) => ({
+    ...post,
+    publishedAt: new Date(startDate.getTime() + index * millisPerDay).toISOString(),
+  }))
 }
 
 function chunk<T>(items: T[], size: number): T[][] {

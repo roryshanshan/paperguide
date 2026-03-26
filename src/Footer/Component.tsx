@@ -31,8 +31,8 @@ export async function Footer() {
 
   const description =
     locale === 'en'
-      ? 'One-to-one thesis coaching for proposal, writing, revision, and defense preparation.'
-      : '面向本科、硕士、博士阶段的一对一论文辅导与学术支持服务。'
+      ? 'One-to-one thesis coaching and thesis guidance for proposal, writing, revision, and defense preparation.'
+      : '面向本科、硕士、博士阶段的一对一论文辅导与论文指导服务。'
 
   return (
     <footer className="mt-auto border-t border-slate-200 bg-[#fffaf5]">
@@ -43,6 +43,16 @@ export async function Footer() {
 
         <div className="max-w-xl">
           <p className="text-sm leading-7 text-slate-600">{description}</p>
+          <p className="mt-3">
+            <Link
+              className="text-sm font-semibold text-slate-800 underline decoration-[#f97316]/45 underline-offset-4 transition hover:text-[#c2410c]"
+              href="/lunwen-fudao"
+            >
+              {locale === 'en'
+                ? 'Open the thesis coaching service page'
+                : '查看论文辅导与论文指导服务页'}
+            </Link>
+          </p>
           <nav className="mt-4 flex flex-wrap gap-4">
             {navItems.map(({ link }, i) => {
               return (

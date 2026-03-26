@@ -297,6 +297,65 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
         </div>
       </div>
 
+      <section className="container mt-10">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_360px]">
+          <div className="rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,#eff6ff_0%,#ffffff_100%)] p-6 shadow-sm md:p-7">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#1d4ed8]">
+              {locale === 'en' ? 'Subject Support' : '学科辅导'}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+              {locale === 'en'
+                ? `${discipline.title.en} papers improve faster when subject fit and writing route match`
+                : `${discipline.title.zh}方向的论文，学科匹配和修改路线一起看会更稳`}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'This page helps when the discipline is already clear but the writing route still feels scattered. Pair the subject guide with the thesis coaching page so topic, methods, revision order, and deadline pressure are handled in one path.'
+                : '这个页面适合“专业方向已经明确，但修改路线还很散”的情况。把学科导航和论文辅导服务页一起使用，更容易把选题、方法、返修顺序和时间压力放到一条线上处理。'}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                className="inline-flex h-11 items-center justify-center rounded-full bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
+                href="/lunwen-fudao"
+              >
+                {locale === 'en' ? 'Open thesis coaching page' : '查看论文辅导服务页'}
+              </Link>
+              <Link
+                className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200 px-5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                href="/posts"
+              >
+                {locale === 'en' ? 'Back to article center' : '返回文章中心'}
+              </Link>
+            </div>
+          </div>
+
+          <aside className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
+              {locale === 'en' ? 'Best Used For' : '更适合这类情况'}
+            </p>
+            <div className="mt-5 space-y-4">
+              {[
+                locale === 'en'
+                  ? 'The discipline is fixed, but the chapter logic and evidence route still feel weak.'
+                  : '专业方向已经定了，但章节逻辑和证据路线还不稳。',
+                locale === 'en'
+                  ? 'Need to map this discipline to degree stage and the right article sequence.'
+                  : '需要把这个学科和学历阶段、阅读顺序对应起来。',
+                locale === 'en'
+                  ? 'Want one-to-one thesis guidance without crossing academic integrity boundaries.'
+                  : '需要一对一论文指导，但坚持学术规范边界。',
+              ].map((point) => (
+                <div className="flex items-start gap-3" key={point}>
+                  <span className="mt-1 inline-flex size-2.5 shrink-0 rounded-full bg-[#2563eb]" />
+                  <p className="text-sm leading-7 text-slate-600">{point}</p>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
       {degreeStarters.length > 0 && (
         <section className="container mt-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">

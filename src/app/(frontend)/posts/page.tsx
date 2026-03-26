@@ -8,6 +8,7 @@ import { PostAudiencePills } from '@/components/PostAudiencePills'
 import { PostSubjectHubGrid } from '@/components/PostSubjectHubGrid'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
 import { getCachedArchivePosts } from '@/utilities/getCachedPostQueries'
+import Link from 'next/link'
 import React from 'react'
 import PageClient from './page.client'
 import {
@@ -76,6 +77,14 @@ export default async function Page() {
           {pageTitle}
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">{pageDescription}</p>
+        <Link
+          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-800 underline decoration-[#f97316]/45 underline-offset-4 transition hover:text-[#c2410c]"
+          href="/lunwen-fudao"
+        >
+          {locale === 'en'
+            ? 'Need one-to-one thesis coaching? Open the service page'
+            : '需要一对一论文辅导？查看服务页'}
+        </Link>
         <PostAudiencePills locale={locale} />
       </div>
 
@@ -139,6 +148,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getSiteLocale()
 
   return {
+    description:
+      locale === 'en'
+        ? 'Browse thesis coaching articles, topic-based writing guides, and degree-specific academic support resources.'
+        : '浏览论文辅导文章、论文写作专题指南，以及面向本科、硕士、博士阶段的学术支持内容。',
     title: locale === 'en' ? 'Articles | PaperBridge' : '文章中心 | PaperBridge',
   }
 }

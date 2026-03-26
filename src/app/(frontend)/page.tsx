@@ -192,11 +192,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description:
       locale === 'en'
-        ? 'One-to-one thesis coaching and academic support for proposal, writing, revision, and defense preparation.'
-        : '提供开题、写作、返修与答辩准备的一对一论文辅导与学术支持服务。',
+        ? 'Thesis coaching and thesis guidance for undergraduate, master, and PhD students, covering proposal, writing, revision, and defense preparation.'
+        : '提供本科、硕士、博士阶段的一对一论文辅导与论文指导服务，覆盖开题、写作、返修与答辩准备。',
     title:
       locale === 'en'
-        ? 'PaperBridge | Thesis Coaching & Academic Support'
-        : 'PaperBridge | 论文辅导与学术支持',
+        ? 'Thesis Coaching and Guidance Service | PaperBridge'
+        : '论文辅导与论文指导服务 | PaperBridge',
   }
 }

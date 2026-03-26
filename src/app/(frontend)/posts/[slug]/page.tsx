@@ -21,7 +21,12 @@ import {
   getCachedFallbackRelatedPosts,
   getCachedPostBySlug,
 } from '@/utilities/getCachedPostQueries'
-import { getAudienceCategoryHrefBySlug, parseSeoPostSlug } from '@/utilities/postTaxonomy'
+import {
+  getAudienceCategory,
+  getAudienceCategoryHrefBySlug,
+  getPostStage,
+  parseSeoPostSlug,
+} from '@/utilities/postTaxonomy'
 import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
@@ -29,7 +34,11 @@ import {
   getSchemaPostImageUrl,
 } from '@/utilities/schema'
 import { getSiteLocale } from '@/utilities/siteLocale'
-import { getCanonicalSubjectDisciplineSlug } from '@/utilities/subjectNavigation'
+import {
+  getCanonicalSubjectDisciplineSlug,
+  getSubjectDiscipline,
+  getSubjectPath,
+} from '@/utilities/subjectNavigation'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
@@ -96,6 +105,15 @@ export default async function Post({ params: paramsPromise }: Args) {
     primaryCategory && typeof primaryCategory === 'object'
       ? getAudienceCategoryHrefBySlug(primaryCategory.slug)
       : null
+  const seoPost = parseSeoPostSlug(post.slug)
+  const seoCategory = seoPost ? getAudienceCategory(seoPost.categorySlug) : null
+  const normalizedDisciplineSlug = seoPost
+    ? getCanonicalSubjectDisciplineSlug(seoPost.disciplineSlug) ?? seoPost.disciplineSlug
+    : null
+  const subjectDiscipline = normalizedDisciplineSlug
+    ? getSubjectDiscipline(normalizedDisciplineSlug)
+    : null
+  const stageLabel = seoPost ? getPostStage(seoPost.stageSlug)?.labels[locale] || null : null
   const pagePath = `/posts/${post.slug}`
   const pageTitle = post.meta?.title || post.title
   const breadcrumbItems = [
@@ -162,6 +180,81 @@ export default async function Post({ params: paramsPromise }: Args) {
             )}
           </nav>
           <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
+          <section className="mx-auto mt-12 max-w-[48rem] rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_100%)] p-6 shadow-sm md:p-7">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#c2410c]">
+              {locale === 'en' ? 'Thesis Coaching' : '论文辅导'}
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+              {locale === 'en'
+                ? 'Turn this article into a focused revision route'
+                : '把这篇文章真正变成可执行的论文修改路径'}
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'If this article matches the problem you are facing, continue with the thesis coaching page, the matching topic hub, and the relevant subject guide so the next revision round does not start from scratch.'
+                : '如果这篇文章正好对应你现在的卡点，可以继续串着看论文辅导服务页、对应专题页和相关学科导航，把下一轮修改真正落成动作，而不是看完又回到原地。'}
+            </p>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <Link
+                className="rounded-[1.5rem] border border-[#fdba74] bg-white px-5 py-4 transition hover:border-[#fb923c] hover:bg-[#fffaf5]"
+                href="/lunwen-fudao"
+              >
+                <p className="text-[11px] uppercase tracking-[0.24em] text-[#c2410c]">
+                  {locale === 'en' ? 'Service Page' : '服务页'}
+                </p>
+                <p className="mt-2 text-base font-semibold text-slate-950">
+                  {locale === 'en' ? 'Open thesis coaching and guidance' : '查看论文辅导与论文指导'}
+                </p>
+              </Link>
+
+              <Link
+                className="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-4 transition hover:border-[#fdba74] hover:bg-[#fffaf5]"
+                href={
+                  seoCategory ? getAudienceCategoryHrefBySlug(seoCategory.categorySlug) || '/posts' : '/posts'
+                }
+              >
+                <p className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                  {locale === 'en' ? 'Topic Hub' : '专题页'}
+                </p>
+                <p className="mt-2 text-base font-semibold text-slate-950">
+                  {seoCategory
+                    ? locale === 'en'
+                      ? `Back to ${seoCategory.labels.en}`
+                      : `回到${seoCategory.labels.zh}文章库`
+                    : locale === 'en'
+                      ? 'Browse article center'
+                      : '浏览文章中心'}
+                </p>
+              </Link>
+
+              <Link
+                className="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-4 transition hover:border-[#fdba74] hover:bg-[#fffaf5]"
+                href={subjectDiscipline ? getSubjectPath(subjectDiscipline.slug) : '/posts#subject-navigation'}
+              >
+                <p className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                  {locale === 'en' ? 'Subject Guide' : '学科导航'}
+                </p>
+                <p className="mt-2 text-base font-semibold text-slate-950">
+                  {subjectDiscipline
+                    ? locale === 'en'
+                      ? `${subjectDiscipline.title.en} writing hub`
+                      : `${subjectDiscipline.title.zh}论文写作导航`
+                    : locale === 'en'
+                      ? 'Open subject navigation'
+                      : '打开学科导航'}
+                </p>
+              </Link>
+            </div>
+
+            {stageLabel && (
+              <p className="mt-5 text-xs uppercase tracking-[0.22em] text-slate-500">
+                {locale === 'en'
+                  ? `Current writing stage: ${stageLabel}`
+                  : `当前写作阶段：${stageLabel}`}
+              </p>
+            )}
+          </section>
           {relatedDocs.length > 0 && (
             <RelatedPosts
               className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"

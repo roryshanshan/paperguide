@@ -16,11 +16,11 @@ const buildDefaultPagesSitemap = (siteURL: string, lastmod: string): PageSitemap
     lastmod,
   },
   {
-    loc: `${siteURL}/search`,
+    loc: `${siteURL}/posts`,
     lastmod,
   },
   {
-    loc: `${siteURL}/posts`,
+    loc: `${siteURL}/lunwen-fudao`,
     lastmod,
   },
   ...audienceCategories.map((category) => ({

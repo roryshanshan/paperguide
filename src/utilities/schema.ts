@@ -11,6 +11,11 @@ type BreadcrumbItem = {
   path: string
 }
 
+type FAQItem = {
+  answer: string
+  question: string
+}
+
 type PostListSchemaItem = Pick<Post, 'slug' | 'title' | 'meta'> & {
   heroImage?: Post['heroImage']
   publishedAt?: string | null
@@ -33,8 +38,8 @@ type BuildWebPageSchemaArgs = {
 const SITE_NAME = 'PaperBridge'
 const SERVER_URL = getServerSideURL()
 const DEFAULT_SITE_DESCRIPTION = {
-  en: 'One-to-one thesis coaching and academic support for proposal, writing, revision, and defense preparation.',
-  zh: '提供开题、写作、返修与答辩准备的一对一论文辅导与学术支持服务。',
+  en: 'Thesis coaching and thesis guidance for undergraduate, master, and PhD students across proposal, writing, revision, and defense preparation.',
+  zh: '提供本科、硕士、博士阶段的一对一论文辅导与论文指导服务，覆盖开题、写作、返修与答辩准备。',
 } as const
 
 const isMedia = (value: unknown): value is Media => {
@@ -83,6 +88,14 @@ export const getSchemaBreadcrumbId = (path: string) => {
 
 export const getSchemaItemListId = (path: string) => {
   return `${getSchemaAbsoluteUrl(path)}#itemlist`
+}
+
+export const getSchemaServiceId = (path: string) => {
+  return `${getSchemaAbsoluteUrl(path)}#service`
+}
+
+export const getSchemaFaqId = (path: string) => {
+  return `${getSchemaAbsoluteUrl(path)}#faq`
 }
 
 export const getSchemaMediaUrl = (image?: Media | number | null) => {
@@ -337,5 +350,72 @@ export const buildArticleSchema = ({
       '@id': getSchemaOrganizationId(),
     },
     url: articleUrl,
+  }
+}
+
+export const buildServiceSchema = ({
+  audience,
+  description,
+  locale,
+  name,
+  path,
+  serviceType,
+}: {
+  audience?: ReadonlyArray<string>
+  description: string
+  locale: SiteLocale
+  name: string
+  path: string
+  serviceType: string
+}): SchemaObject => {
+  const schema: SchemaObject = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': getSchemaServiceId(path),
+    areaServed: {
+      '@type': 'Country',
+      name: locale === 'en' ? 'China' : '中国',
+    },
+    availableLanguage: ['zh-CN', 'en'],
+    description,
+    inLanguage: getSchemaLanguage(locale),
+    name,
+    provider: {
+      '@id': getSchemaOrganizationId(),
+    },
+    serviceType,
+    url: getSchemaAbsoluteUrl(path),
+  }
+
+  if (audience && audience.length > 0) {
+    schema.audience = audience.map((name) => ({
+      '@type': 'Audience',
+      audienceType: name,
+    }))
+  }
+
+  return schema
+}
+
+export const buildFaqSchema = ({
+  items,
+  path,
+}: {
+  items: ReadonlyArray<FAQItem>
+  path: string
+}): SchemaObject => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': getSchemaFaqId(path),
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+      name: item.question,
+    })),
+    url: getSchemaAbsoluteUrl(path),
   }
 }

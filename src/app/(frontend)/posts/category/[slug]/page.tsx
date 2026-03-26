@@ -208,6 +208,65 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
         <PostAudiencePills activeCategorySlug={category.categorySlug} locale={locale} />
       </div>
 
+      <section className="container mt-10">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_360px]">
+          <div className="rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_100%)] p-6 shadow-sm md:p-7">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#c2410c]">
+              {locale === 'en' ? 'Service Route' : '服务路径'}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+              {locale === 'en'
+                ? `${category.labels.en} support works best when diagnosis comes first`
+                : `${category.labels.zh}相关问题，先诊断再读文章通常更省时间`}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'This hub is useful when you already know the bottleneck lives inside this part of the thesis. If the problem still feels messy, move through the thesis coaching page first and then come back here with a clearer revision order.'
+                : '如果你已经知道问题大致落在这个专题里，这个文章库会很有用；如果你还说不清究竟该先改选题、结构、方法还是返修顺序，先走论文辅导服务页再回来读，会更容易形成真正可执行的修改路线。'}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                className="inline-flex h-11 items-center justify-center rounded-full bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
+                href="/lunwen-fudao"
+              >
+                {locale === 'en' ? 'Open thesis coaching page' : '查看论文辅导服务页'}
+              </Link>
+              <Link
+                className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200 px-5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                href="/#consultation"
+              >
+                {locale === 'en' ? 'Request consultation' : '提交咨询需求'}
+              </Link>
+            </div>
+          </div>
+
+          <aside className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
+              {locale === 'en' ? 'What This Solves' : '适合解决'}
+            </p>
+            <div className="mt-5 space-y-4">
+              {[
+                locale === 'en'
+                  ? 'Unclear revision priority even after reading several articles.'
+                  : '已经看了不少文章，但还是判断不出先改哪里。',
+                locale === 'en'
+                  ? 'Need to connect this topic hub with degree stage, discipline, and deadline.'
+                  : '需要把这个专题和学历阶段、学科背景、截止时间一起统筹。',
+                locale === 'en'
+                  ? 'Want ethical thesis guidance only, not ghostwriting.'
+                  : '只需要合规的论文指导，不需要代写。',
+              ].map((point) => (
+                <div className="flex items-start gap-3" key={point}>
+                  <span className="mt-1 inline-flex size-2.5 shrink-0 rounded-full bg-[#f97316]" />
+                  <p className="text-sm leading-7 text-slate-600">{point}</p>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
       {category.kind === 'topic' && hubEnhancement && (
         <div className="container mt-12 grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_420px]">
           <section className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-sm md:p-7">

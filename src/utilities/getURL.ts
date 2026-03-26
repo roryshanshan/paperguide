@@ -1,11 +1,51 @@
 import canUseDOM from './canUseDOM'
 
-export const getServerSideURL = () => {
+const DEFAULT_LOCAL_URL = 'http://localhost:3000'
+const DEFAULT_PRODUCTION_URL = 'https://paperguide.vercel.app'
+const LOCAL_HOSTNAMES = new Set(['127.0.0.1', '0.0.0.0', 'localhost'])
+
+const normalizeOrigin = (value?: string | null, allowLocal = false) => {
+  if (!value) return null
+
+  const trimmed = value.trim()
+
+  if (!trimmed) return null
+
+  const shouldUseHttp = /^(https?:\/\/)?(localhost|127\.0\.0\.1|0\.0\.0\.0)(:\d+)?$/i.test(trimmed)
+  const candidate = /^https?:\/\//i.test(trimmed)
+    ? trimmed
+    : `${shouldUseHttp ? 'http' : 'https'}://${trimmed}`
+
+  try {
+    const normalized = new URL(candidate)
+
+    if (!allowLocal && LOCAL_HOSTNAMES.has(normalized.hostname)) {
+      return null
+    }
+
+    return normalized.origin
+  } catch {
+    return null
+  }
+}
+
+const getProductionURL = () => {
   return (
-    process.env.NEXT_PUBLIC_SERVER_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'http://localhost:3000')
+    normalizeOrigin(process.env.VERCEL_PROJECT_PRODUCTION_URL) ||
+    normalizeOrigin(process.env.NEXT_PUBLIC_SERVER_URL) ||
+    DEFAULT_PRODUCTION_URL
+  )
+}
+
+export const getServerSideURL = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return getProductionURL()
+  }
+
+  return (
+    normalizeOrigin(process.env.NEXT_PUBLIC_SERVER_URL, true) ||
+    normalizeOrigin(process.env.VERCEL_PROJECT_PRODUCTION_URL) ||
+    DEFAULT_LOCAL_URL
   )
 }
 
@@ -18,9 +58,9 @@ export const getClientSideURL = () => {
     return `${protocol}//${domain}${port ? `:${port}` : ''}`
   }
 
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  }
-
-  return process.env.NEXT_PUBLIC_SERVER_URL || ''
+  return (
+    normalizeOrigin(process.env.VERCEL_PROJECT_PRODUCTION_URL) ||
+    normalizeOrigin(process.env.NEXT_PUBLIC_SERVER_URL, true) ||
+    ''
+  )
 }

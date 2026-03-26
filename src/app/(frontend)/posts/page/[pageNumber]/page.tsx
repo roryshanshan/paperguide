@@ -135,6 +135,10 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const locale = await getSiteLocale()
   const { pageNumber } = await paramsPromise
   return {
+    robots: {
+      follow: true,
+      index: false,
+    },
     title:
       locale === 'en'
         ? `Articles Page ${pageNumber || ''} | PaperBridge`
