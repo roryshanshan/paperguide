@@ -7,6 +7,7 @@ import { Pagination } from '@/components/Pagination'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
 import { PostSubjectHubGrid } from '@/components/PostSubjectHubGrid'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
+import { ServicePageGrid } from '@/components/ServicePageGrid'
 import { getCachedArchivePosts } from '@/utilities/getCachedPostQueries'
 import Link from 'next/link'
 import React from 'react'
@@ -86,6 +87,25 @@ export default async function Page() {
             : '需要一对一论文辅导？查看服务页'}
         </Link>
         <PostAudiencePills locale={locale} />
+      </div>
+
+      <div className="container mb-16">
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+            {locale === 'en' ? 'Service Pages' : '服务页面'}
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+            {locale === 'en'
+              ? 'Need a stronger page for thesis coaching intent? Start here'
+              : '如果你更像在找论文辅导服务页，可以先从这里进入'}
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+            {locale === 'en'
+              ? 'These pages are built for high-intent queries such as graduation thesis support, undergraduate thesis coaching, proposal guidance, revision, and defense preparation.'
+              : '这些页面专门承接毕业论文辅导、本科论文辅导、硕士论文指导、开题报告指导、论文修改和答辩准备等高意图搜索。'}
+          </p>
+        </div>
+        <ServicePageGrid locale={locale} />
       </div>
 
       <div className="container mb-16" id="subject-navigation">

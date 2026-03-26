@@ -7,10 +7,10 @@ import {
 
 export const revalidate = 3600
 
-export default async function ThesisCoachingPage() {
-  return renderServiceLandingPage('lunwen-fudao')
+export default async function UndergraduateThesisSupportPage() {
+  return renderServiceLandingPage('benke-lunwen-fudao')
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceLandingPageMetadata('lunwen-fudao')
+  return generateServiceLandingPageMetadata('benke-lunwen-fudao')
 }

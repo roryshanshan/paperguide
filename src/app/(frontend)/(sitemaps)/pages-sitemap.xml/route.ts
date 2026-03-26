@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { getServerSideURL } from '@/utilities/getURL'
 import { audienceCategories, getAudienceCategoryPath } from '@/utilities/postTaxonomy'
+import { getServiceLandingPagePaths } from '@/utilities/serviceLandingPages'
 import { getSubjectPath, subjectDisciplines } from '@/utilities/subjectNavigation'
 
 type PageSitemapEntry = {
@@ -19,10 +20,10 @@ const buildDefaultPagesSitemap = (siteURL: string, lastmod: string): PageSitemap
     loc: `${siteURL}/posts`,
     lastmod,
   },
-  {
-    loc: `${siteURL}/lunwen-fudao`,
+  ...getServiceLandingPagePaths().map((path) => ({
+    loc: `${siteURL}${path}`,
     lastmod,
-  },
+  })),
   ...audienceCategories.map((category) => ({
     loc: `${siteURL}${getAudienceCategoryPath(category.categorySlug)}`,
     lastmod,

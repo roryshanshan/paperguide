@@ -15,6 +15,7 @@ import { ConsultationForm } from '@/components/ConsultationForm'
 import { Card, type CardPostData } from '@/components/Card'
 import { PostSubjectHubGrid } from '@/components/PostSubjectHubGrid'
 import { PostTopicHubGrid } from '@/components/PostTopicHubGrid'
+import { ServicePageGrid } from '@/components/ServicePageGrid'
 import type { HomepageFallback } from '@/utilities/homepageFallback'
 import type { SiteLocale } from '@/utilities/siteLocale'
 
@@ -61,6 +62,7 @@ export const HomePageView: React.FC<{
           subjects: 'Subject Navigation',
           topics: 'Writing Topic Hubs',
           paths: 'Starter Routes',
+          servicePages: 'Service Pages',
         }
       : {
           articles: '内容中心',
@@ -73,6 +75,7 @@ export const HomePageView: React.FC<{
           subjects: '学科导航',
           topics: '写作专题',
           paths: '起步路线',
+          servicePages: '服务页面',
         }
   const consultationCopy =
     locale === 'en'
@@ -223,6 +226,23 @@ export const HomePageView: React.FC<{
             )
           })}
         </div>
+      </section>
+
+      <section className="container mt-24">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+              {sectionCopy.servicePages}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              {locale === 'en'
+                ? 'Open a more specific service page before the thesis drifts again'
+                : '在论文再次写散之前，先进入更具体的服务页'}
+            </h2>
+          </div>
+        </div>
+
+        <ServicePageGrid locale={locale} />
       </section>
 
       <section className="container mt-24" id="mentors">
