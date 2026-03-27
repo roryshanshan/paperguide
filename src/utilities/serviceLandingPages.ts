@@ -108,6 +108,8 @@ export const serviceLandingPageOrder = [
   'wenxian-zongshu-zhidao',
   'lunwen-xiugai-zhidao',
   'lunwen-dabian-zhidao',
+  'yingwen-lunwen-fudao',
+  'mangshen-fanxiu-zhidao',
 ] as const
 
 export const featuredServiceLandingPageSlugs = [
@@ -117,6 +119,8 @@ export const featuredServiceLandingPageSlugs = [
   'shuoshi-lunwen-zhidao',
   'kaiti-baogao-zhidao',
   'lunwen-xiugai-zhidao',
+  'yingwen-lunwen-fudao',
+  'mangshen-fanxiu-zhidao',
 ] as const
 
 export type ServiceLandingPageSlug = (typeof serviceLandingPageOrder)[number]
@@ -2139,6 +2143,457 @@ export const serviceLandingPages: Record<ServiceLandingPageSlug, ServiceLandingP
       },
     },
   },
+  'yingwen-lunwen-fudao': {
+    path: '/yingwen-lunwen-fudao',
+    relatedCategorySlugs: [
+      'masters-thesis',
+      'doctoral-thesis',
+      'academic-voice-argument',
+      'global-publishing-peer-review',
+    ],
+    relatedServiceSlugs: [
+      'lunwen-fudao',
+      'shuoshi-lunwen-zhidao',
+      'boshi-lunwen-fudao',
+      'wenxian-zongshu-zhidao',
+    ],
+    relatedSubjectSlugs: ['computer-science', 'economics', 'biology', 'education'],
+    copy: {
+      en: {
+        audienceLabels: ['English thesis writers', 'Bilingual students', 'Students writing for international review'],
+        breadcrumbLabel: 'English Thesis Guidance',
+        cards: [
+          card(
+            'Need stronger English structure',
+            'Useful when the paper is understandable in Chinese or notes, but the English version still lacks one stable academic line.',
+            '/wenxian-zongshu-zhidao',
+          ),
+          card(
+            'Need better revision before submission',
+            'Open this when English wording is not the only issue and the structure, logic, and reviewer response still need work together.',
+            '/lunwen-xiugai-zhidao',
+          ),
+          card(
+            'Need bilingual thesis coaching',
+            'Best when the student needs guidance across Chinese and English drafts instead of isolated sentence polishing.',
+            '/lunwen-fudao',
+          ),
+        ],
+        cardsIntro:
+          'English thesis guidance works best when language, structure, and academic positioning are treated as one workflow rather than as separate problems.',
+        cardsTitle: 'Where English thesis guidance usually begins',
+        consultation: consultation(
+          'Get an English thesis guidance plan',
+          'Share your discipline, current draft language, target reviewer or school context, and the part that feels weakest in English right now.',
+          'Request English thesis guidance',
+          'en',
+        ),
+        ctaAside: {
+          links: [
+            { href: '/posts/category/academic-voice-argument', label: 'Open academic voice hub' },
+            { href: '/posts/category/global-publishing-peer-review', label: 'Open peer review hub' },
+          ],
+          points: [
+            'English structure becomes more readable instead of feeling translated line by line.',
+            'The paper sounds more academic without becoming stiff or vague.',
+            'Bilingual revision starts supporting reviewer-style expectations more clearly.',
+          ],
+          title: 'What English thesis guidance often improves first',
+        },
+        description:
+          'A service page for English thesis guidance, focusing on bilingual thesis coaching, academic voice, structure, literature review language, revision, and clearer English argumentation.',
+        faqTitle: 'Common questions about English thesis guidance',
+        faqs: [
+          faq(
+            'Is this only language polishing?',
+            'No. The service also focuses on argument structure, scholarly voice, review positioning, and revision logic in English.',
+          ),
+          faq(
+            'Can this help if my draft started in Chinese first?',
+            'Yes. Many bilingual writers need help turning a Chinese draft or outline into a stable English academic route.',
+          ),
+          faq(
+            'Does the service fit dissertations and article-style papers?',
+            'Yes, especially when the English version needs better structure and more natural academic expression.',
+          ),
+          faq(
+            'Can this support reviewer-style English responses too?',
+            'Yes. It is useful when revision comments, rebuttals, and final framing also need to work in English.',
+          ),
+        ],
+        h1: 'English thesis guidance for bilingual drafts, academic voice, and revision',
+        heroPrimaryCtaLabel: 'Get English thesis help',
+        heroSecondaryCtaLabel: 'Browse English-writing articles',
+        intro:
+          'This page targets users searching for English thesis guidance. It is designed for students who need stronger English academic structure, not just sentence-level editing.',
+        navTitle: 'English thesis guidance',
+        pageTitle: 'English Thesis Guidance',
+        process: [
+          processStep(
+            '1. Rebuild the English line of argument',
+            'Clarify the problem, method, and contribution in a way that reads naturally in English rather than as direct translation.',
+          ),
+          processStep(
+            '2. Strengthen review and paragraph language',
+            'Improve signposting, comparison language, and scholarly positioning across the review and analysis.',
+          ),
+          processStep(
+            '3. Revise for reviewer-style readability',
+            'Make the full draft easier to follow for supervisors, examiners, or journal reviewers working in English.',
+          ),
+          processStep(
+            '4. Keep bilingual consistency',
+            'Use the same route to keep Chinese notes, English text, and revision logic aligned.',
+          ),
+        ],
+        processIntro:
+          'English guidance is most effective when academic argument and language are revised together rather than separated.',
+        processTitle: 'How English thesis guidance usually works',
+        sectionLabel: 'Service Page',
+        serviceLabel: 'What English thesis guidance usually covers',
+        servicePoints: [
+          'Bilingual thesis coaching and draft conversion',
+          'English academic structure and signposting',
+          'Literature review language and comparison writing',
+          'Scholarly voice and argument clarity',
+          'Revision and reviewer-style English response',
+          'Consistency across Chinese notes and English manuscript',
+        ],
+        serviceType: 'English thesis guidance',
+        summary:
+          'A service page for English thesis guidance, especially bilingual thesis coaching, academic voice, and revision.',
+        title: 'A page for English thesis support intent',
+      },
+      zh: {
+        audienceLabels: ['英文论文写作者', '中英双语用户', '面向国际评审的学生'],
+        breadcrumbLabel: '英文论文辅导',
+        cards: [
+          card(
+            '英文结构还是不稳',
+            '适合中文思路和笔记已经有了，但一转成英文就没有稳定学术主线的时候。',
+            '/wenxian-zongshu-zhidao',
+          ),
+          card(
+            '提交前需要更强的英文返修',
+            '如果问题不只是句子通不通，还包括结构、逻辑和评审式回应，就先看这条路线。',
+            '/lunwen-xiugai-zhidao',
+          ),
+          card(
+            '需要中英双语论文辅导',
+            '更适合需要同时处理中文思考与英文成稿，而不是只做零散润色的情况。',
+            '/lunwen-fudao',
+          ),
+        ],
+        cardsIntro:
+          '英文论文辅导最有效的时候，是把语言、结构和学术站位一起处理，而不是只盯句子表面。',
+        cardsTitle: '英文论文辅导通常从这些地方切入',
+        consultation: consultation(
+          '获取英文论文辅导方案',
+          '留下学科方向、当前稿件语言、目标学校或评审场景，以及你现在在英文表达里最弱的部分。',
+          '提交英文论文需求',
+          'zh',
+        ),
+        ctaAside: {
+          links: [
+            { href: '/posts/category/academic-voice-argument', label: '查看学术表达文章库' },
+            { href: '/posts/category/global-publishing-peer-review', label: '查看国际评审文章库' },
+          ],
+          points: [
+            '英文结构会更像原生学术写作，而不是逐句翻译。',
+            '论文会更学术，但不会变得空和僵。',
+            '中英文联动返修会更贴近评审式期待。',
+          ],
+          title: '英文论文辅导通常先改善哪里',
+        },
+        description:
+          '英文论文辅导页，重点处理双语论文推进、英文结构、学术表达、综述语言、返修回应和更自然的英文论证，不只做句子层面的润色。',
+        faqTitle: '英文论文辅导常见问题',
+        faqs: [
+          faq(
+            '英文论文辅导是不是只做语言润色？',
+            '不是。它同时处理论证结构、学术表达、综述站位和英文返修逻辑，而不只是改句子。',
+          ),
+          faq(
+            '中文先写、再转英文的稿子也适合吗？',
+            '很适合。很多双语写作者真正需要的，是把中文思路稳定地改造成英文论文主线。',
+          ),
+          faq(
+            '学位论文和文章式论文都适合吗？',
+            '适合，尤其当英文版本需要更好的结构、表达和评审可读性时。',
+          ),
+          faq(
+            '英文评审回应或返修也能处理吗？',
+            '可以，特别是在英文修改意见、rebuttal 和终稿框架需要一起理顺的时候。',
+          ),
+        ],
+        h1: '英文论文辅导与英文论文指导，重点处理双语稿件、学术表达和返修',
+        heroPrimaryCtaLabel: '获取英文论文方案',
+        heroSecondaryCtaLabel: '查看英文写作文章',
+        intro:
+          '这个页面专门承接“英文论文辅导”“英文论文指导”这类搜索，适合需要更稳的英文结构和学术表达，而不只是表层润色的写作者。',
+        navTitle: '英文论文辅导',
+        pageTitle: '英文论文辅导',
+        process: [
+          processStep(
+            '1. 重建英文论证主线',
+            '把问题、方法和贡献改成英文里也能顺着读下去的主线，而不是机械翻译。',
+          ),
+          processStep(
+            '2. 强化综述和段落语言',
+            '改善 signposting、比较表达和学术站位，让综述和分析更像真正的英文学术写作。',
+          ),
+          processStep(
+            '3. 按评审可读性返修',
+            '让整篇稿子更容易被导师、审查老师或期刊评审顺着读懂。',
+          ),
+          processStep(
+            '4. 保持双语一致',
+            '让中文笔记、英文正文和返修路线互相对齐，不再各走一套。',
+          ),
+        ],
+        processIntro:
+          '英文论文指导最有效的方式，是把学术表达和论文论证一起重写，而不是分开处理。',
+        processTitle: '英文论文辅导一般怎么推进',
+        sectionLabel: '服务页',
+        serviceLabel: '英文论文辅导通常覆盖这些问题',
+        servicePoints: [
+          '双语论文推进与英文成稿转换',
+          '英文结构和学术 signposting',
+          '综述语言与比较写法',
+          '学术 voice 与论证清晰度',
+          '英文返修与评审式回应',
+          '中文笔记和英文正文的一致性',
+        ],
+        serviceType: '英文论文辅导',
+        summary: '面向英文论文辅导意图词的服务页，重点处理双语论文、学术表达和返修。',
+        title: '承接英文论文支持意图的服务页',
+      },
+    },
+  },
+  'mangshen-fanxiu-zhidao': {
+    path: '/mangshen-fanxiu-zhidao',
+    relatedCategorySlugs: [
+      'submission-defense-workflow',
+      'masters-thesis',
+      'doctoral-thesis',
+      'methods-data-presentation',
+    ],
+    relatedServiceSlugs: [
+      'lunwen-xiugai-zhidao',
+      'lunwen-dabian-zhidao',
+      'shuoshi-lunwen-zhidao',
+      'boshi-lunwen-fudao',
+    ],
+    relatedSubjectSlugs: ['public-administration', 'law', 'economics', 'nursing'],
+    copy: {
+      en: {
+        audienceLabels: ['Blind review revision users', 'Students with reviewer comments', 'Pre-defense revision stage'],
+        breadcrumbLabel: 'Blind Review Revision Guidance',
+        cards: [
+          card(
+            'Comments feel scattered and heavy',
+            'Useful when the blind review report contains many points, but the real problem is deciding what must be fixed first.',
+            '/lunwen-xiugai-zhidao',
+          ),
+          card(
+            'Need stronger response logic',
+            'Open this when the draft needs not only revision but also a more convincing explanation of why each change matters.',
+            '/lunwen-dabian-zhidao',
+          ),
+          card(
+            'Methods and contribution are under pressure',
+            'Best when reviewer feedback keeps returning to methods, contribution, or chapter-level persuasion.',
+            '/boshi-lunwen-fudao',
+          ),
+        ],
+        cardsIntro:
+          'Blind review revision guidance matters most when comments are translated into one coherent repair route rather than handled one by one in panic.',
+        cardsTitle: 'Where blind review revision guidance usually starts',
+        consultation: consultation(
+          'Get a blind review revision plan',
+          'Share the blind review comments, deadline, and the area that feels most dangerous right now: methods, contribution, logic, or final response.',
+          'Request blind review revision guidance',
+          'en',
+        ),
+        ctaAside: {
+          links: [
+            { href: '/lunwen-xiugai-zhidao', label: 'Open thesis revision guidance' },
+            { href: '/posts/category/submission-defense-workflow', label: 'Open blind review workflow hub' },
+          ],
+          points: [
+            'Blind review comments become a revision sequence instead of scattered pressure.',
+            'Response logic gets stronger along with the draft itself.',
+            'The thesis becomes more consistent before resubmission or defense.',
+          ],
+          title: 'What blind review revision guidance often improves first',
+        },
+        description:
+          'A focused page for blind review revision guidance, covering comment sorting, revision priority, response logic, method and contribution repair, and resubmission preparation.',
+        faqTitle: 'Common questions about blind review revision guidance',
+        faqs: [
+          faq(
+            'What is the hardest part of blind review revision?',
+            'Usually it is not the number of comments alone but deciding which issues are fundamental and how to revise them in the right order.',
+          ),
+          faq(
+            'Can this help if the comments seem contradictory?',
+            'Yes. Contradictory reviewer feedback is common, and the key is to identify the main structural problem underneath the comments.',
+          ),
+          faq(
+            'Is blind review revision only for doctoral work?',
+            'No. It is useful across master and doctoral stages whenever formal reviewer-style feedback has become the main pressure point.',
+          ),
+          faq(
+            'Does this page also help with response wording?',
+            'Yes, especially when the revised draft and the explanation of changes need to support one another.',
+          ),
+        ],
+        h1: 'Blind review revision guidance for comments, revision order, and response logic',
+        heroPrimaryCtaLabel: 'Get blind review revision help',
+        heroSecondaryCtaLabel: 'Browse revision workflow articles',
+        intro:
+          'This page targets users searching for blind review revision guidance. It is designed for the stage where reviewer-style feedback has become the main writing pressure.',
+        navTitle: 'Blind review revision guidance',
+        pageTitle: 'Blind Review Revision Guidance',
+        process: [
+          processStep(
+            '1. Sort the review comments by severity',
+            'Separate structural issues from surface edits so the blind review route becomes manageable.',
+          ),
+          processStep(
+            '2. Return to the underlying weak point',
+            'Trace comments back to the unstable part of the thesis: contribution, methods, review, results, or final consistency.',
+          ),
+          processStep(
+            '3. Revise and explain together',
+            'Improve the draft while also building a clearer account of what changed and why.',
+          ),
+          processStep(
+            '4. Prepare the next submission round',
+            'Use the same route to support resubmission, supervisor follow-up, or defense preparation.',
+          ),
+        ],
+        processIntro:
+          'Blind review revision becomes steadier when the comments are reorganized into one thesis-level logic instead of many isolated fixes.',
+        processTitle: 'How blind review revision guidance usually works',
+        sectionLabel: 'Service Page',
+        serviceLabel: 'What blind review revision guidance usually covers',
+        servicePoints: [
+          'Sorting blind review comments by severity',
+          'Rebuilding revision order under deadline',
+          'Repairing methods, contribution, and chapter logic',
+          'Improving reviewer-style response logic',
+          'Strengthening the revised final draft',
+          'Preparing for the next review or defense round',
+        ],
+        serviceType: 'Blind review revision guidance',
+        summary:
+          'A service page for blind review revision guidance, focused on comment sorting, repair order, and response logic.',
+        title: 'A page for blind review and resubmission pressure',
+      },
+      zh: {
+        audienceLabels: ['盲审返修用户', '收到评审意见的学生', '预答辩返修阶段'],
+        breadcrumbLabel: '盲审返修指导',
+        cards: [
+          card(
+            '意见很多而且很散',
+            '适合盲审意见不少，但真正卡住你的不是意见本身，而是不知道哪些问题必须先修。',
+            '/lunwen-xiugai-zhidao',
+          ),
+          card(
+            '需要更强的回应逻辑',
+            '如果论文不仅要改，还要更清楚地解释为什么这么改，可以先看这条路线。',
+            '/lunwen-dabian-zhidao',
+          ),
+          card(
+            '方法和贡献被盯得很紧',
+            '更适合评审意见总回到方法、研究贡献或章节说服力上的情况。',
+            '/boshi-lunwen-fudao',
+          ),
+        ],
+        cardsIntro:
+          '盲审返修指导最重要的，不是把每条意见都平均处理，而是把它们翻成一条整篇论文级别的修复路线。',
+        cardsTitle: '盲审返修最常从这些问题切入',
+        consultation: consultation(
+          '获取盲审返修指导方案',
+          '留下盲审意见、返修时间和你最担心的部分，是方法、贡献、逻辑还是回应文本，我们先帮你排顺返修路线。',
+          '提交盲审返修需求',
+          'zh',
+        ),
+        ctaAside: {
+          links: [
+            { href: '/lunwen-xiugai-zhidao', label: '查看论文修改指导页' },
+            { href: '/posts/category/submission-defense-workflow', label: '查看盲审返修文章库' },
+          ],
+          points: [
+            '盲审意见会从压力源变成返修顺序。',
+            '回应逻辑会和正文修改一起变强。',
+            '终稿在重提或答辩前会更一致、更稳。',
+          ],
+          title: '盲审返修指导通常先改善哪里',
+        },
+        description:
+          '盲审返修指导页，重点处理意见归类、返修优先级、回应逻辑、方法与贡献修复，以及重提或答辩前的终稿稳定化问题。',
+        faqTitle: '盲审返修指导常见问题',
+        faqs: [
+          faq(
+            '盲审返修最难的地方通常是什么？',
+            '很多时候不是意见条数多，而是不知道哪些是根本性问题、哪些应该优先修。',
+          ),
+          faq(
+            '盲审意见看起来互相矛盾怎么办？',
+            '很常见。关键是找到这些意见背后的主结构矛盾，再决定返修顺序。',
+          ),
+          faq(
+            '盲审返修只适合博士论文吗？',
+            '不是。只要评审式意见已经成为主要压力点，硕士和博士阶段都适合处理。',
+          ),
+          faq(
+            '这里也会帮助写回应文本吗？',
+            '会，尤其是当正文修改和“怎么解释修改”需要一起推进的时候。',
+          ),
+        ],
+        h1: '盲审返修指导与论文修改辅导，重点处理意见、顺序和回应逻辑',
+        heroPrimaryCtaLabel: '获取盲审返修方案',
+        heroSecondaryCtaLabel: '查看返修流程文章',
+        intro:
+          '这个页面专门承接“盲审返修指导”这类搜索，适合评审式意见已经变成当前写作主压力点的阶段。',
+        navTitle: '盲审返修指导',
+        pageTitle: '盲审返修指导',
+        process: [
+          processStep('1. 按严重程度整理意见', '先把结构性问题和表层修饰分开，让盲审返修开始变得可处理。'),
+          processStep(
+            '2. 回到最薄弱的主结构位置',
+            '把意见重新追溯到真正不稳的地方，是贡献、方法、综述、结果还是终稿一致性。',
+          ),
+          processStep(
+            '3. 返修和回应一起推进',
+            '一边改正文，一边搭更清楚的回应逻辑，不让修改和说明彼此脱节。',
+          ),
+          processStep(
+            '4. 接到下一轮提交',
+            '让这条路线继续服务重提、导师复看和答辩准备。',
+          ),
+        ],
+        processIntro:
+          '盲审返修最稳的方式，是把一堆意见重新压缩成一条整篇论文级别的修复逻辑。',
+        processTitle: '盲审返修指导一般怎么推进',
+        sectionLabel: '服务页',
+        serviceLabel: '盲审返修指导通常覆盖这些问题',
+        servicePoints: [
+          '按重要性归类盲审意见',
+          '在截止前重排返修顺序',
+          '修复方法、贡献和章节逻辑',
+          '强化评审式回应逻辑',
+          '把返修后的终稿再稳一遍',
+          '为下一轮重提或答辩做准备',
+        ],
+        serviceType: '盲审返修指导',
+        summary: '面向盲审返修意图词的服务页，重点处理意见归类、返修顺序和回应逻辑。',
+        title: '承接盲审返修与重提压力的服务页',
+      },
+    },
+  },
 }
 
 export const getServiceLandingPage = (slug: ServiceLandingPageSlug) => {
@@ -2169,4 +2624,67 @@ export const getServiceLandingPageSummaries = (
   slugs: readonly ServiceLandingPageSlug[] = serviceLandingPageOrder,
 ) => {
   return slugs.map((slug) => getServiceLandingPageSummary(slug, locale))
+}
+
+export const getServiceLandingPageSlugsByCategory = (
+  categorySlug: AudienceCategorySlug,
+  limit = 4,
+) => {
+  return serviceLandingPageOrder
+    .filter((slug) => serviceLandingPages[slug].relatedCategorySlugs.includes(categorySlug))
+    .slice(0, limit)
+}
+
+export const getServiceLandingPageSlugsBySubject = (subjectSlug: string, limit = 4) => {
+  return serviceLandingPageOrder
+    .filter((slug) => serviceLandingPages[slug].relatedSubjectSlugs.includes(subjectSlug))
+    .slice(0, limit)
+}
+
+const zhServiceHeadlineMap: Record<ServiceLandingPageSlug, string> = {
+  'lunwen-fudao': '论文辅导与论文指导服务',
+  'biyelunwen-fudao': '毕业论文辅导与毕业论文指导',
+  'benke-lunwen-fudao': '本科论文辅导与本科毕业论文指导',
+  'shuoshi-lunwen-zhidao': '硕士论文指导与研究生论文辅导',
+  'boshi-lunwen-fudao': '博士论文辅导与博士学位论文指导',
+  'kaiti-baogao-zhidao': '开题报告指导与论文选题辅导',
+  'wenxian-zongshu-zhidao': '文献综述指导与论文写作辅导',
+  'lunwen-xiugai-zhidao': '论文修改指导与论文返修辅导',
+  'lunwen-dabian-zhidao': '论文答辩指导与答辩准备辅导',
+  'yingwen-lunwen-fudao': '英文论文辅导与英文论文指导',
+  'mangshen-fanxiu-zhidao': '盲审返修指导与论文修改辅导',
+}
+
+const zhServiceMetaTitleMap: Record<ServiceLandingPageSlug, string> = {
+  'lunwen-fudao': '论文辅导与论文指导服务 | 毕业论文辅导',
+  'biyelunwen-fudao': '毕业论文辅导与毕业论文指导 | 论文辅导',
+  'benke-lunwen-fudao': '本科论文辅导 | 本科毕业论文指导',
+  'shuoshi-lunwen-zhidao': '硕士论文指导 | 研究生论文辅导',
+  'boshi-lunwen-fudao': '博士论文辅导 | 博士学位论文指导',
+  'kaiti-baogao-zhidao': '开题报告指导 | 论文选题辅导',
+  'wenxian-zongshu-zhidao': '文献综述指导 | 论文写作辅导',
+  'lunwen-xiugai-zhidao': '论文修改指导 | 论文返修辅导',
+  'lunwen-dabian-zhidao': '论文答辩指导 | 答辩准备辅导',
+  'yingwen-lunwen-fudao': '英文论文辅导 | 英文论文指导',
+  'mangshen-fanxiu-zhidao': '盲审返修指导 | 论文修改辅导',
+}
+
+export const getServiceLandingPageHeading = (
+  slug: ServiceLandingPageSlug,
+  locale: SiteLocale,
+  fallback: string,
+) => {
+  if (locale === 'en') return fallback
+
+  return zhServiceHeadlineMap[slug] || fallback
+}
+
+export const getServiceLandingPageMetaTitle = (
+  slug: ServiceLandingPageSlug,
+  locale: SiteLocale,
+  fallback: string,
+) => {
+  if (locale === 'en') return fallback
+
+  return zhServiceMetaTitleMap[slug] || fallback
 }

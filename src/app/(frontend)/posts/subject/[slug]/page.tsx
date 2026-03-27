@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { JsonLd } from '@/components/JsonLd'
+import { ServicePageGrid } from '@/components/ServicePageGrid'
 import { generateMeta } from '@/utilities/generateMeta'
 import { getCachedDisciplinePosts, type CategoryPostData } from '@/utilities/getCachedPostQueries'
 import {
@@ -14,6 +15,7 @@ import {
   parseSeoPostSlug,
   postStages,
 } from '@/utilities/postTaxonomy'
+import { getServiceLandingPageSlugsBySubject } from '@/utilities/serviceLandingPages'
 import {
   getSubjectDiscipline,
   getSubjectGroup,
@@ -27,11 +29,12 @@ import {
 import {
   buildBreadcrumbSchema,
   buildCollectionPageSchema,
+  buildFaqSchema,
   buildPostItemListSchema,
   getSchemaBreadcrumbId,
   getSchemaItemListId,
 } from '@/utilities/schema'
-import { getSiteLocale } from '@/utilities/siteLocale'
+import { getSiteLocale, type SiteLocale } from '@/utilities/siteLocale'
 
 type Args = {
   params: Promise<{
@@ -75,6 +78,81 @@ type DegreeStarter = {
   starter: CategoryPostData
 }
 
+type SubjectDisciplineData = NonNullable<ReturnType<typeof getSubjectDiscipline>>
+
+const getSubjectPageTitle = (discipline: SubjectDisciplineData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return `${discipline.title.en} thesis coaching and guidance hub`
+  }
+
+  return `${discipline.title.zh}论文辅导与论文指导导航`
+}
+
+const getSubjectMetaTitle = (discipline: SubjectDisciplineData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return `${discipline.title.en} thesis guidance hub`
+  }
+
+  return `${discipline.title.zh}论文辅导 | ${discipline.title.zh}毕业论文指导`
+}
+
+const getSubjectMetaDescription = (discipline: SubjectDisciplineData, locale: SiteLocale) => {
+  const overview = getSubjectOverview(discipline, locale)
+
+  if (locale === 'en') {
+    return `${overview} Use this subject page to connect discipline-specific reading with thesis coaching, thesis guidance, and a clearer service route.`
+  }
+
+  return `${overview} 如果你正在找 ${discipline.title.zh} 方向的论文辅导、论文指导或毕业论文辅导，这里可以先按本硕博与写作阶段进入，再衔接更匹配的服务页。`
+}
+
+const buildSubjectFaqs = (discipline: SubjectDisciplineData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return [
+      {
+        answer:
+          'Start here when your discipline is already clear and you want a more focused reading route. If the discipline is clear but the actual writing bottleneck is still mixed, the main thesis coaching page can help you sort the next step faster.',
+        question: `Should I start with the ${discipline.title.en} subject page or go directly to thesis coaching?`,
+      },
+      {
+        answer:
+          'This subject page organizes articles by degree level and writing stage, while the service pages are better for matching discipline, deadline, chapter pressure, and revision priorities in one route.',
+        question: 'What is the difference between this subject page and the thesis guidance service pages?',
+      },
+      {
+        answer: `This page is especially useful when ${discipline.focus.en} needs to be explained through stronger chapter logic, evidence selection, and revision sequencing.`,
+        question: `What kinds of ${discipline.title.en} thesis guidance problems fit this page best?`,
+      },
+      {
+        answer: `Yes. It supports readers who want to move from self-study into a more focused coaching route, especially when the draft already contains ${discipline.evidence.en}.`,
+        question: 'Can this page support both self-study and one-to-one thesis guidance?',
+      },
+    ]
+  }
+
+  return [
+    {
+      answer:
+        '如果你的专业方向已经比较明确，这个学科页适合先用来判断文章顺序；如果你连先改结构、方法、返修还是答辩准备都拿不准，就先去论文辅导总入口，会更快形成路线。',
+      question: `${discipline.title.zh}方向，应该先看学科页还是直接走论文辅导？`,
+    },
+    {
+      answer:
+        '学科页会把本硕博和写作阶段串起来，帮你先判断问题属于哪个层面；服务页更适合把学科背景、截止时间和当前章节问题放在同一个诊断里，形成更直接的论文指导路径。',
+      question: '这个学科页和论文指导服务页分别解决什么问题？',
+    },
+    {
+      answer: `这类页面尤其适合 ${discipline.focus.zh} 相关论文，因为这类论文常常需要把 ${discipline.evidence.zh} 和章节论证顺序一起理顺。`,
+      question: `${discipline.title.zh}论文辅导通常更关注哪些材料和卡点？`,
+    },
+    {
+      answer:
+        '可以。无论你现在是本科毕业论文、研究生论文还是博士论文，只要方向属于这个学科，都可以先用这里筛选文章，再进入更匹配的毕业论文辅导服务页。',
+      question: `${discipline.title.zh}学科页适合本科、硕士、博士一起使用吗？`,
+    },
+  ]
+}
+
 export default async function SubjectPage({ params: paramsPromise }: Args) {
   const locale = await getSiteLocale()
   const { slug } = await paramsPromise
@@ -93,13 +171,13 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
   const topicRecommendations = getSubjectGroupRecommendations(discipline)
   const hotQuestions = getSubjectHotQuestions(discipline, locale)
   const pagePath = getSubjectPath(discipline.slug)
-  const pageTitle =
-    locale === 'en'
-      ? `${discipline.title.en} thesis writing hub`
-      : `${discipline.title.zh}论文写作导航`
-  const pageDescription = getSubjectOverview(discipline, locale)
+  const pageTitle = getSubjectPageTitle(discipline, locale)
+  const pageMetaTitle = getSubjectMetaTitle(discipline, locale)
+  const pageDescription = getSubjectMetaDescription(discipline, locale)
   const breadcrumbId = getSchemaBreadcrumbId(pagePath)
   const itemListId = schemaPosts.length > 0 ? getSchemaItemListId(pagePath) : undefined
+  const subjectFaqs = buildSubjectFaqs(discipline, locale)
+  const relatedServiceSlugs = getServiceLandingPageSlugsBySubject(discipline.slug, 6)
 
   const degreeStarters: DegreeStarter[] = degreeCategorySlugs.flatMap((categorySlug) => {
     const category = getAudienceCategory(categorySlug)
@@ -170,7 +248,7 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
             locale,
             mainEntityId: itemListId,
             path: pagePath,
-            title: pageTitle,
+            title: pageMetaTitle,
           }),
           schemaPosts.length > 0
             ? buildPostItemListSchema({
@@ -179,6 +257,10 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
                 posts: schemaPosts,
               })
             : null,
+          buildFaqSchema({
+            items: subjectFaqs,
+            path: pagePath,
+          }),
         ]}
       />
       <div className="container">
@@ -356,6 +438,29 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
         </div>
       </section>
 
+      {relatedServiceSlugs.length > 0 && (
+        <section className="container mt-12">
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+                {locale === 'en' ? 'Related Services' : '相关服务页'}
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+                {locale === 'en'
+                  ? `Service pages related to ${discipline.title.en} thesis guidance`
+                  : `和 ${discipline.title.zh} 最贴近的论文辅导服务页`}
+              </h2>
+            </div>
+            <p className="max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'Use these pages when the discipline fit is clear and you need a more direct coaching route.'
+                : '当你已经明确是这个学科方向的问题，但需要更直接的论文辅导或论文指导路径时，可以从这些服务页继续进入。'}
+            </p>
+          </div>
+          <ServicePageGrid locale={locale} slugs={relatedServiceSlugs} />
+        </section>
+      )}
+
       {degreeStarters.length > 0 && (
         <section className="container mt-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -518,6 +623,40 @@ export default async function SubjectPage({ params: paramsPromise }: Args) {
         </aside>
       </section>
 
+      <section className="container mt-12">
+        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">
+              {locale === 'en' ? 'FAQ' : '常见问题'}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+              {locale === 'en'
+                ? `${discipline.title.en} thesis guidance FAQs`
+                : `${discipline.title.zh}论文辅导常见问题`}
+            </h2>
+          </div>
+          <p className="max-w-3xl text-sm leading-7 text-slate-600">
+            {locale === 'en'
+              ? 'These answers help visitors understand when this subject page is enough and when a service page is the better next step.'
+              : '这组 FAQ 主要回答“这个学科页适不适合我”“什么时候该转到服务页”这类高意图搜索问题。'}
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {subjectFaqs.map((item) => (
+            <div
+              className="rounded-[1.5rem] border border-slate-200/80 bg-white p-6 shadow-sm"
+              key={item.question}
+            >
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-950">
+                {item.question}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div className="mt-14 space-y-14">
         {stageSections.map((section) => (
           <section key={section.stage.slug}>
@@ -564,11 +703,8 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   return generateMeta({
     doc: {
       meta: {
-        description: getSubjectOverview(discipline, locale),
-        title:
-          locale === 'en'
-            ? `${discipline.title.en} thesis writing hub`
-            : `${discipline.title.zh}论文写作导航`,
+        description: getSubjectMetaDescription(discipline, locale),
+        title: getSubjectMetaTitle(discipline, locale),
       },
     },
     pathname: getSubjectPath(discipline.slug),

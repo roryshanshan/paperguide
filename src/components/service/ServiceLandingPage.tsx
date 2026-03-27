@@ -22,6 +22,8 @@ import {
 } from '@/utilities/schema'
 import {
   getServiceLandingPage,
+  getServiceLandingPageHeading,
+  getServiceLandingPageMetaTitle,
   type ServiceLandingPageSlug,
 } from '@/utilities/serviceLandingPages'
 import { getSiteLocale } from '@/utilities/siteLocale'
@@ -35,6 +37,7 @@ export const renderServiceLandingPage = async (slug: ServiceLandingPageSlug) => 
   const locale = await getSiteLocale()
   const page = getServiceLandingPage(slug)
   const copy = page.copy[locale]
+  const pageHeading = getServiceLandingPageHeading(slug, locale, copy.h1)
   const breadcrumbId = getSchemaBreadcrumbId(page.path)
   const serviceId = getSchemaServiceId(page.path)
   const relatedCategories = page.relatedCategorySlugs
@@ -99,7 +102,7 @@ export const renderServiceLandingPage = async (slug: ServiceLandingPageSlug) => 
                   {copy.sectionLabel}
                 </p>
                 <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-slate-950 md:text-6xl">
-                  {copy.h1}
+                  {pageHeading}
                 </h1>
                 <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 md:text-lg">
                   {copy.intro}
@@ -374,7 +377,7 @@ export const generateServiceLandingPageMetadata = async (
     doc: {
       meta: {
         description: copy.description,
-        title: copy.pageTitle,
+        title: getServiceLandingPageMetaTitle(slug, locale, copy.pageTitle),
       },
     },
     pathname: page.path,

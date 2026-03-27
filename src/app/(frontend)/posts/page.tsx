@@ -33,11 +33,12 @@ export default async function Page() {
     totalPages: 1,
   }))
   const pagePath = '/posts'
-  const pageTitle = locale === 'en' ? 'Articles and guidance' : '文章与论文辅导指南'
+  const pageTitle =
+    locale === 'en' ? 'Thesis coaching and guidance article center' : '论文辅导与论文指导文章中心'
   const pageDescription =
     locale === 'en'
-      ? 'Browse thesis guides, topic-based writing hubs, revision notes, and long-form academic support articles.'
-      : '浏览论文方法、专题写作频道、返修建议与长文辅导内容。'
+      ? 'Browse thesis coaching articles, thesis guidance hubs, graduation thesis support pages, and long-form writing resources organized by subject, stage, and bottleneck.'
+      : '聚合论文辅导文章、论文指导专题、毕业论文辅导服务页与按学科拆分的长文内容，方便围绕选题、综述、结构、方法、返修和答辩逐层进入。'
   const breadcrumbId = getSchemaBreadcrumbId(pagePath)
   const itemListId = posts.docs.length > 0 ? getSchemaItemListId(pagePath) : undefined
 
@@ -85,6 +86,14 @@ export default async function Page() {
           {locale === 'en'
             ? 'Need one-to-one thesis coaching? Open the service page'
             : '需要一对一论文辅导？查看服务页'}
+        </Link>
+        <Link
+          className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-slate-800 underline decoration-[#1d4ed8]/35 underline-offset-4 transition hover:text-[#1d4ed8]"
+          href="/biyelunwen-fudao"
+        >
+          {locale === 'en'
+            ? 'Looking for graduation thesis support? Start here'
+            : '想找毕业论文辅导？先看这个入口'}
         </Link>
         <PostAudiencePills locale={locale} />
       </div>
@@ -170,8 +179,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description:
       locale === 'en'
-        ? 'Browse thesis coaching articles, topic-based writing guides, and degree-specific academic support resources.'
-        : '浏览论文辅导文章、论文写作专题指南，以及面向本科、硕士、博士阶段的学术支持内容。',
-    title: locale === 'en' ? 'Articles | PaperBridge' : '文章中心 | PaperBridge',
+        ? 'Browse thesis coaching articles, graduation thesis support pages, and discipline-based thesis guidance resources.'
+        : '浏览论文辅导文章、论文指导专题、毕业论文辅导服务页，以及面向本科、硕士、博士阶段的学术支持内容。',
+    title:
+      locale === 'en'
+        ? 'Thesis Coaching Article Center | PaperBridge'
+        : '论文辅导文章中心 | 论文指导与毕业论文辅导 | PaperBridge',
   }
 }

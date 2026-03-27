@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { JsonLd } from '@/components/JsonLd'
 import { PostAudiencePills } from '@/components/PostAudiencePills'
+import { ServicePageGrid } from '@/components/ServicePageGrid'
 import { getCachedCategoryPosts } from '@/utilities/getCachedPostQueries'
 import Link from 'next/link'
 import React from 'react'
@@ -19,15 +20,18 @@ import {
   getPostStage,
   parseSeoPostSlug,
   postStages,
+  type AudienceCategorySlug,
 } from '@/utilities/postTaxonomy'
+import { getServiceLandingPageSlugsByCategory } from '@/utilities/serviceLandingPages'
 import {
   buildBreadcrumbSchema,
   buildCollectionPageSchema,
+  buildFaqSchema,
   buildPostItemListSchema,
   getSchemaBreadcrumbId,
   getSchemaItemListId,
 } from '@/utilities/schema'
-import { getSiteLocale } from '@/utilities/siteLocale'
+import { getSiteLocale, type SiteLocale } from '@/utilities/siteLocale'
 
 type Args = {
   params: Promise<{
@@ -45,6 +49,127 @@ type CategoryPostData = CardPostData & {
   publishedAt?: string | null
 }
 
+type CategoryData = NonNullable<ReturnType<typeof getAudienceCategory>>
+
+const zhCategoryHeadingMap: Partial<Record<AudienceCategorySlug, string>> = {
+  'undergraduate-thesis': '本科论文辅导与本科毕业论文指导文章库',
+  'masters-thesis': '研究生论文指导与硕士论文辅导文章库',
+  'doctoral-thesis': '博士论文辅导与博士学位论文指导文章库',
+}
+
+const zhCategoryMetaTitleMap: Partial<Record<AudienceCategorySlug, string>> = {
+  'undergraduate-thesis': '本科论文辅导 | 本科毕业论文指导文章库',
+  'masters-thesis': '研究生论文指导 | 硕士论文辅导文章库',
+  'doctoral-thesis': '博士论文辅导 | 博士学位论文指导文章库',
+}
+
+const getCategoryPageTitle = (category: CategoryData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return `${category.labels.en} thesis coaching and guidance hub`
+  }
+
+  return zhCategoryHeadingMap[category.categorySlug] || `${category.labels.zh}论文辅导与论文指导文章库`
+}
+
+const getCategoryMetaTitle = (category: CategoryData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return `${category.labels.en} thesis guidance hub`
+  }
+
+  return zhCategoryMetaTitleMap[category.categorySlug] || `${category.labels.zh} | 论文辅导·论文指导·毕业论文辅导`
+}
+
+const getCategoryMetaDescription = (category: CategoryData, locale: SiteLocale) => {
+  const baseDescription = category.hubDescriptions[locale]
+
+  if (locale === 'en') {
+    return `${baseDescription} Use this hub to connect article reading with thesis coaching, thesis guidance, and next-step service pages.`
+  }
+
+  if (category.kind === 'degree') {
+    return `${baseDescription} 如果你正在找 ${category.labels.zh} 相关的论文辅导、论文指导或毕业论文辅导入口，这里可以先按阶段筛选文章，再进入更匹配的服务页。`
+  }
+
+  return `${baseDescription} 适合先定位 ${category.labels.zh} 这个真实卡点，再衔接论文辅导、论文指导与毕业论文辅导服务页。`
+}
+
+const buildCategoryFaqs = (category: CategoryData, locale: SiteLocale) => {
+  if (locale === 'en') {
+    return [
+      {
+        answer:
+          'When the bottleneck clearly sits inside this topic or degree stage, start here. If the problem is still mixed across topic, structure, methods, and revision, open the main thesis coaching page first.',
+        question: `Should I start from the ${category.labels.en} hub or go directly to thesis coaching?`,
+      },
+      {
+        answer:
+          'The articles help you understand the problem and build a revision order. The service pages are better when you need the next action plan matched to degree level, discipline, and deadline pressure.',
+        question: 'What is the difference between this article hub and the service pages?',
+      },
+      {
+        answer:
+          category.kind === 'degree'
+            ? 'This degree hub groups writing advice by proposal, review, methods, and final revision so you can move through the draft in a steadier order.'
+            : 'This topic hub groups articles around one repeated thesis bottleneck, so you can diagnose the exact problem before opening a service route.',
+        question: `What kinds of thesis guidance problems fit the ${category.labels.en} page best?`,
+      },
+      {
+        answer:
+          'Yes. The articles are designed to help readers move from self-study into a more focused coaching conversation without crossing academic integrity boundaries.',
+        question: 'Can this page support both self-study and one-to-one thesis guidance?',
+      },
+    ]
+  }
+
+  if (category.kind === 'degree') {
+    return [
+      {
+        answer:
+          '如果你已经明确自己就在这个学历阶段里写论文，这个页面适合先用来梳理阅读顺序；如果你连先改选题、结构、方法还是返修都说不清，建议先看论文辅导服务页，再回来筛文章。',
+        question: `${category.labels.zh}相关问题，应该先看文章还是先走论文辅导？`,
+      },
+      {
+        answer:
+          '文章库更适合先判断问题类型、补足方法和结构认知；服务页更适合把学历阶段、学科背景、截止时间和当前卡住的章节一起诊断，形成更直接的修改路线。',
+        question: '这个文章库和论文指导服务页的区别是什么？',
+      },
+      {
+        answer:
+          '这一页会把选题开题、文献综述、方法分析、修改定稿与答辩几个阶段串起来，更适合需要完整毕业论文辅导路径的人系统进入。',
+        question: `${category.labels.zh}文章库主要覆盖哪些毕业论文辅导问题？`,
+      },
+      {
+        answer:
+          '可以。你可以先用文章判断自己卡在哪，再根据问题深度进入对应服务页，整个路径坚持论文辅导与论文指导，不涉及代写。',
+        question: '这个页面适合先自查，再进入一对一论文指导吗？',
+      },
+    ]
+  }
+
+  return [
+    {
+      answer:
+        '如果你已经知道问题主要落在这个专题里，比如结构、综述、方法或返修，这个页面比从总目录乱翻更省时间；如果问题很混杂，先去论文辅导总入口会更稳。',
+      question: `${category.labels.zh}这类问题，适合直接从专题页进入吗？`,
+    },
+    {
+      answer:
+        '专题文章库帮你先把问题拆清楚，服务页则更适合把章节、时间压力和修改优先级放进同一条路线里处理，两者最好配合使用。',
+      question: '专题文章和论文辅导服务页分别解决什么问题？',
+    },
+    {
+      answer:
+        '适合已经写到一半、知道自己卡在某个专题，但又想把这类卡点继续衔接到毕业论文辅导、论文修改指导或答辩准备中的读者。',
+      question: `${category.labels.zh}专题最适合哪类论文指导需求？`,
+    },
+    {
+      answer:
+        '建议先看“热门问题”和“建议先读”，先把最接近当前卡点的文章读一遍，再决定是否进入更具体的论文指导服务页。',
+      question: `来到 ${category.labels.zh} 页面后，最省时间的阅读顺序是什么？`,
+    },
+  ]
+}
+
 export default async function CategoryPage({ params: paramsPromise }: Args) {
   const locale = await getSiteLocale()
   const { slug } = await paramsPromise
@@ -59,10 +184,13 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
   const latestPosts = matchingPosts.slice(0, 3)
   const schemaPosts = matchingPosts.slice(0, CATEGORY_SCHEMA_ITEM_LIMIT)
   const pagePath = getAudienceCategoryPath(category.categorySlug)
-  const pageTitle = category.hubTitles[locale]
-  const pageDescription = category.hubDescriptions[locale]
+  const pageTitle = getCategoryPageTitle(category, locale)
+  const pageMetaTitle = getCategoryMetaTitle(category, locale)
+  const pageDescription = getCategoryMetaDescription(category, locale)
   const breadcrumbId = getSchemaBreadcrumbId(pagePath)
   const itemListId = schemaPosts.length > 0 ? getSchemaItemListId(pagePath) : undefined
+  const categoryFaqs = buildCategoryFaqs(category, locale)
+  const relatedServiceSlugs = getServiceLandingPageSlugsByCategory(category.categorySlug, 6)
 
   const stageSections = postStages
     .map((stage) => ({
@@ -166,7 +294,7 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
             locale,
             mainEntityId: itemListId,
             path: pagePath,
-            title: pageTitle,
+            title: pageMetaTitle,
           }),
           schemaPosts.length > 0
             ? buildPostItemListSchema({
@@ -175,6 +303,10 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
                 posts: schemaPosts,
               })
             : null,
+          buildFaqSchema({
+            items: categoryFaqs,
+            path: pagePath,
+          }),
         ]}
       />
       <div className="container">
@@ -425,6 +557,63 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
         </div>
       )}
 
+      {relatedServiceSlugs.length > 0 && (
+        <section className="container mt-12">
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.32em] text-[#1d4ed8]">
+                {locale === 'en' ? 'Related Services' : '相关服务页'}
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+                {locale === 'en'
+                  ? `Service pages closely related to ${category.labels.en}`
+                  : `和 ${category.labels.zh} 最贴近的论文辅导服务页`}
+              </h2>
+            </div>
+            <p className="max-w-3xl text-sm leading-7 text-slate-600">
+              {locale === 'en'
+                ? 'Use these pages when the article diagnosis is clear and you need a more direct thesis coaching route.'
+                : '当你已经确定问题就落在这个专题或阶段里，这些服务页更适合继续承接论文辅导、论文指导和毕业论文辅导意图。'}
+            </p>
+          </div>
+          <ServicePageGrid locale={locale} slugs={relatedServiceSlugs} />
+        </section>
+      )}
+
+      <section className="container mt-12">
+        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.32em] text-[#0f766e]">
+              {locale === 'en' ? 'FAQ' : '常见问题'}
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+              {locale === 'en'
+                ? `${category.labels.en} thesis guidance FAQs`
+                : `${category.labels.zh}相关论文辅导常见问题`}
+            </h2>
+          </div>
+          <p className="max-w-3xl text-sm leading-7 text-slate-600">
+            {locale === 'en'
+              ? 'These answers help search visitors understand when to stay in the article hub and when to move into a service page.'
+              : '这组 FAQ 主要回答“先读文章还是先咨询”“这个入口适不适合我”这类高意图搜索问题。'}
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {categoryFaqs.map((item) => (
+            <div
+              className="rounded-[1.5rem] border border-slate-200/80 bg-white p-6 shadow-sm"
+              key={item.question}
+            >
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-950">
+                {item.question}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div className="container mt-12 grid gap-6 md:grid-cols-4">
         {postStages.map((stage) => {
           const stageLabel = getPostStage(stage.slug)?.labels[locale] || stage.slug
@@ -515,8 +704,8 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   return generateMeta({
     doc: {
       meta: {
-        description: category.hubDescriptions[locale],
-        title: category.hubTitles[locale],
+        description: getCategoryMetaDescription(category, locale),
+        title: getCategoryMetaTitle(category, locale),
       },
     },
     pathname: getAudienceCategoryPath(category.categorySlug),
