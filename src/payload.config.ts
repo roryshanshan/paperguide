@@ -13,6 +13,7 @@ import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { HomePage } from './globals/HomePage/config'
+import { migrations } from './migrations'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -63,6 +64,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || process.env.POSTGRES_URL || '',
     },
+    // Ensure a brand-new production database gets its schema via migrations (Vercel/Neon).
+    prodMigrations: migrations,
   }),
   collections: [Pages, Posts, Media, Categories, Users, ConsultationRequests],
   cors: [getServerSideURL()].filter(Boolean),
