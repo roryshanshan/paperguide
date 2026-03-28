@@ -79,12 +79,14 @@ const heading = (value: string, tag: 'h2' | 'h3' = 'h2') => ({
   version: 1,
 })
 
-const richText = (blocks: Array<ReturnType<typeof heading> | ReturnType<typeof paragraph>>) => ({
+const richText = (
+  blocks: Array<ReturnType<typeof heading> | ReturnType<typeof paragraph>>,
+): NonNullable<Post['content']> => ({
   root: {
     type: 'root',
     children: blocks,
     direction: 'ltr' as const,
-    format: '',
+    format: '' as const,
     indent: 0,
     version: 1,
   },
