@@ -2,6 +2,14 @@ import configPromise from '@payload-config'
 import type { CardPostData } from '@/components/Card'
 import type { Post } from '@/payload-types'
 import {
+  getAcademicFallbackArchivePosts,
+  getAcademicFallbackCategoryPosts,
+  getAcademicFallbackHomepagePosts,
+  getAcademicFallbackPostBySlug,
+  getAcademicFallbackPostSitemapEntries,
+  getAcademicFallbackRelatedPosts,
+} from '@/utilities/fallbackAcademicPosts'
+import {
   getFallbackArchivePosts as getBundledArchivePosts,
   getFallbackCategoryPosts as getBundledCategoryPosts,
   getFallbackDisciplinePosts as getBundledDisciplinePosts,
@@ -62,6 +70,8 @@ type SitemapEntry = {
   loc: string
 }
 
+const FALLBACK_CATALOG_LIMIT = 2000
+
 const shouldUseFallbackCatalog = (error: unknown): boolean => {
   const message = error instanceof Error ? error.message : String(error)
 
@@ -82,8 +92,42 @@ const withFallbackCatalog = async <T>(
       throw error
     }
 
-    console.warn(`[posts] Falling back to bundled SEO catalog for ${scope}.`, error)
+    console.warn(`[posts] Falling back to bundled article catalog for ${scope}.`, error)
     return getFallbackResult()
+  }
+}
+
+const dedupeCardPosts = <T extends { slug?: string | null }>(docs: T[]): T[] => {
+  const merged = new Map<string, T>()
+
+  for (const doc of docs) {
+    if (!doc.slug || merged.has(doc.slug)) continue
+    merged.set(doc.slug, doc)
+  }
+
+  return Array.from(merged.values())
+}
+
+const mergeArchiveFallbackDocs = (
+  locale: SiteLocale,
+  page: number,
+  limit: number,
+): ArchivePostsResult => {
+  const combined = dedupeCardPosts([
+    ...getAcademicFallbackArchivePosts(locale, 1, FALLBACK_CATALOG_LIMIT).docs,
+    ...getBundledArchivePosts(locale, 1, FALLBACK_CATALOG_LIMIT).docs,
+  ])
+  const safeLimit = Math.max(limit, 1)
+  const safePage = Math.max(page, 1)
+  const totalDocs = combined.length
+  const totalPages = Math.max(Math.ceil(totalDocs / safeLimit), 1)
+  const start = (safePage - 1) * safeLimit
+
+  return {
+    docs: combined.slice(start, start + safeLimit),
+    page: safePage,
+    totalDocs,
+    totalPages,
   }
 }
 
@@ -105,7 +149,11 @@ const getHomepagePosts = async (locale: SiteLocale, limit: number): Promise<Card
 
       return posts.docs as CardPostData[]
     },
-    () => getBundledHomepagePosts(locale, limit),
+    () =>
+      dedupeCardPosts([
+        ...getAcademicFallbackHomepagePosts(locale, limit),
+        ...getBundledHomepagePosts(locale, limit),
+      ]).slice(0, limit),
   )
 }
 
@@ -137,7 +185,7 @@ const getArchivePosts = async (
         totalPages: posts.totalPages || 1,
       }
     },
-    () => getBundledArchivePosts(locale, page, limit),
+    () => mergeArchiveFallbackDocs(locale, page, limit),
   )
 }
 
@@ -169,7 +217,11 @@ const getCategoryPosts = async (
 
       return posts.docs as CategoryPostData[]
     },
-    () => getBundledCategoryPosts(locale, categorySlug, limit) as CategoryPostData[],
+    () =>
+      dedupeCardPosts([
+        ...getAcademicFallbackCategoryPosts(locale, categorySlug, limit),
+        ...getBundledCategoryPosts(locale, categorySlug, limit),
+      ]).slice(0, limit) as CategoryPostData[],
   )
 }
 
@@ -228,7 +280,7 @@ const getPostBySlug = async (locale: SiteLocale, slug: string): Promise<Post | n
 
       return (result.docs?.[0] as Post | undefined) || null
     },
-    () => getBundledPostBySlug(locale, slug),
+    () => getAcademicFallbackPostBySlug(locale, slug) ?? getBundledPostBySlug(locale, slug),
   )
 }
 
@@ -325,7 +377,15 @@ const getFallbackRelatedPosts = async (
 
       return Array.from(merged.values()).slice(0, 3)
     },
-    () => getBundledRelatedPosts(locale, slug),
+    () => {
+      const academicRelated = getAcademicFallbackRelatedPosts(locale, slug)
+
+      if (academicRelated.length > 0) {
+        return academicRelated
+      }
+
+      return getBundledRelatedPosts(locale, slug)
+    },
   )
 }
 
@@ -363,7 +423,16 @@ const getPostSitemapEntries = async (siteURL: string): Promise<SitemapEntry[]> =
             }))
         : []
     },
-    () => getBundledPostSitemapEntries(siteURL),
+    () => {
+      const combined = [...getAcademicFallbackPostSitemapEntries(siteURL), ...getBundledPostSitemapEntries(siteURL)]
+      const deduped = new Map<string, SitemapEntry>()
+
+      for (const entry of combined) {
+        deduped.set(entry.loc, entry)
+      }
+
+      return Array.from(deduped.values())
+    },
   )
 }
 

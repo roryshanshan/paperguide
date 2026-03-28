@@ -16,6 +16,7 @@ import RichText from '@/components/RichText'
 import type { Post } from '@/payload-types'
 
 import { PostHero } from '@/heros/PostHero'
+import { getAcademicFallbackPostSlugs } from '@/utilities/fallbackAcademicPosts'
 import { generateMeta } from '@/utilities/generateMeta'
 import {
   getCachedFallbackRelatedPosts,
@@ -65,7 +66,7 @@ export async function generateStaticParams() {
       .map((slug) => ({ slug }))
   } catch (error) {
     console.warn('[posts/[slug]] Skipping static params generation during build.', error)
-    return []
+    return getAcademicFallbackPostSlugs().map((slug) => ({ slug }))
   }
 }
 
